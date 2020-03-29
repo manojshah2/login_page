@@ -46,5 +46,4 @@ if($message1["status"]){
 }
 
 echo json_encode($message);
-
 ?>
