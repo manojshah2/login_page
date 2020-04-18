@@ -23,6 +23,11 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>View Profile</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="register_profile.php">
+          
+          <span>Register Profile</span></a>
+      </li>
 
       
      
