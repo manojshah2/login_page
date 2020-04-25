@@ -152,7 +152,7 @@ is_login($root);
                       </div>  
                       <div class="form-group">
                         <label>Has Children</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select">                          
                           <option>None</option>
                           <option>Yes, Living Seperately</option>
                           <option>Yes, Staying together</option>
@@ -161,6 +161,7 @@ is_login($root);
                       <div class="form-group">
                         <label>Residential Status</label>
                         <select class="browser-default custom-select">
+                          <option>--Select--</option>
                           <option>Citizen</option>
                           <option>Permanent Resident</option>
                           <option>Work Permit</option>
