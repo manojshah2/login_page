@@ -89,7 +89,17 @@ is_login($root);
                     <div class="col-md-3">
                       <div class="form-group">
                         <label>Data Taken From</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select" name="source" id="source">
+                          <option>JS</option>
+                          <option>Shaadi.com</option>
+                          <option>BM</option>
+                          <option>LV</option>
+                          <option>A2Z</option>
+                          <option>Sheetal</option>
+                          <option>Other Matrimony alliance</option>
+                          <option>Newspaper</option>
+                          <option>Sulekha</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label>Profile Id</label>
@@ -119,11 +129,18 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Date of Birth</label>
-                        <input type="text" class="form-control"/>
+                        <input type="date" class="form-control"/>
                       </div>
                       <div class="form-group">
                         <label>Marital Status</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select">
+                          <option>Never Married</option>
+                          <option>Divorced</option>
+                          <option>Annulled</option>
+                          <option>Widowed</option>
+                          <option>Awaiting Divorce</option>
+                          <option>Married</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label>Occupation</label>
@@ -135,11 +152,21 @@ is_login($root);
                       </div>  
                       <div class="form-group">
                         <label>Has Children</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select">
+                          <option>None</option>
+                          <option>Yes, Living Seperately</option>
+                          <option>Yes, Staying together</option>
+                        </select>
                       </div> 
                       <div class="form-group">
                         <label>Residential Status</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select">
+                          <option>Citizen</option>
+                          <option>Permanent Resident</option>
+                          <option>Work Permit</option>
+                          <option>Student Visa</option>
+                          <option>Temporary Visa</option>
+                        </select>
                       </div>               
                     </div>
                     <div class="col-md-3">
@@ -159,15 +186,58 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Pincode</label>
-                        <input type="text" class="form-control"/>
+                        <input type="number" class="form-control"/>
                       </div>
                       <div class="form-group">
                         <label>Mother Tongue</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select">
+                          <option>--Select--</option>
+                          <option>Hindi-Delhi</option>
+                          <option>Hindi-UP</option>
+                          <option>Punjabi</option>
+                          <option>Hindi-MP/CG</option>
+                          <option>Hindi- Bihar/Jharkhand</option>
+                          <option>Hindi-Rajasthan</option>
+                          <option>Haryanvi</option>
+                          <option>Himachali</option>
+                          <option>Kashmiri</option>
+                          <option>Sindhi</option>
+                          <option>Urdu</option>
+                          <option>Marathi</option>
+                          <option>Gujrati</option>
+                          <option>Kutchi</option>
+                          <option>Hindi-MP/CG</option>
+                          <option>Konkani</option>
+                          <option>Sindhi</option>
+                          <option>Tamil</option>
+                          <option>Telgu</option>
+                          <option>Kannada</option>
+                          <option>Malayalam</option>
+                          <option>Tulu</option>
+                          <option>Udu</option>
+                          <option>Bengali</option>
+                          <option>Oriya</option>
+                          <option>assamese</option>
+                          <option>Sikkim/Nepali</option>
+                          <option>English</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label>Religion</label>
-                        <input type="text" class="form-control"/>
+                        <select class="browser-default custom-select">
+                          <option>--Select--</option>
+                          <option>Muslim</option>
+                          <option>Hindu</option>
+                          <option>Sikh</option>
+                          <option>Buddhist</option>
+                          <option>Christian</option>
+                          <option>Jain</option>
+                          <option>Other</option>
+                          <option>Parsi</option>
+                          <option>Jewish</option>
+                          <option>Bahai</option>
+
+                        </select>
                       </div>
                     </div>
                     <div class="col-md-3">
