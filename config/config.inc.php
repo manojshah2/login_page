@@ -13,9 +13,9 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80'){
 }else{
 	$default_db = array(
 	    "Database_Server" => "localhost",
-	    "User_Id" => "root",
-	    "Password" => "",
-	    "Database_Name" => "myproject",
+	    "User_Id" => "luvuser",
+	    "Password" => "luvuser",
+	    "Database_Name" => "dbluv",
 	);
 }
 
