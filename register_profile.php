@@ -1303,6 +1303,7 @@ is_login($root);
                   <div class="form-group">
                         <label>SOLD BY</label>
                         <input type="text" class="form-control"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>Subscription Type</label>
