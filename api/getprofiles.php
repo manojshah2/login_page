@@ -11,7 +11,7 @@ $columnName = $_REQUEST['columns'][$columnIndex]['data']; // Column name
 $columnSortOrder = $_REQUEST['order'][0]['dir']; // asc or desc
 $searchValue = $_REQUEST['search']['value']; // Search value
 
-$table = 'tblProfiles';
+$table = 'tblprofiles';
 $con=$mysqli;
 
 ## Search 
