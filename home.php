@@ -76,12 +76,7 @@ is_login($root);
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       <?php
                           $result =$mysqli->query("select count(*) from tblProfiles");
-                          while($fetchdata=$result->fetch_array()){
-            	                print_r($fetchdata[0]);
-                          }
-    					
-    					
-    				
+                          
                       ?></div>
                     </div>
                     <div class="col-auto">
