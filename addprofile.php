@@ -183,7 +183,7 @@ foreach($data as $key => $value) {
     }
 }
 
-$message1=$server->InsertQuery("tblProfiles");
+$message1=$server->InsertQuery("tblprofiles");
 
 if($message1["status"]){
     $message["status"]="success";
