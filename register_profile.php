@@ -50,8 +50,13 @@ is_login($root);
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Register Profile</h1>            
+            <h1 class="h3 mb-0 text-gray-800">Register Profile</h1>
+            <div class="spinner-border spinner-border-sm d-none" id="profileSpinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>            
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="createprofile">Register Profile</a>
           </div>
+
 
           <!-- Content Row -->
           <div class="row">
@@ -61,7 +66,9 @@ is_login($root);
           <!-- Content Row -->
 
           <div class="row">
-
+            <div class="alert alert-info" id="profileMessage">
+              
+            </div>
            
           </div>
 
@@ -69,8 +76,8 @@ is_login($root);
           <div class="row">
 						<div class="col-md-3">
               <ul class="">
-                <li class="nav-link"><a href="#aboutme" data-toggle="collapse">About Me</a></li>
-                <li class="nav-link"><a href="#education" data-toggle='collapse'>Education & Career</a></li>
+                <li class="nav-link"><a href="#aboutme" class="item" data-toggle="collapse">About Me</a></li>
+                <li class="nav-link"><a href="#education" class="item" data-toggle='collapse'>Education & Career</a></li>
                 <li class="nav-link"><a href="#familydetails" data-toggle='collapse'>Family Details</a></li>
                 <li class="nav-link"><a href="#horoscope" data-toggle='collapse'>Horoscope Details</a></li>
                 <li class="nav-link"><a href="#identity" data-toggle='collapse'>Identity & Contact Details</a></li>
@@ -83,8 +90,10 @@ is_login($root);
                 <li class="nav-link"><a href="#miscellaneous" data-toggle='collapse'>Miscellaneous</a></li>
               </ul>
             </div>
+            
             <div class="col-md-9">
-                <div id='aboutme' class='collapse'>
+            <form id='profileFrm' novalidate>
+                <div id='aboutme' class='collapsable collapse'>
                   <div class="row">
                     <div class="col-md-3">
                       <div class="form-group">
@@ -103,37 +112,33 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>Profile Id</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="PID"/>
                       </div>
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="first_name"/>
                       </div>
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="last_name"/>
                       </div>
                       <div class="form-group">
                         <label>Gender</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select" name="gender">
                           <option>Female</option>
                           <option>Male</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label>Height</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="height"/>
                       </div>
                     </div>
                     <div class="col-md-3">
                       
                       <div class="form-group">
-                        <label>Date of Birth</label>
-                        <input type="date" class="form-control"/>
-                      </div>
-                      <div class="form-group">
                         <label>Marital Status</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select" name="marital_status">
                           <option>Never Married</option>
                           <option>Divorced</option>
                           <option>Annulled</option>
@@ -144,15 +149,15 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>Occupation</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="occupation"/>
                       </div>
                       <div class="form-group">
                         <label>Annual Income</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="annual_income"/>
                       </div>  
                       <div class="form-group">
                         <label>Has Children</label>
-                        <select class="browser-default custom-select">                          
+                        <select class="browser-default custom-select" name="has_children">                          
                           <option>None</option>
                           <option>Yes, Living Seperately</option>
                           <option>Yes, Staying together</option>
@@ -160,7 +165,7 @@ is_login($root);
                       </div> 
                       <div class="form-group">
                         <label>Residential Status</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select" name="residential_status">
                           <option>--Select--</option>
                           <option>Citizen</option>
                           <option>Permanent Resident</option>
@@ -174,24 +179,24 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Country of Residence</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="country_of_residence"/>
                       </div>
                       <div class="form-group">
                         <label>State of Residence</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="state_of_residence"/>
                       </div>
                       <div class="form-group">
                         <label>CITY</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="city"/>
                       </div>
                       
                       <div class="form-group">
                         <label>Pincode</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="pincode"/>
                       </div>
                       <div class="form-group">
                         <label>Mother Tongue</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select" name="mother_tongue">
                           <option>--Select--</option>
                           <option>Hindi-Delhi</option>
                           <option>Hindi-UP</option>
@@ -225,7 +230,7 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>Religion</label>
-                        <select class="browser-default custom-select">
+                        <select class="browser-default custom-select" name="religion">
                           <option>--Select--</option>
                           <option>Muslim</option>
                           <option>Hindu</option>
@@ -246,43 +251,43 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Caste</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="caste"/>
                       </div>
                       <div class="form-group">
                         <label>Sub-Caste</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="sub_caste"/>
                       </div>
                       <div class="form-group">
                         <label>About</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="about"/>
                       </div>
                       <div class="form-group">
                         <label>Criminal Record</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="criminal_record"/>
                       </div>
                       <div class="form-group">
                         <label>Special Case</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="special_case"/>
                       </div>
                     </div>
                   
                   </div>
                 </div>
               <div>
-              <div id='education' class='collapse'>
+              <div id='education' class='collapsable collapse'>
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Education</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="education"/>
                     </div>
                     <div class="form-group">
                       <label>College</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="college"/>
                     </div>
                     <div class="form-group">
                       <label>Employed In</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="employed_in">
                         <option></option>
                         <option>Private Sector</option>
                         <option>Government/Public Sector</option>
@@ -294,7 +299,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Employed As</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="employed_as">
                         <option></option>
                         <option>Software Professional</option>
                         <option>Hotels / Hospitality Professional</option>
@@ -534,30 +539,30 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Employed With</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="employed_with"/>
                     </div>
                     
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>School Name</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="school_name"/>
                     </div>
                     <div class="form-group">
                       <label>UG</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="ug"/>
                     </div>
                     <div class="form-group">
                       <label>PG</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="pg"/>
                     </div>
                     <div class="form-group">
                       <label>UG College</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="ug_college"/>
                     </div>
                     <div class="form-group">
                       <label>PG College</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="pg_college"/>
                     </div>
                   </div>
                 </div>
@@ -567,7 +572,7 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Father Occupation</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="father_is">
                         <option></option>
                         <option>Service -Private</option>
                         <option>Service- Government /PSU</option>
@@ -580,7 +585,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Mother is</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="mother_is">
                         <option></option>
                         <option>Service -Private</option>
                         <option>Service- Government /PSU</option>
@@ -593,7 +598,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Family Value</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="family_value">
                         <option></option>
                         <option>Liberal</option>
                         <option>Moderate</option>
@@ -604,7 +609,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Affluence Level</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="affluence_level">
                         <option></option>
                         <option>Affluence Level</option>
                         <option>Upper Middle</option>
@@ -616,17 +621,17 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Native Country</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="native_country"/>
                     </div>
                     <div class="form-group">
                       <label>Native State</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="native_state"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Unmarried Sisters</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="unmarried_sisters">
                         <option>None</option>
                         <option>1</option>
                         <option>2</option>
@@ -636,7 +641,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Married Sisters</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="married_sisters">
                         <option>None</option>
                         <option>1</option>
                         <option>2</option>
@@ -646,7 +651,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Unmarried Brothers</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="unmarried_brothers">
                         <option>None</option>
                         <option>1</option>
                         <option>2</option>
@@ -656,7 +661,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Married Brothers</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="married_brothers">
                         <option>None</option>
                         <option>1</option>
                         <option>2</option>
@@ -666,37 +671,37 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Other Property Details</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="property_details"/>
                     </div>
                     <div class="form-group">
                       <label>Square Yards</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="square_yards"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Vehicles</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="vehicles"/>
                     </div>
                     <div class="form-group">
                       <label>Net Worth</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="net_worth"/>
                     </div>
                     <div class="form-group">
                       <label>Industry Type</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="industry_type"/>
                     </div>
                     <div class="form-group">
                       <label>Family Based out of</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="family_based_out_of"/>
                     </div>
                     <div class="form-group">
                       <label>Family Income</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="family_income"/>
                     </div>
                     <div class="form-group">
                       <label>Family Type</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="family_type">
                         <option></option>
                         <option>Joint Family</option>
                         <option>Nuclear family</option>
@@ -707,7 +712,7 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>About Family</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="about_family"/>
                     </div>
                   </div>
                 </div>
@@ -717,19 +722,19 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>DOB</label>
-                      <input type="date" class="form-control"/>
+                      <input type="date" class="form-control" name="dob"/>
                     </div>
                     <div class="form-group">
                       <label>Birth Place</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="birth_place"/>
                     </div>
                     <div class="form-group">
                       <label>Birth Time</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="birth_time"/>
                     </div>
                     <div class="form-group">
                       <label>Manglik</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="manglik">
                         <option></option>
                         <option>Manglik</option>
                         <option>Angshik</option>
@@ -740,7 +745,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Believes in Horoscope</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="believes_in_horoscope">
                         <option></option>
                         <option>Must</option>
                         <option>Not Necessary</option>
@@ -751,16 +756,16 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Gotra</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="gotra"/>
                     </div>
                     <div class="form-group">
                       <label>Star</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="star"/>
                     </div>
                   
                     <div class="form-group">
                       <label>Raasi</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="rassi"/>
                     </div>
                   </div>
                 </div>  
@@ -770,33 +775,33 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" class="form-control"/>
+                      <input type="email" class="form-control" name="email"/>
                     </div>
                     <div class="form-group">
                       <label>Phone</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="phone"/>
                     </div>
                     <div class="form-group">
                       <label>Alternate Phone Number</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="alternate_phone"/>
                     </div>
                     <div class="form-group">
                       <label>WhatsApp Number</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="whatsapp_number"/>
                     </div>
                     <div class="form-group">
                       <label>Residence Address</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="address"/>
                     </div>
                     <div class="form-group">
                       <label>Permanent Address</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="permanent_address"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Aadhar Verified</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="aadhar_verified">
                         <option></option>
                         <option>Yes</option>
                         <option>No</option>
@@ -805,7 +810,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Mobile Verified</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="mobile_verified">
                         <option></option>
                         <option>Yes</option>
                         <option>No</option>
@@ -814,7 +819,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Email Id Verified</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="emailid_verified">
                         <option></option>
                         <option>Yes</option>
                         <option>No</option>
@@ -823,7 +828,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Aadhar Proof</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="aadhar_proof">
                         <option></option>
                         <option>Given</option>
                         <option>Not Given</option>                        
@@ -833,15 +838,15 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Instagram Id</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="instagram_id"/>
                     </div>
                     <div class="form-group">
                       <label>Facebook Id</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="facebook_id"/>
                     </div>
                     <div class="form-group">
                       <label>Linkedin Id</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="linkedin_id"/>
                     </div>
                   </div>
                 </div>  
@@ -851,7 +856,7 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Body Type</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="body_type">
                         <option></option>
                         <option>Athletic</option>
                         <option>Slim</option>
@@ -861,7 +866,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Food Habits</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="food_habits">
                         <option></option>
                         <option>Eggetarian</option>
                         <option>Jain</option>
@@ -872,7 +877,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Drink</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="drink">
                         <option></option>
                         <option>Drinks occasionally</option>
                         <option>Doesn't drink</option>
@@ -882,7 +887,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Smoke</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="smoke">
                         <option></option>
                         <option>Doesn't smoke</option>
                         <option>Smokes</option>
@@ -892,7 +897,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Complexion</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="complexion">
                         <option></option>
                         <option>Fair</option>
                         <option>Wheatish</option>
@@ -902,13 +907,13 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Weight</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="weight"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Hair Type</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="hair_type">
                         <option></option>
                         <option>Bald</option>
                         <option>Semi- Bald</option>
@@ -918,7 +923,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Looks</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="looks">
                         <option></option>
                         <option>Extraordinary</option>
                         <option>Classy</option>
@@ -928,7 +933,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Specs</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="specs">
                         <option></option>
                         <option>Wear Specs</option>
                         <option>Normal Eyesight</option>
@@ -938,7 +943,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Communication</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="communication">
                         <option></option>
                         <option>Classy</option>
                         <option>Good</option>
@@ -955,7 +960,7 @@ is_login($root);
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>SMOKER</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="pp_smoker">
                           <option></option>
                           <option>Doesn'T Smoke</option>
                           <option>Smokes</option>
@@ -965,7 +970,7 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>DRINKER</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="pp_drinker">
                           <option></option>
                           <option>Drinks Occasionally</option>
                           <option>Doesn'T Drink</option>
@@ -975,7 +980,7 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>VEG/NON VEG</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="pp_veg/non_veg">
                           <option></option>
                           <option>Eggetarian</option>
                           <option>Jain</option>
@@ -986,86 +991,86 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>FROMAGE</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="pp_fromage"/>
                   </div>
                   <div class="form-group">
                         <label>TOAGE</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="pp_toage"/>
                   </div>
                   <div class="form-group">
                         <label>CASTE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_caste"/>
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>EDUCATION QUALIFICATION</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_education_qualification"/>
                   </div>
                   <div class="form-group">
                         <label>MIN HEIGHT</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_min_height"/>
                   </div>
                   <div class="form-group">
                         <label>MAX HEIGHT</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_max_height"/>
                   </div>
                   <div class="form-group">
                         <label>MOTHER TONGUE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_mother_tongue"/>
                   </div>
                   <div class="form-group">
                         <label>RELIGION</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_religion"/>
                   </div>
                   <div class="form-group">
                         <label>MANGLIK</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_manglik"/>
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>INCOME</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_income"/>
                   </div>
                   <div class="form-group">
                         <label>BODY TYPE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_body_type"/>
                   </div>
                   <div class="form-group">
                         <label>Complexion</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_complexion"/>
                   </div>
                   <div class="form-group">
                         <label>CHALLENGED</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_challenged"/>
                   </div>
                   <div class="form-group">
                         <label>MARITAL STATUS</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_marital_status"/>
                   </div>
                   <div class="form-group">
                         <label>COUNTRY</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_country"/>
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>STATE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_state"/>
                   </div>
                   <div class="form-group">
                         <label>HAVE CHILDREN</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_have_children"/>
                   </div>
                   <div class="form-group">
                         <label>EMPLOYED AS</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_employed_as"/>
                   </div>
                   <div class="form-group">
                         <label>About Partner</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_about_partner"/>
                   </div>
                   <div class="form-group">
                         <label>Cant Get married to</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="pp_cant_get_married_to"/>
                   </div>
                   </div>
                 </div>  
@@ -1075,11 +1080,11 @@ is_login($root);
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Last Calling date</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="last_calling_date"/>
                     </div>
                     <div class="form-group">
                       <label>Calling for</label>
-                      <select class="browser-control custom-select">
+                      <select class="browser-control custom-select" name="calling_for">
                         <option></option>
                         <option>Lead</option>
                         <option>Sample Profile Status</option>
@@ -1091,7 +1096,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Calling Status</label>
-                      <select class="browser-control custom-select"></select>
+                      <select class="browser-control custom-select" name="calling_status">
                         <option></option>
                         <option>Pending</option>
                         <option>Follow Up</option>
@@ -1100,19 +1105,20 @@ is_login($root);
                         <option>Accepted</option>
                         <option>Wrong Number</option>
                         <option>Already Married</option>
+                      </select>
 
                     </div>
                     <div class="form-group">
                       <label>Calling Comments</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="calling_comments"/>
                     </div>
                     <div class="form-group">
                       <label>Profile Shortlisted for id</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="profile_shortlisted_for"/>
                     </div>
                     <div class="form-group">
                       <label>Response of shared Profile</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" name="response_shared_profile"/>
                     </div>
                   </div>
                 </div>  
@@ -1122,19 +1128,19 @@ is_login($root);
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>Lead-Date of calling</label>
-                        <input type="date" class="form-control"/>
+                        <input type="date" class="form-control" name="lead_date"/>
                   </div>
                   <div class="form-group">
                         <label>Lead-Follow up date</label>
-                        <input type="date" class="form-control"/>
+                        <input type="date" class="form-control" name="lead_follow_up"/>
                   </div>
                   <div class="form-group">
                         <label>Lead Follow Up time </label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="lead_follow_up_time"/>
                   </div>
                   <div class="form-group">
                         <label>Lead-Status</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="lead_status">
                           <option></option>
                           <option>Pending</option>
                           <option>Paid Client</option>
@@ -1148,20 +1154,20 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>lead-comment</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="lead_comment"/>
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>Lead-shared profile ids</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="lead_shared_id"/>
                   </div>
                   <div class="form-group">
                         <label>lead shortlisted profile ids</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="lead_shortlisted_id"/>
                   </div>
                   <div class="form-group">
                         <label>Lead Biodata received</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="lead_biodata">
                           <option></option>
                           <option>Yes</option>
                           <option>No</option>
@@ -1170,7 +1176,7 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Lead-Matrimony Picture</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="lead_matrimony_picture">
                           <option></option>
                           <option>Yes</option>
                           <option>No</option>
@@ -1185,11 +1191,11 @@ is_login($root);
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>MEETING FINALISED BY</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="meeting_finalised_by"/>
                   </div>
                   <div class="form-group">
                         <label>Meeting Type</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="meeting_type">
                           <option></option>
                           <option>Telephonic</option>
                           <option>Face To Face</option>
@@ -1199,24 +1205,24 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>MEETING DATE</label>
-                        <input type="date" class="form-control"/>
+                        <input type="date" class="form-control" name="meeting_date"/>
                   </div>
                   <div class="form-group">
                         <label>MEETING TIME</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="meeting_time"/>
                   </div>
                   <div class="form-group">
                         <label>MEETING PLACE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="meeting_place"/>
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>MEETING LVM ID</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="meeting_lvm_id"/>
                   </div>
                   <div class="form-group">
                         <label>Meeting Status</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="meeting_status">
                           <option></option>
                           <option>Done</option>
                           <option>Postponed</option>
@@ -1227,7 +1233,7 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Rejection reason</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="rejection_reason">
                           <option></option>
                           <option>Looks</option>
                           <option>Personality</option>
@@ -1241,7 +1247,7 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Rejection Reason Comments</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="rejection_comments"/>
                   </div>
                   </div>
                 </div>  
@@ -1251,7 +1257,7 @@ is_login($root);
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>CLIENT TYPE</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="client_type">
                           <option></option>
                           <option>Lead</option>
                           <option>Paid</option>
@@ -1265,19 +1271,19 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>REGISTRATION FEE</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="registration_fee"/>
                   </div>
                   <div class="form-group">
                         <label>MEETING FEE</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="meeting_fee"/>
                   </div>
                   <div class="form-group">
                         <label>ROKA CHARGE</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="roka_charge"/>
                   </div>
                   <div class="form-group">
                         <label>DURATION</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="duration">
                           <option></option>
                           <option>1 Month</option>
                           <option>3 Month</option>
@@ -1290,7 +1296,7 @@ is_login($root);
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>PACKAGE TYPE</label>
-                        <select class="browser-control custom-select">
+                        <select class="browser-control custom-select" name="package_type">
                           <option></option>
                           <option>Luv 2 Register -3 Month</option>
                           <option>Luv 2 Register -6 Months</option>
@@ -1302,30 +1308,30 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>SOLD BY</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="sold_by"/>
                         
                   </div>
                   <div class="form-group">
                         <label>Subscription Type</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="subscription_type"/>
                   </div>
               </div>
               <div class="col-md-3">
                   <div class="form-group">
                         <label>Payment Given</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="payment_given"/>
                   </div>
                   <div class="form-group">
                         <label>Payment Remaining</label>
-                        <input type="number" class="form-control"/>
+                        <input type="number" class="form-control" name="payment_remaining"/>
                   </div>
                   <div class="form-group">
                         <label>Next Payment Due Date</label>
-                        <input type="date" class="form-control"/>
+                        <input type="date" class="form-control" name="next_payment_due_date"/>
                   </div>
                   <div class="form-group">
                         <label>Payment Comments</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="payment_comments"/>
                   </div>
                   </div>
                 </div>  
@@ -1333,28 +1339,30 @@ is_login($root);
               <div id='miscellaneous' class='collapse'>
               <div class="row">
                   <div class="col-md-3">
-                  <div class="form-group">
-                        <label>PIDIndex</label>
-                        <input type="text" class="form-control"/>
-                  </div>
-                  <div class="form-group">
-                        <label>ADDED DATE</label>
-                        <input type="text" class="form-control"/>
-                  </div>
+                  
+                  
                   <div class="form-group">
                         <label>ADDED BY</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="added_by"/>
                   </div>
                   <div class="form-group">
                         <label>WEEKLY PROFILE</label>
-                        <input type="text" class="form-control"/>
+                        <input type="text" class="form-control" name="weekly_profile"/>
                   </div>
                   </div>
                 </div>  
               </div>
+              </form>
             </div>
+            
+            
           </div>
-
+          <div class="row">
+            
+            
+              
+            
+          </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -1372,7 +1380,7 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
- <script src="scripts/js/registerprofile.js"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1113"></script>
 
 
 </body>
