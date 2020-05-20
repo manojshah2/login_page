@@ -289,7 +289,7 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Country of Residence</label>                        
-                        <select class="browser-default custom-select" name="country_of_residence">
+                        <select class="browser-default custom-select" name="country_of_residence" id="country_of_residence">
                           <option></option>
                           <option>Afghanistan</option>
                           <option>Albania</option>
@@ -510,7 +510,9 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>State of Residence</label>
-                        <input type="text" class="form-control" name="state_of_residence"/>
+                        
+                        <select class="browser-control custom-select" name="state_of_residence" id="state_of_residence">
+                        </select>
                       </div>
                       <div class="form-group">
                         <label>CITY</label>
@@ -557,7 +559,7 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>Religion</label>
-                        <select class="browser-default custom-select" name="religion">
+                        <select class="browser-default custom-select" name="religion" id="religion">
                           <option>--Select--</option>
                           <option>Muslim</option>
                           <option>Hindu</option>
@@ -578,7 +580,9 @@ is_login($root);
                       
                       <div class="form-group">
                         <label>Caste</label>
-                        <input type="text" class="form-control" name="caste"/>
+                        
+                        <select class="browser-control custom-select" name="caste" id="caste">
+                        </select>
                       </div>
                       <div class="form-group">
                         <label>Sub-Caste</label>
@@ -594,7 +598,8 @@ is_login($root);
                       </div>
                       <div class="form-group">
                         <label>Special Case</label>
-                        <input type="text" class="form-control" name="special_case"/>
+                        <select class="browser-default custom-select" name="special_case" id="special_case">
+                        </select>
                       </div>
                     </div>
                   
@@ -1057,7 +1062,7 @@ is_login($root);
                     <div class="form-group">
                       <label>Native Country</label>
                       
-                      <select class="browser-default custom-select" name="native_country">
+                      <select class="browser-default custom-select" name="native_country" id="native_country">
                           <option></option>
                           <option>Afghanistan</option>
                           <option>Albania</option>
@@ -1278,7 +1283,9 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Native State</label>
-                      <input type="text" class="form-control" name="native_state"/>
+                      
+                      <select class="browser-control custom-select" name="native_state" id="native_state">
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-3">
@@ -1569,7 +1576,7 @@ is_login($root);
                     </div>
                     <div class="form-group">
                       <label>Family Income</label>
-                      <input type="text" class="form-control" name="family_income"/>
+                      <input type="hidden" name="family_income"/>                      
                     </div>
                     <div class="form-group">
                       <label>Family Type</label>
@@ -2471,7 +2478,7 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
- <script src="scripts/js/registerprofile.js?ver=1.1114"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1115"></script>
 
 
 </body>
