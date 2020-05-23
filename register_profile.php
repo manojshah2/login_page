@@ -24,6 +24,13 @@ is_login($root);
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <style>
+  a[aria-expanded="true"]{
+    background:white;
+  }
+  
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -76,27 +83,29 @@ is_login($root);
           <div class="row">
 						<div class="col-md-3">
               <ul class="">
-                <li class="nav-link"><a href="#aboutme" class="item" data-toggle="collapse">About Me</a></li>
+                <li class="nav-link"><a href="#aboutme" class="item" data-toggle="collapse" aria-expanded="true">About Me</a></li>
                 <li class="nav-link"><a href="#education" class="item" data-toggle='collapse'>Education & Career</a></li>
-                <li class="nav-link"><a href="#familydetails" data-toggle='collapse'>Family Details</a></li>
-                <li class="nav-link"><a href="#horoscope" data-toggle='collapse'>Horoscope Details</a></li>
-                <li class="nav-link"><a href="#identity" data-toggle='collapse'>Identity & Contact Details</a></li>
-                <li class="nav-link"><a href="#looks" data-toggle='collapse'>Looks & Lifestyle</a></li>
-                <li class="nav-link"><a href="#partner" data-toggle='collapse'>Partner Preference</a></li>
-                <li class="nav-link"><a href="#calling" data-toggle='collapse'>Calling Status</a></li>
-                <li class="nav-link"><a href="#lead" data-toggle='collapse'>Lead Generation</a></li>
-                <li class="nav-link"><a href="#meeting" data-toggle='collapse'>Meeting Details</a></li>
-                <li class="nav-link"><a href="#subscription" data-toggle='collapse'>Subscription Status</a></li>
-                <li class="nav-link"><a href="#miscellaneous" data-toggle='collapse'>Miscellaneous</a></li>
+                <li class="nav-link"><a href="#familydetails" class="item" data-toggle='collapse'>Family Details</a></li>
+                <li class="nav-link"><a href="#horoscope"  class="item" data-toggle='collapse'>Horoscope Details</a></li>
+                <li class="nav-link"><a href="#identity" class="item" data-toggle='collapse'>Identity & Contact Details</a></li>
+                <li class="nav-link"><a href="#looks" class="item" data-toggle='collapse'>Looks & Lifestyle</a></li>
+                <li class="nav-link"><a href="#partner" class="item" data-toggle='collapse'>Partner Preference</a></li>
+                <li class="nav-link"><a href="#calling" class="item" data-toggle='collapse'>Calling Status</a></li>
+                <li class="nav-link"><a href="#lead" class="item" data-toggle='collapse'>Lead Generation</a></li>
+                <li class="nav-link"><a href="#meeting" class="item" data-toggle='collapse'>Meeting Details</a></li>
+                <li class="nav-link"><a href="#subscription"  class="item" data-toggle='collapse'>Subscription Status</a></li>
+                <li class="nav-link"><a href="#miscellaneous" class="item" data-toggle='collapse'>Miscellaneous</a></li>
               </ul>
             </div>
             
             <div class="col-md-9">
             <form id='profileFrm' novalidate>
-                <div id='aboutme' class='collapsable collapse'>
+            
+                <div id='aboutme'  class='collapse in show'>
+
                   <div class="row">
-                    <div class="col-md-3">
-                      <div class="form-group">
+                    
+                      <div class="form-group col-md-3">
                         <label>Data Taken From</label>
                         <select class="browser-default custom-select" name="source" id="source">
                           <option>JS</option>
@@ -110,33 +119,29 @@ is_login($root);
                           <option>Sulekha</option>
                         </select>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group col-md-3">
                         <label>Profile Id</label>
                         <input type="text" class="form-control" name="PID"/>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group col-md-3">
                         <label>First Name</label>
                         <input type="text" class="form-control" name="first_name"/>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group col-md-3">
                         <label>Last Name</label>
                         <input type="text" class="form-control" name="last_name"/>
                       </div>
-                      <div class="form-group">
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-3">
                         <label>Gender</label>
                         <select class="browser-default custom-select" name="gender">
                           <option>Female</option>
                           <option>Male</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>Height</label>
-                        <input type="text" class="form-control" name="height"/>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      
-                      <div class="form-group">
+
+                      <div class="form-group col-md-3">
                         <label>Marital Status</label>
                         <select class="browser-default custom-select" name="marital_status">
                           <option>Never Married</option>
@@ -147,383 +152,423 @@ is_login($root);
                           <option>Married</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>Occupation</label>
-                        <select class="browser-default custom-select" name="occupation">
-                          <option></option>
-                          <option>Accounting Professional</option>
-                          <option>Actor/Model</option>
-                          <option>Admin Professional</option>
-                          <option>Advertising Professional</option>
-                          <option>Agent</option>
-                          <option>Agriculture Professional</option>
-                          <option>Air Force</option>
-                          <option>Airline Professional</option>
-                          <option>Analyst</option>
-                          <option>Animator</option>
-                          <option>Architect</option>
-                          <option>Army</option>
-                          <option>Artist</option>
-                          <option>Auditor</option>
-                          <option>Banking Professional</option>
-                          <option>Beautician</option>
-                          <option>BPO/ITes Professional</option>
-                          <option>Broker</option>
-                          <option>Business Owner/ Entrepreneur</option>
-                          <option>Business/ Self Employed</option>
-                          <option>Businessperson</option>
-                          <option>Chartered Accountant</option>
-                          <option>Civil Services</option>
-                          <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
-                          <option>Clerk</option>
-                          <option>Consultant</option>
-                          <option>Corporate Communication</option>
-                          <option>Corporate Planning</option>
-                          <option>Customer Service</option>
-                          <option>CxO/ Chairman/ President/ Director</option>
-                          <option>Cyber/Network Security</option>
-                          <option>Defence</option>
-                          <option>Defence Services</option>
-                          <option>Dentist</option>
-                          <option>Doctor</option>
-                          <option>Education Professional</option>
-                          <option>Educational Institution Owner</option>
-                          <option>Electronics Engineer</option>
-                          <option>Farming</option>
-                          <option>Fashion Designer</option>
-                          <option>Film/ Entertainment Professional</option>
-                          <option>Finance Professional</option>
-                          <option>Fitness Professional</option>
-                          <option>Flight Attendant</option>
-                          <option>Government/Public Sector</option>
-                          <option>Hardware/Telecom Engineer</option>
-                          <option>Hotels/Hospitality Professional</option>
-                          <option>HR Professional</option>
-                          <option>Interior Designer</option>
-                          <option>Journalist</option>
-                          <option>Law Enforcement Officer</option>
-                          <option>Lawyer &amp; Legal Professional</option>
-                          <option>Librarian</option>
-                          <option>Looking for job</option>
-                          <option>Mariner</option>
-                          <option>Marketing Professional</option>
-                          <option>Media Professional</option>
-                          <option>Medical/ Healthcare Professional</option>
-                          <option>Merchant Naval Officer</option>
-                          <option>Navy</option>
-                          <option>Non – IT Engineer</option>
-                          <option>Not Working</option>
-                          <option>Not working</option>
-                          <option>Nurse</option>
-                          <option>Operations Management</option>
-                          <option>Operator/Technician</option>
-                          <option>Others</option>
-                          <option>Paramedic</option>
-                          <option>Pharmacist</option>
-                          <option>Physiotherapist</option>
-                          <option>Pilot</option>
-                          <option>Police</option>
-                          <option>Politician</option>
-                          <option>PR Professional</option>
-                          <option>Product manager</option>
-                          <option>Professor/Lecturer</option>
-                          <option>Program Manager</option>
-                          <option>Project Lead - IT</option>
-                          <option>Project Manager - IT</option>
-                          <option>Project Manager - Non IT</option>
-                          <option>Psychologist</option>
-                          <option>Quality Assurance Engineer</option>
-                          <option>Quality Assurance Engineer - IT</option>
-                          <option>Research Assistant</option>
-                          <option>Research Professional</option>
-                          <option>Retired</option>
-                          <option>Sales Professional</option>
-                          <option>Science Professional</option>
-                          <option>Scientist</option>
-                          <option>Secretary/Front Office</option>
-                          <option>Security Professional</option>
-                          <option>Singer</option>
-                          <option>Social Services/ NGO/ Volunteer</option>
-                          <option>Software Professional</option>
-                          <option>Sportsperson</option>
-                          <option>Sr. Manager/ Manager</option>
-                          <option>Student</option>
-                          <option>Subject Matter Expert</option>
-                          <option>Surgeon</option>
-                          <option>Teacher</option>
-                          <option>Travel Professional</option>
-                          <option>UI/UX designer</option>
-                          <option>Veterinary Doctor</option>
-                          <option>VP/ AVP/ GM/ DGM</option>
-                          <option>Web/Graphic Designer</option>
-                          <option>Writer</option>
 
-                        </select>
-                        
-                      </div>
-                      <div class="form-group">
-                        <label>Annual Income</label>
-                        <input type="text" class="form-control" name="annual_income"/>
-                      </div>  
-                      <div class="form-group">
-                        <label>Has Children</label>
+                      <div class="form-group col-md-3">
+                        <label>Have Children</label>
                         <select class="browser-default custom-select" name="has_children">                          
                           <option>None</option>
                           <option>Yes, Living Seperately</option>
                           <option>Yes, Staying together</option>
                         </select>
                       </div> 
-                      <div class="form-group">
-                        <label>Residential Status</label>
-                        <select class="browser-default custom-select" name="residential_status">
-                          <option>--Select--</option>
-                          <option>Citizen</option>
-                          <option>Permanent Resident</option>
-                          <option>Work Permit</option>
-                          <option>Student Visa</option>
-                          <option>Temporary Visa</option>
-                        </select>
-                      </div>               
-                    </div>
-                    <div class="col-md-3">
+                    
+
+                      <div class="form-group col-md-3">
+                        <label>Height</label>
+                        <input type="text" class="form-control" name="height"/>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                  <div class="form-group col-md-3">
+                      <label>Occupation</label>
+                      <select class="browser-default custom-select" name="occupation">
+                        <option></option>
+                        <option>Accounting Professional</option>
+                        <option>Actor/Model</option>
+                        <option>Admin Professional</option>
+                        <option>Advertising Professional</option>
+                        <option>Agent</option>
+                        <option>Agriculture Professional</option>
+                        <option>Air Force</option>
+                        <option>Airline Professional</option>
+                        <option>Analyst</option>
+                        <option>Animator</option>
+                        <option>Architect</option>
+                        <option>Army</option>
+                        <option>Artist</option>
+                        <option>Auditor</option>
+                        <option>Banking Professional</option>
+                        <option>Beautician</option>
+                        <option>BPO/ITes Professional</option>
+                        <option>Broker</option>
+                        <option>Business Owner/ Entrepreneur</option>
+                        <option>Business/ Self Employed</option>
+                        <option>Businessperson</option>
+                        <option>Chartered Accountant</option>
+                        <option>Civil Services</option>
+                        <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
+                        <option>Clerk</option>
+                        <option>Consultant</option>
+                        <option>Corporate Communication</option>
+                        <option>Corporate Planning</option>
+                        <option>Customer Service</option>
+                        <option>CxO/ Chairman/ President/ Director</option>
+                        <option>Cyber/Network Security</option>
+                        <option>Defence</option>
+                        <option>Defence Services</option>
+                        <option>Dentist</option>
+                        <option>Doctor</option>
+                        <option>Education Professional</option>
+                        <option>Educational Institution Owner</option>
+                        <option>Electronics Engineer</option>
+                        <option>Farming</option>
+                        <option>Fashion Designer</option>
+                        <option>Film/ Entertainment Professional</option>
+                        <option>Finance Professional</option>
+                        <option>Fitness Professional</option>
+                        <option>Flight Attendant</option>
+                        <option>Government/Public Sector</option>
+                        <option>Hardware/Telecom Engineer</option>
+                        <option>Hotels/Hospitality Professional</option>
+                        <option>HR Professional</option>
+                        <option>Interior Designer</option>
+                        <option>Journalist</option>
+                        <option>Law Enforcement Officer</option>
+                        <option>Lawyer &amp; Legal Professional</option>
+                        <option>Librarian</option>
+                        <option>Looking for job</option>
+                        <option>Mariner</option>
+                        <option>Marketing Professional</option>
+                        <option>Media Professional</option>
+                        <option>Medical/ Healthcare Professional</option>
+                        <option>Merchant Naval Officer</option>
+                        <option>Navy</option>
+                        <option>Non – IT Engineer</option>
+                        <option>Not Working</option>
+                        <option>Not working</option>
+                        <option>Nurse</option>
+                        <option>Operations Management</option>
+                        <option>Operator/Technician</option>
+                        <option>Others</option>
+                        <option>Paramedic</option>
+                        <option>Pharmacist</option>
+                        <option>Physiotherapist</option>
+                        <option>Pilot</option>
+                        <option>Police</option>
+                        <option>Politician</option>
+                        <option>PR Professional</option>
+                        <option>Product manager</option>
+                        <option>Professor/Lecturer</option>
+                        <option>Program Manager</option>
+                        <option>Project Lead - IT</option>
+                        <option>Project Manager - IT</option>
+                        <option>Project Manager - Non IT</option>
+                        <option>Psychologist</option>
+                        <option>Quality Assurance Engineer</option>
+                        <option>Quality Assurance Engineer - IT</option>
+                        <option>Research Assistant</option>
+                        <option>Research Professional</option>
+                        <option>Retired</option>
+                        <option>Sales Professional</option>
+                        <option>Science Professional</option>
+                        <option>Scientist</option>
+                        <option>Secretary/Front Office</option>
+                        <option>Security Professional</option>
+                        <option>Singer</option>
+                        <option>Social Services/ NGO/ Volunteer</option>
+                        <option>Software Professional</option>
+                        <option>Sportsperson</option>
+                        <option>Sr. Manager/ Manager</option>
+                        <option>Student</option>
+                        <option>Subject Matter Expert</option>
+                        <option>Surgeon</option>
+                        <option>Teacher</option>
+                        <option>Travel Professional</option>
+                        <option>UI/UX designer</option>
+                        <option>Veterinary Doctor</option>
+                        <option>VP/ AVP/ GM/ DGM</option>
+                        <option>Web/Graphic Designer</option>
+                        <option>Writer</option>
+
+                      </select>
                       
-                      <div class="form-group">
-                        <label>Country of Residence</label>                        
-                        <select class="browser-default custom-select" name="country_of_residence" id="country_of_residence">
-                          <option></option>
-                          <option>Afghanistan</option>
-                          <option>Albania</option>
-                          <option>Algeria</option>
-                          <option>American Samoa</option>
-                          <option>Andorra</option>
-                          <option>Angola</option>
-                          <option>Anguilla</option>
-                          <option>Antigua and Barbuda</option>
-                          <option>Argentina</option>
-                          <option>Armenia</option>
-                          <option>Australia</option>
-                          <option>Austria</option>
-                          <option>Azerbaijan</option>
-                          <option>Bahamas</option>
-                          <option>Bahrain</option>
-                          <option>Bangladesh</option>
-                          <option>Barbados</option>
-                          <option>Belarus</option>
-                          <option>Belgium</option>
-                          <option>Belize</option>
-                          <option>Benin</option>
-                          <option>Bermuda</option>
-                          <option>Bhutan</option>
-                          <option>Bolivia</option>
-                          <option>Bosnia and Herzegovina</option>
-                          <option>Botswana</option>
-                          <option>Brazil</option>
-                          <option>British Virgin Islands</option>
-                          <option>Brunei</option>
-                          <option>Bulgaria</option>
-                          <option>Burkina Faso</option>
-                          <option>Burundi</option>
-                          <option>Cambodia</option>
-                          <option>Cameroon</option>
-                          <option>Canada</option>
-                          <option>Canary Islands</option>
-                          <option>Cape Verde</option>
-                          <option>Cayman Islands</option>
-                          <option>Central African Republic</option>
-                          <option>Chad</option>
-                          <option>Chile</option>
-                          <option>China</option>
-                          <option>Colombia</option>
-                          <option>Comoros</option>
-                          <option>Congo</option>
-                          <option>Cook Islands</option>
-                          <option>Costa Rica</option>
-                          <option>Cote dIvoire</option>
-                          <option>Croatia</option>
-                          <option>Cuba</option>
-                          <option>Cyprus</option>
-                          <option>Czech Republic</option>
-                          <option>Denmark</option>
-                          <option>Dominica</option>
-                          <option>Dominican Republic</option>
-                          <option>East Timor</option>
-                          <option>Ecuador</option>
-                          <option>Egypt</option>
-                          <option>El Salvador</option>
-                          <option>Equatorial Guinea</option>
-                          <option>Eritrea</option>
-                          <option>Estonia</option>
-                          <option>Ethiopia</option>
-                          <option>Faeroe Islands</option>
-                          <option>Falkland Islands (Islas Malvinas)</option>
-                          <option>Fiji</option>
-                          <option>Finland</option>
-                          <option>France</option>
-                          <option>French Guiana</option>
-                          <option>French Polynesia</option>
-                          <option>Gambia</option>
-                          <option>Georgia</option>
-                          <option>Germany</option>
-                          <option>Ghana</option>
-                          <option>Gibraltar</option>
-                          <option>Greece</option>
-                          <option>Greenland</option>
-                          <option>Grenada</option>
-                          <option>Guadeloupe</option>
-                          <option>Guam</option>
-                          <option>Guatemala</option>
-                          <option>Guinea</option>
-                          <option>Guinea-Bissau</option>
-                          <option>Guyana</option>
-                          <option>Haiti</option>
-                          <option>Holland</option>
-                          <option>Honduras</option>
-                          <option>Hong Kong</option>
-                          <option>Hungary</option>
-                          <option>Iceland</option>
-                          <option>India</option>
-                          <option>Indonesia</option>
-                          <option>Iran</option>
-                          <option>Iraq</option>
-                          <option>Ireland</option>
-                          <option>Isle of Man</option>
-                          <option>Israel</option>
-                          <option>Italy</option>
-                          <option>Jamaica</option>
-                          <option>Japan</option>
-                          <option>Jordan</option>
-                          <option>Kazakhstan</option>
-                          <option>Kenya</option>
-                          <option>Kiribati</option>
-                          <option>Kuwait</option>
-                          <option>Kyrgyzstan</option>
-                          <option>Laos</option>
-                          <option>Latvia</option>
-                          <option>Lebanon</option>
-                          <option>Lesotho</option>
-                          <option>Liberia</option>
-                          <option>Libya</option>
-                          <option>Liechtenstein</option>
-                          <option>Lithuania</option>
-                          <option>Luxembourg</option>
-                          <option>Macau</option>
-                          <option>Macedonia</option>
-                          <option>Madagascar</option>
-                          <option>Malawi</option>
-                          <option>Malaysia</option>
-                          <option>Maldives</option>
-                          <option>Mali</option>
-                          <option>Malta</option>
-                          <option>Martinique</option>
-                          <option>Mauritius</option>
-                          <option>Mexico</option>
-                          <option>Moldova</option>
-                          <option>Monaco</option>
-                          <option>Mongolia</option>
-                          <option>Montenegro</option>
-                          <option>Montserrat</option>
-                          <option>Morocco</option>
-                          <option>Mozambique</option>
-                          <option>Myanmar</option>
-                          <option>Namibia</option>
-                          <option>Nepal</option>
-                          <option>Netherlands</option>
-                          <option>Netherlands Antilles</option>
-                          <option>New Caledonia</option>
-                          <option>New Zealand</option>
-                          <option>Nicaragua</option>
-                          <option>Niger</option>
-                          <option>Nigeria</option>
-                          <option>North Korea</option>
-                          <option>Norway</option>
-                          <option>Oman</option>
-                          <option>Others</option>
-                          <option>Pakistan</option>
-                          <option>Panama</option>
-                          <option>Papua New Guinea</option>
-                          <option>Paraguay</option>
-                          <option>Peru</option>
-                          <option>Philippines</option>
-                          <option>Poland</option>
-                          <option>Portugal</option>
-                          <option>Puerto Rico</option>
-                          <option>Qatar</option>
-                          <option>Reunion</option>
-                          <option>Romania</option>
-                          <option>Russia</option>
-                          <option>Rwanda</option>
-                          <option>Saint Kitts and Nevis</option>
-                          <option>Saint Lucia</option>
-                          <option>Saint Vincent and the Grenadines</option>
-                          <option>San Marino</option>
-                          <option>Sao Tome and Principe</option>
-                          <option>Saudi Arabia</option>
-                          <option>Senegal</option>
-                          <option>Serbia</option>
-                          <option>Seychelles</option>
-                          <option>Sierra Leone</option>
-                          <option>Singapore</option>
-                          <option>Slovakia</option>
-                          <option>Slovenia</option>
-                          <option>Solomon Islands</option>
-                          <option>Somalia</option>
-                          <option>South Africa</option>
-                          <option>South Korea</option>
-                          <option>Spain</option>
-                          <option>Sri Lanka</option>
-                          <option>Sudan</option>
-                          <option>Suriname</option>
-                          <option>Swaziland</option>
-                          <option>Sweden</option>
-                          <option>Switzerland</option>
-                          <option>Syrian Arab Republic</option>
-                          <option>Tahiti</option>
-                          <option>Taiwan</option>
-                          <option>Tajikistan</option>
-                          <option>Tanzania</option>
-                          <option>Thailand</option>
-                          <option>Togo</option>
-                          <option>Trinidad and Tobago</option>
-                          <option>Tunisia</option>
-                          <option>Turkey</option>
-                          <option>Turkmenistan</option>
-                          <option>Turks and Caicos Islands</option>
-                          <option>Uganda</option>
-                          <option>Ukraine</option>
-                          <option>United Arab Emirates</option>
-                          <option>United Kingdom</option>
-                          <option>United States</option>
-                          <option>United States Virgin Islands</option>
-                          <option>Uruguay</option>
-                          <option>Uzbekistan</option>
-                          <option>Vanuatu</option>
-                          <option>Vatican City State</option>
-                          <option>Venezuela</option>
-                          <option>Vietnam</option>
-                          <option>Wallis and Futuna</option>
-                          <option>Yemen</option>
-                          <option>Yugoslavia</option>
-                          <option>Zambia</option>
-                          <option>Zimbabwe</option>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Annual Income</label>
+                      <input type="text" class="form-control" name="annual_income"/>
+                    </div>  
+                    <div class="form-group col-md-3">
+                      <label>Country of Residence</label>                        
+                      <select class="browser-default custom-select" name="country_of_residence" id="country_of_residence">
+                        <option></option>
+                        <option>Afghanistan</option>
+                        <option>Albania</option>
+                        <option>Algeria</option>
+                        <option>American Samoa</option>
+                        <option>Andorra</option>
+                        <option>Angola</option>
+                        <option>Anguilla</option>
+                        <option>Antigua and Barbuda</option>
+                        <option>Argentina</option>
+                        <option>Armenia</option>
+                        <option>Australia</option>
+                        <option>Austria</option>
+                        <option>Azerbaijan</option>
+                        <option>Bahamas</option>
+                        <option>Bahrain</option>
+                        <option>Bangladesh</option>
+                        <option>Barbados</option>
+                        <option>Belarus</option>
+                        <option>Belgium</option>
+                        <option>Belize</option>
+                        <option>Benin</option>
+                        <option>Bermuda</option>
+                        <option>Bhutan</option>
+                        <option>Bolivia</option>
+                        <option>Bosnia and Herzegovina</option>
+                        <option>Botswana</option>
+                        <option>Brazil</option>
+                        <option>British Virgin Islands</option>
+                        <option>Brunei</option>
+                        <option>Bulgaria</option>
+                        <option>Burkina Faso</option>
+                        <option>Burundi</option>
+                        <option>Cambodia</option>
+                        <option>Cameroon</option>
+                        <option>Canada</option>
+                        <option>Canary Islands</option>
+                        <option>Cape Verde</option>
+                        <option>Cayman Islands</option>
+                        <option>Central African Republic</option>
+                        <option>Chad</option>
+                        <option>Chile</option>
+                        <option>China</option>
+                        <option>Colombia</option>
+                        <option>Comoros</option>
+                        <option>Congo</option>
+                        <option>Cook Islands</option>
+                        <option>Costa Rica</option>
+                        <option>Cote dIvoire</option>
+                        <option>Croatia</option>
+                        <option>Cuba</option>
+                        <option>Cyprus</option>
+                        <option>Czech Republic</option>
+                        <option>Denmark</option>
+                        <option>Dominica</option>
+                        <option>Dominican Republic</option>
+                        <option>East Timor</option>
+                        <option>Ecuador</option>
+                        <option>Egypt</option>
+                        <option>El Salvador</option>
+                        <option>Equatorial Guinea</option>
+                        <option>Eritrea</option>
+                        <option>Estonia</option>
+                        <option>Ethiopia</option>
+                        <option>Faeroe Islands</option>
+                        <option>Falkland Islands (Islas Malvinas)</option>
+                        <option>Fiji</option>
+                        <option>Finland</option>
+                        <option>France</option>
+                        <option>French Guiana</option>
+                        <option>French Polynesia</option>
+                        <option>Gambia</option>
+                        <option>Georgia</option>
+                        <option>Germany</option>
+                        <option>Ghana</option>
+                        <option>Gibraltar</option>
+                        <option>Greece</option>
+                        <option>Greenland</option>
+                        <option>Grenada</option>
+                        <option>Guadeloupe</option>
+                        <option>Guam</option>
+                        <option>Guatemala</option>
+                        <option>Guinea</option>
+                        <option>Guinea-Bissau</option>
+                        <option>Guyana</option>
+                        <option>Haiti</option>
+                        <option>Holland</option>
+                        <option>Honduras</option>
+                        <option>Hong Kong</option>
+                        <option>Hungary</option>
+                        <option>Iceland</option>
+                        <option>India</option>
+                        <option>Indonesia</option>
+                        <option>Iran</option>
+                        <option>Iraq</option>
+                        <option>Ireland</option>
+                        <option>Isle of Man</option>
+                        <option>Israel</option>
+                        <option>Italy</option>
+                        <option>Jamaica</option>
+                        <option>Japan</option>
+                        <option>Jordan</option>
+                        <option>Kazakhstan</option>
+                        <option>Kenya</option>
+                        <option>Kiribati</option>
+                        <option>Kuwait</option>
+                        <option>Kyrgyzstan</option>
+                        <option>Laos</option>
+                        <option>Latvia</option>
+                        <option>Lebanon</option>
+                        <option>Lesotho</option>
+                        <option>Liberia</option>
+                        <option>Libya</option>
+                        <option>Liechtenstein</option>
+                        <option>Lithuania</option>
+                        <option>Luxembourg</option>
+                        <option>Macau</option>
+                        <option>Macedonia</option>
+                        <option>Madagascar</option>
+                        <option>Malawi</option>
+                        <option>Malaysia</option>
+                        <option>Maldives</option>
+                        <option>Mali</option>
+                        <option>Malta</option>
+                        <option>Martinique</option>
+                        <option>Mauritius</option>
+                        <option>Mexico</option>
+                        <option>Moldova</option>
+                        <option>Monaco</option>
+                        <option>Mongolia</option>
+                        <option>Montenegro</option>
+                        <option>Montserrat</option>
+                        <option>Morocco</option>
+                        <option>Mozambique</option>
+                        <option>Myanmar</option>
+                        <option>Namibia</option>
+                        <option>Nepal</option>
+                        <option>Netherlands</option>
+                        <option>Netherlands Antilles</option>
+                        <option>New Caledonia</option>
+                        <option>New Zealand</option>
+                        <option>Nicaragua</option>
+                        <option>Niger</option>
+                        <option>Nigeria</option>
+                        <option>North Korea</option>
+                        <option>Norway</option>
+                        <option>Oman</option>
+                        <option>Others</option>
+                        <option>Pakistan</option>
+                        <option>Panama</option>
+                        <option>Papua New Guinea</option>
+                        <option>Paraguay</option>
+                        <option>Peru</option>
+                        <option>Philippines</option>
+                        <option>Poland</option>
+                        <option>Portugal</option>
+                        <option>Puerto Rico</option>
+                        <option>Qatar</option>
+                        <option>Reunion</option>
+                        <option>Romania</option>
+                        <option>Russia</option>
+                        <option>Rwanda</option>
+                        <option>Saint Kitts and Nevis</option>
+                        <option>Saint Lucia</option>
+                        <option>Saint Vincent and the Grenadines</option>
+                        <option>San Marino</option>
+                        <option>Sao Tome and Principe</option>
+                        <option>Saudi Arabia</option>
+                        <option>Senegal</option>
+                        <option>Serbia</option>
+                        <option>Seychelles</option>
+                        <option>Sierra Leone</option>
+                        <option>Singapore</option>
+                        <option>Slovakia</option>
+                        <option>Slovenia</option>
+                        <option>Solomon Islands</option>
+                        <option>Somalia</option>
+                        <option>South Africa</option>
+                        <option>South Korea</option>
+                        <option>Spain</option>
+                        <option>Sri Lanka</option>
+                        <option>Sudan</option>
+                        <option>Suriname</option>
+                        <option>Swaziland</option>
+                        <option>Sweden</option>
+                        <option>Switzerland</option>
+                        <option>Syrian Arab Republic</option>
+                        <option>Tahiti</option>
+                        <option>Taiwan</option>
+                        <option>Tajikistan</option>
+                        <option>Tanzania</option>
+                        <option>Thailand</option>
+                        <option>Togo</option>
+                        <option>Trinidad and Tobago</option>
+                        <option>Tunisia</option>
+                        <option>Turkey</option>
+                        <option>Turkmenistan</option>
+                        <option>Turks and Caicos Islands</option>
+                        <option>Uganda</option>
+                        <option>Ukraine</option>
+                        <option>United Arab Emirates</option>
+                        <option>United Kingdom</option>
+                        <option>United States</option>
+                        <option>United States Virgin Islands</option>
+                        <option>Uruguay</option>
+                        <option>Uzbekistan</option>
+                        <option>Vanuatu</option>
+                        <option>Vatican City State</option>
+                        <option>Venezuela</option>
+                        <option>Vietnam</option>
+                        <option>Wallis and Futuna</option>
+                        <option>Yemen</option>
+                        <option>Yugoslavia</option>
+                        <option>Zambia</option>
+                        <option>Zimbabwe</option>
+
+                      </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>State of Residence</label>
+                      
+                      <select class="browser-control custom-select" name="state_of_residence" id="state_of_residence">
+                      </select>
+                    </div>
+                    
+                  </div>  
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>Religion</label>
+                        <select class="browser-default custom-select" name="religion" id="religion">
+                          <option>--Select--</option>
+                          <option>Muslim</option>
+                          <option>Hindu</option>
+                          <option>Sikh</option>
+                          <option>Buddhist</option>
+                          <option>Christian</option>
+                          <option>Jain</option>
+                          <option>Other</option>
+                          <option>Parsi</option>
+                          <option>Jewish</option>
+                          <option>Bahai</option>
 
                         </select>
-                      </div>
-                      <div class="form-group">
-                        <label>State of Residence</label>
-                        
-                        <select class="browser-control custom-select" name="state_of_residence" id="state_of_residence">
+                    </div>                    
+                    <div class="form-group col-md-3">
+                        <label>Caste</label>                        
+                        <select class="browser-control custom-select" name="caste" id="caste">
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>CITY</label>
-                        <input type="text" class="form-control" name="city"/>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label>Pincode</label>
-                        <input type="number" class="form-control" name="pincode"/>
-                      </div>
-                      <div class="form-group">
+                    <div class="form-group col-md-3">
+                        <label>Sub-Caste</label>
+                        <input type="text" class="form-control" name="sub_caste"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>About Me</label>
+                        <input type="text" class="form-control" name="about"/>
+                    </div>
+                  </div>
+                 
+                  <div class="row">
+                  
+                      <div class="form-group col-md-3">
+                      <label>CITY</label>
+                      <input type="text" class="form-control" name="city"/>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label>Residential Status</label>
+                      <select class="browser-default custom-select" name="residential_status">
+                        <option>--Select--</option>
+                        <option>Citizen</option>
+                        <option>Permanent Resident</option>
+                        <option>Work Permit</option>
+                        <option>Student Visa</option>
+                        <option>Temporary Visa</option>
+                      </select>
+                    </div>
+                      <div class="form-group col-md-3">
                         <label>Mother Tongue</label>
                         <select class="browser-default custom-select" name="mother_tongue">
                           <option>--Select--</option>
@@ -557,56 +602,23 @@ is_login($root);
                           <option>English</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>Religion</label>
-                        <select class="browser-default custom-select" name="religion" id="religion">
-                          <option>--Select--</option>
-                          <option>Muslim</option>
-                          <option>Hindu</option>
-                          <option>Sikh</option>
-                          <option>Buddhist</option>
-                          <option>Christian</option>
-                          <option>Jain</option>
-                          <option>Other</option>
-                          <option>Parsi</option>
-                          <option>Jewish</option>
-                          <option>Bahai</option>
-
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                    
                       
-                      <div class="form-group">
-                        <label>Caste</label>
-                        
-                        <select class="browser-control custom-select" name="caste" id="caste">
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Sub-Caste</label>
-                        <input type="text" class="form-control" name="sub_caste"/>
-                      </div>
-                      <div class="form-group">
-                        <label>About</label>
-                        <input type="text" class="form-control" name="about"/>
-                      </div>
-                      <div class="form-group">
-                        <label>Criminal Record</label>
-                        <input type="text" class="form-control" name="criminal_record"/>
-                      </div>
-                      <div class="form-group">
+                      <div class="form-group col-md-3">
                         <label>Special Case</label>
                         <select class="browser-default custom-select" name="special_case" id="special_case">
                         </select>
                       </div>
-                    </div>
+                      
+                      <div class="form-group col-md-3">
+                        <label>Criminal Record</label>
+                        <input type="text" class="form-control" name="criminal_record"/>
+                      </div>
+                     
                   
                   </div>
                 </div>
               <div>
-              <div id='education' class='collapsable collapse'>
+              <div id='education' class='collapse'>
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
@@ -2478,7 +2490,7 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
- <script src="scripts/js/registerprofile.js?ver=1.1115"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1116"></script>
 
 
 </body>
