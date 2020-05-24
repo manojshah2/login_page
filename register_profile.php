@@ -26,7 +26,13 @@ is_login($root);
 
   <style>
   a[aria-expanded="true"]{
-    background:white;
+    background:#42b0f5;
+    color:white;
+  }
+  .item{
+    padding:5px 0px 2px 10px;
+    margin:0px 0px -10px 0px;
+    display:block;
   }
   
   </style>
@@ -87,7 +93,7 @@ is_login($root);
                 <li class="nav-link"><a href="#education" class="item" data-toggle='collapse'>Education & Career</a></li>
                 <li class="nav-link"><a href="#familydetails" class="item" data-toggle='collapse'>Family Details</a></li>
                 <li class="nav-link"><a href="#horoscope"  class="item" data-toggle='collapse'>Horoscope Details</a></li>
-                <li class="nav-link"><a href="#identity" class="item" data-toggle='collapse'>Identity & Contact Details</a></li>
+                <li class="nav-link"><a href="#identity" class="item" data-toggle='collapse'>Contact Details</a></li>
                 <li class="nav-link"><a href="#looks" class="item" data-toggle='collapse'>Looks & Lifestyle</a></li>
                 <li class="nav-link"><a href="#partner" class="item" data-toggle='collapse'>Partner Preference</a></li>
                 <li class="nav-link"><a href="#calling" class="item" data-toggle='collapse'>Calling Status</a></li>
@@ -165,7 +171,48 @@ is_login($root);
 
                       <div class="form-group col-md-3">
                         <label>Height</label>
-                        <input type="text" class="form-control" name="height"/>
+                        
+                        <select class="browser-control custom-select" name="height">
+                          <option value="0"></option>
+                          <option value="1.22">4' 0" (1.22 mts)</option>
+                          <option value="1.52">5' 0" (1.52 mts)</option>
+                          <option value="1.83">6' 0" (1.83 mts)</option>
+                          <option value="1.24">4' 1" (1.24 mts)</option>
+                          <option value="1.55">5' 1" (1.55 mts)</option>
+                          <option value="1.85">6' 1" (1.85 mts)</option>
+                          <option value="1.28">4' 2" (1.28 mts)</option>
+                          <option value="1.58">5' 2" (1.58 mts)</option>
+                          <option value="1.88">6' 2" (1.88 mts)</option>
+                          <option value="1.31">4' 3" (1.31 mts)</option>
+                          <option value="1.6">5' 3" (1.60 mts)</option>
+                          <option value="1.91">6' 3" (1.91 mts)</option>
+                          <option value="1.34">4' 4" (1.34 mts)</option>
+                          <option value="1.63">5' 4" (1.63 mts)</option>
+                          <option value="1.93">6' 4" (1.93 mts)</option>
+                          <option value="1.35">4' 5" (1.35 mts)</option>
+                          <option value="1.65">5' 5" (1.65 mts)</option>
+                          <option value="1.96">6' 5" (1.96 mts)</option>
+                          <option value="1.37">4' 6" (1.37 mts)</option>
+                          <option value="1.68">5' 6" (1.68 mts)</option>
+                          <option value="1.98">6' 6" (1.98 mts)</option>
+                          <option value="1.4">4' 7" (1.40 mts)</option>
+                          <option value="1.7">5' 7" (1.70 mts)</option>
+                          <option value="2.01">6' 7" (2.01 mts)</option>
+                          <option value="1.42">4' 8" (1.42 mts)</option>
+                          <option value="1.73">5' 8" (1.73 mts)</option>
+                          <option value="2.03">6' 8" (2.03 mts)</option>
+                          <option value="1.45">4' 9" (1.45 mts)</option>
+                          <option value="1.75">5' 9" (1.75 mts)</option>
+                          <option value="2.06">6' 9" (2.06 mts)</option>
+                          <option value="1.47">4' 10" (1.47 mts)</option>
+                          <option value="1.78">5' 10" (1.78 mts)</option>
+                          <option value="2.08">6' 10" (2.08 mts)</option>
+                          <option value="1.5">4' 11" (1.50 mts)</option>
+                          <option value="1.8">5' 11" (1.80 mts)</option>
+                          <option value="2.11">6' 11" (2.11 mts)</option>
+                          <option value="2.13">7' (2.13 mts) plus</option>
+
+                        </select>
                       </div>
                   </div>
 
@@ -286,7 +333,49 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-3">
                       <label>Annual Income</label>
-                      <input type="text" class="form-control" name="annual_income"/>
+                      <input type="hidden" class="form-control" name="annual_income"/>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="income_start">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
+
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="income_end">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
+
+                          </select>
+                        </div>
+                      </div>
                     </div>  
                     <div class="form-group col-md-3">
                       <label>Country of Residence</label>                        
@@ -619,410 +708,345 @@ is_login($root);
                 </div>
               <div>
               <div id='education' class='collapse'>
+                <div class="row">                  
+                <div class="form-group col-md-6">
+                  <label>UG Degree</label>
+                  <select class="browser-control custom-select" name="ug">
+                    <option></option>
+                    <option>B.A</option>
+                    <option>B.Arch</option>
+                    <option>B.Com</option>
+                    <option>B.Des</option>
+                    <option>B.E/B.Tech</option>
+                    <option>B.Ed</option>
+                    <option>B.IT</option>
+                    <option>B.Pharma</option>
+                    <option>B.Sc</option>
+                    <option>BAMS</option>
+                    <option>BBA</option>
+                    <option>BCA</option>
+                    <option>BDS</option>
+                    <option>BFA</option>
+                    <option>BHM</option>
+                    <option>BHMS</option>
+                    <option>BJMC</option>
+                    <option>BL/LLB</option>
+                    <option>BPT</option>
+                    <option>BVSc.</option>
+                    <option>MBBS</option>
+                    <option>other</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>PG Degree</label>
+                  <select class="browser-control custom-select" name="pg">
+                  <option></option>
+                    <option>CA</option>
+                    <option>M.A</option>
+                    <option>M.Arch</option>
+                    <option>M.Com</option>
+                    <option>M.Des</option>
+                    <option>M.E/M.Tech</option>
+                    <option>M.Ed</option>
+                    <option>M.Pharma</option>
+                    <option>M.Phil</option>
+                    <option>M.S (Medicine)</option>
+                    <option>M.S Engineering</option>
+                    <option>M.Sc</option>
+                    <option>MBA/PGDM</option>
+                    <option>MCA/PGDCA</option>
+                    <option>MCh</option>
+                    <option>MD</option>
+                    <option>MDS</option>
+                    <option>MFA</option>
+                    <option>MJMC</option>
+                    <option>ML/LLM</option>
+                    <option>MPT</option>
+                    <option>MSW</option>
+                    <option>MVSc.</option>
+                    <option>Ph.D</option>
+                  </select>
+                </div>
+                </div>
                 <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Education</label>                      
-                      <select class="browser-control custom-select" name="education">
-                        <option></option>
-                        <option>B.Arch</option>
-                        <option>B.Des</option>
-                        <option>B.E/B.Tech</option>
-                        <option>B.Pharma</option>
-                        <option>M.Arch</option>
-                        <option>M.Des</option>
-                        <option>M.E/M.Tech</option>
-                        <option>M.Pharma</option>
-                        <option>M.S. (Engineering)</option>
-                        <option>B.IT</option>
-                        <option>BCA</option>
-                        <option>MCA/PGDCA</option>
-                        <option>B.Com</option>
-                        <option>CA</option>
-                        <option>CFA</option>
-                        <option>CS</option>
-                        <option>ICWA</option>
-                        <option>M.Com</option>
-                        <option>BBA</option>
-                        <option>BHM</option>
-                        <option>MBA/PGDM</option>
-                        <option>BAMS</option>
-                        <option>BDS</option>
-                        <option>BHMS</option>
-                        <option>BPT</option>
-                        <option>BVSc.</option>
-                        <option>DM</option>
-                        <option>M.D.</option>
-                        <option>M.S. (Medicine)</option>
-                        <option>MBBS</option>
-                        <option>MCh</option>
-                        <option>MDS</option>
-                        <option>MPT</option>
-                        <option>MVSc.</option>
-                        <option>BL/LLB</option>
-                        <option>ML/LLM</option>
-                        <option>B.A</option>
-                        <option>B.Ed</option>
-                        <option>B.Sc</option>
-                        <option>BFA</option>
-                        <option>BJMC</option>
-                        <option>M.A</option>
-                        <option>M.Ed</option>
-                        <option>M.Sc</option>
-                        <option>MFA</option>
-                        <option>MJMC</option>
-                        <option>MSW</option>
-                        <option>M.Phil</option>
-                        <option>Ph. D</option>
-                        <option>High School</option>
-                        <option>Trade School</option>
-                        <option>Diploma</option>
-                        <option>Other</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>College</label>
-                      <input type="text" class="form-control" name="college"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Employed In</label>
-                      <select class="browser-control custom-select" name="employed_in">
-                        <option></option>
-                        <option>Private Sector</option>
-                        <option>Government/Public Sector</option>
-                        <option>Civil Services</option>
-                        <option>Defense</option>
-                        <option>Business/Self Employed</option>
-                        <option>Not working</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Employed As</label>
-                      <select class="browser-control custom-select" name="employed_as">
-                        <option></option>
-                        <option>Software Professional</option>
-                        <option>Hotels / Hospitality Professional</option>
-                        <option>Non – IT Engineer</option>
-                        <option>Sales Professional</option>
-                        <option>Banking Professional</option>
-                        <option>Govt. - Product manager</option>
-                        <option>Govt. - Doctor</option>
-                        <option>Electronics Engineer</option>
-                        <option>Chartered Accountant</option>
-                        <option>Cyber / Network Security</option>
-                        <option>Business - Lawyer & Legal Professional</option>
-                        <option>Analyst</option>
-                        <option>Sr. Manager /  Manager</option>
-                        <option>Project Manager - IT</option>
-                        <option>Project Lead - IT</option>
-                        <option>Corporate Planning</option>
-                        <option>Hardware / Telecom Engineer</option>
-                        <option>Marketing Professional</option>
-                        <option>Business - Business Owner /  Entrepreneur</option>
-                        <option>Defence - Air Force</option>
-                        <option>Subject Matter Expert</option>
-                        <option>Business - Hotels / Hospitality Professional</option>
-                        <option>Quality Assurance Engineer - IT</option>
-                        <option>Others</option>
-                        <option>Business - Others</option>
-                        <option>Research Professional</option>
-                        <option>Govt. - Security Professional</option>
-                        <option>Project Manager - Non IT</option>
-                        <option>Scientist</option>
-                        <option>Operations Management</option>
-                        <option>Govt. - Professor / Lecturer</option>
-                        <option>Govt. - Operator / Technician</option>
-                        <option>Accounting Professional</option>
-                        <option>Consultant</option>
-                        <option>Govt. - Software Professional</option>
-                        <option>Medical /  Healthcare Professional</option>
-                        <option>Business - Businessperson</option>
-                        <option>Operator / Technician</option>
-                        <option>Govt. - Airline Professional</option>
-                        <option>Govt. - Law Enforcement Officer</option>
-                        <option>Advertising Professional</option>
-                        <option>Auditor</option>
-                        <option>Architect</option>
-                        <option>Doctor</option>
-                        <option>Govt. - Research Professional</option>
-                        <option>HR Professional</option>
-                        <option>Quality Assurance Engineer</option>
-                        <option>Govt. - Scientist</option>
-                        <option>Govt. - Research Assistant</option>
-                        <option>Education Professional</option>
-                        <option>Research Assistant</option>
-                        <option>Business - Interior Designer</option>
-                        <option>Admin Professional</option>
-                        <option>Govt. - Corporate Planning</option>
-                        <option>Govt. - Education Professional</option>
-                        <option>Student</option>
-                        <option>Govt. - Non – IT Engineer</option>
-                        <option>Business - Advertising Professional</option>
-                        <option>Govt. - Project Manager - IT</option>
-                        <option>UI / UX designer</option>
-                        <option>Professor / Lecturer</option>
-                        <option>Flight Attendant</option>
-                        <option>Govt. - Consultant</option>
-                        <option>Film /  Entertainment Professional</option>
-                        <option>Lawyer & Legal Professional</option>
-                        <option>Program Manager</option>
-                        <option>Web / Graphic Designer</option>
-                        <option>Finance Professional</option>
-                        <option>Pilot</option>
-                        <option>Govt. - Operations Management</option>
-                        <option>Science Professional</option>
-                        <option>Business - Broker</option>
-                        <option>Product manager</option>
-                        <option>Airline Professional</option>
-                        <option>Security Professional</option>
-                        <option>Media Professional</option>
-                        <option>Pharmacist</option>
-                        <option>Govt.</option>
-                        <option>Business - CxO /  Chairman /  President /  Director</option>
-                        <option>Govt. - Banking Professional</option>
-                        <option>Customer Service</option>
-                        <option>Business - Agriculture Professional</option>
-                        <option>Not working</option>
-                        <option>Govt. - Quality Assurance Engineer</option>
-                        <option>CxO /  Chairman /  President /  Director</option>
-                        <option>Govt. - Dentist</option>
-                        <option>Govt. - Others</option>
-                        <option>Business - Travel Professional</option>
-                        <option>Business</option>
-                        <option>Business - Social Services /  NGO /  Volunteer</option>
-                        <option>Govt. - BPO / ITes Professional</option>
-                        <option>Defence - Defence Services</option>
-                        <option>Looking for job</option>
-                        <option>VP /  AVP /  GM /  DGM</option>
-                        <option>Govt. - Project Lead - IT</option>
-                        <option>Nurse</option>
-                        <option>Govt. - Analyst</option>
-                        <option>Defence - Navy</option>
-                        <option>Farming</option>
-                        <option>Teacher</option>
-                        <option>Govt. - Finance Professional</option>
-                        <option>Govt. - Medical /  Healthcare Professional</option>
-                        <option>BPO / ITes Professional</option>
-                        <option>Physiotherapist</option>
-                        <option>Govt. - Admin Professional</option>
-                        <option>Agent</option>
-                        <option>Govt. - Lawyer & Legal Professional</option>
-                        <option>Govt. - Clerk</option>
-                        <option>Business - Subject Matter Expert</option>
-                        <option>Singer</option>
-                        <option>Corporate Communication</option>
-                        <option>Business - Media Professional</option>
-                        <option>Govt. - Media Professional</option>
-                        <option>Govt. - Accounting Professional</option>
-                        <option>Business - Physiotherapist</option>
-                        <option>Govt. - HR Professional</option>
-                        <option>Merchant Naval Officer</option>
-                        <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
-                        <option>Business - Education Professional</option>
-                        <option>Defence - Law Enforcement Officer</option>
-                        <option>Govt. - Hotels / Hospitality Professional</option>
-                        <option>Interior Designer</option>
-                        <option>Govt. - Sales Professional</option>
-                        <option>Govt. - Physiotherapist</option>
-                        <option>Govt. - Corporate Communication</option>
-                        <option>Govt. - Customer Service</option>
-                        <option>Business - Research Professional</option>
-                        <option>Agriculture Professional</option>
-                        <option>Paramedic</option>
-                        <option>Actor / Model</option>
-                        <option>Business - Doctor</option>
-                        <option>Defence - Operator / Technician</option>
-                        <option>Business - Educational Institution Owner</option>
-                        <option>Clerk</option>
-                        <option>Govt. - Hardware / Telecom Engineer</option>
-                        <option>Govt. - Cyber / Network Security</option>
-                        <option>Social Services /  NGO /  Volunteer</option>
-                        <option>Govt. - Architect</option>
-                        <option>Defence - Cyber / Network Security</option>
-                        <option>Business - Chartered Accountant</option>
-                        <option>Govt. - Nurse</option>
-                        <option>Govt. - Surgeon</option>
-                        <option>Travel Professional</option>
-                        <option>Artist</option>
-                        <option>Business - Architect</option>
-                        <option>Govt. - Electronics Engineer</option>
-                        <option>Govt. - Police</option>
-                        <option>Business - Sportsperson</option>
-                        <option>Dentist</option>
-                        <option>Defence - Army</option>
-                        <option>Govt. - Quality Assurance Engineer - IT</option>
-                        <option>Business - Paramedic</option>
-                        <option>Business - Nurse</option>
-                        <option>Fashion Designer</option>
-                        <option>Govt. - Agriculture Professional</option>
-                        <option>Business - Actor / Model</option>
-                        <option>Business - Farming</option>
-                        <option>Mariner</option>
-                        <option>Fitness Professional</option>
-                        <option>Secretary / Front Office</option>
-                        <option>Business - Writer</option>
-                        <option>Defence - Quality Assurance Engineer</option>
-                        <option>Govt. - Secretary / Front Office</option>
-                        <option>Business - Artist</option>
-                        <option>Business - Agent</option>
-                        <option>Govt. - Science Professional</option>
-                        <option>Journalist</option>
-                        <option>Business - Teacher</option>
-                        <option>Govt. - Sr. Manager /  Manager</option>
-                        <option>PR Professional</option>
-                        <option>Defence - Teacher</option>
-                        <option>Business - Professor / Lecturer</option>
-                        <option>Business - Film /  Entertainment Professional</option>
-                        <option>Broker</option>
-                        <option>Govt. - Marketing Professional</option>
-                        <option>Govt. - Flight Attendant</option>
-                        <option>Defence - Clerk</option>
-                        <option>Retired</option>
-                        <option>Animator</option>
-                        <option>Govt. - Project Manager - Non IT</option>
-                        <option>Educational Institution Owner</option>
-                        <option>Govt. - Film /  Entertainment Professional</option>
-                        <option>Defence - Electronics Engineer</option>
-                        <option>Business - Surgeon</option>
-                        <option>Beautician</option>
-                        <option>Business - VP /  AVP /  GM /  DGM</option>
-                        <option>Govt. - Auditor</option>
-                        <option>Govt. - Program Manager</option>
-                        <option>Govt. - Paramedic</option>
-                        <option>Govt. - Teacher</option>
-                        <option>Sportsperson</option>
-                        <option>Writer</option>
-                        <option>Govt. - PR Professional</option>
-                        <option>Defence - Admin Professional</option>
-                        <option>Govt. - Pharmacist</option>
-                        <option>Defence - Paramedic</option>
-                        <option>Surgeon</option>
-                        <option>Business - Singer</option>
-                        <option>Business - Medical /  Healthcare Professional</option>
-                        <option>Govt. - Advertising Professional</option>
-                        <option>Govt. - Mariner</option>
-                        <option>Defence - Pilot</option>
-                        <option>Defence - Mariner</option>
-                        <option>Govt. - CxO /  Chairman /  President /  Director</option>
-                        <option>Business - Dentist</option>
-                        <option>Defence - Non – IT Engineer</option>
-                        <option>Business - Beautician</option>
-                        <option>Business - Psychologist</option>
-                        <option>Govt. - VP /  AVP /  GM /  DGM</option>
-                        <option>Librarian</option>
-                        <option>Business - Science Professional</option>
-                        <option>Govt. - Merchant Naval Officer</option>
-                        <option>Govt. - Chartered Accountant</option>
-                        <option>Govt. - Pilot</option>
-                        <option>Business - Scientist</option>
-                        <option>Psychologist</option>
-                        <option>Defence - Doctor</option>
-                        <option>Business - Research Assistant</option>
-                        <option>Govt. - Animator</option>
-                        <option>Business - Fashion Designer</option>
-                        <option>Business - Pharmacist</option>
-                        <option>Govt. - Politician</option>
-                        <option>Business - Animator</option>
-                        <option>Business - Fitness Professional</option>
-                        <option>Businessperson</option>
-                        <option>Business - Veterinary Doctor</option>
-                        <option>Govt. - Veterinary Doctor</option>
-                        <option>Govt. - Psychologist</option>
-                        <option>Govt. - Interior Designer</option>
-                        <option>Govt. - Subject Matter Expert</option>
-                        <option>Defence - Software Professional</option>
-                        <option>Govt. - Social Services /  NGO /  Volunteer</option>
-                        <option>Defence - Scientist</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Employed With</label>
-                      <input type="text" class="form-control" name="employed_with"/>
-                    </div>
-                    
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>School Name</label>
-                      <input type="text" class="form-control" name="school_name"/>
-                    </div>
-                    <div class="form-group">
-                      <label>UG</label>
-                      <select class="browser-control custom-select" name="ug">
-                        <option></option>
-                        <option>B.A</option>
-                        <option>B.Arch</option>
-                        <option>B.Com</option>
-                        <option>B.Des</option>
-                        <option>B.E/B.Tech</option>
-                        <option>B.Ed</option>
-                        <option>B.IT</option>
-                        <option>B.Pharma</option>
-                        <option>B.Sc</option>
-                        <option>BAMS</option>
-                        <option>BBA</option>
-                        <option>BCA</option>
-                        <option>BDS</option>
-                        <option>BFA</option>
-                        <option>BHM</option>
-                        <option>BHMS</option>
-                        <option>BJMC</option>
-                        <option>BL/LLB</option>
-                        <option>BPT</option>
-                        <option>BVSc.</option>
-                        <option>MBBS</option>
-                        <option>other</option>
-
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>PG</label>
-                      <select class="browser-control custom-select" name="pg">
-                      <option></option>
-                        <option>CA</option>
-                        <option>M.A</option>
-                        <option>M.Arch</option>
-                        <option>M.Com</option>
-                        <option>M.Des</option>
-                        <option>M.E/M.Tech</option>
-                        <option>M.Ed</option>
-                        <option>M.Pharma</option>
-                        <option>M.Phil</option>
-                        <option>M.S (Medicine)</option>
-                        <option>M.S Engineering</option>
-                        <option>M.Sc</option>
-                        <option>MBA/PGDM</option>
-                        <option>MCA/PGDCA</option>
-                        <option>MCh</option>
-                        <option>MD</option>
-                        <option>MDS</option>
-                        <option>MFA</option>
-                        <option>MJMC</option>
-                        <option>ML/LLM</option>
-                        <option>MPT</option>
-                        <option>MSW</option>
-                        <option>MVSc.</option>
-                        <option>Ph.D</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
+                  <div class="form-group col-md-6">
                       <label>UG College</label>
                       <input type="text" class="form-control" name="ug_college"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-6">
                       <label>PG College</label>
                       <input type="text" class="form-control" name="pg_college"/>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Employed In</label>
+                    <select class="browser-control custom-select" name="employed_in">
+                      <option></option>
+                      <option>Private Sector</option>
+                      <option>Government/Public Sector</option>
+                      <option>Civil Services</option>
+                      <option>Defense</option>
+                      <option>Business/Self Employed</option>
+                      <option>Not working</option>
+                    </select>
                   </div>
+                  <div class="form-group col-md-6">
+                    <label>Employed As</label>
+                    <select class="browser-control custom-select" name="employed_as">
+                      <option></option>
+                      <option>Software Professional</option>
+                      <option>Hotels / Hospitality Professional</option>
+                      <option>Non – IT Engineer</option>
+                      <option>Sales Professional</option>
+                      <option>Banking Professional</option>
+                      <option>Govt. - Product manager</option>
+                      <option>Govt. - Doctor</option>
+                      <option>Electronics Engineer</option>
+                      <option>Chartered Accountant</option>
+                      <option>Cyber / Network Security</option>
+                      <option>Business - Lawyer & Legal Professional</option>
+                      <option>Analyst</option>
+                      <option>Sr. Manager /  Manager</option>
+                      <option>Project Manager - IT</option>
+                      <option>Project Lead - IT</option>
+                      <option>Corporate Planning</option>
+                      <option>Hardware / Telecom Engineer</option>
+                      <option>Marketing Professional</option>
+                      <option>Business - Business Owner /  Entrepreneur</option>
+                      <option>Defence - Air Force</option>
+                      <option>Subject Matter Expert</option>
+                      <option>Business - Hotels / Hospitality Professional</option>
+                      <option>Quality Assurance Engineer - IT</option>
+                      <option>Others</option>
+                      <option>Business - Others</option>
+                      <option>Research Professional</option>
+                      <option>Govt. - Security Professional</option>
+                      <option>Project Manager - Non IT</option>
+                      <option>Scientist</option>
+                      <option>Operations Management</option>
+                      <option>Govt. - Professor / Lecturer</option>
+                      <option>Govt. - Operator / Technician</option>
+                      <option>Accounting Professional</option>
+                      <option>Consultant</option>
+                      <option>Govt. - Software Professional</option>
+                      <option>Medical /  Healthcare Professional</option>
+                      <option>Business - Businessperson</option>
+                      <option>Operator / Technician</option>
+                      <option>Govt. - Airline Professional</option>
+                      <option>Govt. - Law Enforcement Officer</option>
+                      <option>Advertising Professional</option>
+                      <option>Auditor</option>
+                      <option>Architect</option>
+                      <option>Doctor</option>
+                      <option>Govt. - Research Professional</option>
+                      <option>HR Professional</option>
+                      <option>Quality Assurance Engineer</option>
+                      <option>Govt. - Scientist</option>
+                      <option>Govt. - Research Assistant</option>
+                      <option>Education Professional</option>
+                      <option>Research Assistant</option>
+                      <option>Business - Interior Designer</option>
+                      <option>Admin Professional</option>
+                      <option>Govt. - Corporate Planning</option>
+                      <option>Govt. - Education Professional</option>
+                      <option>Student</option>
+                      <option>Govt. - Non – IT Engineer</option>
+                      <option>Business - Advertising Professional</option>
+                      <option>Govt. - Project Manager - IT</option>
+                      <option>UI / UX designer</option>
+                      <option>Professor / Lecturer</option>
+                      <option>Flight Attendant</option>
+                      <option>Govt. - Consultant</option>
+                      <option>Film /  Entertainment Professional</option>
+                      <option>Lawyer & Legal Professional</option>
+                      <option>Program Manager</option>
+                      <option>Web / Graphic Designer</option>
+                      <option>Finance Professional</option>
+                      <option>Pilot</option>
+                      <option>Govt. - Operations Management</option>
+                      <option>Science Professional</option>
+                      <option>Business - Broker</option>
+                      <option>Product manager</option>
+                      <option>Airline Professional</option>
+                      <option>Security Professional</option>
+                      <option>Media Professional</option>
+                      <option>Pharmacist</option>
+                      <option>Govt.</option>
+                      <option>Business - CxO /  Chairman /  President /  Director</option>
+                      <option>Govt. - Banking Professional</option>
+                      <option>Customer Service</option>
+                      <option>Business - Agriculture Professional</option>
+                      <option>Not working</option>
+                      <option>Govt. - Quality Assurance Engineer</option>
+                      <option>CxO /  Chairman /  President /  Director</option>
+                      <option>Govt. - Dentist</option>
+                      <option>Govt. - Others</option>
+                      <option>Business - Travel Professional</option>
+                      <option>Business</option>
+                      <option>Business - Social Services /  NGO /  Volunteer</option>
+                      <option>Govt. - BPO / ITes Professional</option>
+                      <option>Defence - Defence Services</option>
+                      <option>Looking for job</option>
+                      <option>VP /  AVP /  GM /  DGM</option>
+                      <option>Govt. - Project Lead - IT</option>
+                      <option>Nurse</option>
+                      <option>Govt. - Analyst</option>
+                      <option>Defence - Navy</option>
+                      <option>Farming</option>
+                      <option>Teacher</option>
+                      <option>Govt. - Finance Professional</option>
+                      <option>Govt. - Medical /  Healthcare Professional</option>
+                      <option>BPO / ITes Professional</option>
+                      <option>Physiotherapist</option>
+                      <option>Govt. - Admin Professional</option>
+                      <option>Agent</option>
+                      <option>Govt. - Lawyer & Legal Professional</option>
+                      <option>Govt. - Clerk</option>
+                      <option>Business - Subject Matter Expert</option>
+                      <option>Singer</option>
+                      <option>Corporate Communication</option>
+                      <option>Business - Media Professional</option>
+                      <option>Govt. - Media Professional</option>
+                      <option>Govt. - Accounting Professional</option>
+                      <option>Business - Physiotherapist</option>
+                      <option>Govt. - HR Professional</option>
+                      <option>Merchant Naval Officer</option>
+                      <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
+                      <option>Business - Education Professional</option>
+                      <option>Defence - Law Enforcement Officer</option>
+                      <option>Govt. - Hotels / Hospitality Professional</option>
+                      <option>Interior Designer</option>
+                      <option>Govt. - Sales Professional</option>
+                      <option>Govt. - Physiotherapist</option>
+                      <option>Govt. - Corporate Communication</option>
+                      <option>Govt. - Customer Service</option>
+                      <option>Business - Research Professional</option>
+                      <option>Agriculture Professional</option>
+                      <option>Paramedic</option>
+                      <option>Actor / Model</option>
+                      <option>Business - Doctor</option>
+                      <option>Defence - Operator / Technician</option>
+                      <option>Business - Educational Institution Owner</option>
+                      <option>Clerk</option>
+                      <option>Govt. - Hardware / Telecom Engineer</option>
+                      <option>Govt. - Cyber / Network Security</option>
+                      <option>Social Services /  NGO /  Volunteer</option>
+                      <option>Govt. - Architect</option>
+                      <option>Defence - Cyber / Network Security</option>
+                      <option>Business - Chartered Accountant</option>
+                      <option>Govt. - Nurse</option>
+                      <option>Govt. - Surgeon</option>
+                      <option>Travel Professional</option>
+                      <option>Artist</option>
+                      <option>Business - Architect</option>
+                      <option>Govt. - Electronics Engineer</option>
+                      <option>Govt. - Police</option>
+                      <option>Business - Sportsperson</option>
+                      <option>Dentist</option>
+                      <option>Defence - Army</option>
+                      <option>Govt. - Quality Assurance Engineer - IT</option>
+                      <option>Business - Paramedic</option>
+                      <option>Business - Nurse</option>
+                      <option>Fashion Designer</option>
+                      <option>Govt. - Agriculture Professional</option>
+                      <option>Business - Actor / Model</option>
+                      <option>Business - Farming</option>
+                      <option>Mariner</option>
+                      <option>Fitness Professional</option>
+                      <option>Secretary / Front Office</option>
+                      <option>Business - Writer</option>
+                      <option>Defence - Quality Assurance Engineer</option>
+                      <option>Govt. - Secretary / Front Office</option>
+                      <option>Business - Artist</option>
+                      <option>Business - Agent</option>
+                      <option>Govt. - Science Professional</option>
+                      <option>Journalist</option>
+                      <option>Business - Teacher</option>
+                      <option>Govt. - Sr. Manager /  Manager</option>
+                      <option>PR Professional</option>
+                      <option>Defence - Teacher</option>
+                      <option>Business - Professor / Lecturer</option>
+                      <option>Business - Film /  Entertainment Professional</option>
+                      <option>Broker</option>
+                      <option>Govt. - Marketing Professional</option>
+                      <option>Govt. - Flight Attendant</option>
+                      <option>Defence - Clerk</option>
+                      <option>Retired</option>
+                      <option>Animator</option>
+                      <option>Govt. - Project Manager - Non IT</option>
+                      <option>Educational Institution Owner</option>
+                      <option>Govt. - Film /  Entertainment Professional</option>
+                      <option>Defence - Electronics Engineer</option>
+                      <option>Business - Surgeon</option>
+                      <option>Beautician</option>
+                      <option>Business - VP /  AVP /  GM /  DGM</option>
+                      <option>Govt. - Auditor</option>
+                      <option>Govt. - Program Manager</option>
+                      <option>Govt. - Paramedic</option>
+                      <option>Govt. - Teacher</option>
+                      <option>Sportsperson</option>
+                      <option>Writer</option>
+                      <option>Govt. - PR Professional</option>
+                      <option>Defence - Admin Professional</option>
+                      <option>Govt. - Pharmacist</option>
+                      <option>Defence - Paramedic</option>
+                      <option>Surgeon</option>
+                      <option>Business - Singer</option>
+                      <option>Business - Medical /  Healthcare Professional</option>
+                      <option>Govt. - Advertising Professional</option>
+                      <option>Govt. - Mariner</option>
+                      <option>Defence - Pilot</option>
+                      <option>Defence - Mariner</option>
+                      <option>Govt. - CxO /  Chairman /  President /  Director</option>
+                      <option>Business - Dentist</option>
+                      <option>Defence - Non – IT Engineer</option>
+                      <option>Business - Beautician</option>
+                      <option>Business - Psychologist</option>
+                      <option>Govt. - VP /  AVP /  GM /  DGM</option>
+                      <option>Librarian</option>
+                      <option>Business - Science Professional</option>
+                      <option>Govt. - Merchant Naval Officer</option>
+                      <option>Govt. - Chartered Accountant</option>
+                      <option>Govt. - Pilot</option>
+                      <option>Business - Scientist</option>
+                      <option>Psychologist</option>
+                      <option>Defence - Doctor</option>
+                      <option>Business - Research Assistant</option>
+                      <option>Govt. - Animator</option>
+                      <option>Business - Fashion Designer</option>
+                      <option>Business - Pharmacist</option>
+                      <option>Govt. - Politician</option>
+                      <option>Business - Animator</option>
+                      <option>Business - Fitness Professional</option>
+                      <option>Businessperson</option>
+                      <option>Business - Veterinary Doctor</option>
+                      <option>Govt. - Veterinary Doctor</option>
+                      <option>Govt. - Psychologist</option>
+                      <option>Govt. - Interior Designer</option>
+                      <option>Govt. - Subject Matter Expert</option>
+                      <option>Defence - Software Professional</option>
+                      <option>Govt. - Social Services /  NGO /  Volunteer</option>
+                      <option>Defence - Scientist</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Employed With</label>
+                      <input type="text" class="form-control" name="employed_with"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>School Name</label>
+                      <input type="text" class="form-control" name="school_name"/>
+                    </div>
                 </div>
               </div>
               <div id='familydetails' class='collapse'>
                 <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
+                  
+                    <div class="form-group col-md-3">
                       <label>Father Occupation</label>
                       <select class="browser-control custom-select" name="father_is">
                         <option></option>
@@ -1035,8 +1059,8 @@ is_login($root);
                         <option>Expired</option>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <label>Mother is</label>
+                    <div class="form-group col-md-3">
+                      <label>Mother Occupation</label>
                       <select class="browser-control custom-select" name="mother_is">
                         <option></option>
                         <option>Service -Private</option>
@@ -1048,7 +1072,7 @@ is_login($root);
                         <option>Expired</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Family Value</label>
                       <select class="browser-control custom-select" name="family_value">
                         <option></option>
@@ -1059,7 +1083,18 @@ is_login($root);
                         <option>Conservative</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
+                      <label>Family Type</label>
+                      <select class="browser-control custom-select" name="family_type">
+                        <option></option>
+                        <option>Joint Family</option>
+                        <option>Nuclear family</option>
+                        <option>Others</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
                       <label>Affluence Level</label>
                       <select class="browser-control custom-select" name="affluence_level">
                         <option></option>
@@ -1069,239 +1104,64 @@ is_login($root);
                         <option>Rich/Affluent</option>
                         <option>Middle Class</option>
                       </select>
-
                     </div>
-                    <div class="form-group">
-                      <label>Native Country</label>
-                      
-                      <select class="browser-default custom-select" name="native_country" id="native_country">
-                          <option></option>
-                          <option>Afghanistan</option>
-                          <option>Albania</option>
-                          <option>Algeria</option>
-                          <option>American Samoa</option>
-                          <option>Andorra</option>
-                          <option>Angola</option>
-                          <option>Anguilla</option>
-                          <option>Antigua and Barbuda</option>
-                          <option>Argentina</option>
-                          <option>Armenia</option>
-                          <option>Australia</option>
-                          <option>Austria</option>
-                          <option>Azerbaijan</option>
-                          <option>Bahamas</option>
-                          <option>Bahrain</option>
-                          <option>Bangladesh</option>
-                          <option>Barbados</option>
-                          <option>Belarus</option>
-                          <option>Belgium</option>
-                          <option>Belize</option>
-                          <option>Benin</option>
-                          <option>Bermuda</option>
-                          <option>Bhutan</option>
-                          <option>Bolivia</option>
-                          <option>Bosnia and Herzegovina</option>
-                          <option>Botswana</option>
-                          <option>Brazil</option>
-                          <option>British Virgin Islands</option>
-                          <option>Brunei</option>
-                          <option>Bulgaria</option>
-                          <option>Burkina Faso</option>
-                          <option>Burundi</option>
-                          <option>Cambodia</option>
-                          <option>Cameroon</option>
-                          <option>Canada</option>
-                          <option>Canary Islands</option>
-                          <option>Cape Verde</option>
-                          <option>Cayman Islands</option>
-                          <option>Central African Republic</option>
-                          <option>Chad</option>
-                          <option>Chile</option>
-                          <option>China</option>
-                          <option>Colombia</option>
-                          <option>Comoros</option>
-                          <option>Congo</option>
-                          <option>Cook Islands</option>
-                          <option>Costa Rica</option>
-                          <option>Cote dIvoire</option>
-                          <option>Croatia</option>
-                          <option>Cuba</option>
-                          <option>Cyprus</option>
-                          <option>Czech Republic</option>
-                          <option>Denmark</option>
-                          <option>Dominica</option>
-                          <option>Dominican Republic</option>
-                          <option>East Timor</option>
-                          <option>Ecuador</option>
-                          <option>Egypt</option>
-                          <option>El Salvador</option>
-                          <option>Equatorial Guinea</option>
-                          <option>Eritrea</option>
-                          <option>Estonia</option>
-                          <option>Ethiopia</option>
-                          <option>Faeroe Islands</option>
-                          <option>Falkland Islands (Islas Malvinas)</option>
-                          <option>Fiji</option>
-                          <option>Finland</option>
-                          <option>France</option>
-                          <option>French Guiana</option>
-                          <option>French Polynesia</option>
-                          <option>Gambia</option>
-                          <option>Georgia</option>
-                          <option>Germany</option>
-                          <option>Ghana</option>
-                          <option>Gibraltar</option>
-                          <option>Greece</option>
-                          <option>Greenland</option>
-                          <option>Grenada</option>
-                          <option>Guadeloupe</option>
-                          <option>Guam</option>
-                          <option>Guatemala</option>
-                          <option>Guinea</option>
-                          <option>Guinea-Bissau</option>
-                          <option>Guyana</option>
-                          <option>Haiti</option>
-                          <option>Holland</option>
-                          <option>Honduras</option>
-                          <option>Hong Kong</option>
-                          <option>Hungary</option>
-                          <option>Iceland</option>
-                          <option>India</option>
-                          <option>Indonesia</option>
-                          <option>Iran</option>
-                          <option>Iraq</option>
-                          <option>Ireland</option>
-                          <option>Isle of Man</option>
-                          <option>Israel</option>
-                          <option>Italy</option>
-                          <option>Jamaica</option>
-                          <option>Japan</option>
-                          <option>Jordan</option>
-                          <option>Kazakhstan</option>
-                          <option>Kenya</option>
-                          <option>Kiribati</option>
-                          <option>Kuwait</option>
-                          <option>Kyrgyzstan</option>
-                          <option>Laos</option>
-                          <option>Latvia</option>
-                          <option>Lebanon</option>
-                          <option>Lesotho</option>
-                          <option>Liberia</option>
-                          <option>Libya</option>
-                          <option>Liechtenstein</option>
-                          <option>Lithuania</option>
-                          <option>Luxembourg</option>
-                          <option>Macau</option>
-                          <option>Macedonia</option>
-                          <option>Madagascar</option>
-                          <option>Malawi</option>
-                          <option>Malaysia</option>
-                          <option>Maldives</option>
-                          <option>Mali</option>
-                          <option>Malta</option>
-                          <option>Martinique</option>
-                          <option>Mauritius</option>
-                          <option>Mexico</option>
-                          <option>Moldova</option>
-                          <option>Monaco</option>
-                          <option>Mongolia</option>
-                          <option>Montenegro</option>
-                          <option>Montserrat</option>
-                          <option>Morocco</option>
-                          <option>Mozambique</option>
-                          <option>Myanmar</option>
-                          <option>Namibia</option>
-                          <option>Nepal</option>
-                          <option>Netherlands</option>
-                          <option>Netherlands Antilles</option>
-                          <option>New Caledonia</option>
-                          <option>New Zealand</option>
-                          <option>Nicaragua</option>
-                          <option>Niger</option>
-                          <option>Nigeria</option>
-                          <option>North Korea</option>
-                          <option>Norway</option>
-                          <option>Oman</option>
-                          <option>Others</option>
-                          <option>Pakistan</option>
-                          <option>Panama</option>
-                          <option>Papua New Guinea</option>
-                          <option>Paraguay</option>
-                          <option>Peru</option>
-                          <option>Philippines</option>
-                          <option>Poland</option>
-                          <option>Portugal</option>
-                          <option>Puerto Rico</option>
-                          <option>Qatar</option>
-                          <option>Reunion</option>
-                          <option>Romania</option>
-                          <option>Russia</option>
-                          <option>Rwanda</option>
-                          <option>Saint Kitts and Nevis</option>
-                          <option>Saint Lucia</option>
-                          <option>Saint Vincent and the Grenadines</option>
-                          <option>San Marino</option>
-                          <option>Sao Tome and Principe</option>
-                          <option>Saudi Arabia</option>
-                          <option>Senegal</option>
-                          <option>Serbia</option>
-                          <option>Seychelles</option>
-                          <option>Sierra Leone</option>
-                          <option>Singapore</option>
-                          <option>Slovakia</option>
-                          <option>Slovenia</option>
-                          <option>Solomon Islands</option>
-                          <option>Somalia</option>
-                          <option>South Africa</option>
-                          <option>South Korea</option>
-                          <option>Spain</option>
-                          <option>Sri Lanka</option>
-                          <option>Sudan</option>
-                          <option>Suriname</option>
-                          <option>Swaziland</option>
-                          <option>Sweden</option>
-                          <option>Switzerland</option>
-                          <option>Syrian Arab Republic</option>
-                          <option>Tahiti</option>
-                          <option>Taiwan</option>
-                          <option>Tajikistan</option>
-                          <option>Tanzania</option>
-                          <option>Thailand</option>
-                          <option>Togo</option>
-                          <option>Trinidad and Tobago</option>
-                          <option>Tunisia</option>
-                          <option>Turkey</option>
-                          <option>Turkmenistan</option>
-                          <option>Turks and Caicos Islands</option>
-                          <option>Uganda</option>
-                          <option>Ukraine</option>
-                          <option>United Arab Emirates</option>
-                          <option>United Kingdom</option>
-                          <option>United States</option>
-                          <option>United States Virgin Islands</option>
-                          <option>Uruguay</option>
-                          <option>Uzbekistan</option>
-                          <option>Vanuatu</option>
-                          <option>Vatican City State</option>
-                          <option>Venezuela</option>
-                          <option>Vietnam</option>
-                          <option>Wallis and Futuna</option>
-                          <option>Yemen</option>
-                          <option>Yugoslavia</option>
-                          <option>Zambia</option>
-                          <option>Zimbabwe</option>
+                    <div class="form-group col-md-3">
+                      <label>Family Income</label>
+                      <input type="hidden" name="family_income"/>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="family_income_start">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
 
-                        </select>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="family_income_end">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
+
+                          </select>
+                        </div>
+                      </div>                      
                     </div>
-                    <div class="form-group">
-                      <label>Native State</label>
-                      
-                      <select class="browser-control custom-select" name="native_state" id="native_state">
-                      </select>
+                    <div class="form-group col-md-3">
+                      <label>Net Worth</label>
+                      <input type="text" class="form-control" name="net_worth"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>About Family</label>
+                      <input type="text" class="form-control" name="about_family"/>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
+                  <div class="row">
+                    <div class="form-group col-md-3">
                       <label>Unmarried Sisters</label>
                       <select class="browser-control custom-select" name="unmarried_sisters">
                         <option>None</option>
@@ -1311,7 +1171,7 @@ is_login($root);
                         <option>3+</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Married Sisters</label>
                       <select class="browser-control custom-select" name="married_sisters">
                         <option>None</option>
@@ -1321,7 +1181,7 @@ is_login($root);
                         <option>3+</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Unmarried Brothers</label>
                       <select class="browser-control custom-select" name="unmarried_brothers">
                         <option>None</option>
@@ -1331,7 +1191,7 @@ is_login($root);
                         <option>3+</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Married Brothers</label>
                       <select class="browser-control custom-select" name="married_brothers">
                         <option>None</option>
@@ -1341,30 +1201,29 @@ is_login($root);
                         <option>3+</option>
                       </select>
                     </div>
-                    <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
                       <label>Other Property Details</label>
                       <input type="text" class="form-control" name="property_details"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Square Yards</label>
                       <input type="text" class="form-control" name="square_yards"/>
                     </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group col-md-3">
                       <label>Vehicles</label>
                       <input type="text" class="form-control" name="vehicles"/>
                     </div>
-                    <div class="form-group">
-                      <label>Net Worth</label>
-                      <input type="text" class="form-control" name="net_worth"/>
-                    </div>
-                    <div class="form-group">
+                    
+                    <div class="form-group col-md-3">
                       <label>Industry Type</label>                      
                       <select class="browser-default custom-select" name="industry_type" id="industry_type">
                       </select>
                     </div>
-                    <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
                       <label>Family Based out of</label>
                       
                       <select class="browser-default custom-select" name="family_based_out_of">
@@ -1586,362 +1445,10 @@ is_login($root);
 
                         </select>
                     </div>
-                    <div class="form-group">
-                      <label>Family Income</label>
-                      <input type="hidden" name="family_income"/>                      
-                    </div>
-                    <div class="form-group">
-                      <label>Family Type</label>
-                      <select class="browser-control custom-select" name="family_type">
-                        <option></option>
-                        <option>Joint Family</option>
-                        <option>Nuclear family</option>
-                        <option>Others</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>About Family</label>
-                      <input type="text" class="form-control" name="about_family"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id='horoscope' class='collapse'>
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>DOB</label>
-                      <input type="date" class="form-control" name="dob"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Birth Place</label>
-                      <input type="text" class="form-control" name="birth_place"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Birth Time</label>
-                      <input type="text" class="form-control" name="birth_time"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Manglik</label>
-                      <select class="browser-control custom-select" name="manglik">
-                        <option></option>
-                        <option>Manglik</option>
-                        <option>Angshik</option>
-                        <option>Non-manglik</option>
-                        <option>Don’t know</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Believes in Horoscope</label>
-                      <select class="browser-control custom-select" name="believes_in_horoscope">
-                        <option></option>
-                        <option>Must</option>
-                        <option>Not Necessary</option>
-
-                      </select>
-                    </div>
-                    </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Gotra</label>
-                      <input type="text" class="form-control" name="gotra"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Star</label>
-                      <input type="text" class="form-control" name="star"/>
-                    </div>
-                  
-                    <div class="form-group">
-                      <label>Raasi</label>
-                      <input type="text" class="form-control" name="rassi"/>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-              <div id='identity' class='collapse'>
-              <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="email" class="form-control" name="email"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Phone</label>
-                      <input type="text" class="form-control" name="phone"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Alternate Phone Number</label>
-                      <input type="text" class="form-control" name="alternate_phone"/>
-                    </div>
-                    <div class="form-group">
-                      <label>WhatsApp Number</label>
-                      <input type="text" class="form-control" name="whatsapp_number"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Residence Address</label>
-                      <input type="text" class="form-control" name="address"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Permanent Address</label>
-                      <input type="text" class="form-control" name="permanent_address"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Aadhar Verified</label>
-                      <select class="browser-control custom-select" name="aadhar_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Mobile Verified</label>
-                      <select class="browser-control custom-select" name="mobile_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Email Id Verified</label>
-                      <select class="browser-control custom-select" name="emailid_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Aadhar Proof</label>
-                      <select class="browser-control custom-select" name="aadhar_proof">
-                        <option></option>
-                        <option>Given</option>
-                        <option>Not Given</option>                        
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Instagram Id</label>
-                      <input type="text" class="form-control" name="instagram_id"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Facebook Id</label>
-                      <input type="text" class="form-control" name="facebook_id"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Linkedin Id</label>
-                      <input type="text" class="form-control" name="linkedin_id"/>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-              <div id='looks' class='collapse'>
-              <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Body Type</label>
-                      <select class="browser-control custom-select" name="body_type">
-                        <option></option>
-                        <option>Athletic</option>
-                        <option>Slim</option>
-                        <option>Average</option>
-                        <option>Heavy</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Food Habits</label>
-                      <select class="browser-control custom-select" name="food_habits">
-                        <option></option>
-                        <option>Eggetarian</option>
-                        <option>Jain</option>
-                        <option>Non Veg</option>
-                        <option>Vegetarian</option>
-                        <option>Fishetarian</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Drink</label>
-                      <select class="browser-control custom-select" name="drink">
-                        <option></option>
-                        <option>Drinks occasionally</option>
-                        <option>Doesn't drink</option>
-                        <option>Drinks</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Smoke</label>
-                      <select class="browser-control custom-select" name="smoke">
-                        <option></option>
-                        <option>Doesn't smoke</option>
-                        <option>Smokes</option>
-                        <option>Smokes occasionally</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Complexion</label>
-                      <select class="browser-control custom-select" name="complexion">
-                        <option></option>
-                        <option>Fair</option>
-                        <option>Wheatish</option>
-                        <option>Dark</option>
-                        <option>Very Fair</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Weight</label>
-                      <input type="text" class="form-control" name="weight"/>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label>Hair Type</label>
-                      <select class="browser-control custom-select" name="hair_type">
-                        <option></option>
-                        <option>Bald</option>
-                        <option>Semi- Bald</option>
-                        <option>Normal Hair</option>
-                        <option>Good Hair</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Looks</label>
-                      <select class="browser-control custom-select" name="looks">
-                        <option></option>
-                        <option>Extraordinary</option>
-                        <option>Classy</option>
-                        <option>Average</option>
-                        <option>Below Average</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Specs</label>
-                      <select class="browser-control custom-select" name="specs">
-                        <option></option>
-                        <option>Wear Specs</option>
-                        <option>Normal Eyesight</option>
-                        <option>Wear Lenses</option>
-
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Communication</label>
-                      <select class="browser-control custom-select" name="communication">
-                        <option></option>
-                        <option>Classy</option>
-                        <option>Good</option>
-                        <option>Average</option>
-                        <option>Normal</option>
-                        <option>Bad</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>  
-              </div>
-              <div id='partner' class='collapse'>
-              <div class="row">
-                  <div class="col-md-3">
-                  <div class="form-group">
-                        <label>SMOKER</label>
-                        <select class="browser-control custom-select" name="pp_smoker">
-                          <option></option>
-                          <option>Doesn'T Smoke</option>
-                          <option>Smokes</option>
-                          <option>Smokes Occasionally</option>
-
-                        </select>
-                  </div>
-                  <div class="form-group">
-                        <label>DRINKER</label>
-                        <select class="browser-control custom-select" name="pp_drinker">
-                          <option></option>
-                          <option>Drinks Occasionally</option>
-                          <option>Doesn'T Drink</option>
-                          <option>Drinks</option>
-
-                        </select>
-                  </div>
-                  <div class="form-group">
-                        <label>VEG/NON VEG</label>
-                        <select class="browser-control custom-select" name="pp_veg/non_veg">
-                          <option></option>
-                          <option>Eggetarian</option>
-                          <option>Jain</option>
-                          <option>Non Veg</option>
-                          <option>Vegetarian</option>
-
-                        </select>
-                  </div>
-                  <div class="form-group">
-                        <label>FROMAGE</label>
-                        <input type="number" class="form-control" name="pp_fromage"/>
-                  </div>
-                  <div class="form-group">
-                        <label>TOAGE</label>
-                        <input type="number" class="form-control" name="pp_toage"/>
-                  </div>
-                  <div class="form-group">
-                        <label>CASTE</label>
-                        <input type="text" class="form-control" name="pp_caste"/>
-                  </div>
-                  </div><div class="col-md-3">
-                  <div class="form-group">
-                        <label>EDUCATION QUALIFICATION</label>
-                        <input type="text" class="form-control" name="pp_education_qualification"/>
-                  </div>
-                  <div class="form-group">
-                        <label>MIN HEIGHT</label>
-                        <input type="text" class="form-control" name="pp_min_height"/>
-                  </div>
-                  <div class="form-group">
-                        <label>MAX HEIGHT</label>
-                        <input type="text" class="form-control" name="pp_max_height"/>
-                  </div>
-                  <div class="form-group">
-                        <label>MOTHER TONGUE</label>
-                        <input type="text" class="form-control" name="pp_mother_tongue"/>
-                  </div>
-                  <div class="form-group">
-                        <label>RELIGION</label>
-                        <input type="text" class="form-control" name="pp_religion"/>
-                  </div>
-                  <div class="form-group">
-                        <label>MANGLIK</label>
-                        <input type="text" class="form-control" name="pp_manglik"/>
-                  </div>
-                  </div><div class="col-md-3">
-                  <div class="form-group">
-                        <label>INCOME</label>
-                        <input type="text" class="form-control" name="pp_income"/>
-                  </div>
-                  <div class="form-group">
-                        <label>BODY TYPE</label>
-                        <input type="text" class="form-control" name="pp_body_type"/>
-                  </div>
-                  <div class="form-group">
-                        <label>Complexion</label>
-                        <input type="text" class="form-control" name="pp_complexion"/>
-                  </div>
-                  <div class="form-group">
-                        <label>CHALLENGED</label>
-                        <input type="text" class="form-control" name="pp_challenged"/>
-                  </div>
-                  <div class="form-group">
-                        <label>MARITAL STATUS</label>
-                        <input type="text" class="form-control" name="pp_marital_status"/>
-                  </div>
-                  <div class="form-group">
-                        <label>COUNTRY</label>
-                        
-                        <select class="browser-default custom-select" name="pp_country">
+                    <div class="form-group col-md-3">
+                      <label>Native Country</label>
+                      
+                      <select class="browser-default custom-select" name="native_country" id="native_country">
                           <option></option>
                           <option>Afghanistan</option>
                           <option>Albania</option>
@@ -2159,83 +1666,816 @@ is_login($root);
                           <option>Zimbabwe</option>
 
                         </select>
-                        
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Native State</label>
+                      
+                      <select class="browser-control custom-select" name="native_state" id="native_state">
+                      </select>
+                    </div>
+                </div>
+              </div>
+              <div id='horoscope' class='collapse'>
+                <div class="row">
+                  
+                    <div class="form-group col-md-6">
+                      <label>DOB</label>
+                      <input type="date" class="form-control" name="dob"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Age</label>
+                      <input type="text" class="form-control" disabled/>
+                    </div>
                   </div>
-                  </div><div class="col-md-3">
-                  <div class="form-group">
-                        <label>STATE</label>
-                        <input type="text" class="form-control" name="pp_state"/>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Birth Place</label>
+                      <input type="text" class="form-control" name="birth_place"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Birth Time</label>
+                      <input type="text" class="form-control" name="birth_time"/>
+                    </div>
                   </div>
-                  <div class="form-group">
-                        <label>HAVE CHILDREN</label>
-                        <input type="text" class="form-control" name="pp_have_children"/>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Gotra</label>
+                      <input type="text" class="form-control" name="gotra"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Star</label>
+                      <input type="text" class="form-control" name="star"/>
+                    </div>
                   </div>
-                  <div class="form-group">
-                        <label>EMPLOYED AS</label>
-                        <input type="text" class="form-control" name="pp_employed_as"/>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Manglik</label>
+                      <select class="browser-control custom-select" name="manglik">
+                        <option></option>
+                        <option>Manglik</option>
+                        <option>Angshik</option>
+                        <option>Non-manglik</option>
+                        <option>Don’t know</option>
+
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Believes in Horoscope</label>
+                      <select class="browser-control custom-select" name="believes_in_horoscope">
+                        <option></option>
+                        <option>Must</option>
+                        <option>Not Necessary</option>
+
+                      </select>
+                    </div>
                   </div>
-                  <div class="form-group">
-                        <label>About Partner</label>
-                        <input type="text" class="form-control" name="pp_about_partner"/>
+                  
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Raasi</label>
+                      <input type="text" class="form-control" name="rassi"/>
+                    </div>
                   </div>
-                  <div class="form-group">
-                        <label>Cant Get married to</label>
-                        <input type="text" class="form-control" name="pp_cant_get_married_to"/>
-                  </div>
-                  </div>
+                  
                 </div>  
               </div>
-              <div id='calling' class='collapse'>
+              <div id='identity' class='collapse'>
+              <div class="row">
+                  
+                    
+                    <div class="form-group col-md-4">
+                      <label>Phone</label>
+                      <input type="text" class="form-control" name="phone"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Alternate Phone Number</label>
+                      <input type="text" class="form-control" name="alternate_phone"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>WhatsApp Number</label>
+                      <input type="text" class="form-control" name="whatsapp_number"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-4">
+                      <label>Phone Number Verified</label>
+                      <select class="browser-control custom-select" name="mobile_verified">
+                        <option></option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Not provided</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Email</label>
+                      <input type="email" class="form-control" name="email"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Email Id Verified</label>
+                      <select class="browser-control custom-select" name="emailid_verified">
+                        <option></option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Not provided</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-4">
+                      <label>Residence Address</label>
+                      <input type="text" class="form-control" name="address"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Permanent Address</label>
+                      <input type="text" class="form-control" name="permanent_address"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Pincode</label>
+                      <input type="number" class="form-control" name="pinconde"/>
+                    </div>
+                  </div>
+                  <div class="row">                  
+                    <div class="form-group col-md-4">
+                      <label>Instagram Id</label>
+                      <input type="text" class="form-control" name="instagram_id"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Facebook Id</label>
+                      <input type="text" class="form-control" name="facebook_id"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Linkedin Id</label>
+                      <input type="text" class="form-control" name="linkedin_id"/>
+                    </div>
+                  </div>
+                  <div class="row">                  
+                    <div class="form-group col-md-4">
+                      <label>Aadhar Verified</label>
+                      <select class="browser-control custom-select" name="aadhar_verified">
+                        <option></option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Not provided</option>
+                      </select>
+                    </div>
+                    
+                    
+                    <div class="form-group col-md-4">
+                      <label>Aadhar Proof</label>
+                      <select class="browser-control custom-select" name="aadhar_proof">
+                        <option></option>
+                        <option>Given</option>
+                        <option>Not Given</option>                        
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label>Company WebSite</label>
+                      <input type="text" class="form-control" name="company_website"/>
+                    </div>
+                  
+                </div>  
+              </div>
+              <div id='looks' class='collapse'>
               <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
-                      <label>Last Calling date</label>
-                      <input type="text" class="form-control" name="last_calling_date"/>
+                      <label>Body Type</label>
+                      <select class="browser-control custom-select" name="body_type">
+                        <option></option>
+                        <option>Athletic</option>
+                        <option>Slim</option>
+                        <option>Average</option>
+                        <option>Heavy</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label>Calling for</label>
-                      <select class="browser-control custom-select" name="calling_for">
+                      <label>Food Habits</label>
+                      <select class="browser-control custom-select" name="food_habits">
                         <option></option>
-                        <option>Lead</option>
-                        <option>Sample Profile Status</option>
-                        <option>Profile Shared</option>
-                        <option>Meeting Confirmation</option>
-                        <option>Lead Payment</option>
+                        <option>Eggetarian</option>
+                        <option>Jain</option>
+                        <option>Non Veg</option>
+                        <option>Vegetarian</option>
+                        <option>Fishetarian</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Drink</label>
+                      <select class="browser-control custom-select" name="drink">
+                        <option></option>
+                        <option>Drinks occasionally</option>
+                        <option>Doesn't drink</option>
+                        <option>Drinks</option>
 
                       </select>
                     </div>
                     <div class="form-group">
-                      <label>Calling Status</label>
-                      <select class="browser-control custom-select" name="calling_status">
+                      <label>Smoke</label>
+                      <select class="browser-control custom-select" name="smoke">
                         <option></option>
-                        <option>Pending</option>
-                        <option>Follow Up</option>
-                        <option>Profile Rejected</option>
-                        <option>Don’T Call</option>
-                        <option>Accepted</option>
-                        <option>Wrong Number</option>
-                        <option>Already Married</option>
-                      </select>
+                        <option>Doesn't smoke</option>
+                        <option>Smokes</option>
+                        <option>Smokes occasionally</option>
 
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label>Calling Comments</label>
-                      <input type="text" class="form-control" name="calling_comments"/>
+                      <label>Complexion</label>
+                      <select class="browser-control custom-select" name="complexion">
+                        <option></option>
+                        <option>Fair</option>
+                        <option>Wheatish</option>
+                        <option>Dark</option>
+                        <option>Very Fair</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label>Profile Shortlisted for id</label>
-                      <input type="text" class="form-control" name="profile_shortlisted_for"/>
+                      <label>Weight</label>
+                      <input type="text" class="form-control" name="weight"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>Hair Type</label>
+                      <select class="browser-control custom-select" name="hair_type">
+                        <option></option>
+                        <option>Bald</option>
+                        <option>Semi- Bald</option>
+                        <option>Normal Hair</option>
+                        <option>Good Hair</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label>Response of shared Profile</label>
-                      <input type="text" class="form-control" name="response_shared_profile"/>
+                      <label>Looks</label>
+                      <select class="browser-control custom-select" name="looks">
+                        <option></option>
+                        <option>Extraordinary</option>
+                        <option>Classy</option>
+                        <option>Average</option>
+                        <option>Below Average</option>
+                      </select>
                     </div>
+                    <div class="form-group">
+                      <label>Specs</label>
+                      <select class="browser-control custom-select" name="specs">
+                        <option></option>
+                        <option>Wear Specs</option>
+                        <option>Normal Eyesight</option>
+                        <option>Wear Lenses</option>
+
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Communication</label>
+                      <select class="browser-control custom-select" name="communication">
+                        <option></option>
+                        <option>Classy</option>
+                        <option>Good</option>
+                        <option>Average</option>
+                        <option>Normal</option>
+                        <option>Bad</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+              <div id='partner' class='collapse'>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                        <label>From Age</label>
+                        <input type="number" class="form-control" name="pp_fromage"/>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>To Age</label>
+                        <input type="number" class="form-control" name="pp_toage"/>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Min Height</label>
+                        
+                        <select class="browser-control custom-select" name="pp_min_height">
+                          <option value="0"></option>
+                          <option value="1.22">4' 0" (1.22 mts)</option>
+                          <option value="1.52">5' 0" (1.52 mts)</option>
+                          <option value="1.83">6' 0" (1.83 mts)</option>
+                          <option value="1.24">4' 1" (1.24 mts)</option>
+                          <option value="1.55">5' 1" (1.55 mts)</option>
+                          <option value="1.85">6' 1" (1.85 mts)</option>
+                          <option value="1.28">4' 2" (1.28 mts)</option>
+                          <option value="1.58">5' 2" (1.58 mts)</option>
+                          <option value="1.88">6' 2" (1.88 mts)</option>
+                          <option value="1.31">4' 3" (1.31 mts)</option>
+                          <option value="1.6">5' 3" (1.60 mts)</option>
+                          <option value="1.91">6' 3" (1.91 mts)</option>
+                          <option value="1.34">4' 4" (1.34 mts)</option>
+                          <option value="1.63">5' 4" (1.63 mts)</option>
+                          <option value="1.93">6' 4" (1.93 mts)</option>
+                          <option value="1.35">4' 5" (1.35 mts)</option>
+                          <option value="1.65">5' 5" (1.65 mts)</option>
+                          <option value="1.96">6' 5" (1.96 mts)</option>
+                          <option value="1.37">4' 6" (1.37 mts)</option>
+                          <option value="1.68">5' 6" (1.68 mts)</option>
+                          <option value="1.98">6' 6" (1.98 mts)</option>
+                          <option value="1.4">4' 7" (1.40 mts)</option>
+                          <option value="1.7">5' 7" (1.70 mts)</option>
+                          <option value="2.01">6' 7" (2.01 mts)</option>
+                          <option value="1.42">4' 8" (1.42 mts)</option>
+                          <option value="1.73">5' 8" (1.73 mts)</option>
+                          <option value="2.03">6' 8" (2.03 mts)</option>
+                          <option value="1.45">4' 9" (1.45 mts)</option>
+                          <option value="1.75">5' 9" (1.75 mts)</option>
+                          <option value="2.06">6' 9" (2.06 mts)</option>
+                          <option value="1.47">4' 10" (1.47 mts)</option>
+                          <option value="1.78">5' 10" (1.78 mts)</option>
+                          <option value="2.08">6' 10" (2.08 mts)</option>
+                          <option value="1.5">4' 11" (1.50 mts)</option>
+                          <option value="1.8">5' 11" (1.80 mts)</option>
+                          <option value="2.11">6' 11" (2.11 mts)</option>
+                          <option value="2.13">7' (2.13 mts) plus</option>
+
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Max Height</label>
+                        
+                        <select class="browser-control custom-select" name="pp_max_height">
+                          <option value="0"></option>
+                          <option value="1.22">4' 0" (1.22 mts)</option>
+                          <option value="1.52">5' 0" (1.52 mts)</option>
+                          <option value="1.83">6' 0" (1.83 mts)</option>
+                          <option value="1.24">4' 1" (1.24 mts)</option>
+                          <option value="1.55">5' 1" (1.55 mts)</option>
+                          <option value="1.85">6' 1" (1.85 mts)</option>
+                          <option value="1.28">4' 2" (1.28 mts)</option>
+                          <option value="1.58">5' 2" (1.58 mts)</option>
+                          <option value="1.88">6' 2" (1.88 mts)</option>
+                          <option value="1.31">4' 3" (1.31 mts)</option>
+                          <option value="1.6">5' 3" (1.60 mts)</option>
+                          <option value="1.91">6' 3" (1.91 mts)</option>
+                          <option value="1.34">4' 4" (1.34 mts)</option>
+                          <option value="1.63">5' 4" (1.63 mts)</option>
+                          <option value="1.93">6' 4" (1.93 mts)</option>
+                          <option value="1.35">4' 5" (1.35 mts)</option>
+                          <option value="1.65">5' 5" (1.65 mts)</option>
+                          <option value="1.96">6' 5" (1.96 mts)</option>
+                          <option value="1.37">4' 6" (1.37 mts)</option>
+                          <option value="1.68">5' 6" (1.68 mts)</option>
+                          <option value="1.98">6' 6" (1.98 mts)</option>
+                          <option value="1.4">4' 7" (1.40 mts)</option>
+                          <option value="1.7">5' 7" (1.70 mts)</option>
+                          <option value="2.01">6' 7" (2.01 mts)</option>
+                          <option value="1.42">4' 8" (1.42 mts)</option>
+                          <option value="1.73">5' 8" (1.73 mts)</option>
+                          <option value="2.03">6' 8" (2.03 mts)</option>
+                          <option value="1.45">4' 9" (1.45 mts)</option>
+                          <option value="1.75">5' 9" (1.75 mts)</option>
+                          <option value="2.06">6' 9" (2.06 mts)</option>
+                          <option value="1.47">4' 10" (1.47 mts)</option>
+                          <option value="1.78">5' 10" (1.78 mts)</option>
+                          <option value="2.08">6' 10" (2.08 mts)</option>
+                          <option value="1.5">4' 11" (1.50 mts)</option>
+                          <option value="1.8">5' 11" (1.80 mts)</option>
+                          <option value="2.11">6' 11" (2.11 mts)</option>
+                          <option value="2.13">7' (2.13 mts) plus</option>
+
+                        </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                        <label>Religion</label>                        
+                        <select class="browser-default custom-select" name="pp_religion" id="pp_religion">
+                        <select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Caste</label>                        
+                        <select class="browser-default custom-select" name="pp_caste" id="pp_caste">
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Marital Status</label>                        
+                        <select class="browser-default custom-select" name="pp_marital_status">
+                          <option>Never Married</option>
+                          <option>Divorced</option>
+                          <option>Annulled</option>
+                          <option>Widowed</option>
+                          <option>Awaiting Divorce</option>
+                          <option>Married</option>
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Income</label>
+                        <input type="hidden" class="form-control" name="pp_income"/>
+                        <div class="row">
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="pp_income_start">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
+
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select class="browser-default custom-select " id="pp_income_end">
+                            <option value="0">Rs. 0</option>
+                            <option value="1">Rs.1 Lakh</option>
+                            <option value="2">Rs.2 Lakh</option>
+                            <option value="3">Rs.3 Lakh</option>
+                            <option value="4">Rs.4 Lakh</option>
+                            <option value="5">Rs.5 Lakh</option>
+                            <option value="5">Rs.7.5 Lakh</option>
+                            <option value="10">Rs.10 Lakh</option>
+                            <option value="15">Rs.15 Lakh</option>
+                            <option value="20">Rs.20 Lakh</option>
+                            <option value="25">Rs.25 Lakh</option>
+                            <option value="35">Rs.35 Lakh</option>
+                            <option value="50">Rs.50 Lakh</option>
+                            <option value="70">Rs.70 Lakh</option>
+                            <option value="100">Rs.1 Crore</option>
+
+                          </select>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>Country</label>                        
+                    <select class="browser-default custom-select" name="pp_country">
+                      <option></option>
+                      <option>Afghanistan</option>
+                      <option>Albania</option>
+                      <option>Algeria</option>
+                      <option>American Samoa</option>
+                      <option>Andorra</option>
+                      <option>Angola</option>
+                      <option>Anguilla</option>
+                      <option>Antigua and Barbuda</option>
+                      <option>Argentina</option>
+                      <option>Armenia</option>
+                      <option>Australia</option>
+                      <option>Austria</option>
+                      <option>Azerbaijan</option>
+                      <option>Bahamas</option>
+                      <option>Bahrain</option>
+                      <option>Bangladesh</option>
+                      <option>Barbados</option>
+                      <option>Belarus</option>
+                      <option>Belgium</option>
+                      <option>Belize</option>
+                      <option>Benin</option>
+                      <option>Bermuda</option>
+                      <option>Bhutan</option>
+                      <option>Bolivia</option>
+                      <option>Bosnia and Herzegovina</option>
+                      <option>Botswana</option>
+                      <option>Brazil</option>
+                      <option>British Virgin Islands</option>
+                      <option>Brunei</option>
+                      <option>Bulgaria</option>
+                      <option>Burkina Faso</option>
+                      <option>Burundi</option>
+                      <option>Cambodia</option>
+                      <option>Cameroon</option>
+                      <option>Canada</option>
+                      <option>Canary Islands</option>
+                      <option>Cape Verde</option>
+                      <option>Cayman Islands</option>
+                      <option>Central African Republic</option>
+                      <option>Chad</option>
+                      <option>Chile</option>
+                      <option>China</option>
+                      <option>Colombia</option>
+                      <option>Comoros</option>
+                      <option>Congo</option>
+                      <option>Cook Islands</option>
+                      <option>Costa Rica</option>
+                      <option>Cote dIvoire</option>
+                      <option>Croatia</option>
+                      <option>Cuba</option>
+                      <option>Cyprus</option>
+                      <option>Czech Republic</option>
+                      <option>Denmark</option>
+                      <option>Dominica</option>
+                      <option>Dominican Republic</option>
+                      <option>East Timor</option>
+                      <option>Ecuador</option>
+                      <option>Egypt</option>
+                      <option>El Salvador</option>
+                      <option>Equatorial Guinea</option>
+                      <option>Eritrea</option>
+                      <option>Estonia</option>
+                      <option>Ethiopia</option>
+                      <option>Faeroe Islands</option>
+                      <option>Falkland Islands (Islas Malvinas)</option>
+                      <option>Fiji</option>
+                      <option>Finland</option>
+                      <option>France</option>
+                      <option>French Guiana</option>
+                      <option>French Polynesia</option>
+                      <option>Gambia</option>
+                      <option>Georgia</option>
+                      <option>Germany</option>
+                      <option>Ghana</option>
+                      <option>Gibraltar</option>
+                      <option>Greece</option>
+                      <option>Greenland</option>
+                      <option>Grenada</option>
+                      <option>Guadeloupe</option>
+                      <option>Guam</option>
+                      <option>Guatemala</option>
+                      <option>Guinea</option>
+                      <option>Guinea-Bissau</option>
+                      <option>Guyana</option>
+                      <option>Haiti</option>
+                      <option>Holland</option>
+                      <option>Honduras</option>
+                      <option>Hong Kong</option>
+                      <option>Hungary</option>
+                      <option>Iceland</option>
+                      <option>India</option>
+                      <option>Indonesia</option>
+                      <option>Iran</option>
+                      <option>Iraq</option>
+                      <option>Ireland</option>
+                      <option>Isle of Man</option>
+                      <option>Israel</option>
+                      <option>Italy</option>
+                      <option>Jamaica</option>
+                      <option>Japan</option>
+                      <option>Jordan</option>
+                      <option>Kazakhstan</option>
+                      <option>Kenya</option>
+                      <option>Kiribati</option>
+                      <option>Kuwait</option>
+                      <option>Kyrgyzstan</option>
+                      <option>Laos</option>
+                      <option>Latvia</option>
+                      <option>Lebanon</option>
+                      <option>Lesotho</option>
+                      <option>Liberia</option>
+                      <option>Libya</option>
+                      <option>Liechtenstein</option>
+                      <option>Lithuania</option>
+                      <option>Luxembourg</option>
+                      <option>Macau</option>
+                      <option>Macedonia</option>
+                      <option>Madagascar</option>
+                      <option>Malawi</option>
+                      <option>Malaysia</option>
+                      <option>Maldives</option>
+                      <option>Mali</option>
+                      <option>Malta</option>
+                      <option>Martinique</option>
+                      <option>Mauritius</option>
+                      <option>Mexico</option>
+                      <option>Moldova</option>
+                      <option>Monaco</option>
+                      <option>Mongolia</option>
+                      <option>Montenegro</option>
+                      <option>Montserrat</option>
+                      <option>Morocco</option>
+                      <option>Mozambique</option>
+                      <option>Myanmar</option>
+                      <option>Namibia</option>
+                      <option>Nepal</option>
+                      <option>Netherlands</option>
+                      <option>Netherlands Antilles</option>
+                      <option>New Caledonia</option>
+                      <option>New Zealand</option>
+                      <option>Nicaragua</option>
+                      <option>Niger</option>
+                      <option>Nigeria</option>
+                      <option>North Korea</option>
+                      <option>Norway</option>
+                      <option>Oman</option>
+                      <option>Others</option>
+                      <option>Pakistan</option>
+                      <option>Panama</option>
+                      <option>Papua New Guinea</option>
+                      <option>Paraguay</option>
+                      <option>Peru</option>
+                      <option>Philippines</option>
+                      <option>Poland</option>
+                      <option>Portugal</option>
+                      <option>Puerto Rico</option>
+                      <option>Qatar</option>
+                      <option>Reunion</option>
+                      <option>Romania</option>
+                      <option>Russia</option>
+                      <option>Rwanda</option>
+                      <option>Saint Kitts and Nevis</option>
+                      <option>Saint Lucia</option>
+                      <option>Saint Vincent and the Grenadines</option>
+                      <option>San Marino</option>
+                      <option>Sao Tome and Principe</option>
+                      <option>Saudi Arabia</option>
+                      <option>Senegal</option>
+                      <option>Serbia</option>
+                      <option>Seychelles</option>
+                      <option>Sierra Leone</option>
+                      <option>Singapore</option>
+                      <option>Slovakia</option>
+                      <option>Slovenia</option>
+                      <option>Solomon Islands</option>
+                      <option>Somalia</option>
+                      <option>South Africa</option>
+                      <option>South Korea</option>
+                      <option>Spain</option>
+                      <option>Sri Lanka</option>
+                      <option>Sudan</option>
+                      <option>Suriname</option>
+                      <option>Swaziland</option>
+                      <option>Sweden</option>
+                      <option>Switzerland</option>
+                      <option>Syrian Arab Republic</option>
+                      <option>Tahiti</option>
+                      <option>Taiwan</option>
+                      <option>Tajikistan</option>
+                      <option>Tanzania</option>
+                      <option>Thailand</option>
+                      <option>Togo</option>
+                      <option>Trinidad and Tobago</option>
+                      <option>Tunisia</option>
+                      <option>Turkey</option>
+                      <option>Turkmenistan</option>
+                      <option>Turks and Caicos Islands</option>
+                      <option>Uganda</option>
+                      <option>Ukraine</option>
+                      <option>United Arab Emirates</option>
+                      <option>United Kingdom</option>
+                      <option>United States</option>
+                      <option>United States Virgin Islands</option>
+                      <option>Uruguay</option>
+                      <option>Uzbekistan</option>
+                      <option>Vanuatu</option>
+                      <option>Vatican City State</option>
+                      <option>Venezuela</option>
+                      <option>Vietnam</option>
+                      <option>Wallis and Futuna</option>
+                      <option>Yemen</option>
+                      <option>Yugoslavia</option>
+                      <option>Zambia</option>
+                      <option>Zimbabwe</option>
+
+                    </select>
+                        
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>State</label>                    
+                    <select class="browser-default custom-select" name="pp_state">
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Education</label>
+                    <input type="text" class="form-control" name="pp_education_qualification"/>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Employed as</label>                    
+                    <select class="browser-control custom-select" name="pp_employed_as" id="pp_employed_as">
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                        <label>Smoker</label>
+                        <select class="browser-control custom-select" name="pp_smoker">
+                          <option></option>
+                          <option>Doesn'T Smoke</option>
+                          <option>Smokes</option>
+                          <option>Smokes Occasionally</option>
+
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Drinker</label>
+                        <select class="browser-control custom-select" name="pp_drinker">
+                          <option></option>
+                          <option>Drinks Occasionally</option>
+                          <option>Doesn'T Drink</option>
+                          <option>Drinks</option>
+
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Veg/Non Veg</label>
+                        <select class="browser-control custom-select" name="pp_veg/non_veg">
+                          <option></option>
+                          <option>Eggetarian</option>
+                          <option>Jain</option>
+                          <option>Non Veg</option>
+                          <option>Vegetarian</option>
+
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Manglik</label>                        
+                        <select class="browser-default custom-select" name="pp_manglik" id="pp_manglik">
+                        </select>
+                  </div>
+                </div>
+                <div class="row">
+                  
+                  <div class="form-group col-md-3">
+                        <label>Mother Tongue</label>
+                        
+                        <select class="browser-default custom-select" name="pp_mother_tongue" id="pp_mother_tongue">
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Complexion</label>
+                        
+                        <select class="browser-default custom-select" name="pp_complexion" id="pp_complexion">
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Body Type</label>                        
+                        <select class="browser-default custom-select" name="pp_body_type" id="pp_body_type">
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Have Children</label>                        
+                        <select class="browser-default custom-select" name="pp_have_children" id="pp_have_children">
+                        </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                        <label>Challenged</label>                        
+                        <select class="browser-default custom-select" name="pp_challenged" id="pp_challenged">
+                        </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>About Partner</label>
+                        <input type="text" class="form-control" name="pp_about_partner"/>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              <div id='calling' class='collapse'>
+                <div class="row">                  
+                  <div class="form-group col-md-4">
+                    <label>Last Calling date</label>
+                    <input type="date" class="form-control" name="last_calling_date"/>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Calling for</label>
+                    <select class="browser-control custom-select" name="calling_for">
+                      <option></option>
+                      <option>Lead</option>
+                      <option>Sample Profile Status</option>
+                      <option>Profile Shared</option>
+                      <option>Meeting Confirmation</option>
+                      <option>Lead Payment</option>
+
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Calling Status</label>
+                    <select class="browser-control custom-select" name="calling_status">
+                      <option></option>
+                      <option>Pending</option>
+                      <option>Follow Up</option>
+                      <option>Profile Rejected</option>
+                      <option>Don’T Call</option>
+                      <option>Accepted</option>
+                      <option>Wrong Number</option>
+                      <option>Already Married</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label>Calling Comments</label>
+                    <input type="text" class="form-control" name="calling_comments"/>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Profile Shortlisted for id</label>
+                    <input type="text" class="form-control" name="profile_shortlisted_for"/>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Response of shared Profile</label>
+                    <input type="text" class="form-control" name="response_shared_profile"/>
                   </div>
                 </div>  
               </div>
               <div id='lead' class='collapse'>
               <div class="row">
-                  <div class="col-md-3">
+                <div class="col-md-3">
                   <div class="form-group">
                         <label>Lead-Date of calling</label>
                         <input type="date" class="form-control" name="lead_date"/>
@@ -2490,7 +2730,7 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
- <script src="scripts/js/registerprofile.js?ver=1.1116"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1117"></script>
 
 
 </body>
