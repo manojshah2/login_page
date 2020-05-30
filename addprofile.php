@@ -13,6 +13,11 @@ if($_SERVER['REQUEST_METHOD']!='POST'){
 
 $data = json_decode(file_get_contents('php://input'), true);
 
+$uniqueId="";
+if(isset($_REQUEST['uniqueId'])){
+    $uniqueId= $_REQUEST['uniqueId'];
+}
+
 function parseInput($param) {
     if(isset($_REQUEST[$param]) && $_REQUEST[$param]!=''){
         return $_REQUEST[$param];
@@ -174,20 +179,32 @@ $header = array(
     
 );
 
-foreach($data as $key => $value) {    
-    if (in_array($key, $header)){
-        $server_header=$header[$key];
-        if(strlen($server_header)>0){
+
+foreach($data as $key => $value) {  
+        
+    if (array_key_exists($key, $header)){
+        $server_header=$header[$key];        
+        if(strlen($server_header)>0){            
+            //echo $server_header."\n";  //for checking if value is coming or not.
             $server->AddParam($server_header,$data[$key]);    
         }
     }
 }
 
-$message1=$server->InsertQuery("tblprofiles");
+$message_status='';
+if(empty($uniqueId)){
+    $message1=$server->InsertQuery("tblprofiles");
+    $message_status='Profile has been added';
+}else{
+    $server->AddParam("ID",$uniqueId,true);
+    $message1=$server->UpdateQuery("tblprofiles");
+    $message_status='Profile has been Updated.';
+}
+
 
 if($message1["status"]){
     $message["status"]="success";
-    $message["message"]="successfully added";
+    $message["message"]=$message_status;
 }else{
     $message["status"]="failure";
     $message["message"]=$message1["error"];

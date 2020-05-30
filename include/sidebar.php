@@ -24,7 +24,7 @@
           <span>View Profile</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="register_profile.php">
+        <a class="nav-link" href="profile.php">
         <i class="fas fa-plus "></i>
           <span>Register Profile</span></a>
       </li>

@@ -126,7 +126,7 @@ is_login($root);
                                 targets: 0,
                                 render: function (data, type, row, meta)
                                 {
-                                    data = '<div class="row"><div class="col-6"><a href="">'+ data +'</a></div></div>';
+                                    data = '<div class="row"><div class="col-6"><a href="profile.php?id='+ data+'">'+ data +'</a></div></div>';
                                     return data;
                                 }
                             }]
