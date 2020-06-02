@@ -19,6 +19,7 @@ is_login($root);
 
   <!-- Custom fonts for this template-->
   <link href="css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="css/fm.tagator.jquery.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
@@ -285,22 +286,12 @@ is_login($root);
                   <div class="row">
                     
                       <div class="form-group col-md-3">
+
                         <label>Data Taken From</label>
-                        <select class="browser-default custom-select" name="source" id="source">
-                          <option>JS</option>
-                          <option>Shaadi.com</option>
-                          <option>BM</option>
-                          <option>LV</option>
-                          <option>A2Z</option>
-                          <option>Sheetal</option>
-                          <option>Other Matrimony alliance</option>
-                          <option>Newspaper</option>
-                          <option>Sulekha</option>
-                        </select>
+                        <input type="text" class="form-control" name="source" id="source" value="<?php echo getValue($profile,"source"); ?>" />                        
                       </div>
                       <div class="form-group col-md-3">
-                        <label>Profile Id</label>
-                        
+                        <label>Profile Id</label>                        
                         <input type="text" class="form-control" name="PID" value="<?php echo getValue($profile,"PID"); ?>"/>
                       </div>
                       <div class="form-group col-md-3">
@@ -315,31 +306,18 @@ is_login($root);
                     <div class="row">
                       <div class="form-group col-md-3">
                         <label>Gender</label>
-                        <select class="browser-default custom-select" name="gender">
-                          <option>Female</option>
-                          <option>Male</option>
-                        </select>
+                        <input type="text" class="form-control" name="gender" id="gender" value="<?php echo getValue($profile,"gender"); ?>" />
                       </div>
 
                       <div class="form-group col-md-3">
                         <label>Marital Status</label>
-                        <select class="browser-default custom-select" name="marital_status">
-                          <option>Never Married</option>
-                          <option>Divorced</option>
-                          <option>Annulled</option>
-                          <option>Widowed</option>
-                          <option>Awaiting Divorce</option>
-                          <option>Married</option>
-                        </select>
+                        <input type="text" class="form-control" name="marital_status" id="marital_status" value="<?php echo getValue($profile,"marital_status"); ?>" />
                       </div>
 
                       <div class="form-group col-md-3">
                         <label>Have Children</label>
-                        <select class="browser-default custom-select" name="has_children">                          
-                          <option>None</option>
-                          <option>Yes, Living Seperately</option>
-                          <option>Yes, Staying together</option>
-                        </select>
+                        <input type="text" class="form-control" name="has_children" id="has_children" value="<?php echo getValue($profile,"has_children"); ?>" />
+                        
                       </div> 
                     
 
@@ -394,117 +372,7 @@ is_login($root);
                   <div class="row">
                   <div class="form-group col-md-3">
                       <label>Occupation</label>
-                      <select class="browser-default custom-select" name="occupation">
-                        <option></option>
-                        <option>Accounting Professional</option>
-                        <option>Actor/Model</option>
-                        <option>Admin Professional</option>
-                        <option>Advertising Professional</option>
-                        <option>Agent</option>
-                        <option>Agriculture Professional</option>
-                        <option>Air Force</option>
-                        <option>Airline Professional</option>
-                        <option>Analyst</option>
-                        <option>Animator</option>
-                        <option>Architect</option>
-                        <option>Army</option>
-                        <option>Artist</option>
-                        <option>Auditor</option>
-                        <option>Banking Professional</option>
-                        <option>Beautician</option>
-                        <option>BPO/ITes Professional</option>
-                        <option>Broker</option>
-                        <option>Business Owner/ Entrepreneur</option>
-                        <option>Business/ Self Employed</option>
-                        <option>Businessperson</option>
-                        <option>Chartered Accountant</option>
-                        <option>Civil Services</option>
-                        <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
-                        <option>Clerk</option>
-                        <option>Consultant</option>
-                        <option>Corporate Communication</option>
-                        <option>Corporate Planning</option>
-                        <option>Customer Service</option>
-                        <option>CxO/ Chairman/ President/ Director</option>
-                        <option>Cyber/Network Security</option>
-                        <option>Defence</option>
-                        <option>Defence Services</option>
-                        <option>Dentist</option>
-                        <option>Doctor</option>
-                        <option>Education Professional</option>
-                        <option>Educational Institution Owner</option>
-                        <option>Electronics Engineer</option>
-                        <option>Farming</option>
-                        <option>Fashion Designer</option>
-                        <option>Film/ Entertainment Professional</option>
-                        <option>Finance Professional</option>
-                        <option>Fitness Professional</option>
-                        <option>Flight Attendant</option>
-                        <option>Government/Public Sector</option>
-                        <option>Hardware/Telecom Engineer</option>
-                        <option>Hotels/Hospitality Professional</option>
-                        <option>HR Professional</option>
-                        <option>Interior Designer</option>
-                        <option>Journalist</option>
-                        <option>Law Enforcement Officer</option>
-                        <option>Lawyer &amp; Legal Professional</option>
-                        <option>Librarian</option>
-                        <option>Looking for job</option>
-                        <option>Mariner</option>
-                        <option>Marketing Professional</option>
-                        <option>Media Professional</option>
-                        <option>Medical/ Healthcare Professional</option>
-                        <option>Merchant Naval Officer</option>
-                        <option>Navy</option>
-                        <option>Non – IT Engineer</option>
-                        <option>Not Working</option>
-                        <option>Not working</option>
-                        <option>Nurse</option>
-                        <option>Operations Management</option>
-                        <option>Operator/Technician</option>
-                        <option>Others</option>
-                        <option>Paramedic</option>
-                        <option>Pharmacist</option>
-                        <option>Physiotherapist</option>
-                        <option>Pilot</option>
-                        <option>Police</option>
-                        <option>Politician</option>
-                        <option>PR Professional</option>
-                        <option>Product manager</option>
-                        <option>Professor/Lecturer</option>
-                        <option>Program Manager</option>
-                        <option>Project Lead - IT</option>
-                        <option>Project Manager - IT</option>
-                        <option>Project Manager - Non IT</option>
-                        <option>Psychologist</option>
-                        <option>Quality Assurance Engineer</option>
-                        <option>Quality Assurance Engineer - IT</option>
-                        <option>Research Assistant</option>
-                        <option>Research Professional</option>
-                        <option>Retired</option>
-                        <option>Sales Professional</option>
-                        <option>Science Professional</option>
-                        <option>Scientist</option>
-                        <option>Secretary/Front Office</option>
-                        <option>Security Professional</option>
-                        <option>Singer</option>
-                        <option>Social Services/ NGO/ Volunteer</option>
-                        <option>Software Professional</option>
-                        <option>Sportsperson</option>
-                        <option>Sr. Manager/ Manager</option>
-                        <option>Student</option>
-                        <option>Subject Matter Expert</option>
-                        <option>Surgeon</option>
-                        <option>Teacher</option>
-                        <option>Travel Professional</option>
-                        <option>UI/UX designer</option>
-                        <option>Veterinary Doctor</option>
-                        <option>VP/ AVP/ GM/ DGM</option>
-                        <option>Web/Graphic Designer</option>
-                        <option>Writer</option>
-
-                      </select>
-                      
+                      <input type="text" class="form-control" name="occupation" id="occupation" value="<?php echo getValue($profile,"occupation"); ?>" />                      
                     </div>
                     <div class="form-group col-md-6">
                       <label>Annual Income</label>
@@ -567,233 +435,15 @@ is_login($root);
                       </div>
                     </div>  
                     <div class="form-group col-md-3">
-                      <label>Country of Residence</label>                        
-                      <select class="browser-default custom-select" name="country_of_residence" id="country_of_residence">
-                        <option></option>
-                        <option>Afghanistan</option>
-                        <option>Albania</option>
-                        <option>Algeria</option>
-                        <option>American Samoa</option>
-                        <option>Andorra</option>
-                        <option>Angola</option>
-                        <option>Anguilla</option>
-                        <option>Antigua and Barbuda</option>
-                        <option>Argentina</option>
-                        <option>Armenia</option>
-                        <option>Australia</option>
-                        <option>Austria</option>
-                        <option>Azerbaijan</option>
-                        <option>Bahamas</option>
-                        <option>Bahrain</option>
-                        <option>Bangladesh</option>
-                        <option>Barbados</option>
-                        <option>Belarus</option>
-                        <option>Belgium</option>
-                        <option>Belize</option>
-                        <option>Benin</option>
-                        <option>Bermuda</option>
-                        <option>Bhutan</option>
-                        <option>Bolivia</option>
-                        <option>Bosnia and Herzegovina</option>
-                        <option>Botswana</option>
-                        <option>Brazil</option>
-                        <option>British Virgin Islands</option>
-                        <option>Brunei</option>
-                        <option>Bulgaria</option>
-                        <option>Burkina Faso</option>
-                        <option>Burundi</option>
-                        <option>Cambodia</option>
-                        <option>Cameroon</option>
-                        <option>Canada</option>
-                        <option>Canary Islands</option>
-                        <option>Cape Verde</option>
-                        <option>Cayman Islands</option>
-                        <option>Central African Republic</option>
-                        <option>Chad</option>
-                        <option>Chile</option>
-                        <option>China</option>
-                        <option>Colombia</option>
-                        <option>Comoros</option>
-                        <option>Congo</option>
-                        <option>Cook Islands</option>
-                        <option>Costa Rica</option>
-                        <option>Cote dIvoire</option>
-                        <option>Croatia</option>
-                        <option>Cuba</option>
-                        <option>Cyprus</option>
-                        <option>Czech Republic</option>
-                        <option>Denmark</option>
-                        <option>Dominica</option>
-                        <option>Dominican Republic</option>
-                        <option>East Timor</option>
-                        <option>Ecuador</option>
-                        <option>Egypt</option>
-                        <option>El Salvador</option>
-                        <option>Equatorial Guinea</option>
-                        <option>Eritrea</option>
-                        <option>Estonia</option>
-                        <option>Ethiopia</option>
-                        <option>Faeroe Islands</option>
-                        <option>Falkland Islands (Islas Malvinas)</option>
-                        <option>Fiji</option>
-                        <option>Finland</option>
-                        <option>France</option>
-                        <option>French Guiana</option>
-                        <option>French Polynesia</option>
-                        <option>Gambia</option>
-                        <option>Georgia</option>
-                        <option>Germany</option>
-                        <option>Ghana</option>
-                        <option>Gibraltar</option>
-                        <option>Greece</option>
-                        <option>Greenland</option>
-                        <option>Grenada</option>
-                        <option>Guadeloupe</option>
-                        <option>Guam</option>
-                        <option>Guatemala</option>
-                        <option>Guinea</option>
-                        <option>Guinea-Bissau</option>
-                        <option>Guyana</option>
-                        <option>Haiti</option>
-                        <option>Holland</option>
-                        <option>Honduras</option>
-                        <option>Hong Kong</option>
-                        <option>Hungary</option>
-                        <option>Iceland</option>
-                        <option>India</option>
-                        <option>Indonesia</option>
-                        <option>Iran</option>
-                        <option>Iraq</option>
-                        <option>Ireland</option>
-                        <option>Isle of Man</option>
-                        <option>Israel</option>
-                        <option>Italy</option>
-                        <option>Jamaica</option>
-                        <option>Japan</option>
-                        <option>Jordan</option>
-                        <option>Kazakhstan</option>
-                        <option>Kenya</option>
-                        <option>Kiribati</option>
-                        <option>Kuwait</option>
-                        <option>Kyrgyzstan</option>
-                        <option>Laos</option>
-                        <option>Latvia</option>
-                        <option>Lebanon</option>
-                        <option>Lesotho</option>
-                        <option>Liberia</option>
-                        <option>Libya</option>
-                        <option>Liechtenstein</option>
-                        <option>Lithuania</option>
-                        <option>Luxembourg</option>
-                        <option>Macau</option>
-                        <option>Macedonia</option>
-                        <option>Madagascar</option>
-                        <option>Malawi</option>
-                        <option>Malaysia</option>
-                        <option>Maldives</option>
-                        <option>Mali</option>
-                        <option>Malta</option>
-                        <option>Martinique</option>
-                        <option>Mauritius</option>
-                        <option>Mexico</option>
-                        <option>Moldova</option>
-                        <option>Monaco</option>
-                        <option>Mongolia</option>
-                        <option>Montenegro</option>
-                        <option>Montserrat</option>
-                        <option>Morocco</option>
-                        <option>Mozambique</option>
-                        <option>Myanmar</option>
-                        <option>Namibia</option>
-                        <option>Nepal</option>
-                        <option>Netherlands</option>
-                        <option>Netherlands Antilles</option>
-                        <option>New Caledonia</option>
-                        <option>New Zealand</option>
-                        <option>Nicaragua</option>
-                        <option>Niger</option>
-                        <option>Nigeria</option>
-                        <option>North Korea</option>
-                        <option>Norway</option>
-                        <option>Oman</option>
-                        <option>Others</option>
-                        <option>Pakistan</option>
-                        <option>Panama</option>
-                        <option>Papua New Guinea</option>
-                        <option>Paraguay</option>
-                        <option>Peru</option>
-                        <option>Philippines</option>
-                        <option>Poland</option>
-                        <option>Portugal</option>
-                        <option>Puerto Rico</option>
-                        <option>Qatar</option>
-                        <option>Reunion</option>
-                        <option>Romania</option>
-                        <option>Russia</option>
-                        <option>Rwanda</option>
-                        <option>Saint Kitts and Nevis</option>
-                        <option>Saint Lucia</option>
-                        <option>Saint Vincent and the Grenadines</option>
-                        <option>San Marino</option>
-                        <option>Sao Tome and Principe</option>
-                        <option>Saudi Arabia</option>
-                        <option>Senegal</option>
-                        <option>Serbia</option>
-                        <option>Seychelles</option>
-                        <option>Sierra Leone</option>
-                        <option>Singapore</option>
-                        <option>Slovakia</option>
-                        <option>Slovenia</option>
-                        <option>Solomon Islands</option>
-                        <option>Somalia</option>
-                        <option>South Africa</option>
-                        <option>South Korea</option>
-                        <option>Spain</option>
-                        <option>Sri Lanka</option>
-                        <option>Sudan</option>
-                        <option>Suriname</option>
-                        <option>Swaziland</option>
-                        <option>Sweden</option>
-                        <option>Switzerland</option>
-                        <option>Syrian Arab Republic</option>
-                        <option>Tahiti</option>
-                        <option>Taiwan</option>
-                        <option>Tajikistan</option>
-                        <option>Tanzania</option>
-                        <option>Thailand</option>
-                        <option>Togo</option>
-                        <option>Trinidad and Tobago</option>
-                        <option>Tunisia</option>
-                        <option>Turkey</option>
-                        <option>Turkmenistan</option>
-                        <option>Turks and Caicos Islands</option>
-                        <option>Uganda</option>
-                        <option>Ukraine</option>
-                        <option>United Arab Emirates</option>
-                        <option>United Kingdom</option>
-                        <option>United States</option>
-                        <option>United States Virgin Islands</option>
-                        <option>Uruguay</option>
-                        <option>Uzbekistan</option>
-                        <option>Vanuatu</option>
-                        <option>Vatican City State</option>
-                        <option>Venezuela</option>
-                        <option>Vietnam</option>
-                        <option>Wallis and Futuna</option>
-                        <option>Yemen</option>
-                        <option>Yugoslavia</option>
-                        <option>Zambia</option>
-                        <option>Zimbabwe</option>
-
-                      </select>
+                      <label>Country of Residence</label>
+                      <input type="text" class="form-control" name="country_of_residence" id="country_of_residence" value="<?php echo getValue($profile,"country_of_residence"); ?>" />                                              
+                      
                     </div>
                   </div>  
                   <div class="row">
                     <div class="form-group col-md-3">
                       <label>State of Residence</label>
-                      
-                      <select class="browser-control custom-select" name="state_of_residence" id="state_of_residence">
-                      </select>
+                      <input type="text" class="form-control" name="state_of_residence" id="state_of_residence" value="<?php echo getValue($profile,"state_of_residence"); ?>" />                                                                    
                     </div>
                     <div class="form-group col-md-3">
                         <label>Religion</label>
@@ -834,62 +484,25 @@ is_login($root);
 
                     <div class="form-group col-md-3">
                       <label>Residential Status</label>
-                      <select class="browser-default custom-select" name="residential_status">
-                        <option>--Select--</option>
-                        <option>Citizen</option>
-                        <option>Permanent Resident</option>
-                        <option>Work Permit</option>
-                        <option>Student Visa</option>
-                        <option>Temporary Visa</option>
-                      </select>
+                      <input type="text" class="form-control" name="residential_status" id="residential_status" value="<?php echo getValue($profile,"residential_status"); ?>"  />
+                      
                     </div>
                       <div class="form-group col-md-3">
                         <label>Mother Tongue</label>
-                        <select class="browser-default custom-select" name="mother_tongue">
-                          <option>--Select--</option>
-                          <option>Hindi-Delhi</option>
-                          <option>Hindi-UP</option>
-                          <option>Punjabi</option>
-                          <option>Hindi-MP/CG</option>
-                          <option>Hindi- Bihar/Jharkhand</option>
-                          <option>Hindi-Rajasthan</option>
-                          <option>Haryanvi</option>
-                          <option>Himachali</option>
-                          <option>Kashmiri</option>
-                          <option>Sindhi</option>
-                          <option>Urdu</option>
-                          <option>Marathi</option>
-                          <option>Gujrati</option>
-                          <option>Kutchi</option>
-                          <option>Hindi-MP/CG</option>
-                          <option>Konkani</option>
-                          <option>Sindhi</option>
-                          <option>Tamil</option>
-                          <option>Telgu</option>
-                          <option>Kannada</option>
-                          <option>Malayalam</option>
-                          <option>Tulu</option>
-                          <option>Udu</option>
-                          <option>Bengali</option>
-                          <option>Oriya</option>
-                          <option>assamese</option>
-                          <option>Sikkim/Nepali</option>
-                          <option>English</option>
-                        </select>
+                        <input type="text" class="form-control" name="mother_tongue" id="mother_tongue" value="<?php echo getValue($profile,"mother_tongue"); ?>"  />  
+                        
                       </div>
                       
                       <div class="form-group col-md-3">
                         <label>Special Case</label>
-                        <select class="browser-default custom-select" name="special_case" id="special_case">
-                        </select>
+                        <input type="text" class="form-control" name="special_case" id="special_case" value="<?php echo getValue($profile,"special_case"); ?>"  />  
+                        
                       </div>
                       
                       <div class="form-group col-md-3">
                         <label>Criminal Record</label>
                         <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"CRIMINAL RECORD"); ?>"/>
                       </div>
-                     
-                  
                   </div>
                 </div>
               <div>
@@ -2703,7 +2316,11 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
- <script src="scripts/js/registerprofile.js?ver=1.1121"></script>
+ 
+ 
+ <script src="scripts/js/registerprofile.js?ver=1.1125"></script>
+ <script src="scripts/js/fm.tagator.jquery.js"></script>
+
 
 
 </body>
