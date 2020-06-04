@@ -23,7 +23,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="scripts/jquery/jquery.min.js?v=1000000"></script>
+  <script src="scripts/jquery/jquery.min.js?v=1000001"></script>
   <script src="scripts/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
