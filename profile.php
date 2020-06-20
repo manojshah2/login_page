@@ -2,6 +2,7 @@
 $root = "./";  
 include('config/config.inc.php');
 include_once("config/db.php");
+include_once("field_mapping.php");
 is_login($root); 
 ?>
 <!DOCTYPE html>
@@ -97,7 +98,7 @@ is_login($root);
                 <li class="nav-link"><a href="#familydetails" class="item" data-toggle='collapse'>Family Details</a></li>
                 <li class="nav-link"><a href="#horoscope"  class="item" data-toggle='collapse'>Horoscope Details</a></li>
                 <li class="nav-link"><a href="#identity" class="item" data-toggle='collapse'>Contact Details</a></li>
-                <li class="nav-link"><a href="#looks" class="item" data-toggle='collapse'>Looks & Lifestyle</a></li>
+                <li class="nav-link"><a href="#looks_div" class="item" data-toggle='collapse'>Looks & Lifestyle</a></li>
                 <li class="nav-link"><a href="#partner" class="item" data-toggle='collapse'>Partner Preference</a></li>
                 <li class="nav-link"><a href="#calling" class="item" data-toggle='collapse'>Calling Status</a></li>
                 <li class="nav-link"><a href="#lead" class="item" data-toggle='collapse'>Lead Generation</a></li>
@@ -110,156 +111,13 @@ is_login($root);
             <div class="col-md-9">
             <form id='profileFrm' novalidate>
             <?php
-              $header = array(    
-                "source"=>"Data Taken From",
-                "PID"=>"PID",
-                "email"=>"EMAIL",
-                "subscription_type"=>"SUBSCRIPTION TYPE",
-                "first_name"=>"FIRST NAME",
-                "last_name"=>"LAST NAME",
-                "gender"=>"GENDER",
-                "dob"=>"DOB",
-                "birth_place"=>"BIRTH PLACE",
-                "birth_time"=>"BIRTH TIME",
-                "manglik"=>"MANGLIK",
-                "gotra"=>"GOTRA",
-                "phone"=>"PHONE",
-                "marital_status"=>"MARITAL STATUS",
-                "height"=>"HEIGHT",
-                "education"=>"EDUCATION",
-                "school_name"=>"SCHOOL NAME",
-                "ug"=>"UG",
-                "pg"=>"PG",
-                "ug_college"=>"UG COLLEGE",
-                "pg_college"=>"PG COLLEGE",
-                "college"=>"COLLEGE",
-                "country_of_residence"=>"COUNTRY OF RESIDENCE",
-                "state_of_residence"=>"STATE OF RESIDENCE",
-                "city"=>"CITY",
-                "mother_tongue"=>"MOTHER TONGUE",
-                "family_based_out_of"=>"FAMILY BASED OUT OF",
-                "religion"=>"RELIGION",
-                "caste"=>"Caste",
-                "sub_caste"=>"SUB CASTE",
-                "complexion"=>"COMPLEXION",
-                "employed_in"=>"EMPLOYED IN",
-                "employed_as"=>"EMPLOYED AS",
-                "employed_with"=>"EMPLOYED WITH",
-                "annual_income"=>"ANNUAL INCOME",
-                "family_income"=>"FAMILY INCOME",
-                "family_type"=>"FAMILY TYPE",
-                "about_family"=>"ABOUT FAMILY",
-                "about"=>"ABOUT",
-                "father_is"=>"FATHER IS",
-                "mother_is"=>"MOTHER IS",
-                "family_value"=>"FAMILY VALUE",
-                "affluence_level"=>"AFFLUENCE LEVEL",
-                "native_country"=>"NATIVE COUNTRY",
-                "native_state"=>"NATIVE STATE",
-                "unmarried_sisters"=>"UNMARRIED SISTERS",
-                "married_sisters"=>"MARRIED SISTERS",
-                "unmarried_brothers"=>"UNMARRIED BROTHERS",
-                "has_children"=>"has children",
-                "married_brothers"=>"MARRIED BROTHERS",
-                "criminal_record"=>"CRIMINAL RECORD",
-                "special_case"=>"SPECIAL CASE",
-                "believes_in_horoscope"=>"BELIEVES IN HOROSCOPE",
-                "food_habits"=>"FOOD HABITS",
-                "drink"=>"DRINK",
-                "smoke"=>"SMOKE",
-                "pp_smoker"=>"PP SMOKER",
-                "pp_drinker"=>"PP DRINKER",
-                "pp_veg/non_veg"=>"PP VEG/NON VEG",
-                "pp_fromage"=>"PP FROMAGE",
-                "pp_toage"=>"PP TOAGE",
-                "pp_caste"=>"PP CASTE",
-                "pp_education_qualification"=>"PP EDUCATION QUALIFICATION",
-                "pp_min_height"=>"PP MIN HEIGHT",
-                "pp_max_height"=>"PP MAX HEIGHT",
-                "pp_mother_tongue"=>"PP MOTHER TONGUE",
-                "pp_religion"=>"PP RELIGION",
-                "pp_manglik"=>"PP MANGLIK",
-                "pp_income"=>"PP INCOME",
-                "pp_employed_as"=>"PP EMPLOYED AS",
-                "pp_body_type"=>"PP BODY TYPE",
-                "pp_challenged"=>"PP CHALLENGED",
-                "pp_marital_status"=>"PP MARITAL STATUS",
-                "pp_country"=>"PP COUNTRY",
-                "pp_state"=>"PP STATE",
-                "pp_have_children"=>"PP HAVE CHILDREN",
-                "pp_about_partner"=>"PP ABOUT PARTNER",
-                "photo_url"=>"PHOTO URL","body_type"=>"BODY TYPE",
-                "weight"=>"WEIGHT",
-                "added_date"=>"ADDED DATE",
-                "added_by"=>"ADDED BY",
-                "house"=>"HOUSE",
-                "address"=>"ADDRESS",
-                "square_yards"=>"SQUARE YARDS",
-                "hair_type"=>"HAIR TYPE",
-                "looks"=>"LOOKS",
-                "specs"=>"SPECS",
-                "net_worth"=>"NET WORTH",
-                "industry_type"=>"INDUSTRY TYPE",
-                "company_name"=>"COMPANY NAME",
-                "aadhar_verified"=>"AADHAR VERIFIED",
-                "mobile_verified"=>"MOBILE VERIFIED",
-                "emailid_verified"=>"EMAILID VERIFIED",
-                "aadhar_proof"=>"AADHAR PROOF",
-                "registration_fee"=>"REGISTRATION FEE",
-                "meeting_fee"=>"MEETING FEE",
-                "roka_charge"=>"ROKA CHARGE",
-                "weekly_profile"=>"WEEKLY PROFILE",
-                "duration"=>"DURATION",
-                "package_type"=>"PACKAGE TYPE",
-                "sold_by"=>"SOLD BY",
-                "meeting_finalised_by"=>"MEETING FINALISED BY",
-                "meeting_date"=>"MEETING DATE",
-                "meeting_time"=>"MEETING TIME",
-                "meeting_place"=>"MEETING PLACE",
-                "meeting_lvm_id"=>"MEETING LVM ID",
-                "client_type"=>"CLIENT TYPE",
-                "residential_status"=>"Residential Status",
-                "property_details"=>"Property Details",
-                "vehicles"=>"Vehicles",
-                "star"=>"Star",
-                "rassi"=>"Rassi",
-                "alternate_phone"=>"Alternate Phone",
-                "whatsapp_number"=>"Whatsapp Number",
-                "permanent_address"=>"Permanent Address",
-                "instagram_id"=>"Instagram Id",
-                "facebook_id"=>"Facebook Id",
-                "linkedin_id"=>"Linkedin Id",
-                "communication"=>"Communication",
-                "pp_complexion"=>"PP Complexion",
-                "pp_cant_get_married_to"=>"PP Cant Get Married To",
-                "last_calling_date"=>"Last Calling Date",
-                "calling_status"=>"Calling Status",
-                "calling_comments"=>"Calling Comments",
-                "profile_shortlisted_for"=>"Profile Shortlisted For",
-                "response_shared_profile"=>"Response Shared Profile",
-                "lead_date"=>"Lead Date",
-                "lead_follow_up"=>"Lead Follow Up",
-                "lead_follow_up_time"=>"Lead Follow Up Time",
-                "lead_comment"=>"Lead Comment",
-                "lead_shared_id"=>"Lead Shared Id",
-                "lead_shortlisted_id"=>"Lead Shortlisted Id",
-                "lead_biodata"=>"Lead Biodata",
-                "lead_matrimony_picture"=>"Lead Matrimony Picture",
-                "meeting_status"=>"Meeting Status",
-                "rejection_reason"=>"Rejection Reason",
-                "rejection_comments"=>"Rejection Comments",
-                "payment_given"=>"Payment Given",
-                "payment_remaining"=>"Payment Remaining",
-                "next_payment_due_date"=>"Next Payment Due Date",
-                "payment_comments"=>"Payment Comments"
-                
-            );
+              
               function getValue($profile1,$database_col_name){
                   global $header;
                   if(array_key_exists($database_col_name,$header)){
                     $actual_col=$header[$database_col_name];
                     if(array_key_exists($actual_col,$profile1)){
-                      return $profile1[$actual_col];
+                      return htmlspecialchars($profile1[$actual_col],ENT_QUOTES,"UTF-8");
                     }else{
                       return "";
                     }
@@ -323,49 +181,8 @@ is_login($root);
 
                       <div class="form-group col-md-3">
                         <label>Height</label>
+                        <input type="text" class="form-control" name="height" id="height" value="<?php echo getValue($profile,"height"); ?>" />
                         
-                        <select class="browser-control custom-select" name="height">
-                          <option value="0"></option>
-                          <option value="1.22">4 '0" (1.22mts)</option>
-                          <option value="1.24">4 '1" (1.24mts)</option>
-                          <option value="1.28">4 '2" (1.28mts)</option>
-                          <option value="1.31">4 '3" (1.31mts)</option>
-                          <option value="1.34">4 '4" (1.34mts)</option>
-                          <option value="1.35">4 '5" (1.35mts)</option>
-                          <option value="1.37">4 '6" (1.37mts)</option>
-                          <option value="1.4">4 '7" (1.40mts)</option>
-                          <option value="1.42">4 '8" (1.42mts)</option>
-                          <option value="1.45">4 '9" (1.45mts)</option>
-                          <option value="1.47">4 '10" (1.47mts)</option>
-                          <option value="1.5">4 '11" (1.50mts)</option>
-                          <option value="1.52">5 '0" (1.52mts)</option>
-                          <option value="1.55">5 '1" (1.55mts)</option>
-                          <option value="1.58">5 '2" (1.58mts)</option>
-                          <option value="1.6">5 '3" (1.60mts)</option>
-                          <option value="1.63">5 '4" (1.63mts)</option>
-                          <option value="1.65">5 '5" (1.65mts)</option>
-                          <option value="1.68">5 '6" (1.68mts)</option>
-                          <option value="1.7">5 '7" (1.70mts)</option>
-                          <option value="1.73">5 '8" (1.73mts)</option>
-                          <option value="1.75">5 '9" (1.75mts)</option>
-                          <option value="1.78">5 '10" (1.78mts)</option>
-                          <option value="1.8">5 '11" (1.80mts)</option>
-                          <option value="1.83">6 '0" (1.83mts)</option>
-                          <option value="1.85">6 '1" (1.85mts)</option>
-                          <option value="1.88">6 '2" (1.88mts)</option>
-                          <option value="1.91">6 '3" (1.91mts)</option>
-                          <option value="1.93">6 '4" (1.93mts)</option>
-                          <option value="1.96">6 '5" (1.96mts)</option>
-                          <option value="1.98">6 '6" (1.98mts)</option>
-                          <option value="2.01">6 '7" (2.01mts)</option>
-                          <option value="2.03">6 '8" (2.03mts)</option>
-                          <option value="2.06">6 '9" (2.06mts)</option>
-                          <option value="2.08">6 '10" (2.08mts)</option>
-                          <option value="2.11">6 '11" (2.11mts)</option>
-                          <option value="2.13">7 ' (2.13mts)plus</option>
-
-                          
-                        </select>
                       </div>
                   </div>
 
@@ -376,61 +193,13 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-6">
                       <label>Annual Income</label>
-                      <input type="hidden" class="form-control" name="annual_income"/>
+                      
                       <div class="row">
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="income_start">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                        <input type="text" class="form-control" name="annual_income1" id="annual_income1" value="<?php echo getValue($profile,"annual_income1"); ?>" />                      
                         </div>
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="income_end">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                        <input type="text" class="form-control" name="annual_income2" id="annual_income2" value="<?php echo getValue($profile,"annual_income2"); ?>" />                      
                         </div>
                       </div>
                     </div>  
@@ -447,25 +216,13 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-3">
                         <label>Religion</label>
-                        <select class="browser-default custom-select" name="religion" id="religion">
-                          <option>--Select--</option>
-                          <option>Muslim</option>
-                          <option>Hindu</option>
-                          <option>Sikh</option>
-                          <option>Buddhist</option>
-                          <option>Christian</option>
-                          <option>Jain</option>
-                          <option>Other</option>
-                          <option>Parsi</option>
-                          <option>Jewish</option>
-                          <option>Bahai</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="religion" id="religion" value="<?php echo getValue($profile,"religion"); ?>" />                                                                    
+                        
                     </div>                    
-                    <div class="form-group col-md-3">
-                        <label>Caste</label>                        
-                        <select class="browser-control custom-select" name="caste" id="caste">
-                        </select>
+                    <div class="form-group col-md-3 d-none" id="caste_div">
+                        <label>Caste</label> 
+                        <input type="text" class="form-control" name="caste" id="caste" value="<?php echo getValue($profile,"caste"); ?>" />                                                                                           
+                        
                       </div>
                     <div class="form-group col-md-3">
                         <label>Sub-Caste</label>
@@ -501,7 +258,7 @@ is_login($root);
                       
                       <div class="form-group col-md-3">
                         <label>Criminal Record</label>
-                        <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"CRIMINAL RECORD"); ?>"/>
+                        <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"criminal_record"); ?>"/>
                       </div>
                   </div>
                 </div>
@@ -510,61 +267,12 @@ is_login($root);
                 <div class="row">                  
                 <div class="form-group col-md-6">
                   <label>UG Degree</label>
-                  <select class="browser-control custom-select" name="ug">
-                    <option></option>
-                    <option>B.A</option>
-                    <option>B.Arch</option>
-                    <option>B.Com</option>
-                    <option>B.Des</option>
-                    <option>B.E/B.Tech</option>
-                    <option>B.Ed</option>
-                    <option>B.IT</option>
-                    <option>B.Pharma</option>
-                    <option>B.Sc</option>
-                    <option>BAMS</option>
-                    <option>BBA</option>
-                    <option>BCA</option>
-                    <option>BDS</option>
-                    <option>BFA</option>
-                    <option>BHM</option>
-                    <option>BHMS</option>
-                    <option>BJMC</option>
-                    <option>BL/LLB</option>
-                    <option>BPT</option>
-                    <option>BVSc.</option>
-                    <option>MBBS</option>
-                    <option>other</option>
-                  </select>
+                  <input type="text" class="form-control" name="ug" id="ug" value="<?php echo getValue($profile,"ug"); ?>"  />  
+                  
                 </div>
                 <div class="form-group col-md-6">
                   <label>PG Degree</label>
-                  <select class="browser-control custom-select" name="pg">
-                  <option></option>
-                    <option>CA</option>
-                    <option>M.A</option>
-                    <option>M.Arch</option>
-                    <option>M.Com</option>
-                    <option>M.Des</option>
-                    <option>M.E/M.Tech</option>
-                    <option>M.Ed</option>
-                    <option>M.Pharma</option>
-                    <option>M.Phil</option>
-                    <option>M.S (Medicine)</option>
-                    <option>M.S Engineering</option>
-                    <option>M.Sc</option>
-                    <option>MBA/PGDM</option>
-                    <option>MCA/PGDCA</option>
-                    <option>MCh</option>
-                    <option>MD</option>
-                    <option>MDS</option>
-                    <option>MFA</option>
-                    <option>MJMC</option>
-                    <option>ML/LLM</option>
-                    <option>MPT</option>
-                    <option>MSW</option>
-                    <option>MVSc.</option>
-                    <option>Ph.D</option>
-                  </select>
+                  <input type="text" class="form-control" name="pg" id="pg" value="<?php echo getValue($profile,"pg"); ?>"  />  
                 </div>
                 </div>
                 <div class="row">
@@ -580,255 +288,13 @@ is_login($root);
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label>Employed In</label>
-                    <select class="browser-control custom-select" name="employed_in">
-                      <option></option>
-                      <option>Private Sector</option>
-                      <option>Government/Public Sector</option>
-                      <option>Civil Services</option>
-                      <option>Defense</option>
-                      <option>Business/Self Employed</option>
-                      <option>Not working</option>
-                    </select>
+                    <input type="text" class="form-control" name="employed_in" id="employed_in" value="<?php echo getValue($profile,"employed_in"); ?>"/>
+                    
                   </div>
                   <div class="form-group col-md-6">
                     <label>Employed As</label>
-                    <select class="browser-control custom-select" name="employed_as">
-                      <option></option>
-                      <option>Software Professional</option>
-                      <option>Hotels / Hospitality Professional</option>
-                      <option>Non – IT Engineer</option>
-                      <option>Sales Professional</option>
-                      <option>Banking Professional</option>
-                      <option>Govt. - Product manager</option>
-                      <option>Govt. - Doctor</option>
-                      <option>Electronics Engineer</option>
-                      <option>Chartered Accountant</option>
-                      <option>Cyber / Network Security</option>
-                      <option>Business - Lawyer & Legal Professional</option>
-                      <option>Analyst</option>
-                      <option>Sr. Manager /  Manager</option>
-                      <option>Project Manager - IT</option>
-                      <option>Project Lead - IT</option>
-                      <option>Corporate Planning</option>
-                      <option>Hardware / Telecom Engineer</option>
-                      <option>Marketing Professional</option>
-                      <option>Business - Business Owner /  Entrepreneur</option>
-                      <option>Defence - Air Force</option>
-                      <option>Subject Matter Expert</option>
-                      <option>Business - Hotels / Hospitality Professional</option>
-                      <option>Quality Assurance Engineer - IT</option>
-                      <option>Others</option>
-                      <option>Business - Others</option>
-                      <option>Research Professional</option>
-                      <option>Govt. - Security Professional</option>
-                      <option>Project Manager - Non IT</option>
-                      <option>Scientist</option>
-                      <option>Operations Management</option>
-                      <option>Govt. - Professor / Lecturer</option>
-                      <option>Govt. - Operator / Technician</option>
-                      <option>Accounting Professional</option>
-                      <option>Consultant</option>
-                      <option>Govt. - Software Professional</option>
-                      <option>Medical /  Healthcare Professional</option>
-                      <option>Business - Businessperson</option>
-                      <option>Operator / Technician</option>
-                      <option>Govt. - Airline Professional</option>
-                      <option>Govt. - Law Enforcement Officer</option>
-                      <option>Advertising Professional</option>
-                      <option>Auditor</option>
-                      <option>Architect</option>
-                      <option>Doctor</option>
-                      <option>Govt. - Research Professional</option>
-                      <option>HR Professional</option>
-                      <option>Quality Assurance Engineer</option>
-                      <option>Govt. - Scientist</option>
-                      <option>Govt. - Research Assistant</option>
-                      <option>Education Professional</option>
-                      <option>Research Assistant</option>
-                      <option>Business - Interior Designer</option>
-                      <option>Admin Professional</option>
-                      <option>Govt. - Corporate Planning</option>
-                      <option>Govt. - Education Professional</option>
-                      <option>Student</option>
-                      <option>Govt. - Non – IT Engineer</option>
-                      <option>Business - Advertising Professional</option>
-                      <option>Govt. - Project Manager - IT</option>
-                      <option>UI / UX designer</option>
-                      <option>Professor / Lecturer</option>
-                      <option>Flight Attendant</option>
-                      <option>Govt. - Consultant</option>
-                      <option>Film /  Entertainment Professional</option>
-                      <option>Lawyer & Legal Professional</option>
-                      <option>Program Manager</option>
-                      <option>Web / Graphic Designer</option>
-                      <option>Finance Professional</option>
-                      <option>Pilot</option>
-                      <option>Govt. - Operations Management</option>
-                      <option>Science Professional</option>
-                      <option>Business - Broker</option>
-                      <option>Product manager</option>
-                      <option>Airline Professional</option>
-                      <option>Security Professional</option>
-                      <option>Media Professional</option>
-                      <option>Pharmacist</option>
-                      <option>Govt.</option>
-                      <option>Business - CxO /  Chairman /  President /  Director</option>
-                      <option>Govt. - Banking Professional</option>
-                      <option>Customer Service</option>
-                      <option>Business - Agriculture Professional</option>
-                      <option>Not working</option>
-                      <option>Govt. - Quality Assurance Engineer</option>
-                      <option>CxO /  Chairman /  President /  Director</option>
-                      <option>Govt. - Dentist</option>
-                      <option>Govt. - Others</option>
-                      <option>Business - Travel Professional</option>
-                      <option>Business</option>
-                      <option>Business - Social Services /  NGO /  Volunteer</option>
-                      <option>Govt. - BPO / ITes Professional</option>
-                      <option>Defence - Defence Services</option>
-                      <option>Looking for job</option>
-                      <option>VP /  AVP /  GM /  DGM</option>
-                      <option>Govt. - Project Lead - IT</option>
-                      <option>Nurse</option>
-                      <option>Govt. - Analyst</option>
-                      <option>Defence - Navy</option>
-                      <option>Farming</option>
-                      <option>Teacher</option>
-                      <option>Govt. - Finance Professional</option>
-                      <option>Govt. - Medical /  Healthcare Professional</option>
-                      <option>BPO / ITes Professional</option>
-                      <option>Physiotherapist</option>
-                      <option>Govt. - Admin Professional</option>
-                      <option>Agent</option>
-                      <option>Govt. - Lawyer & Legal Professional</option>
-                      <option>Govt. - Clerk</option>
-                      <option>Business - Subject Matter Expert</option>
-                      <option>Singer</option>
-                      <option>Corporate Communication</option>
-                      <option>Business - Media Professional</option>
-                      <option>Govt. - Media Professional</option>
-                      <option>Govt. - Accounting Professional</option>
-                      <option>Business - Physiotherapist</option>
-                      <option>Govt. - HR Professional</option>
-                      <option>Merchant Naval Officer</option>
-                      <option>Civil Services (IAS/ IPS/ IRS/ IES/ IFS)</option>
-                      <option>Business - Education Professional</option>
-                      <option>Defence - Law Enforcement Officer</option>
-                      <option>Govt. - Hotels / Hospitality Professional</option>
-                      <option>Interior Designer</option>
-                      <option>Govt. - Sales Professional</option>
-                      <option>Govt. - Physiotherapist</option>
-                      <option>Govt. - Corporate Communication</option>
-                      <option>Govt. - Customer Service</option>
-                      <option>Business - Research Professional</option>
-                      <option>Agriculture Professional</option>
-                      <option>Paramedic</option>
-                      <option>Actor / Model</option>
-                      <option>Business - Doctor</option>
-                      <option>Defence - Operator / Technician</option>
-                      <option>Business - Educational Institution Owner</option>
-                      <option>Clerk</option>
-                      <option>Govt. - Hardware / Telecom Engineer</option>
-                      <option>Govt. - Cyber / Network Security</option>
-                      <option>Social Services /  NGO /  Volunteer</option>
-                      <option>Govt. - Architect</option>
-                      <option>Defence - Cyber / Network Security</option>
-                      <option>Business - Chartered Accountant</option>
-                      <option>Govt. - Nurse</option>
-                      <option>Govt. - Surgeon</option>
-                      <option>Travel Professional</option>
-                      <option>Artist</option>
-                      <option>Business - Architect</option>
-                      <option>Govt. - Electronics Engineer</option>
-                      <option>Govt. - Police</option>
-                      <option>Business - Sportsperson</option>
-                      <option>Dentist</option>
-                      <option>Defence - Army</option>
-                      <option>Govt. - Quality Assurance Engineer - IT</option>
-                      <option>Business - Paramedic</option>
-                      <option>Business - Nurse</option>
-                      <option>Fashion Designer</option>
-                      <option>Govt. - Agriculture Professional</option>
-                      <option>Business - Actor / Model</option>
-                      <option>Business - Farming</option>
-                      <option>Mariner</option>
-                      <option>Fitness Professional</option>
-                      <option>Secretary / Front Office</option>
-                      <option>Business - Writer</option>
-                      <option>Defence - Quality Assurance Engineer</option>
-                      <option>Govt. - Secretary / Front Office</option>
-                      <option>Business - Artist</option>
-                      <option>Business - Agent</option>
-                      <option>Govt. - Science Professional</option>
-                      <option>Journalist</option>
-                      <option>Business - Teacher</option>
-                      <option>Govt. - Sr. Manager /  Manager</option>
-                      <option>PR Professional</option>
-                      <option>Defence - Teacher</option>
-                      <option>Business - Professor / Lecturer</option>
-                      <option>Business - Film /  Entertainment Professional</option>
-                      <option>Broker</option>
-                      <option>Govt. - Marketing Professional</option>
-                      <option>Govt. - Flight Attendant</option>
-                      <option>Defence - Clerk</option>
-                      <option>Retired</option>
-                      <option>Animator</option>
-                      <option>Govt. - Project Manager - Non IT</option>
-                      <option>Educational Institution Owner</option>
-                      <option>Govt. - Film /  Entertainment Professional</option>
-                      <option>Defence - Electronics Engineer</option>
-                      <option>Business - Surgeon</option>
-                      <option>Beautician</option>
-                      <option>Business - VP /  AVP /  GM /  DGM</option>
-                      <option>Govt. - Auditor</option>
-                      <option>Govt. - Program Manager</option>
-                      <option>Govt. - Paramedic</option>
-                      <option>Govt. - Teacher</option>
-                      <option>Sportsperson</option>
-                      <option>Writer</option>
-                      <option>Govt. - PR Professional</option>
-                      <option>Defence - Admin Professional</option>
-                      <option>Govt. - Pharmacist</option>
-                      <option>Defence - Paramedic</option>
-                      <option>Surgeon</option>
-                      <option>Business - Singer</option>
-                      <option>Business - Medical /  Healthcare Professional</option>
-                      <option>Govt. - Advertising Professional</option>
-                      <option>Govt. - Mariner</option>
-                      <option>Defence - Pilot</option>
-                      <option>Defence - Mariner</option>
-                      <option>Govt. - CxO /  Chairman /  President /  Director</option>
-                      <option>Business - Dentist</option>
-                      <option>Defence - Non – IT Engineer</option>
-                      <option>Business - Beautician</option>
-                      <option>Business - Psychologist</option>
-                      <option>Govt. - VP /  AVP /  GM /  DGM</option>
-                      <option>Librarian</option>
-                      <option>Business - Science Professional</option>
-                      <option>Govt. - Merchant Naval Officer</option>
-                      <option>Govt. - Chartered Accountant</option>
-                      <option>Govt. - Pilot</option>
-                      <option>Business - Scientist</option>
-                      <option>Psychologist</option>
-                      <option>Defence - Doctor</option>
-                      <option>Business - Research Assistant</option>
-                      <option>Govt. - Animator</option>
-                      <option>Business - Fashion Designer</option>
-                      <option>Business - Pharmacist</option>
-                      <option>Govt. - Politician</option>
-                      <option>Business - Animator</option>
-                      <option>Business - Fitness Professional</option>
-                      <option>Businessperson</option>
-                      <option>Business - Veterinary Doctor</option>
-                      <option>Govt. - Veterinary Doctor</option>
-                      <option>Govt. - Psychologist</option>
-                      <option>Govt. - Interior Designer</option>
-                      <option>Govt. - Subject Matter Expert</option>
-                      <option>Defence - Software Professional</option>
-                      <option>Govt. - Social Services /  NGO /  Volunteer</option>
-                      <option>Defence - Scientist</option>
-
-                    </select>
+                    <input type="text" class="form-control" name="employed_as" id="employed_as" value="<?php echo getValue($profile,"employed_as"); ?>"/>
+                    
                   </div>
                 </div>
                 <div class="row">
@@ -847,120 +313,41 @@ is_login($root);
                   
                     <div class="form-group col-md-3">
                       <label>Father Occupation</label>
-                      <select class="browser-control custom-select" name="father_is">
-                        <option></option>
-                        <option>Service -Private</option>
-                        <option>Service- Government /PSU</option>
-                        <option>Civil Services</option>
-                        <option>Army/Armed Forces</option>
-                        <option>Business/Self Employed</option>
-                        <option>Rretired</option>
-                        <option>Expired</option>
-                      </select>
+                      <input type="text" class="form-control" name="father_is" id="father_is" value="<?php echo getValue($profile,"father_is"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Mother Occupation</label>
-                      <select class="browser-control custom-select" name="mother_is">
-                        <option></option>
-                        <option>Service -Private</option>
-                        <option>Service- Government /PSU</option>
-                        <option>Civil Services</option>
-                        <option>Army/Armed Forces</option>
-                        <option>Business/Self Employed</option>
-                        <option>Rretired</option>
-                        <option>Expired</option>
-                      </select>
+                      <input type="text" class="form-control" name="mother_is" id="mother_is" value="<?php echo getValue($profile,"mother_is"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-3">
                       <label>Family Value</label>
-                      <select class="browser-control custom-select" name="family_value">
-                        <option></option>
-                        <option>Liberal</option>
-                        <option>Moderate</option>
-                        <option>Orthodox</option>
-                        <option>Conservative</option>
-                        <option>Conservative</option>
-                      </select>
+                      <input type="text" class="form-control" name="family_value" id="family_value" value="<?php echo getValue($profile,"family_value"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-3">
                       <label>Family Type</label>
-                      <select class="browser-control custom-select" name="family_type">
-                        <option></option>
-                        <option>Joint Family</option>
-                        <option>Nuclear family</option>
-                        <option>Others</option>
-                      </select>
+                      <input type="text" class="form-control" name="family_type" id="family_type" value="<?php echo getValue($profile,"family_type"); ?>"/>
+                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-3">
                       <label>Affluence Level</label>
-                      <select class="browser-control custom-select" name="affluence_level">
-                        <option></option>
-                        <option>Affluence Level</option>
-                        <option>Upper Middle</option>
-                        <option>Not filled in</option>
-                        <option>Rich/Affluent</option>
-                        <option>Middle Class</option>
-                      </select>
+                      <input type="text" class="form-control" name="affluence_level" id="affluence_level" value="<?php echo getValue($profile,"affluence_level"); ?>"/>
+                      
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-6">
                       <label>Family Income</label>
-                      <input type="hidden" name="family_income"/>
+                      
                       <div class="row">
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="family_income_start">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                          <input type="text" class="form-control" name="family_income" id="family_income" value="<?php echo getValue($profile,"family_income"); ?>"/>                                              
+                          
                         </div>
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="family_income_end">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                          <input type="text" class="form-control" name="family_income2" id="family_income2" value="<?php echo getValue($profile,"family_income2"); ?>"/>                                              
+                          
                         </div>
                       </div>                      
                     </div>
@@ -968,51 +355,28 @@ is_login($root);
                       <label>Net Worth</label>
                       <input type="text" class="form-control" name="net_worth" value="<?php echo getValue($profile,"net_worth"); ?>"/>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label>About Family</label>
-                      <input type="text" class="form-control" name="about_family" value="<?php echo getValue($profile,"about_family"); ?>"/>
-                    </div>
+                    
                   </div>
                   <div class="row">
                     <div class="form-group col-md-3">
                       <label>Unmarried Sisters</label>
-                      <select class="browser-control custom-select" name="unmarried_sisters">
-                        <option>None</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>3+</option>
-                      </select>
+                      <input type="text" class="form-control" name="unmarried_sisters" id="unmarried_sisters" value="<?php echo getValue($profile,"unmarried_sisters"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-3">
                       <label>Married Sisters</label>
-                      <select class="browser-control custom-select" name="married_sisters">
-                        <option>None</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>3+</option>
-                      </select>
+                      <input type="text" class="form-control" name="married_sisters" id="married_sisters" value="<?php echo getValue($profile,"married_sisters"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-3">
                       <label>Unmarried Brothers</label>
-                      <select class="browser-control custom-select" name="unmarried_brothers">
-                        <option>None</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>3+</option>
-                      </select>
+                      <input type="text" class="form-control" name="unmarried_brothers" id="unmarried_brothers" value="<?php echo getValue($profile,"unmarried_brothers"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-3">
                       <label>Married Brothers</label>
-                      <select class="browser-control custom-select" name="married_brothers">
-                        <option>None</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>3+</option>
-                      </select>
+                      <input type="text" class="form-control" name="married_brothers" id="married_brothers" value="<?php echo getValue($profile,"married_brothers"); ?>"/>
+                      
                     </div>
                   </div>
                   <div class="row">
@@ -1030,461 +394,28 @@ is_login($root);
                     </div>
                     
                     <div class="form-group col-md-3">
-                      <label>Industry Type</label>                      
-                      <select class="browser-default custom-select" name="industry_type" id="industry_type">
-                      </select>
+                      <label>Industry Type</label>    
+                      <input type="text" class="form-control" name="industry_type" id="industry_type" value="<?php echo getValue($profile,"industry_type"); ?>"/>
+                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-3">
                       <label>Family Based out of</label>
-                      
-                      <select class="browser-default custom-select" name="family_based_out_of">
-                          <option></option>
-                          <option>Afghanistan</option>
-                          <option>Albania</option>
-                          <option>Algeria</option>
-                          <option>American Samoa</option>
-                          <option>Andorra</option>
-                          <option>Angola</option>
-                          <option>Anguilla</option>
-                          <option>Antigua and Barbuda</option>
-                          <option>Argentina</option>
-                          <option>Armenia</option>
-                          <option>Australia</option>
-                          <option>Austria</option>
-                          <option>Azerbaijan</option>
-                          <option>Bahamas</option>
-                          <option>Bahrain</option>
-                          <option>Bangladesh</option>
-                          <option>Barbados</option>
-                          <option>Belarus</option>
-                          <option>Belgium</option>
-                          <option>Belize</option>
-                          <option>Benin</option>
-                          <option>Bermuda</option>
-                          <option>Bhutan</option>
-                          <option>Bolivia</option>
-                          <option>Bosnia and Herzegovina</option>
-                          <option>Botswana</option>
-                          <option>Brazil</option>
-                          <option>British Virgin Islands</option>
-                          <option>Brunei</option>
-                          <option>Bulgaria</option>
-                          <option>Burkina Faso</option>
-                          <option>Burundi</option>
-                          <option>Cambodia</option>
-                          <option>Cameroon</option>
-                          <option>Canada</option>
-                          <option>Canary Islands</option>
-                          <option>Cape Verde</option>
-                          <option>Cayman Islands</option>
-                          <option>Central African Republic</option>
-                          <option>Chad</option>
-                          <option>Chile</option>
-                          <option>China</option>
-                          <option>Colombia</option>
-                          <option>Comoros</option>
-                          <option>Congo</option>
-                          <option>Cook Islands</option>
-                          <option>Costa Rica</option>
-                          <option>Cote dIvoire</option>
-                          <option>Croatia</option>
-                          <option>Cuba</option>
-                          <option>Cyprus</option>
-                          <option>Czech Republic</option>
-                          <option>Denmark</option>
-                          <option>Dominica</option>
-                          <option>Dominican Republic</option>
-                          <option>East Timor</option>
-                          <option>Ecuador</option>
-                          <option>Egypt</option>
-                          <option>El Salvador</option>
-                          <option>Equatorial Guinea</option>
-                          <option>Eritrea</option>
-                          <option>Estonia</option>
-                          <option>Ethiopia</option>
-                          <option>Faeroe Islands</option>
-                          <option>Falkland Islands (Islas Malvinas)</option>
-                          <option>Fiji</option>
-                          <option>Finland</option>
-                          <option>France</option>
-                          <option>French Guiana</option>
-                          <option>French Polynesia</option>
-                          <option>Gambia</option>
-                          <option>Georgia</option>
-                          <option>Germany</option>
-                          <option>Ghana</option>
-                          <option>Gibraltar</option>
-                          <option>Greece</option>
-                          <option>Greenland</option>
-                          <option>Grenada</option>
-                          <option>Guadeloupe</option>
-                          <option>Guam</option>
-                          <option>Guatemala</option>
-                          <option>Guinea</option>
-                          <option>Guinea-Bissau</option>
-                          <option>Guyana</option>
-                          <option>Haiti</option>
-                          <option>Holland</option>
-                          <option>Honduras</option>
-                          <option>Hong Kong</option>
-                          <option>Hungary</option>
-                          <option>Iceland</option>
-                          <option>India</option>
-                          <option>Indonesia</option>
-                          <option>Iran</option>
-                          <option>Iraq</option>
-                          <option>Ireland</option>
-                          <option>Isle of Man</option>
-                          <option>Israel</option>
-                          <option>Italy</option>
-                          <option>Jamaica</option>
-                          <option>Japan</option>
-                          <option>Jordan</option>
-                          <option>Kazakhstan</option>
-                          <option>Kenya</option>
-                          <option>Kiribati</option>
-                          <option>Kuwait</option>
-                          <option>Kyrgyzstan</option>
-                          <option>Laos</option>
-                          <option>Latvia</option>
-                          <option>Lebanon</option>
-                          <option>Lesotho</option>
-                          <option>Liberia</option>
-                          <option>Libya</option>
-                          <option>Liechtenstein</option>
-                          <option>Lithuania</option>
-                          <option>Luxembourg</option>
-                          <option>Macau</option>
-                          <option>Macedonia</option>
-                          <option>Madagascar</option>
-                          <option>Malawi</option>
-                          <option>Malaysia</option>
-                          <option>Maldives</option>
-                          <option>Mali</option>
-                          <option>Malta</option>
-                          <option>Martinique</option>
-                          <option>Mauritius</option>
-                          <option>Mexico</option>
-                          <option>Moldova</option>
-                          <option>Monaco</option>
-                          <option>Mongolia</option>
-                          <option>Montenegro</option>
-                          <option>Montserrat</option>
-                          <option>Morocco</option>
-                          <option>Mozambique</option>
-                          <option>Myanmar</option>
-                          <option>Namibia</option>
-                          <option>Nepal</option>
-                          <option>Netherlands</option>
-                          <option>Netherlands Antilles</option>
-                          <option>New Caledonia</option>
-                          <option>New Zealand</option>
-                          <option>Nicaragua</option>
-                          <option>Niger</option>
-                          <option>Nigeria</option>
-                          <option>North Korea</option>
-                          <option>Norway</option>
-                          <option>Oman</option>
-                          <option>Others</option>
-                          <option>Pakistan</option>
-                          <option>Panama</option>
-                          <option>Papua New Guinea</option>
-                          <option>Paraguay</option>
-                          <option>Peru</option>
-                          <option>Philippines</option>
-                          <option>Poland</option>
-                          <option>Portugal</option>
-                          <option>Puerto Rico</option>
-                          <option>Qatar</option>
-                          <option>Reunion</option>
-                          <option>Romania</option>
-                          <option>Russia</option>
-                          <option>Rwanda</option>
-                          <option>Saint Kitts and Nevis</option>
-                          <option>Saint Lucia</option>
-                          <option>Saint Vincent and the Grenadines</option>
-                          <option>San Marino</option>
-                          <option>Sao Tome and Principe</option>
-                          <option>Saudi Arabia</option>
-                          <option>Senegal</option>
-                          <option>Serbia</option>
-                          <option>Seychelles</option>
-                          <option>Sierra Leone</option>
-                          <option>Singapore</option>
-                          <option>Slovakia</option>
-                          <option>Slovenia</option>
-                          <option>Solomon Islands</option>
-                          <option>Somalia</option>
-                          <option>South Africa</option>
-                          <option>South Korea</option>
-                          <option>Spain</option>
-                          <option>Sri Lanka</option>
-                          <option>Sudan</option>
-                          <option>Suriname</option>
-                          <option>Swaziland</option>
-                          <option>Sweden</option>
-                          <option>Switzerland</option>
-                          <option>Syrian Arab Republic</option>
-                          <option>Tahiti</option>
-                          <option>Taiwan</option>
-                          <option>Tajikistan</option>
-                          <option>Tanzania</option>
-                          <option>Thailand</option>
-                          <option>Togo</option>
-                          <option>Trinidad and Tobago</option>
-                          <option>Tunisia</option>
-                          <option>Turkey</option>
-                          <option>Turkmenistan</option>
-                          <option>Turks and Caicos Islands</option>
-                          <option>Uganda</option>
-                          <option>Ukraine</option>
-                          <option>United Arab Emirates</option>
-                          <option>United Kingdom</option>
-                          <option>United States</option>
-                          <option>United States Virgin Islands</option>
-                          <option>Uruguay</option>
-                          <option>Uzbekistan</option>
-                          <option>Vanuatu</option>
-                          <option>Vatican City State</option>
-                          <option>Venezuela</option>
-                          <option>Vietnam</option>
-                          <option>Wallis and Futuna</option>
-                          <option>Yemen</option>
-                          <option>Yugoslavia</option>
-                          <option>Zambia</option>
-                          <option>Zimbabwe</option>
-
-                        </select>
+                      <input type="text" class="form-control" name="family_based_out_of" id="family_based_out_of" value="<?php echo getValue($profile,"family_based_out_of"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Native Country</label>
-                      
-                      <select class="browser-default custom-select" name="native_country" id="native_country">
-                          <option></option>
-                          <option>Afghanistan</option>
-                          <option>Albania</option>
-                          <option>Algeria</option>
-                          <option>American Samoa</option>
-                          <option>Andorra</option>
-                          <option>Angola</option>
-                          <option>Anguilla</option>
-                          <option>Antigua and Barbuda</option>
-                          <option>Argentina</option>
-                          <option>Armenia</option>
-                          <option>Australia</option>
-                          <option>Austria</option>
-                          <option>Azerbaijan</option>
-                          <option>Bahamas</option>
-                          <option>Bahrain</option>
-                          <option>Bangladesh</option>
-                          <option>Barbados</option>
-                          <option>Belarus</option>
-                          <option>Belgium</option>
-                          <option>Belize</option>
-                          <option>Benin</option>
-                          <option>Bermuda</option>
-                          <option>Bhutan</option>
-                          <option>Bolivia</option>
-                          <option>Bosnia and Herzegovina</option>
-                          <option>Botswana</option>
-                          <option>Brazil</option>
-                          <option>British Virgin Islands</option>
-                          <option>Brunei</option>
-                          <option>Bulgaria</option>
-                          <option>Burkina Faso</option>
-                          <option>Burundi</option>
-                          <option>Cambodia</option>
-                          <option>Cameroon</option>
-                          <option>Canada</option>
-                          <option>Canary Islands</option>
-                          <option>Cape Verde</option>
-                          <option>Cayman Islands</option>
-                          <option>Central African Republic</option>
-                          <option>Chad</option>
-                          <option>Chile</option>
-                          <option>China</option>
-                          <option>Colombia</option>
-                          <option>Comoros</option>
-                          <option>Congo</option>
-                          <option>Cook Islands</option>
-                          <option>Costa Rica</option>
-                          <option>Cote dIvoire</option>
-                          <option>Croatia</option>
-                          <option>Cuba</option>
-                          <option>Cyprus</option>
-                          <option>Czech Republic</option>
-                          <option>Denmark</option>
-                          <option>Dominica</option>
-                          <option>Dominican Republic</option>
-                          <option>East Timor</option>
-                          <option>Ecuador</option>
-                          <option>Egypt</option>
-                          <option>El Salvador</option>
-                          <option>Equatorial Guinea</option>
-                          <option>Eritrea</option>
-                          <option>Estonia</option>
-                          <option>Ethiopia</option>
-                          <option>Faeroe Islands</option>
-                          <option>Falkland Islands (Islas Malvinas)</option>
-                          <option>Fiji</option>
-                          <option>Finland</option>
-                          <option>France</option>
-                          <option>French Guiana</option>
-                          <option>French Polynesia</option>
-                          <option>Gambia</option>
-                          <option>Georgia</option>
-                          <option>Germany</option>
-                          <option>Ghana</option>
-                          <option>Gibraltar</option>
-                          <option>Greece</option>
-                          <option>Greenland</option>
-                          <option>Grenada</option>
-                          <option>Guadeloupe</option>
-                          <option>Guam</option>
-                          <option>Guatemala</option>
-                          <option>Guinea</option>
-                          <option>Guinea-Bissau</option>
-                          <option>Guyana</option>
-                          <option>Haiti</option>
-                          <option>Holland</option>
-                          <option>Honduras</option>
-                          <option>Hong Kong</option>
-                          <option>Hungary</option>
-                          <option>Iceland</option>
-                          <option>India</option>
-                          <option>Indonesia</option>
-                          <option>Iran</option>
-                          <option>Iraq</option>
-                          <option>Ireland</option>
-                          <option>Isle of Man</option>
-                          <option>Israel</option>
-                          <option>Italy</option>
-                          <option>Jamaica</option>
-                          <option>Japan</option>
-                          <option>Jordan</option>
-                          <option>Kazakhstan</option>
-                          <option>Kenya</option>
-                          <option>Kiribati</option>
-                          <option>Kuwait</option>
-                          <option>Kyrgyzstan</option>
-                          <option>Laos</option>
-                          <option>Latvia</option>
-                          <option>Lebanon</option>
-                          <option>Lesotho</option>
-                          <option>Liberia</option>
-                          <option>Libya</option>
-                          <option>Liechtenstein</option>
-                          <option>Lithuania</option>
-                          <option>Luxembourg</option>
-                          <option>Macau</option>
-                          <option>Macedonia</option>
-                          <option>Madagascar</option>
-                          <option>Malawi</option>
-                          <option>Malaysia</option>
-                          <option>Maldives</option>
-                          <option>Mali</option>
-                          <option>Malta</option>
-                          <option>Martinique</option>
-                          <option>Mauritius</option>
-                          <option>Mexico</option>
-                          <option>Moldova</option>
-                          <option>Monaco</option>
-                          <option>Mongolia</option>
-                          <option>Montenegro</option>
-                          <option>Montserrat</option>
-                          <option>Morocco</option>
-                          <option>Mozambique</option>
-                          <option>Myanmar</option>
-                          <option>Namibia</option>
-                          <option>Nepal</option>
-                          <option>Netherlands</option>
-                          <option>Netherlands Antilles</option>
-                          <option>New Caledonia</option>
-                          <option>New Zealand</option>
-                          <option>Nicaragua</option>
-                          <option>Niger</option>
-                          <option>Nigeria</option>
-                          <option>North Korea</option>
-                          <option>Norway</option>
-                          <option>Oman</option>
-                          <option>Others</option>
-                          <option>Pakistan</option>
-                          <option>Panama</option>
-                          <option>Papua New Guinea</option>
-                          <option>Paraguay</option>
-                          <option>Peru</option>
-                          <option>Philippines</option>
-                          <option>Poland</option>
-                          <option>Portugal</option>
-                          <option>Puerto Rico</option>
-                          <option>Qatar</option>
-                          <option>Reunion</option>
-                          <option>Romania</option>
-                          <option>Russia</option>
-                          <option>Rwanda</option>
-                          <option>Saint Kitts and Nevis</option>
-                          <option>Saint Lucia</option>
-                          <option>Saint Vincent and the Grenadines</option>
-                          <option>San Marino</option>
-                          <option>Sao Tome and Principe</option>
-                          <option>Saudi Arabia</option>
-                          <option>Senegal</option>
-                          <option>Serbia</option>
-                          <option>Seychelles</option>
-                          <option>Sierra Leone</option>
-                          <option>Singapore</option>
-                          <option>Slovakia</option>
-                          <option>Slovenia</option>
-                          <option>Solomon Islands</option>
-                          <option>Somalia</option>
-                          <option>South Africa</option>
-                          <option>South Korea</option>
-                          <option>Spain</option>
-                          <option>Sri Lanka</option>
-                          <option>Sudan</option>
-                          <option>Suriname</option>
-                          <option>Swaziland</option>
-                          <option>Sweden</option>
-                          <option>Switzerland</option>
-                          <option>Syrian Arab Republic</option>
-                          <option>Tahiti</option>
-                          <option>Taiwan</option>
-                          <option>Tajikistan</option>
-                          <option>Tanzania</option>
-                          <option>Thailand</option>
-                          <option>Togo</option>
-                          <option>Trinidad and Tobago</option>
-                          <option>Tunisia</option>
-                          <option>Turkey</option>
-                          <option>Turkmenistan</option>
-                          <option>Turks and Caicos Islands</option>
-                          <option>Uganda</option>
-                          <option>Ukraine</option>
-                          <option>United Arab Emirates</option>
-                          <option>United Kingdom</option>
-                          <option>United States</option>
-                          <option>United States Virgin Islands</option>
-                          <option>Uruguay</option>
-                          <option>Uzbekistan</option>
-                          <option>Vanuatu</option>
-                          <option>Vatican City State</option>
-                          <option>Venezuela</option>
-                          <option>Vietnam</option>
-                          <option>Wallis and Futuna</option>
-                          <option>Yemen</option>
-                          <option>Yugoslavia</option>
-                          <option>Zambia</option>
-                          <option>Zimbabwe</option>
-
-                        </select>
+                      <input type="text" class="form-control" name="native_country" id="native_country" value="<?php echo getValue($profile,"native_country"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Native State</label>
+                      <input type="text" class="form-control" name="native_state" id="native_state" value="<?php echo getValue($profile,"native_state"); ?>"/>                      
                       
-                      <select class="browser-control custom-select" name="native_state" id="native_state">
-                      </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>About Family</label>
+                      <input type="text" class="form-control" name="about_family" value="<?php echo getValue($profile,"about_family"); ?>"/>
                     </div>
                 </div>
               </div>
@@ -1493,7 +424,7 @@ is_login($root);
                   
                     <div class="form-group col-md-6">
                       <label>DOB</label>
-                      <input type="date" class="form-control" name="dob"/>
+                      <input type="date" class="form-control" name="dob" value="<?php echo getValue($profile,"dob"); ?>"/>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Age</label>
@@ -1523,23 +454,13 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-6">
                       <label>Manglik</label>
-                      <select class="browser-control custom-select" name="manglik">
-                        <option></option>
-                        <option>Manglik</option>
-                        <option>Angshik</option>
-                        <option>Non-manglik</option>
-                        <option>Don’t know</option>
-
-                      </select>
+                      <input type="text" class="form-control" name="manglik" id="manglik" value="<?php echo getValue($profile,"manglik"); ?>"/>
+          
                     </div>
                     <div class="form-group col-md-6">
                       <label>Believes in Horoscope</label>
-                      <select class="browser-control custom-select" name="believes_in_horoscope">
-                        <option></option>
-                        <option>Must</option>
-                        <option>Not Necessary</option>
-
-                      </select>
+                      <input type="text" class="form-control" name="believes_in_horoscope" id="believes_in_horoscope" value="<?php echo getValue($profile,"believes_in_horoscope"); ?>"/>
+                      
                     </div>
                   </div>
                   
@@ -1572,12 +493,8 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-4">
                       <label>Phone Number Verified</label>
-                      <select class="browser-control custom-select" name="mobile_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
+                      <input type="text" class="form-control" name="mobile_verified" id="mobile_verified" value="<?php echo getValue($profile,"mobile_verified"); ?>"/>
+                      
                     </div>
                     <div class="form-group col-md-4">
                       <label>Email</label>
@@ -1585,12 +502,8 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-4">
                       <label>Email Id Verified</label>
-                      <select class="browser-control custom-select" name="emailid_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
+                      <input type="text" class="form-control" name="emailid_verified" id="emailid_verified" value="<?php echo getValue($profile,"emailid_verified"); ?>"/>
+                      
                     </div>
                   </div>
                   <div class="row">
@@ -1604,7 +517,7 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-4">
                       <label>Pincode</label>
-                      <input type="number" class="form-control" name="pinconde" value="<?php echo getValue($profile,"pincode"); ?>"/>
+                      <input type="number" class="form-control" name="pincode" value="<?php echo getValue($profile,"pincode"); ?>"/>
                     </div>
                   </div>
                   <div class="row">                  
@@ -1624,22 +537,15 @@ is_login($root);
                   <div class="row">                  
                     <div class="form-group col-md-4">
                       <label>Aadhar Verified</label>
-                      <select class="browser-control custom-select" name="aadhar_verified">
-                        <option></option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>Not provided</option>
-                      </select>
+                      <input type="text" class="form-control" name="aadhar_verified" id="aadhar_verified" value="<?php echo getValue($profile,"aadhar_verified"); ?>"/>
+                      
                     </div>
                     
                     
                     <div class="form-group col-md-4">
                       <label>Aadhar Proof</label>
-                      <select class="browser-control custom-select" name="aadhar_proof">
-                        <option></option>
-                        <option>Given</option>
-                        <option>Not Given</option>                        
-                      </select>
+                      <input type="text" class="form-control" name="aadhar_proof" id="aadhar_proof" value="<?php echo getValue($profile,"aadhar_proof"); ?>"/>
+                      
                     </div>
 
                     <div class="form-group col-md-4">
@@ -1649,106 +555,60 @@ is_login($root);
                   
                 </div>  
               </div>
-              <div id='looks' class='collapse'>
+              <div id='looks_div' class='collapse'>
               <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Body Type</label>
-                      <select class="browser-control custom-select" name="body_type">
-                        <option></option>
-                        <option>Athletic</option>
-                        <option>Slim</option>
-                        <option>Average</option>
-                        <option>Heavy</option>
-                      </select>
+                      <input type="text" class="form-control" name="body_type" id="body_type" value="<?php echo getValue($profile,"body_type"); ?>"/>
+                     
                     </div>
                     <div class="form-group">
                       <label>Food Habits</label>
-                      <select class="browser-control custom-select" name="food_habits">
-                        <option></option>
-                        <option>Eggetarian</option>
-                        <option>Jain</option>
-                        <option>Non Veg</option>
-                        <option>Vegetarian</option>
-                        <option>Fishetarian</option>
-                      </select>
+                      <input type="text" class="form-control" name="food_habits" id="food_habits" value="<?php echo getValue($profile,"food_habits"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Drink</label>
-                      <select class="browser-control custom-select" name="drink">
-                        <option></option>
-                        <option>Drinks occasionally</option>
-                        <option>Doesn't drink</option>
-                        <option>Drinks</option>
-
-                      </select>
+                      <input type="text" class="form-control" name="drink" id="drink" value="<?php echo getValue($profile,"drink"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Smoke</label>
-                      <select class="browser-control custom-select" name="smoke">
-                        <option></option>
-                        <option>Doesn't smoke</option>
-                        <option>Smokes</option>
-                        <option>Smokes occasionally</option>
-
-                      </select>
+                      <input type="text" class="form-control" name="smoke" id="smoke" value="<?php echo getValue($profile,"smoke"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Complexion</label>
-                      <select class="browser-control custom-select" name="complexion">
-                        <option></option>
-                        <option>Fair</option>
-                        <option>Wheatish</option>
-                        <option>Dark</option>
-                        <option>Very Fair</option>
-                      </select>
+                      <input type="text" class="form-control" name="complexion" id="complexion" value="<?php echo getValue($profile,"complexion"); ?>"/>
+                      
+                      
                     </div>
                     <div class="form-group">
-                      <label>Weight</label>
-                      <input type="text" class="form-control" name="weight" value="<?php echo getValue($profile,"weight"); ?>"/>
+                      <label>Weight (in kg)</label>
+                      <input type="number" class="form-control" name="weight" value="<?php echo getValue($profile,"weight"); ?>"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Hair Type</label>
-                      <select class="browser-control custom-select" name="hair_type">
-                        <option></option>
-                        <option>Bald</option>
-                        <option>Semi- Bald</option>
-                        <option>Normal Hair</option>
-                        <option>Good Hair</option>
-                      </select>
+                      <input type="text" class="form-control" name="hair_type" id="hair_type" value="<?php echo getValue($profile,"hair_type"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Looks</label>
-                      <select class="browser-control custom-select" name="looks">
-                        <option></option>
-                        <option>Extraordinary</option>
-                        <option>Classy</option>
-                        <option>Average</option>
-                        <option>Below Average</option>
-                      </select>
+                      <input type="text" class="form-control" name="looks" id="looks" value="<?php echo getValue($profile,"looks"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Specs</label>
-                      <select class="browser-control custom-select" name="specs">
-                        <option></option>
-                        <option>Wear Specs</option>
-                        <option>Normal Eyesight</option>
-                        <option>Wear Lenses</option>
-
-                      </select>
+                      <input type="text" class="form-control" name="specs" id="specs" value="<?php echo getValue($profile,"specs"); ?>"/>
+                      
                     </div>
                     <div class="form-group">
                       <label>Communication</label>
-                      <select class="browser-control custom-select" name="communication">
-                        <option></option>
-                        <option>Classy</option>
-                        <option>Good</option>
-                        <option>Average</option>
-                        <option>Normal</option>
-                        <option>Bad</option>
-                      </select>
+                      <input type="text" class="form-control" name="communication" id="communication" value="<?php echo getValue($profile,"communication"); ?>"/>
+                      
                     </div>
                   </div>
                 </div>  
@@ -1757,105 +617,23 @@ is_login($root);
                 <div class="row">
                   <div class="form-group col-md-3">
                         <label>From Age</label>
+                        <input type="text" class="form-control" name="pp_fromage" id="pp_fromage" value="<?php echo getValue($profile,"pp_fromage"); ?>"/>
                         
-                        <select class="browser-default custom-select" name="pp_fromage" id="pp_fromage">
-                        </select>
                   </div>
                   <div class="form-group col-md-3">
                         <label>To Age</label>
+                        <input type="text" class="form-control" name="pp_toage" id="pp_toage" value="<?php echo getValue($profile,"pp_toage"); ?>"/>
                         
-                        <select class="browser-default custom-select" name="pp_toage" id="pp_toage">
-                        </select>
                   </div>
                   <div class="form-group col-md-3">
                         <label>Min Height</label>
+                        <input type="text" class="form-control" name="pp_min_height" id="pp_min_height" value="<?php echo getValue($profile,"pp_min_height"); ?>"/>
                         
-                        <select class="browser-control custom-select" name="pp_min_height">
-                          <option value="0"></option>
-                          <option value="1.22">4 '0" (1.22mts)</option>
-                          <option value="1.24">4 '1" (1.24mts)</option>
-                          <option value="1.28">4 '2" (1.28mts)</option>
-                          <option value="1.31">4 '3" (1.31mts)</option>
-                          <option value="1.34">4 '4" (1.34mts)</option>
-                          <option value="1.35">4 '5" (1.35mts)</option>
-                          <option value="1.37">4 '6" (1.37mts)</option>
-                          <option value="1.4">4 '7" (1.40mts)</option>
-                          <option value="1.42">4 '8" (1.42mts)</option>
-                          <option value="1.45">4 '9" (1.45mts)</option>
-                          <option value="1.47">4 '10" (1.47mts)</option>
-                          <option value="1.5">4 '11" (1.50mts)</option>
-                          <option value="1.52">5 '0" (1.52mts)</option>
-                          <option value="1.55">5 '1" (1.55mts)</option>
-                          <option value="1.58">5 '2" (1.58mts)</option>
-                          <option value="1.6">5 '3" (1.60mts)</option>
-                          <option value="1.63">5 '4" (1.63mts)</option>
-                          <option value="1.65">5 '5" (1.65mts)</option>
-                          <option value="1.68">5 '6" (1.68mts)</option>
-                          <option value="1.7">5 '7" (1.70mts)</option>
-                          <option value="1.73">5 '8" (1.73mts)</option>
-                          <option value="1.75">5 '9" (1.75mts)</option>
-                          <option value="1.78">5 '10" (1.78mts)</option>
-                          <option value="1.8">5 '11" (1.80mts)</option>
-                          <option value="1.83">6 '0" (1.83mts)</option>
-                          <option value="1.85">6 '1" (1.85mts)</option>
-                          <option value="1.88">6 '2" (1.88mts)</option>
-                          <option value="1.91">6 '3" (1.91mts)</option>
-                          <option value="1.93">6 '4" (1.93mts)</option>
-                          <option value="1.96">6 '5" (1.96mts)</option>
-                          <option value="1.98">6 '6" (1.98mts)</option>
-                          <option value="2.01">6 '7" (2.01mts)</option>
-                          <option value="2.03">6 '8" (2.03mts)</option>
-                          <option value="2.06">6 '9" (2.06mts)</option>
-                          <option value="2.08">6 '10" (2.08mts)</option>
-                          <option value="2.11">6 '11" (2.11mts)</option>
-                          <option value="2.13">7 ' (2.13mts)plus</option>
-
-                          </select>
                   </div>
                   <div class="form-group col-md-3">
                         <label>Max Height</label>
+                        <input type="text" class="form-control" name="pp_max_height" id="pp_max_height" value="<?php echo getValue($profile,"pp_max_height"); ?>"/>
                         
-                        <select class="browser-control custom-select" name="pp_max_height">
-                          <option value="0"></option>
-                          <option value="1.22">4 '0" (1.22mts)</option>
-                          <option value="1.24">4 '1" (1.24mts)</option>
-                          <option value="1.28">4 '2" (1.28mts)</option>
-                          <option value="1.31">4 '3" (1.31mts)</option>
-                          <option value="1.34">4 '4" (1.34mts)</option>
-                          <option value="1.35">4 '5" (1.35mts)</option>
-                          <option value="1.37">4 '6" (1.37mts)</option>
-                          <option value="1.4">4 '7" (1.40mts)</option>
-                          <option value="1.42">4 '8" (1.42mts)</option>
-                          <option value="1.45">4 '9" (1.45mts)</option>
-                          <option value="1.47">4 '10" (1.47mts)</option>
-                          <option value="1.5">4 '11" (1.50mts)</option>
-                          <option value="1.52">5 '0" (1.52mts)</option>
-                          <option value="1.55">5 '1" (1.55mts)</option>
-                          <option value="1.58">5 '2" (1.58mts)</option>
-                          <option value="1.6">5 '3" (1.60mts)</option>
-                          <option value="1.63">5 '4" (1.63mts)</option>
-                          <option value="1.65">5 '5" (1.65mts)</option>
-                          <option value="1.68">5 '6" (1.68mts)</option>
-                          <option value="1.7">5 '7" (1.70mts)</option>
-                          <option value="1.73">5 '8" (1.73mts)</option>
-                          <option value="1.75">5 '9" (1.75mts)</option>
-                          <option value="1.78">5 '10" (1.78mts)</option>
-                          <option value="1.8">5 '11" (1.80mts)</option>
-                          <option value="1.83">6 '0" (1.83mts)</option>
-                          <option value="1.85">6 '1" (1.85mts)</option>
-                          <option value="1.88">6 '2" (1.88mts)</option>
-                          <option value="1.91">6 '3" (1.91mts)</option>
-                          <option value="1.93">6 '4" (1.93mts)</option>
-                          <option value="1.96">6 '5" (1.96mts)</option>
-                          <option value="1.98">6 '6" (1.98mts)</option>
-                          <option value="2.01">6 '7" (2.01mts)</option>
-                          <option value="2.03">6 '8" (2.03mts)</option>
-                          <option value="2.06">6 '9" (2.06mts)</option>
-                          <option value="2.08">6 '10" (2.08mts)</option>
-                          <option value="2.11">6 '11" (2.11mts)</option>
-                          <option value="2.13">7 ' (2.13mts)plus</option>
-
-                          </select>
                   </div>
                 </div>
                 <div class="row">
@@ -1868,73 +646,21 @@ is_login($root);
                         <input type="text" class="form-control" name="pp_caste" id="pp_caste" value="<?php echo getValue($profile,"pp_caste"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
-                        <label>Marital Status</label>                        
-                        <select class="browser-default custom-select" name="pp_marital_status">
-                          <option>Never Married</option>
-                          <option>Divorced</option>
-                          <option>Annulled</option>
-                          <option>Widowed</option>
-                          <option>Awaiting Divorce</option>
-                          <option>Married</option>
-                        </select>
+                        <label>Marital Status</label>  
+                        <input type="text" class="form-control" name="pp_marital_status" id="pp_marital_status" value="<?php echo getValue($profile,"pp_marital_status"); ?>"/>                                              
+                        
                   </div>
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-6">
                         <label>Income</label>
                         <input type="hidden" class="form-control" name="pp_income"/>
                         <div class="row">
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="pp_income_start">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                          <input type="text" class="form-control" name="pp_income" id="pp_income" value="<?php echo getValue($profile,"pp_income"); ?>"/>                                              
+                          
                         </div>
                         <div class="col-md-6">
-                          <select class="browser-default custom-select " id="pp_income_end">
-                            <option value="0">Rs. 0</option>
-                            <option value="1">Rs.1 Lakh</option>
-                            <option value="2">Rs.2 Lakh</option>
-                            <option value="3">Rs.3 Lakh</option>
-                            <option value="4">Rs.4 Lakh</option>
-                            <option value="5">Rs.5 Lakh</option>
-                            <option value="5">Rs.7.5 Lakh</option>
-                            <option value="10">Rs.10 Lakh</option>
-                            <option value="15">Rs.15 Lakh</option>
-                            <option value="20">Rs.20 Lakh</option>
-                            <option value="25">Rs.25 Lakh</option>
-                            <option value="35">Rs.35 Lakh</option>
-                            <option value="50">Rs.50 Lakh</option>
-                            <option value="70">Rs.70 Lakh</option>
-                            <option value="100">Rs.1 Crore</option>
-                            <option value="500">Rs.5 Crore</option>
-                            <option value="1000">Rs.10 Crore</option>
-                            <option value="5000">Rs.50 Crore</option>
-                            <option value="10000">Rs.100 Crore</option>
-                            <option value="50000">Rs.500 Crore</option>
-                            <option value="100000">Rs.1000 Crore</option>
-                            <option value="900000">Rs.1000+ Crore</option>
-
-                          </select>
+                          <input type="text" class="form-control" name="pp_income2" id="pp_income2" value="<?php echo getValue($profile,"pp_income2"); ?>"/>                                              
+                          
                         </div>
                       </div>
                   </div>
@@ -1942,66 +668,66 @@ is_login($root);
                 <div class="row">
                   <div class="form-group col-md-3">
                     <label>Country</label>                        
-                    <input type="text" class="form-control" name="pp_country" value="<?php echo getValue($profile,"country"); ?>"/>                        
+                    <input type="text" class="form-control" name="pp_country" id="pp_country" value="<?php echo getValue($profile,"pp_country"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
                     <label>State</label>
-                    <input type="text" class="form-control" name="pp_state" value="<?php echo getValue($profile,"pp_state"); ?>"/>
+                    <input type="text" class="form-control" name="pp_state" id="pp_state" value="<?php echo getValue($profile,"pp_state"); ?>"/>
                     
                   </div>
                   <div class="form-group col-md-3">
                     <label>Education</label>
-                    <input type="text" class="form-control" name="pp_education_qualification" value="<?php echo getValue($profile,"pp_education_qualification"); ?>"/>
+                    <input type="text" class="form-control" name="pp_education_qualification" id="pp_education_qualification" value="<?php echo getValue($profile,"pp_education_qualification"); ?>"/>
                   </div>
                   <div class="form-group col-md-3">
                     <label>Employed as</label> 
-                    <input type="text" class="form-control" name="pp_employed_as" value="<?php echo getValue($profile,"pp_employed_as"); ?>"/>                    
+                    <input type="text" class="form-control" name="pp_employed_as" id="pp_employed_as" value="<?php echo getValue($profile,"pp_employed_as"); ?>"/>                    
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-3">
                         <label>Smoker</label>
-                        <input type="text" class="form-control" name="pp_smoker" value="<?php echo getValue($profile,"pp_smoker"); ?>">
+                        <input type="text" class="form-control" name="pp_smoker" id="pp_smoker" value="<?php echo getValue($profile,"pp_smoker"); ?>">
                         
                   </div>
                   <div class="form-group col-md-3">
                         <label>Drinker</label>
-                        <input type="text" class="form-control" name="pp_drinker" value="<?php echo getValue($profile,"pp_drinker"); ?>"/>                        
+                        <input type="text" class="form-control" name="pp_drinker" id="pp_drinker" value="<?php echo getValue($profile,"pp_drinker"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
                         <label>Veg/Non Veg</label>
-                        <input type="text" class="form-control" name="pp_veg/non_veg" value="<?php echo getValue($profile,"pp_veg/non_veg"); ?>"/>
+                        <input type="text" class="form-control" name="pp_veg/non_veg" id="pp_food_habits" value="<?php echo getValue($profile,"pp_veg/non_veg"); ?>"/>
                         
                   </div>
                   <div class="form-group col-md-3">
                         <label>Manglik</label>
-                        <input type="text" class="form-control" name="pp_manglik" value="<?php echo getValue($profile,"pp_manglik"); ?>"/>                        
+                        <input type="text" class="form-control" name="pp_manglik" id="pp_manglik" value="<?php echo getValue($profile,"pp_manglik"); ?>"/>                        
                   </div>
                 </div>
                 <div class="row">
                   
                   <div class="form-group col-md-3">
                         <label>Mother Tongue</label>
-                        <input type="text" class="form-control" name="pp_mother_tongue" value="<?php echo getValue($profile,"pp_mother_tongue"); ?>"/>
+                        <input type="text" class="form-control" name="pp_mother_tongue" id="pp_mother_tongue" value="<?php echo getValue($profile,"pp_mother_tongue"); ?>"/>
                         
                   </div>
                   <div class="form-group col-md-3">
                         <label>Complexion</label>
-                        <input type="text" class="form-control" name="pp_complexion" value="<?php echo getValue($profile,"pp_complexion"); ?>"/>                        
+                        <input type="text" class="form-control" name="pp_complexion"  id="pp_complexion" value="<?php echo getValue($profile,"pp_complexion"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
                         <label>Body Type</label>  
-                        <input type="text"  class="form-control" name="pp_body_type" value="<?php echo getValue($profile,"pp_body_type"); ?>"/>                        
+                        <input type="text"  class="form-control" name="pp_body_type" id="pp_body_type" value="<?php echo getValue($profile,"pp_body_type"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
                         <label>Have Children</label>
-                        <input type="text" class="form-control" name="pp_have_children" value="<?php echo getValue($profile,"pp_have_children"); ?>"/>                        
+                        <input type="text" class="form-control" name="pp_have_children" id="pp_have_children" value="<?php echo getValue($profile,"pp_have_children"); ?>"/>                        
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-3">
                         <label>Challenged</label>
-                        <input type="text" class="form-control" name="pp_challenged" value="<?php echo getValue($profile,"pp_challenged"); ?>"/>                        
+                        <input type="text" class="form-control" name="pp_challenged" id="pp_challenged" value="<?php echo getValue($profile,"pp_challenged"); ?>"/>                        
                   </div>
                   <div class="form-group col-md-3">
                         <label>About Partner</label>
@@ -2015,47 +741,31 @@ is_login($root);
                 <div class="row">                  
                   <div class="form-group col-md-4">
                     <label>Last Calling date</label>
-                    <input type="date" class="form-control" name="last_calling_date"/>
+                    <input type="date" class="form-control" name="last_calling_date" value="<?php echo getValue($profile,"last_calling_date"); ?>"/>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Calling for</label>
-                    <select class="browser-control custom-select" name="calling_for">
-                      <option></option>
-                      <option>Lead</option>
-                      <option>Sample Profile Status</option>
-                      <option>Profile Shared</option>
-                      <option>Meeting Confirmation</option>
-                      <option>Lead Payment</option>
-
-                    </select>
+                    <input type="text" class="form-control" name="calling_for" id="calling_for" value="<?php echo getValue($profile,"calling_for"); ?>"/>
+                    
                   </div>
                   <div class="form-group col-md-4">
                     <label>Calling Status</label>
-                    <select class="browser-control custom-select" name="calling_status">
-                      <option></option>
-                      <option>Pending</option>
-                      <option>Follow Up</option>
-                      <option>Profile Rejected</option>
-                      <option>Don’T Call</option>
-                      <option>Accepted</option>
-                      <option>Wrong Number</option>
-                      <option>Already Married</option>
-                    </select>
-
+                    <input type="text" class="form-control" name="calling_status" id="calling_status" value="<?php echo getValue($profile,"calling_status"); ?>"/>
+                    
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label>Calling Comments</label>
-                    <input type="text" class="form-control" name="calling_comments"/>
+                    <input type="text" class="form-control" name="calling_comments" value="<?php echo getValue($profile,"calling_comments"); ?>"/>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Profile Shortlisted for id</label>
-                    <input type="text" class="form-control" name="profile_shortlisted_for"/>
+                    <input type="text" class="form-control" name="profile_shortlisted_for" value="<?php echo getValue($profile,"profile_shortlisted_for"); ?>"/>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Response of shared Profile</label>
-                    <input type="text" class="form-control" name="response_shared_profile"/>
+                    <input type="text" class="form-control" name="response_shared_profile" value="<?php echo getValue($profile,"response_shared_profile"); ?>"/>
                   </div>
                 </div>  
               </div>
@@ -2076,17 +786,8 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Lead-Status</label>
-                        <select class="browser-control custom-select" name="lead_status">
-                          <option></option>
-                          <option>Pending</option>
-                          <option>Paid Client</option>
-                          <option>Rejected</option>
-                          <option>Follow Up</option>
-                          <option>Post Sample Will Decide</option>
-                          <option>Pay When You Marry</option>
-                          <option>Pay On Meeting</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="lead_status" id="lead_status" value="<?php echo getValue($profile,"lead_status"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>lead-comment</label>
@@ -2103,21 +804,13 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Lead Biodata received</label>
-                        <select class="browser-control custom-select" name="lead_biodata">
-                          <option></option>
-                          <option>Yes</option>
-                          <option>No</option>
-                          <option>Would Share Soon</option>
-                        </select>
+                        <input type="text" class="form-control" name="lead_biodata" id="lead_biodata" value="<?php echo getValue($profile,"lead_biodata"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>Lead-Matrimony Picture</label>
-                        <select class="browser-control custom-select" name="lead_matrimony_picture">
-                          <option></option>
-                          <option>Yes</option>
-                          <option>No</option>
-                          <option>Would Share Soon</option>
-                        </select>
+                        <input type="text" class="form-control" name="lead_matrimony_picture" id="lead_matrimony_picture" value="<?php echo getValue($profile,"lead_matrimony_picture"); ?>"/>
+                        
                   </div>
                   </div>
                 </div>  
@@ -2131,13 +824,8 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Meeting Type</label>
-                        <select class="browser-control custom-select" name="meeting_type">
-                          <option></option>
-                          <option>Telephonic</option>
-                          <option>Face To Face</option>
-                          <option>Video Call</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="meeting_type" id="meeting_type" value="<?php echo getValue($profile,"meeting_type"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>MEETING DATE</label>
@@ -2158,28 +846,13 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>Meeting Status</label>
-                        <select class="browser-control custom-select" name="meeting_status">
-                          <option></option>
-                          <option>Done</option>
-                          <option>Postponed</option>
-                          <option>Rejected</option>
-                          <option>Follow Up</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="meeting_status" id="meeting_status" value="<?php echo getValue($profile,"meeting_status"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>Rejection reason</label>
-                        <select class="browser-control custom-select" name="rejection_reason">
-                          <option></option>
-                          <option>Looks</option>
-                          <option>Personality</option>
-                          <option>Financial</option>
-                          <option>Family Type</option>
-                          <option>Other Criteria</option>
-                          <option>Religion And Caste</option>
-                          <option>Family Values</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="rejection_reason" id="rejection_reason" value="<?php echo getValue($profile,"rejection_reason"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>Rejection Reason Comments</label>
@@ -2193,17 +866,8 @@ is_login($root);
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>CLIENT TYPE</label>
-                        <select class="browser-control custom-select" name="client_type">
-                          <option></option>
-                          <option>Lead</option>
-                          <option>Paid</option>
-                          <option>Meeting</option>
-                          <option>Post Meeting -Will Decide</option>
-                          <option>Post Sample Will Decide</option>
-                          <option>Rejected Completely</option>
-                          <option>Pay At Roka</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="client_type" id="client_type" value="<?php echo getValue($profile,"client_type"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>REGISTRATION FEE</label>
@@ -2219,28 +883,14 @@ is_login($root);
                   </div>
                   <div class="form-group">
                         <label>DURATION</label>
-                        <select class="browser-control custom-select" name="duration">
-                          <option></option>
-                          <option>1 Month</option>
-                          <option>3 Month</option>
-                          <option>6 Month</option>
-                          <option>1 Year</option>
-                          <option>Till You Marrry</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="duration" id="duration" value="<?php echo getValue($profile,"duration"); ?>"/>
+                        
                   </div>
                   </div><div class="col-md-3">
                   <div class="form-group">
                         <label>PACKAGE TYPE</label>
-                        <select class="browser-control custom-select" name="package_type">
-                          <option></option>
-                          <option>Luv 2 Register -3 Month</option>
-                          <option>Luv 2 Register -6 Months</option>
-                          <option>Till Your Roka</option>
-                          <option>Luv 2 Meet</option>
-                          <option>Pay At Your Roka</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="package_type" id="package_type" value="<?php echo getValue($profile,"package_type"); ?>"/>
+                        
                   </div>
                   <div class="form-group">
                         <label>SOLD BY</label>
@@ -2318,8 +968,8 @@ is_login($root);
  <?php include 'include/footer_main.php';?>
  
  
- <script src="scripts/js/registerprofile.js?ver=1.1125"></script>
- <script src="scripts/js/fm.tagator.jquery.js"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1129"></script>
+ <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000000"></script>
 
 
 

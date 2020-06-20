@@ -293,7 +293,9 @@
 		var refreshTags = function () {
 			$tags_element.empty();
 			var tags = $source_element.val().split(',');
+			
 			$.each(tags, function (key, value) {
+				
 				if (value !== '' && checkAllowedTag(value)) {
 					var $tag_element = $(document.createElement('div'));
 					$tag_element.addClass(self.settings.prefix + 'tag');
@@ -320,6 +322,9 @@
 					$tag_element.append($clear_element);
 
 					$tags_element.append($tag_element);
+				}else{
+					
+					$source_element.val($source_element.val().replace(value,""));
 				}
 			});
 			refreshPlaceholder();
@@ -368,6 +373,7 @@
 
 			var checkAllowedTag = false;
 			$.each(self.settings.autocomplete, function (key, value) {
+				
 				if ($.trim(value) === $.trim(text)) {
 					checkAllowedTag = true;
 				}
@@ -379,6 +385,7 @@
 
 		//check for tag length
 		var allowedMaxTag=function(text){
+			
 			if(self.settings.maxTags===-1){
 				return true;
 			}
