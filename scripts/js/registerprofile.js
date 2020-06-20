@@ -241,7 +241,7 @@ $(document).ready(function(){
                     var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
                     $("#profileMessage").html(message);
                 } else {
-                    //window.location.href="viewprofile.php";
+                    window.location.href="viewprofile.php";
                 }
             }
         });
