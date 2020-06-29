@@ -105,6 +105,7 @@ is_login($root);
                 <li class="nav-link"><a href="#meeting" class="item" data-toggle='collapse'>Meeting Details</a></li>
                 <li class="nav-link"><a href="#subscription"  class="item" data-toggle='collapse'>Subscription Status</a></li>
                 <li class="nav-link"><a href="#miscellaneous" class="item" data-toggle='collapse'>Miscellaneous</a></li>
+                <li class="nav-link" id="uploadLI"><a href="#upload_photos" class="item" data-toggle='collapse'>Upload Photos</a></li>
               </ul>
             </div>
             
@@ -135,6 +136,8 @@ is_login($root);
                 $select_data1 = "select * from tblprofiles where ID='".$id."'"; 
                 $profile_array = $mysqli->query($select_data1);
                 $profile = $profile_array->fetch_array();
+
+                
               }else{
                 $profile=[];
               }
@@ -923,7 +926,7 @@ is_login($root);
                 </div>  
               </div>
               <div id='miscellaneous' class='collapse'>
-              <div class="row">
+                <div class="row">
                   <div class="col-md-3">
                   
                   
@@ -938,8 +941,17 @@ is_login($root);
                   </div>
                 </div>  
               </div>
-              </form>
-            </div>
+              <div id='upload_photos' class='collapse'>
+                
+                  <div class="row">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#img_modal" onclick="">Upload Images</button>
+                  </div>
+                  <div class="row" id="imgDiv">
+                  
+                  </div>
+              </div>
+            </form>
+          </div>
             
             
           </div>
@@ -967,8 +979,39 @@ is_login($root);
 
  <?php include 'include/footer_main.php';?>
  
- 
- <script src="scripts/js/registerprofile.js?ver=1.1129"></script>
+ <div class="modal fade" id="img_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  	<div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Upload Images</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+	      	</div>
+	      	<form id="uploadForm" action="uploadImage.php" method="post" enctype="multipart/form-data"> 
+		     	<div class="modal-body">
+		        	<input type="hidden" name="id" id="id" value="<?php echo $id;?>">
+	                <div class="form-group"> 
+	                    <div class="topic tp">
+	                        <div class="file"></div>
+	                        <div class="topic_area">
+	                            <input type="file" class="w3-input file" name="file[]" placeholder="Choose Attachment" multiple>
+	                            <span class="dele text-danger" style="float:right;cursor: pointer;">X</span> 
+	                        </div> 
+	                    </div>  
+	                    <div><a href="javascript:void(0);" class="add_field">+ Add More File</a></div> 
+	                </div>	
+		     	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        	<button type="submit" name="upload_image" id="upload_image" class="btn btn-primary">Submit</button>	
+		      	</div>
+		    </form>		
+	    </div>
+  	</div>
+</div>
+ <script src="scripts/js/registerprofile.js?ver=1.1139"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000000"></script>
 
 

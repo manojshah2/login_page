@@ -144,7 +144,10 @@ $(document).ready(function(){
 
     
 
-    
+    var params=window.location.search;
+    if(params.length<2){
+        $("#uploadLI").attr("class","d-none");
+    }
     
 
     function addDropDown(element,ddlist){
@@ -155,6 +158,7 @@ $(document).ready(function(){
     }
 
     loadReligion();
+    loadImages();
 
     function loadReligion(){
         var religion_text=$("#religion").val();
@@ -210,6 +214,79 @@ $(document).ready(function(){
         
     });
 
+    $(document).on('click','#deleteImg',function(e){
+        e.preventDefault();
+        var id=$(this).data("id");
+        $.ajax({
+            url: "deleteImage.php",
+            method: 'POST',
+            data: {imgid:id},            
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                
+                if (data1["status"] === "failure") {
+                    alert(data1["message"]);
+                } else {
+                    loadImages();
+                }
+            }
+        });
+    });
+
+    $(document).on('click','#upload_image',function(e){
+        e.preventDefault();
+        var url = "uploadImage.php";
+        var form = $("#uploadForm")[0];
+        var data = new FormData(form);
+        
+        $.ajax({
+            type: "POST",
+            encType: "multipart/form-data",
+            url: url,
+            cache: false,
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (msg) {
+                
+                var status = msg.status;
+
+                if (status === 'success') {
+                    $("#img_modal").modal('hide');
+                    loadImages();
+                } else {
+                    alert(msg.message);
+                }
+            },
+            error: function (msg) {
+                alert("Couldn't upload file");
+            }
+        });
+    });
+
+    
+    function loadImages(){
+        var id=$("#uniqueId").val();
+        $.ajax({
+            url: "loadImages.php",
+            method: 'POST',
+            data: {pid:id},            
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                
+                if (data1["status"] === "failure") {
+                    //no data found
+                } else {
+                    var imgDiv=$("#imgDiv");
+                    imgDiv.html('');
+                    for(var i=0;i<data1.length;i++){
+                        imgDiv.append('<div class="col-md-3 mt-2"><div class="card"><img class="card-img-top" src="'+ data1[i].path +'" height=100 width=100 /><div class="card-body"><p class="card-text"><a href="#" id="deleteImg" data-id="'+ data1[i].id +'" >Delete Image</a></p></div></div></div>');
+                    }
+                }
+            }
+        });
+    }
+
     $(document).on('click','#createprofile',function(){
         $("#profileSpinner").show();
 
@@ -227,7 +304,7 @@ $(document).ready(function(){
             json[this.name] = this.value || '';
         });
 
-        console.log(json);
+        
 
         $.ajax({
             url: "addprofile.php"+pid_param,
