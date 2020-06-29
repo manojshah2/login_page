@@ -44,7 +44,7 @@ if(isset($_REQUEST['id'])){
 	                $clean_file_name = $file_name;
                     $full_path = $path.'/'.$clean_file_name;
                     
-                    $count=$mysqli->query("select count(*) as count from tblImages where PID=".$id);
+                    $count=$mysqli->query("select count(*) as count from tblimages where PID=".$id);
                     if($count->fetch_array()['count']>9){
                         $message["status"]='failure';
                         $message["message"]='Images upload limit exceeded';
@@ -59,7 +59,7 @@ if(isset($_REQUEST['id'])){
                         if( $server->IsConnected()){
                             $server->AddParam("PID",$id);
                             $server->AddParam("IMG PATH",$full_path);
-                            if($server->InsertQuery("tblImages")){                                
+                            if($server->InsertQuery("tblimages")){                                
                                 $message["status"]='success';
                                 $message["message"]=$full_path;
                                 echo json_encode($message);	 

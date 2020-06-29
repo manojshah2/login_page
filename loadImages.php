@@ -7,7 +7,7 @@ header("access-control-allow-origin: *");
 
 if (isset($_REQUEST['pid'])){
     $id=$_REQUEST['pid'];
-    $image_arr=$mysqli->query("select ID,`IMG PATH` from tblImages where PID=".$id);
+    $image_arr=$mysqli->query("select ID,`IMG PATH` from tblimages where PID=".$id);
     $data=[];
     while($row =$image_arr->fetch_array()){        
         $imgData['id']=$row['ID'];

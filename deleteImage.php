@@ -11,7 +11,7 @@ if (isset($_REQUEST['imgid'])){
     $id=trim($_REQUEST['imgid']);
     $result_arr=$mysqli->query("select `IMG PATH` from tblImages where ID=".$id);
     $result = $result_arr->fetch_array();
-    $delete = $mysqli->query("delete from tblImages where ID=".$id);
+    $delete = $mysqli->query("delete from tblimages where ID=".$id);
     if($delete){
         unlink($result["IMG PATH"]);
         $message["status"]='success';
