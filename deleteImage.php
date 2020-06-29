@@ -9,7 +9,7 @@ header("access-control-allow-origin: *");
 if (isset($_REQUEST['imgid'])){
     
     $id=trim($_REQUEST['imgid']);
-    $result_arr=$mysqli->query("select `IMG PATH` from tblImages where ID=".$id);
+    $result_arr=$mysqli->query("select `IMG PATH` from tblimages where ID=".$id);
     $result = $result_arr->fetch_array();
     $delete = $mysqli->query("delete from tblimages where ID=".$id);
     if($delete){
