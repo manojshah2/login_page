@@ -67,8 +67,11 @@ is_login($root);
 
           <!-- Content Row -->
           <div class="row">
+          
 					<div class="card-body">
+            <div id="myalert">
 
+            </div>
             <div class="table-responsive" id="tableDiv">
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 
@@ -126,16 +129,13 @@ is_login($root);
                                 targets: 0,
                                 render: function (data, type, row, meta)
                                 {
-                                    data = '<div class="row"><div class="col-6"><a href="profile.php?id='+ data+'">'+ data +'</a></div></div>';
+                                    data = '<div class="row"><div class="col-6"><a href="profile.php?id='+ data+'">'+ data +'</a></div><div class="col-6"><a href="#" id="deleteRow" data-id="'+ row[0] +'"><i class="fa fa-trash fa-lg"></i></a></div></div>';
                                     return data;
                                 }
                             }]
                     });
                     $('#dataTable tbody').on('click', '#deleteRow', function () {
-                        if(audited.value!=="null"){
-                            return;
-                        }
-                        var recordid = $(this).attr("recordid");
+                        var id=$(this).data("id");                        
                         $.simpleDialog({
                             title: "Confirm",
                             message: "Are you sure you want to Delete??",
@@ -143,7 +143,7 @@ is_login($root);
                             closeBtnText: "Cancel",
                             backdrop: true,
                             onSuccess: function () {
-                                deleteRow(recordid);
+                                deleteRow(id);
                             },
                             onCancel: function () {
 
@@ -157,9 +157,9 @@ is_login($root);
 
         function deleteRow(rowid) {
             $.ajax({
-                url: "",
+                url: "delete.php",
                 method: 'POST',
-                data: {recordid: rowid},
+                data: {id: rowid},
                 dataType: 'json',
                 success: function (data, status, xhr) {
                     var alertmessage = '<div class="alert alert-success alert-dismissible" role="alert" id="myalert">\

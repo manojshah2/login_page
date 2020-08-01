@@ -16,11 +16,6 @@ $con=$mysqli;
 
 ## Search 
 $searchQuery = " ";
-if($searchValue != ''){
-    $searchQuery = " and (emp_name like '%".$searchValue."%' or 
-         email like '%".$searchValue."%' or 
-         city like'%".$searchValue."%' ) ";
- }
 
 ## Total number of records without filtering
 $sel = mysqli_query($con,"select count(*) as allcount from ".$table);
@@ -28,12 +23,12 @@ $records = mysqli_fetch_assoc($sel);
 $totalRecords = $records['allcount'];
 
 ## Total number of record with filtering
-$sel = mysqli_query($con,"select count(*) as allcount from ".$table." WHERE 1 ".$searchQuery);
-$records = mysqli_fetch_assoc($sel);
-$totalRecordwithFilter = $records['allcount'];
+#$sel = mysqli_query($con,"select count(*) as allcount from ".$table." WHERE 1 ".$searchQuery);
+#$records = mysqli_fetch_assoc($sel);
+#$totalRecordwithFilter = $records['allcount'];
 
 ## Fetch records
-$empQuery = "select * from ".$table."  limit ".$row.",".$rowperpage;
+$empQuery = "select * from ".$table." ORDER BY `ADDED DATE` DESC  limit ".$row.",".$rowperpage;
 #echo $empQuery;
 $empRecords = mysqli_query($con, $empQuery);
 $data = array();
@@ -47,7 +42,7 @@ while ($row = mysqli_fetch_assoc($empRecords)) {
  ## Response
 $response = array(
     "draw" => intval($draw),
-    "iTotalRecords" => $totalRecordwithFilter,
+    "iTotalRecords" => 0,
     "iTotalDisplayRecords" => $totalRecords,
     "aaData" => $data
   );
