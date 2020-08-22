@@ -263,6 +263,20 @@ is_login($root);
                         <label>Criminal Record</label>
                         <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"criminal_record"); ?>"/>
                       </div>
+                      <div class="form-group col-md-6">
+                        <label>Willing to Stay independently?</label>
+                        <input type="text" class="form-control" name="willing_to_stay" id="willing_to_stay" value="<?php echo getValue($profile,"willing_to_stay"); ?>"/>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                      <label>Open for divorcee</label>
+                      <input type="text" class="form-control" name="open_for_divorcee" id="open_for_divorcee" value="<?php echo getValue($profile,"open_for_divorcee"); ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Open for outside India</label>
+                      <input type="text" class="form-control" name="open_for_outside_india" id="open_for_outside_india" value="<?php echo getValue($profile,"open_for_outside_india"); ?>"/>
+                    </div>
                   </div>
                 </div>
               <div>
@@ -310,6 +324,12 @@ is_login($root);
                       <input type="text" class="form-control" name="school_name" value="<?php echo getValue($profile,"school_name"); ?>"/>
                     </div>
                 </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>From Premium institute</label>
+                    <input type="text" class="form-control" name="from_premium_institute" id="from_premium_institute" value="<?php echo getValue($profile,"from_premium_institute"); ?>"/>
+                  </div>
+                </div>
               </div>
               <div id='familydetails' class='collapse'>
                 <div class="row">
@@ -356,7 +376,7 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-3">
                       <label>Net Worth</label>
-                      <input type="text" class="form-control" name="net_worth" value="<?php echo getValue($profile,"net_worth"); ?>"/>
+                      <input type="text" class="form-control" name="net_worth" id="net_worth" value="<?php echo getValue($profile,"net_worth"); ?>"/>
                     </div>
                     
                   </div>
@@ -421,6 +441,27 @@ is_login($root);
                       <input type="text" class="form-control" name="about_family" value="<?php echo getValue($profile,"about_family"); ?>"/>
                     </div>
                 </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Wedding Budget</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="wedding_budget" id="wedding_budget" value="<?php echo getValue($profile,"wedding_budget"); ?>"/>                                              
+                          
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="wedding_budget2" id="wedding_budget2" value="<?php echo getValue($profile,"wedding_budget2"); ?>"/>                                              
+                          
+                        </div>
+                    </div>  
+                  </div>                 
+                  <div class="form-group col-md-3">
+                    <label>Residential Type</label>
+                    <input type="text" class="form-control" name="residential_type" id="residential_type" value="<?php echo getValue($profile,"residential_type"); ?>"/>
+                  </div>
+
+                
+
               </div>
               <div id='horoscope' class='collapse'>
                 <div class="row">
@@ -736,6 +777,10 @@ is_login($root);
                         <label>About Partner</label>
                         <input type="text" class="form-control" name="pp_about_partner" value="<?php echo getValue($profile,"pp_about_partner"); ?>"/>
                   </div>
+                  <div class="form-group col-md-3">
+                      <label>Partner Occupation</label>
+                      <input type="text" class="form-control" name="pp_partner_occupation" id="pp_partner_occupation" value="<?php echo getValue($profile,"pp_partner_occupation"); ?>"/>
+                  </div>
                   
                 </div>
                 
@@ -1011,8 +1056,8 @@ is_login($root);
 	    </div>
   	</div>
 </div>
- <script src="scripts/js/registerprofile.js?ver=1.1139"></script>
- <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000000"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1142"></script>
+ <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
 
 
 

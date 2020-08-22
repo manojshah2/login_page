@@ -151,8 +151,15 @@ $header = array(
     "lead_status"=>"Lead Status",
     "meeting_type"=>"Meeting Type",
     "annual_income1"=>"ANNUAL INCOME",
-    "annual_income2"=>"ANNUAL INCOME2"
-    
+    "annual_income2"=>"ANNUAL INCOME2",
+    "wedding_budget"=>"Wedding Budget",
+    "wedding_budget2"=>"Wedding Budget2",
+    "residential_type"=>"Residential Type",
+    "willing_to_stay"=>"Willing To Stay",
+    "pp_partner_occupation"=>"Pp Partner Occupation",
+    "open_for_divorcee"=>"Open For Divorcee",
+    "from_premium_institute"=>"From Premium Institute",
+    "open_for_outside_india"=>"Open For Outside India"
 );
 
 ?>

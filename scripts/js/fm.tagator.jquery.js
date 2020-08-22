@@ -417,7 +417,8 @@
 			if ($input_element.val().replace(/\s/g, '') !== '' || self.settings.showAllOptionsOnFocus) {
 				var optionsArray = [];
 				$.each(self.settings.autocomplete, function (key, value) {
-					if (value.toLowerCase().indexOf($input_element.val().toLowerCase()) !== -1) {
+					
+					if (value!=null && value.toString().toLowerCase().indexOf($input_element.val().toLowerCase()) !== -1) {
 						if (!hasTag(value)) {
 							optionsArray.push(value);
 						}

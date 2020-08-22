@@ -27,7 +27,7 @@ $(document).ready(function(){
     var residential_status=['','Citizen','Permanent Resident','Work Permit','Student Visa','Temporary Visa'];
     var ug=['B.A','B.Arch','B.Com','B.Des','B.E/B.Tech','B.Ed','B.IT','B.Pharma','B.Sc','BAMS','BBA','BCA','BDS','BFA','BHM','BHMS','BJMC','BL/LLB','BPT','BVSc.','MBBS','Other'];
     var pg=['CA','M.A','M.Arch','M.Com','M.Des','M.E/M.Tech','M.Ed','M.Pharma','M.Phil','M.S (Medicine)','M.S Engineering','M.Sc','MBA/PGDM','MCA/PGDCA','MCh','MD','MDS','MFA','MJMC','ML/LLM','MPT','MSW','MVSc.','Ph.D'];
-    var occupation1=['Service -Private','Service- Government /PSU','Civil Services','Army/Armed Forces','Business/Self Employed','Rretired','Expired'];
+    var occupation1=['Service -Private','Service- Government /PSU','Civil Services','Army/Armed Forces','Business/Self Employed','Retired','Expired','Housewife'];
     var family_value=['Liberal','Moderate','Orthodox','Conservative'];
     var family_type=['Joint Family','Nuclear family','Others'];
     var affluence_level=['Affluence Level','Upper Middle','Not filled in','Rich/Affluent','Middle Class'];
@@ -53,23 +53,34 @@ $(document).ready(function(){
     var duration=['1 Month','3 Month','6 Month','1 Year','Till You Marrry'];
     var package_type=['Luv2Register-3Month','Luv2Register-6Months','TillYourRoka','Luv2Meet','PayAtYourRoka'];
     var age_bracket=['18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70'];
+    var residential_type=['Flat/Apartment','Bunglow/Villa/penthouse','Farmhouse','Independent house','Builder floor','Rented Property'];
+    var willing_to_stay=['With parents','Independently'];
+    var pp_partner_occupation=['Working','Non working','Her choice','Expecting partner income'];
+    var yes_no=['Yes','No'];
 
-
-
-
+    
+    $('#from_premium_institute').tagator({autocomplete: yes_no,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#open_for_outside_india').tagator({autocomplete: yes_no,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#open_for_divorcee').tagator({autocomplete: yes_no,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#pp_partner_occupation').tagator({autocomplete: pp_partner_occupation,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#willing_to_stay').tagator({autocomplete: willing_to_stay,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#residential_type').tagator({autocomplete: residential_type,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#annual_income1').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#annual_income2').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_income').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_income2').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#family_income').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#family_income2').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#wedding_budget').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#wedding_budget2').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#net_worth').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#height').tagator({autocomplete: height,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_min_height').tagator({autocomplete: height,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_max_height').tagator({autocomplete: height,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_fromage').tagator({autocomplete: age_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_toage').tagator({autocomplete: age_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#pp_religion').tagator({autocomplete: religion,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
-    //$('#pp_caste').tagator({autocomplete: caste,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
+    
     $('#pp_country').tagator({autocomplete: country,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#pp_state').tagator({autocomplete: state["India"],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#pp_marital_status').tagator({autocomplete: marital_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
@@ -173,11 +184,28 @@ $(document).ready(function(){
     });
 
     $(document).on('change', "#pp_religion", function (e) {
+        
+        
+    });
+    
+    //$('#pp_caste').tagator({autocomplete: [],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});                 
+    $(document).on('click', "#pp_caste", function (e) {
+        var pp_caste_suggestor=[];    
+        //$('#pp_caste').tagator();
+        //$('#pp_caste').tagator('destroy');       
         var religion=$("#pp_religion").val();
-        if(caste.hasOwnProperty(religion)){
-            $("#pp_caste").empty();
-            addDropDown($("#pp_caste"),caste[religion]);
+        
+        var _religion=religion.split(',');
+        
+        for(var i=0;i<_religion.length;i++){            
+            if(caste.hasOwnProperty(_religion[i])){
+                var cl=caste[_religion[i]];
+                pp_caste_suggestor=pp_caste_suggestor.concat(cl);
+            }        
         }
+        $('#pp_caste').tagator({autocomplete: pp_caste_suggestor,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});                 
+        
+        
     });
 
     $(document).on('change', "#native_country", function (e) {
