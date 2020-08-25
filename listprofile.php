@@ -100,6 +100,31 @@ is_login($root);
   </div>
   <!-- End of Page Wrapper -->
 
+    <!-- Logout Modal-->
+  <div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="downloadLabel">Download in Excel?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        Please Select Dates to download.
+        <label>Start Date</label>
+        <input type="date" class="form-control" id="start_date"/>
+        <label>End Date</label>
+        <input type="date" class="form-control" id="end_date"/>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#" id="downloadexcel">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
  <?php include 'include/footer_main.php';?>
 
  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -108,9 +133,17 @@ is_login($root);
 
  <script type="text/javascript">
         $(document).ready(function () {
+
+            $("#downloadexcel").on('click',function(){
+              var start_date=$("#start_date").val();
+              var end_date=$("#end_date").val();
+              
+              $(location).attr('href', 'downloadprofiles.php?start='+ start_date + '&end=' +end_date);
+            });
             
             $("#downloadReport").on('click', function () {
-                $(location).attr('href', '');
+                //$(location).attr('href', 'downloadprofiles.php');
+                $('#downloadModal').modal('show');
             });
 
             $.ajax({

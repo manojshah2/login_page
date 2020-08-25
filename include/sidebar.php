@@ -19,14 +19,20 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
       <li class="nav-item">
-        <a class="nav-link" href="viewprofile.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>View Profile</span></a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="profile.php">
         <i class="fas fa-plus "></i>
           <span>Register Profile</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="listprofile.php">
+          <i class="fas fa-edit"></i>
+          <span>View Profile</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="searchprofile.php">
+        <i class="fas fa-search "></i>
+          <span>Search Profile</span></a>
       </li>
 
       
