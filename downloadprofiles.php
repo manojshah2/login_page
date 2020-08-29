@@ -1,6 +1,7 @@
 <?php
 $root = "./";
 include_once($root."config/config.inc.php");
+include_once("field_mapping.php");
 include $root.'PHPExcel/Classes/PHPExcel.php';
 include $root.'PHPExcel/Classes/PHPExcel/IOFactory.php';
 ini_set('max_execution_time', 3000); 
@@ -10,25 +11,33 @@ $end_date=$_REQUEST['end'];
 
 $objPHPExcel = new PHPExcel(); 
 
-$objPHPExcel->getActiveSheet()->getStyle("A1:I1")->getFont()->setBold( true );
+$objPHPExcel->getActiveSheet()->getStyle("1:1")->getFont()->setBold( true );
 // Add some data to the second sheet, resembling some different data types
 $objPHPExcel->setActiveSheetIndex(0);
-$objPHPExcel->getActiveSheet()->setCellValue('A1', 'Sr No');
-$objPHPExcel->getActiveSheet()->setCellValue('B1', 'Source'); 
-$objPHPExcel->getActiveSheet()->setCellValue('C1', 'Enter ID'); 
+
+$sheetObj = $objPHPExcel->getActiveSheet();
+$i=0;
+foreach($download_header as $key=> $value){
+	$sheetObj->setCellValueByColumnAndRow($i,1,$value);
+	$i++;
+}
 
 $count_rows=2; 
 
 // get product data===============
 $select_query= $mysqli->query("select * from tblprofiles where `ADDED DATE`>='".$start_date."' and `ADDED DATE`<='".$end_date."'");
-$p=1;
+$i=0;
 while($data_val_arr = $select_query->fetch_array()){
-	$objPHPExcel->getActiveSheet()->setCellValue('A'.$count_rows, $p);
-	$objPHPExcel->getActiveSheet()->setCellValue('B'.$count_rows, $data_val_arr['Data Taken From']);
-	$objPHPExcel->getActiveSheet()->setCellValue('C'.$count_rows, $data_val_arr['PID']);
+	
+	foreach($download_header as $key=> $value){
+		if (array_key_exists($key, $data_val_arr)){
+			$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$value]);
+		}
+		$i++;
+	}
 	
 	$count_rows++;	
-  $p++;
+  
 }
 
 // file name ================
