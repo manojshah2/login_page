@@ -34,6 +34,11 @@
         <i class="fas fa-search "></i>
           <span>Search Profile</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="downloadfiles.php">
+        <i class="fas fa-download "></i>
+          <span>Download Files</span></a>
+      </li>
 
       
      
