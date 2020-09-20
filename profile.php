@@ -1045,7 +1045,7 @@ is_login($root);
 	                            <span class="dele text-danger" style="float:right;cursor: pointer;">X</span> 
 	                        </div> 
 	                    </div>  
-	                    <div><a href="javascript:void(0);" class="add_field">+ Add More File</a></div> 
+	                     
 	                </div>	
 		     	</div>
 		      	<div class="modal-footer">
@@ -1057,7 +1057,7 @@ is_login($root);
   	</div>
 </div>
 <script src="scripts/js/variables.js?ver=1.1142"></script>
- <script src="scripts/js/registerprofile.js?ver=1.1143"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1144"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
 
 

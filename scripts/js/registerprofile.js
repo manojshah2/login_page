@@ -211,6 +211,7 @@ $(document).ready(function(){
         var url = "uploadImage.php";
         var form = $("#uploadForm")[0];
         var data = new FormData(form);
+        console.log(data);
         
         $.ajax({
             type: "POST",

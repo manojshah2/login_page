@@ -19,6 +19,15 @@ if(isset($_REQUEST['id'])){
         return;
 	}else{ 
         // upload multiple files===========
+        $count=$mysqli->query("select count(*) as count from tblimages where PID=".$id);
+        if($count->fetch_array()['count'] + count($_FILES['file']['name'])>9){
+            $message["status"]='failure';
+            $message["message"]='Images upload limit exceeded';
+            echo json_encode($message);	 
+            return;
+        }
+
+        $messages['status']= 'success';
         
 	    for($j=0;$j<count($_FILES['file']['name']); $j++){ 
 
@@ -44,15 +53,6 @@ if(isset($_REQUEST['id'])){
 	                $clean_file_name = $file_name;
                     $full_path = $path.'/'.$clean_file_name;
                     
-                    $count=$mysqli->query("select count(*) as count from tblimages where PID=".$id);
-                    if($count->fetch_array()['count']>9){
-                        $message["status"]='failure';
-                        $message["message"]='Images upload limit exceeded';
-                        echo json_encode($message);	 
-                        return;
-                    }
-
-	                 
 	                if(move_uploaded_file($file_tmp, $full_path)) 
 	                { 
                         $server = new Server($mysqli);
@@ -61,9 +61,9 @@ if(isset($_REQUEST['id'])){
                             $server->AddParam("IMG PATH",$full_path);
                             if($server->InsertQuery("tblimages")){                                
                                 $message["status"]='success';
-                                $message["message"]=$full_path;
-                                echo json_encode($message);	 
-                                return;
+                                $message["message"]=$full_path;                                
+                                $messages["image".$j]=$message;
+                                
                             }
                             else{
                                 $message["status"]='failure';
@@ -94,7 +94,9 @@ if(isset($_REQUEST['id'])){
                 return; 
                 
 	        } 
-	    }	    
+        }
+        
+        echo json_encode($messages);
 	}
 }
 

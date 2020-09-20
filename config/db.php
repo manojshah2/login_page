@@ -88,7 +88,7 @@ class Server {
         }
         
         $stmt->close();
-        $this->conn->close();
+        //$this->conn->close();
 
         return $message;
 
@@ -125,7 +125,7 @@ class Server {
         }
 
         $stmt->close();
-        $this->conn->close();
+        //$this->conn->close();
 
         return $message;
 
