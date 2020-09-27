@@ -44,4 +44,33 @@ $(document).ready(function(){
     $(document).on('change', "#religion", function (e) {
         loadReligion();
     });
+
+    $(document).on('click',"#searchprofile", function(e) {
+        e.preventDefault();
+        
+        $("#profileSpinner").show();
+        var array = $("#searchForm").serializeArray();
+        var json={};
+
+        jQuery.each(array, function() {
+            json[this.name] = this.value || '';
+        });
+
+        $.ajax({
+            url: "api/search.php",
+            method: 'POST',
+            data: JSON.stringify(json),
+            contentType:"application/json",
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                $("#profileSpinner").hide();
+                if (data1["status"] === "failure") {
+                    var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
+                    $("#profileMessage").html(message);
+                } else {
+                    window.location.href=data1["data"];
+                }
+            }
+        });
+    });
 });

@@ -190,7 +190,7 @@ is_login($root);
                   </div>
 
                   <div class="row">
-                  <div class="form-group col-md-3">
+                    <div class="form-group col-md-3">
                       <label>Occupation</label>
                       <input type="text" class="form-control" name="occupation" id="occupation" value="<?php echo getValue($profile,"occupation"); ?>" />                      
                     </div>
@@ -279,7 +279,7 @@ is_login($root);
                     </div>
                   </div>
                 </div>
-              <div>
+              
               <div id='education' class='collapse'>
                 <div class="row">                  
                 <div class="form-group col-md-6">
@@ -332,8 +332,7 @@ is_login($root);
                 </div>
               </div>
               <div id='familydetails' class='collapse'>
-                <div class="row">
-                  
+                  <div class="row">                  
                     <div class="form-group col-md-3">
                       <label>Father Occupation</label>
                       <input type="text" class="form-control" name="father_is" id="father_is" value="<?php echo getValue($profile,"father_is"); ?>"/>
@@ -440,32 +439,31 @@ is_login($root);
                       <label>About Family</label>
                       <input type="text" class="form-control" name="about_family" value="<?php echo getValue($profile,"about_family"); ?>"/>
                     </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label>Wedding Budget</label>
-                    <div class="row">
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Wedding Budget</label>
+                      <div class="row">
                         <div class="col-md-6">
-                          <input type="text" class="form-control" name="wedding_budget" id="wedding_budget" value="<?php echo getValue($profile,"wedding_budget"); ?>"/>                                              
-                          
+                          <input type="text" class="form-control" name="wedding_budget" id="wedding_budget" value="<?php echo getValue($profile,"wedding_budget"); ?>"/>                                             
                         </div>
                         <div class="col-md-6">
                           <input type="text" class="form-control" name="wedding_budget2" id="wedding_budget2" value="<?php echo getValue($profile,"wedding_budget2"); ?>"/>                                              
-                          
                         </div>
-                    </div>  
+                      </div>  
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Residential Type</label>
+                      <input type="text" class="form-control" name="residential_type" id="residential_type" value="<?php echo getValue($profile,"residential_type"); ?>"/>
+                    </div>
                   </div>                 
-                  <div class="form-group col-md-3">
-                    <label>Residential Type</label>
-                    <input type="text" class="form-control" name="residential_type" id="residential_type" value="<?php echo getValue($profile,"residential_type"); ?>"/>
-                  </div>
+                  
 
                 
 
               </div>
               <div id='horoscope' class='collapse'>
-                <div class="row">
-                  
+                  <div class="row">                  
                     <div class="form-group col-md-6">
                       <label>DOB</label>
                       <input type="date" class="form-control" name="dob" value="<?php echo getValue($profile,"dob"); ?>"/>
@@ -515,10 +513,10 @@ is_login($root);
                     </div>
                   </div>
                   
-                </div>  
-              </div>
+              </div>  
+              
               <div id='identity' class='collapse'>
-              <div class="row">
+                <div class="row">
                   
                     
                     <div class="form-group col-md-4">
@@ -600,7 +598,7 @@ is_login($root);
                 </div>  
               </div>
               <div id='looks_div' class='collapse'>
-              <div class="row">
+                <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>Body Type</label>
@@ -818,7 +816,7 @@ is_login($root);
                 </div>  
               </div>
               <div id='lead' class='collapse'>
-              <div class="row">
+                <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
                         <label>Lead-Date of calling</label>
@@ -864,7 +862,7 @@ is_login($root);
                 </div>  
               </div>
               <div id='meeting' class='collapse'>
-              <div class="row">
+                <div class="row">
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>MEETING FINALISED BY</label>
@@ -910,7 +908,7 @@ is_login($root);
                 </div>  
               </div>
               <div id='subscription' class='collapse'>
-              <div class="row">
+                <div class="row">
                   <div class="col-md-3">
                   <div class="form-group">
                         <label>CLIENT TYPE</label>

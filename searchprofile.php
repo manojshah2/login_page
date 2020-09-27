@@ -74,7 +74,13 @@ is_login($root);
           <!-- Content Row -->
           <div class="row">
 						<div class="col-xl-10 col-md-6 mb-4">
-              <form>
+            <div id="profileMessage">
+              
+            </div>
+            <div class="spinner-border spinner-border-sm d-none" id="profileSpinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>   
+              <form action="#" method="post" id="searchForm">
                 <div>
                   <div class="row">
                     <div class="form-group col-md-12">                                                                
@@ -83,8 +89,8 @@ is_login($root);
                           <label class="pt-2">Age</label>
                         </div>
                         
-                        <input type="number" id="fromage" class="form-control" placeholder="From"/>                        
-                        <input type="number" id="toage" class="form-control" placeholder="To"/>
+                        <input type="number" id="fromage" name="fromage" class="form-control" placeholder="From"/>                        
+                        <input type="number" id="toage" name="toage" class="form-control" placeholder="To"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -92,8 +98,8 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Height</label>
                         </div>
-                        <input type="text" id="fromheight" class="form-control" placeholder="From"/>                        
-                        <input type="text" id="toheight" class="form-control" placeholder="To"/>
+                        <input type="text" id="fromheight" name="fromheight" class="form-control" placeholder="From"/>                        
+                        <input type="text" id="toheight" name="toheight" class="form-control" placeholder="To"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">
@@ -101,7 +107,7 @@ is_login($root);
                         <div class="col-md-4 pt-2">
                           <label>Religion</label>
                         </div>
-                        <input type="text" id="religion" class="form-control" placeholder="Religion"/>
+                        <input type="text" id="religion" name="religion" class="form-control" placeholder="Religion"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12 d-none" id="caste_div">
@@ -109,7 +115,7 @@ is_login($root);
                         <div class="col-md-4 pt-2">
                           <label>Caste</label>
                         </div>
-                        <input type="text" id="caste" class="form-control" placeholder="Caste"/>
+                        <input type="text" id="caste" name="caste" class="form-control" placeholder="Caste"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">
@@ -117,7 +123,7 @@ is_login($root);
                         <div class="col-md-4 pt-2">
                           <label>Country</label>
                         </div>
-                        <input type="text" class="form-control" id="country" placeholder="Country"/>
+                        <input type="text" class="form-control" name="country" id="country" placeholder="Country"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">
@@ -125,7 +131,7 @@ is_login($root);
                         <div class="col-md-4 pt-2">
                           <label>City/State</label>
                         </div>
-                        <input type="text" id="state" class="form-control" placeholder="City/State"/>
+                        <input type="text" id="state" class="form-control" name="state" placeholder="City/State"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -133,8 +139,8 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Income</label>
                         </div>
-                        <input type="text" id="annual_income1" class="form-control" placeholder="From"/>                        
-                        <input type="text" id="annual_income2" class="form-control" placeholder="To"/>
+                        <input type="text" id="annual_income1" name="annual_income1" class="form-control" placeholder="From"/>                        
+                        <input type="text" id="annual_income2" name="annual_income2" class="form-control" placeholder="To"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -142,8 +148,8 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Wedding budget</label>
                         </div>
-                        <input type="text" id="wedding_budget1" class="form-control" placeholder="From"/>                        
-                        <input type="text" id="wedding_budget2" class="form-control" placeholder="To"/>
+                        <input type="text" id="wedding_budget1" name="wedding_budget1" class="form-control" placeholder="From"/>                        
+                        <input type="text" id="wedding_budget2" name="wedding_budget2" class="form-control" placeholder="To"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -151,7 +157,7 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Open for divorcee profile</label>
                         </div>
-                        <input type="text" id="open_for_divorcee" class="form-control"/>                        
+                        <input type="text" id="open_for_divorcee" name="open_for_divorce" class="form-control"/>                        
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -159,7 +165,7 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Open for outside India</label>
                         </div>
-                        <input type="text" id="open_for_outside_india" class="form-control"/>
+                        <input type="text" id="open_for_outside_india" name="open_for_outside_india" class="form-control"/>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -167,7 +173,7 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Marital Status</label>
                         </div>
-                        <input type="text" id="marital_status" class="form-control" placeholder="Marital Status"/>                        
+                        <input type="text" id="marital_status" name="marital_status" class="form-control" placeholder="Marital Status"/>                        
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -175,7 +181,7 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Photo</label>
                         </div>
-                        <input type="text" class="form-control" placeholder="Photo"/>
+                        <input type="text" class="form-control" name="photo" placeholder="Photo"/>
                       </div>
                     </div>
                   </div>                  
@@ -189,7 +195,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Manglik</label>
                               </div>
-                              <input type="text" id="manglik" class="form-control" placeholder="Manglik"/>                                                      
+                              <input type="text" id="manglik" name="manglik" class="form-control" placeholder="Manglik"/>                                                      
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -197,7 +203,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Belives in horoscope</label>
                               </div>
-                              <input type="text" id="believes_in_horoscope" class="form-control" placeholder="Belives in horoscope"/>                              
+                              <input type="text" id="believes_in_horoscope" name="believes_in_horoscope" class="form-control" placeholder="Belives in horoscope"/>                              
                             </div>
                           </div>
                         </div>
@@ -214,7 +220,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Highest Education</label>
                               </div>
-                              <input type="text" id="education_qualification" class="form-control" placeholder="Highest Education"/>                                                      
+                              <input type="text" id="education_qualification" name="education_qualification" class="form-control" placeholder="Highest Education"/>                                                      
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -222,7 +228,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Occupation</label>
                               </div>
-                              <input type="text" id="occupation" class="form-control" placeholder="Occupation"/>                              
+                              <input type="text" id="occupation" name="occupation" class="form-control" placeholder="Occupation"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -230,7 +236,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">From Premium Institute</label>
                               </div>
-                              <input type="text" class="form-control" id="from_premium_institute" placeholder="From Premium Institute"/>                              
+                              <input type="text" class="form-control" name="from_premium_institute" id="from_premium_institute" placeholder="From Premium Institute"/>                              
                             </div>
                           </div>
                         </div>
@@ -247,7 +253,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Residential Type</label>
                               </div>
-                              <input type="text" id="residential_type" class="form-control" placeholder="Residential Type"/>                                                      
+                              <input type="text" id="residential_type" name="residential_type" class="form-control" placeholder="Residential Type"/>                                                      
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -255,7 +261,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Affluence level</label>
                               </div>
-                              <input type="text" id="affluence_level" class="form-control" placeholder="Affluence level"/>                              
+                              <input type="text" id="affluence_level" name="affluence_level" class="form-control" placeholder="Affluence level"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -263,8 +269,8 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Family Income</label>
                               </div>
-                              <input type="text" id="family_income1" class="form-control" placeholder="From"/>                              
-                              <input type="text" id="family_income2" class="form-control" placeholder="To"/>                              
+                              <input type="text" id="family_income1" name="family_income1" class="form-control" placeholder="From"/>                              
+                              <input type="text" id="family_income2" name="family_income2" class="form-control" placeholder="To"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -272,7 +278,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Family Type</label>
                               </div>
-                              <input type="text" id="family_type" class="form-control" placeholder="Family Type"/>                              
+                              <input type="text" id="family_type" name="family_type" class="form-control" placeholder="Family Type"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -280,7 +286,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label>Willing to Stay independently?</label>
                               </div>
-                              <input type="text" id="willing_to_stay" class="form-control" placeholder="Willing to Stay independently?"/>                              
+                              <input type="text" id="willing_to_stay" name="willing_to_stay" class="form-control" placeholder="Willing to Stay independently?"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -288,8 +294,8 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Net Worth</label>
                               </div>
-                              <input type="text" id="net_worth1" class="form-control" placeholder="From"/>                              
-                              <input type="text" id="net_worth2" class="form-control" placeholder="To"/>                              
+                              <input type="text" id="net_worth1" name="net_worth1" class="form-control" placeholder="From"/>                              
+                              <input type="text" id="net_worth2" name="net_worth2" class="form-control" placeholder="To"/>                              
                             </div>
                           </div>
                         </div>
@@ -306,7 +312,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Diet</label>
                               </div>
-                              <input type="text" id="food_habits" class="form-control" placeholder="Diet"/>                                                      
+                              <input type="text" id="food_habits" name="food_habits" class="form-control" placeholder="Diet"/>                                                      
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -314,7 +320,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Drink</label>
                               </div>
-                              <input type="text" id="drink" class="form-control" placeholder="Drink"/>                              
+                              <input type="text" id="drink" name="drink" class="form-control" placeholder="Drink"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -322,7 +328,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Smoke</label>
                               </div>
-                              <input type="text" id="smoke" class="form-control" placeholder="Smoke"/>                              
+                              <input type="text" id="smoke" name="smoke" class="form-control" placeholder="Smoke"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -330,7 +336,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Looks</label>
                               </div>
-                              <input type="text" id="looks" class="form-control" placeholder="Looks"/>                              
+                              <input type="text" id="looks" name="looks" class="form-control" placeholder="Looks"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -338,7 +344,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Body Type</label>
                               </div>
-                              <input type="text" id="body_type" class="form-control" placeholder="Body Type"/>                              
+                              <input type="text" id="body_type" name="body_type" class="form-control" placeholder="Body Type"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -346,7 +352,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Communication</label>
                               </div>
-                              <input type="text" id="communication" class="form-control" placeholder="Communication"/>                              
+                              <input type="text" id="communication" name="communication" class="form-control" placeholder="Communication"/>                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -354,7 +360,7 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Complexion</label>
                               </div>
-                              <input type="text" id="complexion" class="form-control" placeholder="Complexion"/>                              
+                              <input type="text" id="complexion" name="complexion" class="form-control" placeholder="Complexion"/>                              
                             </div>
                           </div>
                         </div>
@@ -364,7 +370,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-4"></div>
                     <div class="form-group col-md-6">
-                      <button class="btn btn-primary" style='height:50px;width:300px;'>Search</button>
+                      <button class="btn btn-primary" style='height:50px;width:300px;' id="searchprofile"">Search</button>
                     </div>
                     
                   </div>
@@ -404,7 +410,7 @@ is_login($root);
  <?php include 'include/footer_main.php';?>
 
  <script src="scripts/js/variables.js?ver=1.00001"></script>
- <script src="scripts/js/search.js?ver=1.0001"></script>
+ <script src="scripts/js/search.js?ver=1.0005"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
 </body>
 

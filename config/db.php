@@ -118,7 +118,8 @@ class Server {
 
         if($stmt->execute()){
             $message["status"]=true;
-            $message["error"]='';
+            $message["data"]=$stmt->insert_id;
+            $message["error"]="";
         }else{
             $message["status"]=false;
             $message["error"]=$this->conn->error;
