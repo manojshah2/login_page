@@ -1,0 +1,159 @@
+.prflist1 ul, .btmicon ul {
+    list-style-type: none;
+}
+
+.f15 {
+    font-size: 15px;
+}
+.fontlig {
+    font-family: "Roboto","sans-serif";
+    font-weight: 300;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+
+.prfp4 {
+    padding: 20px 0;
+}
+.prfbr2 {
+    border-bottom: 1px solid #34495e;
+}
+.f15 {
+    font-size: 15px;
+}
+.fontlig {
+    font-family: "Roboto","sans-serif";
+    font-weight: 300;
+}
+.fontlig {
+    font-family: "Roboto","sans-serif";
+    font-weight: 300;
+}
+.pos_rel, .pos-rel {
+    position: relative;
+}
+.moveline {
+    background-color: #34495e;
+    height: 3px;
+    width: 25%;
+    position: absolute;
+    bottom: 0;
+}
+.clearfix::after {
+    clear: both;
+}
+.clearfix::before, .clearfix::after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+nav{
+    display: block;
+}
+.tabs-style-prf nav ul {
+    list-style-type: none;
+}
+.tabs-style-prf nav ul li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.tabs-style-prf nav ul li a {
+    color: #34495e;
+}
+a {
+    text-decoration: none;
+    outline: 0;
+}
+.prfic8 {
+    background-position: -75px -271px;
+    width: 22px;
+    height: 22px;
+}
+.prfic9 {
+    background-position: -98px -271px;
+    width: 17px;
+    height: 22px;
+}
+.prfic10 {
+    background-position: -116px -271px;
+    width: 22px;
+    height: 22px;
+}
+.prfic11 {
+    background-position: -76px -293px;
+    width: 22px;
+    height: 16px;
+}
+.mauto {
+    margin: 0 auto;
+}
+.pt10 {
+    padding-top: 10px;
+}
+.sprite2 {
+    background-image: url(../images/sprite-two.png);
+    background-repeat: no-repeat;
+}
+.bg-white {
+    background-color: #fff;
+}
+.prfic12 {
+    background-position: -78px -309px;
+    width: 18px;
+    height: 23px;
+}
+.fl {
+    float: left;
+}
+.pl27 {
+    padding-left: 27px;
+}
+.pt15 {
+    padding-top: 15px;
+}
+.pr20 {
+    padding-right: 20px;
+}
+.pt2 {
+    padding-top: 2px;
+}
+.prfbr3 {
+    border-bottom: 1px solid #c2c8ce;
+}
+.prfic26 {
+    background-position: -74px -358px;
+    width: 24px;
+    height: 16px;
+}
+.prfic37 {
+    background-position: -98px -296px;
+    width: 19px;
+    height: 23px;
+}
+.prfic14 {
+    background-position: -75px -334px;
+    width: 21px;
+    height: 23px;
+}
+
+.prflist1 ul li {
+    float: left;
+    width: 49%;
+}
+
+.profile_education li p {
+    margin: 0px;
+ 
+}
+
+.color12 {
+    color: #999;
+}
+
+.prfp6 {
+    padding: 30px 27px 20px 25px;
+}
+

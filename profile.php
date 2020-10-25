@@ -125,8 +125,6 @@ is_login($root);
                   }else{
                     return "";
                   }
-                  
-                  
               }
 
               if(isset($_REQUEST['id']))
