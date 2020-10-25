@@ -102,7 +102,7 @@ is_login($root);
                       
                       <img src="<?php echo $root.$images[0]; ?>" height="220px" width="220px">
                     </div>
-                    <div class="col-md-6 profile_txt">
+                    <div class="col-md-8 profile_txt">
                       <div class="row">
                         <div class="pt-2">
                         <?php echo $profile['FIRST NAME']; ?> <?php echo $profile['LAST NAME']; ?>
