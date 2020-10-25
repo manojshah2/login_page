@@ -193,7 +193,7 @@ is_login($root);
                 </div>
             </div>
           </div>
-          <div id="section-career" class="prfp6">
+          <div id="section-career" >
               <div class="row">
                 <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
                     <i class="sprite2 fl prfic12"></i>
@@ -239,7 +239,7 @@ is_login($root);
                 </div>
               </div>
           </div>
-          <div id="section-family" class="prfp6">
+          <div id="section-family" >
               <div class="row">
                   <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">                    
                     <i class="sprite2 fl prfic14"></i>
@@ -314,7 +314,7 @@ is_login($root);
                   
               </div>
           </div>
-          <div id="section-lifestyle" class="prfp6">
+          <div id="section-lifestyle">
             <div class="row">
                 <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
                      <i class="sprite2 fl prfic37"></i>
@@ -344,7 +344,7 @@ is_login($root);
                     </div>                
               </div>
           </div>
-          <div id="section-d" class="prfp6">
+          <div id="section-d" >
           <div class="row">
                 <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
                     <i class="sprite2 fl prfic26 mt6"></i>
