@@ -96,11 +96,11 @@ is_login($root);
                         $images=$profile_images->fetch_array();
 
                         if(count($images)==0){
-                          $images[0]="../images/nophoto.png";
+                          $images[0]="images/nophoto.png";
                         };
                       ?>
                       
-                      <img src="<?php echo $images[0]; ?>" height="220px" width="220px">
+                      <img src="<?php echo $root.$images[0]; ?>" height="220px" width="220px">
                     </div>
                     <div class="col-md-6 profile_txt">
                       <div class="row">
