@@ -123,11 +123,23 @@ $(document).ready(function(){
             $('#caste').tagator({autocomplete: caste[religion_text],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});         
         }
     }
+    function remove_non_ascii(str) {
+  
+        if ((str===null) || (str===''))
+             return false;
+       else
+         str = str.toString();
+        
+        return str.replace(/[^\x20-\x7E]/g, '');
+      }
 
     function getIncome(income_str){
         if (income_str.length<1){
             return -1;
         }
+
+        income_str=remove_non_ascii(income_str);
+        
         var patt=/[0-9\.]+/;
         income_str=income_str.replace("Rs.","");
         var number_income=patt.exec(income_str)[0];
