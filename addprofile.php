@@ -4,7 +4,7 @@ include_once("config/db.php");
 include_once("field_mapping.php");
 header('Content-type: application/json');
 header("access-control-allow-origin: *");
-
+error_reporting(E_ERROR | E_PARSE);
 if($_SERVER['REQUEST_METHOD']!='POST'){
     $message["status"]='failure';
     $message["message"]='Request method not supported';

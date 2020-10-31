@@ -124,6 +124,22 @@ $(document).ready(function(){
         }
     }
 
+    function getIncome(income_str){
+        if (income_str.length<1){
+            return -1;
+        }
+        var patt=/[0-9\.]+/;
+        income_str=income_str.replace("Rs.","");
+        var number_income=patt.exec(income_str)[0];
+        if (income_str.search("Crore")>0){
+            number_income=number_income*10;
+        }
+        if(income_str.search("10000+")>0){
+            number_income=number_income*10;
+        }
+        return number_income;
+    }
+
     $(document).on('change', "#religion", function (e) {
         loadReligion();
     });
@@ -278,8 +294,24 @@ $(document).ready(function(){
             json[this.name] = this.value || '';
         });
 
+        var height=json["height"];
+        var height_value=0;
         
-
+        if (height.length>0){
+            height_value=(height.split("(")[1]);
+            height_value=(height_value.split("m")[0]);
+            
+        }
+        json["height_value"]=height_value;
+        json["annual_income1_value"]=getIncome(json["annual_income1"]);
+        json["annual_income2_value"]=getIncome(json["annual_income2"]);
+        json["pp_income_value"]=getIncome(json["pp_income"]);
+        json["pp_income2_value"]=getIncome(json["pp_income2"]);
+        json["family_income_value"]=getIncome(json["family_income"]);
+        json["family_income2_value"]=getIncome(json["family_income2"]);
+        json["wedding_budget_value"]=getIncome(json["wedding_budget"]);
+        json["wedding_budget2_value"]=getIncome(json["wedding_budget2"]);
+    
         $.ajax({
             url: "addprofile.php"+pid_param,
             method: 'POST',
