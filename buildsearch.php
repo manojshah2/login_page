@@ -48,7 +48,7 @@ function getIncome($income_str) {
   $income_value=floatval($m[0]);
 
   if(strpos($income_str,"Crore")!==false){
-    $income_value=$income_value*10;
+    $income_value=$income_value*100;
   }
 
   if(strpos($income_str,"1000+")!==false){

@@ -104,6 +104,7 @@
 				position:   'absolute',
 				visibility: 'hidden'
 			});
+			
 			$tagator_element.append($textlength_element);
 			// tags element
 			$tags_element = $(document.createElement('div'));
@@ -296,7 +297,7 @@
 			
 			$.each(tags, function (key, value) {
 				
-				if (value !== '' && checkAllowedTag(value)) {
+				if (value !== '') {
 					var $tag_element = $(document.createElement('div'));
 					$tag_element.addClass(self.settings.prefix + 'tag');
 					$tag_element.html(value);
@@ -323,7 +324,7 @@
 
 					$tags_element.append($tag_element);
 				}else{
-					
+					//console.log(tags);
 					$source_element.val($source_element.val().replace(value,""));
 				}
 			});

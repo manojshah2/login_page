@@ -144,9 +144,9 @@ $(document).ready(function(){
         income_str=income_str.replace("Rs.","");
         var number_income=patt.exec(income_str)[0];
         if (income_str.search("Crore")>0){
-            number_income=number_income*10;
+            number_income=number_income*100;
         }
-        if(income_str.search("10000+")>0){
+        if(income_str.search("1000+")>0){
             number_income=number_income*10;
         }
         return number_income;
@@ -308,11 +308,20 @@ $(document).ready(function(){
 
         var height=json["height"];
         var height_value=0;
+
+        var errors=[];
         
-        if (height.length>0){
-            height_value=(height.split("(")[1]);
-            height_value=(height_value.split("m")[0]);
+        if (height.length>0 && height.includes("(")){
             
+            height_value=height.split("(")[1];
+            if (height_value.search("m")>0){
+                height_value=(height_value.split("m")[0]);
+            }else{
+                errors.push('Please Select the Correct Height');
+            }
+            
+        }else{
+            errors.push("Invalid Height");
         }
         json["height_value"]=height_value;
         json["annual_income1_value"]=getIncome(json["annual_income1"]);
@@ -323,22 +332,27 @@ $(document).ready(function(){
         json["family_income2_value"]=getIncome(json["family_income2"]);
         json["wedding_budget_value"]=getIncome(json["wedding_budget"]);
         json["wedding_budget2_value"]=getIncome(json["wedding_budget2"]);
-    
-        $.ajax({
-            url: "addprofile.php"+pid_param,
-            method: 'POST',
-            data: JSON.stringify(json),
-            contentType:"application/json",
-            dataType: 'json',            
-            success: function (data1, status, xhr) {
-                $("#profileSpinner").hide();
-                if (data1["status"] === "failure") {
-                    var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
-                    $("#profileMessage").html(message);
-                } else {
-                    window.location.href="listprofile.php";
+
+        if (errors.length>0){
+            var message='<div class="alert alert-danger">' + errors +"</div>";
+            $("#profileMessage").html(message);
+        }else{    
+            $.ajax({
+                url: "addprofile.php"+pid_param,
+                method: 'POST',
+                data: JSON.stringify(json),
+                contentType:"application/json",
+                dataType: 'json',            
+                success: function (data1, status, xhr) {
+                    $("#profileSpinner").hide();
+                    if (data1["status"] === "failure") {
+                        var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
+                        $("#profileMessage").html(message);
+                    } else {
+                        window.location.href="listprofile.php";
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 });

@@ -39,7 +39,11 @@ while($data_val_arr = $select_query->fetch_array()){
 	
 	foreach($download_header as $key=> $value){
 		if (array_key_exists($key, $data_val_arr)){
-			$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$value]);
+			if($i==0){
+				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,"LV_".$data_val_arr[$value]);
+			}else{
+				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$value]);
+			}
 		}
 		$i++;
 	}
