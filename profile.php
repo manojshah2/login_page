@@ -477,11 +477,17 @@ is_login($root);
                   <div class="row">                  
                     <div class="form-group col-md-6">
                       <label>DOB</label>
-                      <input type="date" class="form-control" name="dob" value="<?php echo getValue($profile,"dob"); ?>"/>
+                      <input type="date" class="form-control" name="dob" id="dob" value="<?php echo getValue($profile,"dob"); ?>"/>
                     </div>
                     <div class="form-group col-md-6">
                       <label>Age</label>
-                      <input type="text" class="form-control" disabled/>
+                      <input type="text" class="form-control" id="age" value="<?php 
+                        $dob_str=getValue($profile,"dob");
+                        $dob=new DateTime($dob_str);
+                        $today=new DateTime('today');
+                        echo $dob->diff($today)->y;
+
+                       ?>" disabled/>
                     </div>
                   </div>
                   <div class="row">
@@ -1066,7 +1072,7 @@ is_login($root);
   	</div>
 </div>
 <script src="scripts/js/variables.js?ver=1.1142"></script>
- <script src="scripts/js/registerprofile.js?ver=1.1148"></script>
+ <script src="scripts/js/registerprofile.js?ver=1.1149"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 

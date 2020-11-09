@@ -156,6 +156,17 @@ $(document).ready(function(){
         loadReligion();
     });
 
+    $(document).on('change',"#dob",function(e){
+        var today = new Date();
+        var birthDate = new Date($('#dob').val());
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        $("#age").val(age);
+    });
+
     $(document).on('change', "#pp_religion", function (e) {
         
         
