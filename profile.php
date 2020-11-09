@@ -232,10 +232,10 @@ is_login($root);
                   </div>                 
                   <div class="row">
                     <div class="form-group col-md-3">
-                        <label>About Me</label>
-                        <input type="text" class="form-control" name="about" value="<?php echo getValue($profile,"about"); ?>"/>
+                      <label>Open for outside India</label>
+                      <input type="text" class="form-control" name="open_for_outside_india" id="open_for_outside_india" value="<?php echo getValue($profile,"open_for_outside_india"); ?>"/>
                     </div>
-                      <div class="form-group col-md-3">
+                    <div class="form-group col-md-3">
                       <label>CITY</label>
                       <input type="text" class="form-control" name="city" value="<?php echo getValue($profile,"city"); ?>"  />
                     </div>
@@ -261,20 +261,22 @@ is_login($root);
                         <label>Criminal Record</label>
                         <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"criminal_record"); ?>"/>
                       </div>
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-3">
                         <label>Willing to Stay independently?</label>
                         <input type="text" class="form-control" name="willing_to_stay" id="willing_to_stay" value="<?php echo getValue($profile,"willing_to_stay"); ?>"/>
                       </div>
+                      <div class="form-group col-md-3">
+                        <label>Open for divorcee</label>
+                        <input type="text" class="form-control" name="open_for_divorcee" id="open_for_divorcee" value="<?php echo getValue($profile,"open_for_divorcee"); ?>"/>
+                      </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-3">
-                      <label>Open for divorcee</label>
-                      <input type="text" class="form-control" name="open_for_divorcee" id="open_for_divorcee" value="<?php echo getValue($profile,"open_for_divorcee"); ?>"/>
+                    <div class="form-group col-md-12">
+                        <label>About Me</label>
+                        <textarea class="form-control" name="about" rows=5><?php echo getValue($profile,"about"); ?></textarea>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label>Open for outside India</label>
-                      <input type="text" class="form-control" name="open_for_outside_india" id="open_for_outside_india" value="<?php echo getValue($profile,"open_for_outside_india"); ?>"/>
-                    </div>
+                    
+                    
                   </div>
                 </div>
               
@@ -330,16 +332,26 @@ is_login($root);
                 </div>
               </div>
               <div id='familydetails' class='collapse'>
-                  <div class="row">                  
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                      <label>Father Name</label>
+                      <input type="text" class="form-control" name="father_name" id="father_name" value="<?php echo getValue($profile,"father_name"); ?>"/>
+                    </div>
                     <div class="form-group col-md-3">
                       <label>Father Occupation</label>
                       <input type="text" class="form-control" name="father_is" id="father_is" value="<?php echo getValue($profile,"father_is"); ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Mother Name</label>
+                      <input type="text" class="form-control" name="mother_name" id="mother_name" value="<?php echo getValue($profile,"mother_name"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Mother Occupation</label>
                       <input type="text" class="form-control" name="mother_is" id="mother_is" value="<?php echo getValue($profile,"mother_is"); ?>"/>
                       
                     </div>
+                  </div>
+                  <div class="row">                  
                     <div class="form-group col-md-3">
                       <label>Family Value</label>
                       <input type="text" class="form-control" name="family_value" id="family_value" value="<?php echo getValue($profile,"family_value"); ?>"/>
@@ -348,13 +360,6 @@ is_login($root);
                     <div class="form-group col-md-3">
                       <label>Family Type</label>
                       <input type="text" class="form-control" name="family_type" id="family_type" value="<?php echo getValue($profile,"family_type"); ?>"/>
-                      
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-md-3">
-                      <label>Affluence Level</label>
-                      <input type="text" class="form-control" name="affluence_level" id="affluence_level" value="<?php echo getValue($profile,"affluence_level"); ?>"/>
                       
                     </div>
                     <div class="form-group col-md-6">
@@ -371,9 +376,26 @@ is_login($root);
                         </div>
                       </div>                      
                     </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                      <label>Affluence Level</label>
+                      <input type="text" class="form-control" name="affluence_level" id="affluence_level" value="<?php echo getValue($profile,"affluence_level"); ?>"/>
+                      
+                    </div>
+                    
                     <div class="form-group col-md-3">
                       <label>Net Worth</label>
                       <input type="text" class="form-control" name="net_worth" id="net_worth" value="<?php echo getValue($profile,"net_worth"); ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Native Country</label>
+                      <input type="text" class="form-control" name="native_country" id="native_country" value="<?php echo getValue($profile,"native_country"); ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Native State</label>
+                      <input type="text" class="form-control" name="native_state" id="native_state" value="<?php echo getValue($profile,"native_state"); ?>"/>                      
+                      
                     </div>
                     
                   </div>
@@ -420,25 +442,16 @@ is_login($root);
                     </div>
                   </div>
                   <div class="row">
+                    <div class="form-group col-md-12">
+                      <label>About Family</label>
+                      <textarea class="form-control" name="about_family"><?php echo getValue($profile,"about_family"); ?></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="form-group col-md-3">
                       <label>Family Based out of</label>
                       <input type="text" class="form-control" name="family_based_out_of" id="family_based_out_of" value="<?php echo getValue($profile,"family_based_out_of"); ?>"/>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label>Native Country</label>
-                      <input type="text" class="form-control" name="native_country" id="native_country" value="<?php echo getValue($profile,"native_country"); ?>"/>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label>Native State</label>
-                      <input type="text" class="form-control" name="native_state" id="native_state" value="<?php echo getValue($profile,"native_state"); ?>"/>                      
-                      
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label>About Family</label>
-                      <input type="text" class="form-control" name="about_family" value="<?php echo getValue($profile,"about_family"); ?>"/>
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="form-group col-md-6">
                       <label>Wedding Budget</label>
                       <div class="row">
