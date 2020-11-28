@@ -61,6 +61,7 @@ if(empty($uniqueId)){
 if($message1["status"]){
     $message["status"]="success";
     $message["message"]=$message_status;
+    $message["data"]=$message1["data"];
 }else{
     $message["status"]="failure";
     $message["message"]=$message1["error"];
