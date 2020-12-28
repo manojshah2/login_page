@@ -1,3 +1,4 @@
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
@@ -15,27 +16,27 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
+      
       <!-- Divider -->
       <hr class="sidebar-divider">
       <li class="nav-item">
-        <a class="nav-link" href="profile.php">
+        <a class="nav-link" href="/profile.php">
         <i class="fas fa-plus "></i>
           <span>Register Profile</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="listprofile.php">
+        <a class="nav-link" href="/listprofile.php">
           <i class="fas fa-edit"></i>
           <span>View Profile</span></a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="searchprofile.php">
+        <a class="nav-link" href="/searchprofile.php">
         <i class="fas fa-search "></i>
           <span>Search Profile</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="downloadfiles.php">
+        <a class="nav-link" href="/downloadfiles.php">
         <i class="fas fa-download "></i>
           <span>Download Files</span></a>
       </li>
