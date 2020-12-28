@@ -129,9 +129,13 @@ is_login($root);
                           <?php echo $profile['ABOUT'] ?>
                         </div>
                       </div>
+                      
                     </div>
+                    
                   </div>
-                
+                  <div>
+                          <a href="downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>">Download PDF</a>
+                      </div>
               </div>
             </div>
           </div>

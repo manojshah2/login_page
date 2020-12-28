@@ -1,15 +1,16 @@
 <?php
 session_start();
 date_default_timezone_set('asia/kolkata'); // use according to country
-
+$root_name="";
 //default database
 if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80'){
 	$default_db = array(
 	    "Database_Server" => "localhost",
 	    "User_Id" => "root",
 	    "Password" => "",
-	    "Database_Name" => "myproject",
+	    "Database_Name" => "livedb",
 	);
+	$root_name="http://localhost/";
 }else{
 	$default_db = array(
 	    "Database_Server" => "localhost",
@@ -17,6 +18,7 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80'){
 	    "Password" => "luvuser",
 	    "Database_Name" => "dbluv",
 	);
+	$root_name="http://crm.luvmatrimony.com/";
 }
 
 $default_db_server      = $default_db['Database_Server'];

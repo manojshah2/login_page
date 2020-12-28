@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jun 29, 2020 at 11:32 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Host: localhost:3306
+-- Generation Time: Dec 27, 2020 at 10:12 PM
+-- Server version: 5.6.49-cll-lve
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `myproject`
+-- Database: `dbluv`
 --
 
 -- --------------------------------------------------------
@@ -32,8 +32,15 @@ CREATE TABLE `tblimages` (
   `ID` int(11) NOT NULL,
   `PID` int(11) NOT NULL,
   `IMG PATH` varchar(500) NOT NULL,
-  `ADDED DATE` datetime NOT NULL DEFAULT current_timestamp()
+  `ADDED DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblimages`
+--
+
+INSERT INTO `tblimages` (`ID`, `PID`, `IMG PATH`, `ADDED DATE`) VALUES
+(1, 28, 'images/28/2.jpeg', '2020-08-21 11:34:30');
 
 --
 -- Indexes for dumped tables
@@ -53,7 +60,7 @@ ALTER TABLE `tblimages`
 -- AUTO_INCREMENT for table `tblimages`
 --
 ALTER TABLE `tblimages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=448;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

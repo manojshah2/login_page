@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 09, 2020 at 08:46 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Host: localhost:3306
+-- Generation Time: Dec 27, 2020 at 10:12 PM
+-- Server version: 5.6.49-cll-lve
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `myproject`
+-- Database: `dbluv`
 --
 
 -- --------------------------------------------------------
@@ -32,8 +32,15 @@ CREATE TABLE `tblloginlogs` (
   `ID` int(11) NOT NULL,
   `IP Address` varchar(20) NOT NULL,
   `Login Id` varchar(20) NOT NULL,
-  `Added Date` datetime NOT NULL DEFAULT current_timestamp()
+  `Added Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblloginlogs`
+--
+
+INSERT INTO `tblloginlogs` (`ID`, `IP Address`, `Login Id`, `Added Date`) VALUES
+(12, '110.225.83.54', 'admin', '2020-05-08 23:48:09');
 
 --
 -- Indexes for dumped tables
@@ -53,7 +60,7 @@ ALTER TABLE `tblloginlogs`
 -- AUTO_INCREMENT for table `tblloginlogs`
 --
 ALTER TABLE `tblloginlogs`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
