@@ -40,9 +40,9 @@ while($data_val_arr = $select_query->fetch_array()){
 	foreach($download_header as $key=> $value){
 		if (array_key_exists($key, $data_val_arr)){
 			if($i==0){
-				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,"LV_".$data_val_arr[$value]);
+				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,"LV_".$data_val_arr[$key]);
 			}else{
-				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$value]);
+				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$key]);				
 			}
 		}
 		$i++;

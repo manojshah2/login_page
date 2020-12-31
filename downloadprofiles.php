@@ -28,10 +28,10 @@ $count_rows=2;
 $select_query= $mysqli->query("select * from tblprofiles where `ADDED DATE`>='".$start_date."' and `ADDED DATE`<='".$end_date."'");
 $i=0;
 while($data_val_arr = $select_query->fetch_array()){
-	
+	print_r($data_val_arr);
 	foreach($download_header as $key=> $value){
 		if (array_key_exists($key, $data_val_arr)){
-			$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$value]);
+			$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$key]);
 		}
 		$i++;
 	}
