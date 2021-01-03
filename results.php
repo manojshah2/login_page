@@ -136,7 +136,7 @@ is_login($root);
           <div class="row">
             <div id='results' style='display:block;width:80%;'>
               <?php while($profile=$result->fetch_array()): ?>
-              <div class="row">
+              <div class="row pt-3">
                 <div id='profile' class="col-md-10">
                   <a href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
                     <div class="row profile">                
