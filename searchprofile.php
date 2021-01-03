@@ -83,6 +83,23 @@ is_login($root);
               <form action="#" method="post" id="searchForm">
                 <div>
                   <div class="row">
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
+                          <label>Gender</label>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label class="radio-inline"><input type="radio" name="gender" value="male" checked>Male</label>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
+                            </div>                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group col-md-12">                                                                
                       <div class="input-group">
                         <div class="col-md-4">

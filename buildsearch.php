@@ -65,17 +65,21 @@ function createSearch($searchId){
     global $mysqli;
     $result =$mysqli->query("select SEARCH from tblsearch where ID=".$searchId);
     $data=array();
+    
     while($fetchdata=$result->fetch_array()){
         $data=json_decode($fetchdata[0],true);
     }
 
+    //print_r($data);  //for getting actual search from db;
+    
     if (count($data)<1){
         echo "Search Not Found. Please goto Search Profile and Perform Search Again.";
         exit();
     }
 
     $search_condition="";
-    $fromage= $data["fromage"];
+    $gender = $data["gender"];
+    $fromage = $data["fromage"];
     $toage = $data["toage"];
 
     $fromheight=$data["fromheight"];
@@ -98,6 +102,8 @@ function createSearch($searchId){
     if(strlen($fromage)>0){
         $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage; 
     }
+
+    
 
     if($fromheight>0){
       if(strlen($search_condition)>0){
@@ -131,7 +137,9 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["body_type"],"BODY TYPE");
     $search_condition = addSearchParam($search_condition,$data["communication"],"Communication");
     $search_condition = addSearchParam($search_condition,$data["complexion"],"COMPLEXION");
+    $search_condition = addSearchParam($search_condition,$data["gender"],"GENDER");
 
+    //print_r($search_condition);
     return $search_condition;
 }
 ?>
