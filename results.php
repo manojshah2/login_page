@@ -134,53 +134,62 @@ is_login($root);
             
           
           <div class="row">
-            <div id='results' style='display:block;width:65%;'>
+            <div id='results' style='display:block;width:80%;'>
               <?php while($profile=$result->fetch_array()): ?>
-              <div id='profile' class="pb-3">
-                <a href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
-                  <div class="row profile">                
-                    <div class="col-md-4">
-                      <?php
-                        $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
-                        $images=$profile_images->fetch_array();
+              <div class="row">
+                <div id='profile' class="col-md-10">
+                  <a href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
+                    <div class="row profile">                
+                      <div class="col-md-4">
+                        <?php
+                          $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+                          $images=$profile_images->fetch_array();
 
-                        if(count($images)==0){
-                          $images[0]="images/nophoto.png";
-                        };
-                      ?>
-                      
-                      <img src="<?php echo $images[0]; ?>" height="220px" width="220px">
+                          if(count($images)==0){
+                            $images[0]="images/nophoto.png";
+                          };
+                        ?>
+                        
+                        <img src="<?php echo $images[0]; ?>" height="220px" width="220px">
+                      </div>
+                      <div class="col-md-8 profile_txt">
+                        <div class="row">
+                          <div class="pt-2">
+                          <?php echo $profile['FIRST NAME']; ?> <?php echo $profile['LAST NAME']; ?>
+                          </div>
+                        </div>
+                        <hr class="mt-2">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div class="mb-0"><?php echo $profile['HEIGHT']; ?></div>
+                            <div class="mb-0"><?php echo $profile['CITY']; ?></div>
+                            <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
+                            <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
+                          </div>
+                          <div class="col-md-5">
+                            <div class="mb-0"><?php echo $profile['EDUCATION']; ?></div>
+                            <div class="mb-0"><?php echo $profile['EMPLOYED AS']; ?></div>
+                            <div class="mb-0"><?php echo $profile['ANNUAL INCOME']; ?>-<?php echo $profile['ANNUAL INCOME2']; ?></div>
+                            <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>
+                          </div>
+                          <div class="col-md-2"></div>
+                        </div>
+                        <div class="row pt-2">
+                          <div class="about_txt">
+                            <?php echo $profile['ABOUT'] ?>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6 profile_txt">
-                      <div class="row">
-                        <div class="pt-2">
-                        <?php echo $profile['FIRST NAME']; ?> <?php echo $profile['LAST NAME']; ?>
-                        </div>
-                      </div>
-                      <hr class="mt-2">
-                      <div class="row">
-                        <div class="col-md-5">
-                          <div class="mb-0"><?php echo $profile['HEIGHT']; ?></div>
-                          <div class="mb-0"><?php echo $profile['CITY']; ?></div>
-                          <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
-                          <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
-                        </div>
-                        <div class="col-md-5">
-                          <div class="mb-0"><?php echo $profile['EDUCATION']; ?></div>
-                          <div class="mb-0"><?php echo $profile['EMPLOYED AS']; ?></div>
-                          <div class="mb-0"><?php echo $profile['ANNUAL INCOME']; ?>-<?php echo $profile['ANNUAL INCOME2']; ?></div>
-                          <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>
-                        </div>
-                        <div class="col-md-2"></div>
-                      </div>
-                      <div class="row pt-2">
-                        <div class="about_txt">
-                          <?php echo $profile['ABOUT'] ?>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
+                  </a>
+                </div>
+                <div class="col-md-2">
+                  <div >
+                    <div class="row pt-4 pl-2">
+                      <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile['ID']; ?>" class="btn btn-primary">Download PDF</a>
+                    </div>                 
+                  </div>  
+                </div>
               </div>
               <?php endwhile; ?>
             </div>
@@ -216,6 +225,12 @@ is_login($root);
 
  <?php include 'include/footer_main.php';?>
 
+ <script type="text/javascript">
+  $(document).ready(function () {
+    function DownloadPDF(profileId) {
+    }
+  });
+ </script>
 </body>
 
 </html>

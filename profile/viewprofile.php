@@ -134,9 +134,12 @@ is_login($root);
                     
                   </div>
                   <div>
-                          <a href="downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>">Download PDF</a>
+                          
                       </div>
-              </div>
+                </div>                
+            </div>
+            <div class="col-md-4 pt-4">
+                <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>" class="btn btn-primary">Download PDF</a>
             </div>
           </div>
 
