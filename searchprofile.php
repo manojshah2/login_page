@@ -81,8 +81,32 @@ is_login($root);
                 <span class="sr-only">Loading...</span>
             </div>   
               <form action="#" method="post" id="searchForm">
-                <div>
+                <div>                 
                   <div class="row">
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
+                          <label>First Name</label>
+                        </div>
+                        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name"/>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
+                          <label>Last Name</label>
+                        </div>
+                        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name"/>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
+                          <label>Phone Number</label>
+                        </div>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number"/>
+                      </div>
+                    </div>
                     <div class="form-group col-md-12">
                       <div class="input-group">
                         <div class="col-md-4 pt-2">

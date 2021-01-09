@@ -14,12 +14,16 @@ function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2){
   }
   return $search_condition;
 }
-function addSearchParam($search_condition, $column, $db_header ) {
+function addSearchParam($search_condition, $column, $db_header, $comp ="=" ) {
+    $comp_options="";
+    if ($comp=="like"){
+      $comp_options="%";
+    }
     if (strlen($column)>0){
       $data_split = explode(",",$column);
       $cond = "";
       foreach($data_split as $key => $value) {  
-        $cond = $cond." or `".$db_header."`='".$value."'";
+        $cond = $cond." or `".$db_header."` ".$comp."  '".$value.$comp_options."'";
       }
       $cond = substr($cond,3);
       if(strlen($search_condition)>0){
@@ -81,6 +85,7 @@ function createSearch($searchId){
     $gender = $data["gender"];
     $fromage = $data["fromage"];
     $toage = $data["toage"];
+    
 
     $fromheight=$data["fromheight"];
     $toheight=$data["toheight"];
@@ -95,15 +100,11 @@ function createSearch($searchId){
 
     $fi=getIncome($data["family_income1"]);
     $fi2=getIncome($data["family_income2"]);
-
-    
     
     //print_r($toheight);
     if(strlen($fromage)>0){
         $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage; 
     }
-
-    
 
     if($fromheight>0){
       if(strlen($search_condition)>0){
@@ -138,6 +139,9 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["communication"],"Communication");
     $search_condition = addSearchParam($search_condition,$data["complexion"],"COMPLEXION");
     $search_condition = addSearchParam($search_condition,$data["gender"],"GENDER");
+    $search_condition = addSearchParam($search_condition,$data["first_name"],"FIRST NAME" , 'like');
+    $search_condition = addSearchParam($search_condition,$data["last_name"],"LAST NAME",'like');
+    $search_condition = addSearchParam($search_condition,$data["phone"],"PHONE",'like');
 
     //print_r($search_condition);
     return $search_condition;
