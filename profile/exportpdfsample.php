@@ -8,6 +8,32 @@ include_once($root."field_mapping.php");
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <style>
+    .boldheading{
+        font-family: 'Bookman Old Style';
+        font-size: 9.5pt;
+        text-decoration: underline;
+        color: white;
+        /* vertical-align: middle; */
+        padding-top: 2px;
+        padding-left: 7px;
+    }
+    .headingcolor{
+        background-color: #800000;
+        width: 30%;
+        height: 22px;
+    }
+    body{
+        font-family: 'Aerial';
+        font-size: 11pt;;
+    }
+    td{
+        height:30px;
+    }
+    
+    </style>
+</head>
 <body>
     <?php
         error_reporting(E_ERROR | E_PARSE);
@@ -24,10 +50,12 @@ include_once($root."field_mapping.php");
             $profile = $result->fetch_array();
         }
     ?>
-    <h1>PERSONAL INFORMATION</h1>
+    <div class="headingcolor">
+    <h1 class="boldheading">PERSONAL INFORMATION</h1>
+    </div>
     <table>
         <tr>
-            <td>MEMBER NAME</td>
+            <td width="250px">MEMBER NAME</td>
             <td> : <?php echo getValue($profile,'FIRST NAME') ?> <?php echo getValue($profile,'LAST NAME') ?></td>
         </tr>
         <tr>
@@ -77,7 +105,10 @@ include_once($root."field_mapping.php");
 
     </table>
 
-    <h1>EDUCATIONAL INFORMATION</h1>
+    <div class="headingcolor">
+        <h1 class="boldheading">EDUCATIONAL INFORMATION</h1>
+    </div>
+    
     <table>
         <tr>
             <td>S. No.</td>
@@ -101,10 +132,13 @@ include_once($root."field_mapping.php");
         </tr>
     </table>
 
-    <h1>PROFESSIONAL INFORMATION</h1>
-    <table>
+    
+    <div class="headingcolor">
+        <h1 class="boldheading">PROFESSIONAL INFORMATION</h1>
+    </div>
+    <table >
         <tr>
-            <td>OCCUPATION</td>
+            <td width="250px">OCCUPATION</td>
             <td> : <?php echo getValue($profile,'Occupation') ?></td>
         </tr>
         <tr>
@@ -125,10 +159,12 @@ include_once($root."field_mapping.php");
         </tr>
     </table>
 
-    <h1>FAMILY DETAILS</h1>
-    <table>
+    <div class="headingcolor">
+        <h1 class="boldheading">FAMILY DETAILS</h1>
+    </div>
+    <table >
         <tr>
-            <td>FATHER'S NAME</td>
+            <td width="250px">FATHER'S NAME</td>
             <td> : <?php echo getValue($profile,'FATHER NAME') ?></td>
         </tr>
         <tr>
@@ -179,10 +215,13 @@ include_once($root."field_mapping.php");
 
     </table>
 
-    <h1>ABOUT FAMILY</h1>
-    <table>
+    
+    <div class="headingcolor">
+        <h1 class="boldheading">ABOUT FAMILY</h1>
+    </div>
+    <table style='width:100%'>
         <tr>
-            <td>BELIEVES IN HOROSCOPE</td>
+            <td style='width:15%'>BELIEVES IN HOROSCOPE</td>
             <td> : <?php echo getValue($profile,'BELIEVES IN HOROSCOPE') ?></td>
         </tr>
         <tr>
