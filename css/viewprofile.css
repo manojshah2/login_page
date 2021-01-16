@@ -14,6 +14,65 @@
     padding-top: 15px;
 }
 
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.pt49 {
+    padding-top: 49px;
+}
+.fullwid {
+    width: 100%;
+}
+.fontlig {
+    font-family: "Roboto","sans-serif";
+    font-weight: 300;
+}
+.prfbr2 {
+    border-bottom: 1px solid #34495e;
+}
+ul.gunna p {
+    margin: 0;
+}
+ul.gunna > li {
+    padding-top: 20px;
+}
+.listn {
+    list-style-type: none;
+}
+.prfp12 {
+    padding: 13px 20px 20px 20px;
+}
+.disp-tbl {
+    display: table;
+}
+
+.prfwid3 {
+    width: 724px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float:right;
+}
+.mt13 {
+    margin-top: 13px;
+}
+.prfwid12 {
+    width: 253px;
+}
+.mb15 {
+    margin-bottom: 15px;
+}
 .prfp4 {
     padding: 20px 0;
 }
@@ -92,6 +151,12 @@ a {
 }
 .pt10 {
     padding-top: 10px;
+}
+.pt60 {
+    padding-top: 60px;
+}
+.pb25 {
+    padding-bottom: 25px;
 }
 .sprite2 {
     background-image: url(../images/sprite-two.png);

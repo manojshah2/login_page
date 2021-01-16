@@ -23,11 +23,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="scripts/jquery/jquery.min.js?v=1000001"></script>
-  <script src="scripts/js/bootstrap.bundle.min.js"></script>
+  <script src="/scripts/jquery/jquery.min.js?v=1000001"></script>
+  <script src="/scripts/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="scripts/jquery/jquery.easing.min.js"></script>
+  <script src="/scripts/jquery/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="scripts/js/sb-admin-2.min.js"></script>
+  <script src="/scripts/js/sb-admin-2.min.js"></script>

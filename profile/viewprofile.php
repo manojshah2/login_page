@@ -20,7 +20,7 @@ is_login($root);
   <!-- Custom fonts for this template-->
   <link href="../css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="../css/viewprofile.css" rel="stylesheet" type="text/css">
+  <link href="../css/viewprofile.css?ver=1.100001" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -139,228 +139,281 @@ is_login($root);
                 </div>                
             </div>
             <div class="col-md-4 pt-4">
-                <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>" class="btn btn-primary">Download PDF</a>
-            </div>
-          </div>
-
-          <div class="row">
-              <div class="col-md-8 bg-white">
-                  <div class="tabs-style-prf fontlig f15 prfp4 prfbr2 pos-rel">
-                      <div class="moveline"></div>
-                      <nav>
-                          <ul class="clearfix">
-                              <li data-attr="1">
-                                  <a href="#section-a">
-                                      <div class="sprite2 prfic8 mauto"></div>
-                                      <div class="pt10">About Him</div>
-                                  </a>
-                              </li>
-                              <li data-attr="2">
-                                  <a href="#section-career">
-                                      <div class="sprite2 prfic9 mauto"></div>
-                                      <div class="pt10">Education & Career</div>
-                                  </a>
-                              </li>
-                              <li data-attr="2">
-                                  <a href="#section-family">
-                                      <div class="sprite2 prfic10 mauto"></div>
-                                      <div class="pt10">Family Details</div>
-                                  </a>
-                              </li>
-                              <li data-attr="1">
-                                  <a href="#section-d">
-                                      <div class="sprite2 prfic11 mauto"></div>
-                                      <div class="pt10">Desired Partner</div>
-                                  </a>
-                              </li>
-                          </ul>
-                      </nav>
-                  </div>
-              </div>
-          </div>
-          <div id="section-about" >
-            <div class="row">
-                <div class="col-md-8 bg-white pl-4 prfbr3">
-                    <div class="row pt-4 pb-4">
-                        <div class="col-md-10">
-                            Profile managed by
-                        </div>                      
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            About his family:<br><?php echo getValue($profile,'ABOUT FAMILY') ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            Education: <?php echo getValue($profile,'UG') ?>
-                        </div>
-                    </div>
-                    
+                <div class="row pb-2">
+                    <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>" class="btn btn-primary">Download PDF</a>
+                </div>
+                <div class="row">
+                    <a href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
                 </div>
             </div>
           </div>
-          <div id="section-career" >
-              <div class="row">
-                <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
-                    <i class="sprite2 fl prfic12"></i>
-                    <div class="fl">Education & Career</div>
-                    <br>
-                    <div class="pl27 prflist1 js-careerView">
-                        <ul class="clearfix profile_education">
-                            <li>
-                                <p class="color12 pt15">Highest Education</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'UG') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">School Name</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'SCHOOL NAME') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">UG Degree</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'UG') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">UG College</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'UG College') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Employed In</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'EMPLOYED IN') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Occupation</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'OCCUPATION') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Organization Name</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'COMPANY NAME') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Annual Income</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'ANNUAL INCOME') ?>-<?php echo getValue($profile,'ANNUAL INCOME2') ?></p>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-              </div>
-          </div>
-          <div id="section-family" >
-              <div class="row">
-                  <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">                    
-                    <i class="sprite2 fl prfic14"></i>
-                    <div class="fl">Family Details</div>
-                    <br>
-                    <div class="pl27 prflist1 js-careerView">
-                        <ul class="clearfix profile_education">
-                            <li>
-                                <p class="color12 pt15">Mother's Occupation</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'MOTHER IS') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Father's Occupation</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FATHER IS') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Sister(s)</p>
-                                <?php 
-                                    $sister="";
-                                    $un_sister=getValue($profile,'UNMARRIED SISTER');
-                                    $m_sister=getValue($profile,'MARRIED SISTERS');
-                                    
-                                    if (strpos($un_sister,"filled")!=false){
-                                        $sister=$m_sister." married sister";
-                                    }else{
-                                        $sister=$un_sister." sister of which ".$m_sister." married";
-                                    }
-                                ?>
-                                <p class="pt2 pr20"><?php echo $sister?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Brother(s)</p>
-                                <?php 
-                                    $brother="";
-                                    $un_brother=getValue($profile,'UNMARRIED BROTHERS');
-                                    $m_brother=getValue($profile,'MARRIED BROTHERS');
-                                    
-                                    if (strpos($un_broter,"filled")!=false){
-                                        $brother=$m_brother." married sister";
-                                    }else{
-                                        $brother=$un_brother." brother of which ".$m_brother." married";
-                                    }
-                                ?>
-                                <p class="pt2 pr20"><?php echo $brother ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Gothra</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'GOTRA') ?></p>
-                            </li>
-                            
-                            
-                            <li>
-                                <p class="color12 pt15">Family Income</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Family Type</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY TYPE') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Family Values</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY VALUE') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Family based out of</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY BASED OUT OF') ?></p>
-                            </li>
-                        </ul>
+        <div class="mt13">
+            <div class="fullwid clearfix">
+          
+                <div class="fl prfwid3 bg-white">
+                    <div class="tabs-style-prf fontlig f15 prfp4 prfbr2 pos-rel">
+                        <div class="moveline"></div>
+                        <nav>
+                            <ul class="clearfix">
+                                <li data-attr="1">
+                                    <a href="#section-a">
+                                        <div class="sprite2 prfic8 mauto"></div>
+                                        <div class="pt10">About Him</div>
+                                    </a>
+                                </li>
+                                <li data-attr="2">
+                                    <a href="#section-career">
+                                        <div class="sprite2 prfic9 mauto"></div>
+                                        <div class="pt10">Education & Career</div>
+                                    </a>
+                                </li>
+                                <li data-attr="2">
+                                    <a href="#section-family">
+                                        <div class="sprite2 prfic10 mauto"></div>
+                                        <div class="pt10">Family Details</div>
+                                    </a>
+                                </li>
+                                <li data-attr="1">
+                                    <a href="#section-d">
+                                        <div class="sprite2 prfic11 mauto"></div>
+                                        <div class="pt10">Desired Partner</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
 
-
-                  
-              </div>
-          </div>
-          <div id="section-lifestyle">
-            <div class="row">
-                <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
-                     <i class="sprite2 fl prfic37"></i>
-                    <div class="fl">Lifestyle</div>
-                    <br>
-                    <div class="pl27 prflist1 js-careerView">
-                        <ul class="clearfix profile_education">
-                            <li>
-                                <p class="color12 pt15">Habits</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'FOOD HABITS') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Assets</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'Property Details') ?></p>
-                            </li>
+                    <div id="section-about" >
+                        <div class="">
+                            <div class="bg-white pl-4 pt-4 prfbr3">
+                                
+                                <div class="bg-white pl-4 pt-4">
+                                    Profile managed by
+                                </div>                      
                             
-                            <li>
-                                <p class="color12 pt15">Residential Status</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'Residential Status') ?></p>
-                            </li>
-                            <li>
-                                <p class="color12 pt15">Special Case</p>
-                                <p class="pt2 pr20"><?php echo getValue($profile,'SPECIAL CASE') ?></p>
-                            </li>
                             
-                        </ul>
-                    </div>                
-              </div>
-          </div>
-          <div id="section-d" >
-          <div class="row">
-                <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
-                    <i class="sprite2 fl prfic26 mt6"></i>
-                    <div class="fl colr5 pl8 f17 pt3">Desired Partner</div>
+                                <div class="bg-white pl-4 pt-4 pr-4">
+                                    About his family:<br><?php echo getValue($profile,'ABOUT FAMILY') ?>
+                                </div>
+                            
+                            
+                                <div class="bg-white pl-4 pt-4">
+                                    Education: <?php echo getValue($profile,'UG') ?>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section-career" >
+                        <div class="">
+                            <div class="bg-white pl-4 pt-4 prfbr3">
+                                <i class="sprite2 fl prfic12"></i>
+                                <div class="fl">Education & Career</div>
+                                <br>
+                                <div class="pl27 prflist1 js-careerView">
+                                    <ul class="clearfix profile_education">
+                                        <li>
+                                            <p class="color12 pt15">Highest Education</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'UG') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">School Name</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'SCHOOL NAME') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">UG Degree</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'UG') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">UG College</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'UG College') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Employed In</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'EMPLOYED IN') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Occupation</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'OCCUPATION') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Organization Name</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'COMPANY NAME') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Annual Income</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'ANNUAL INCOME') ?>-<?php echo getValue($profile,'ANNUAL INCOME2') ?></p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section-family" >
+                        <div class="">
+                            <div class="bg-white pl-4 pt-4 prfbr3">                    
+                                <i class="sprite2 fl prfic14"></i>
+                                <div class="fl">Family Details</div>
+                                <br>
+                                <div class="pl27 prflist1 js-careerView">
+                                    <ul class="clearfix profile_education">
+                                        <li>
+                                            <p class="color12 pt15">Mother's Occupation</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'MOTHER IS') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Father's Occupation</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FATHER IS') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Sister(s)</p>
+                                            <?php 
+                                                $sister="";
+                                                $un_sister=getValue($profile,'UNMARRIED SISTER');
+                                                $m_sister=getValue($profile,'MARRIED SISTERS');
+                                                
+                                                if (strpos($un_sister,"filled")!=false){
+                                                    $sister=$m_sister." married sister";
+                                                }else{
+                                                    $sister=$un_sister." sister of which ".$m_sister." married";
+                                                }
+                                            ?>
+                                            <p class="pt2 pr20"><?php echo $sister?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Brother(s)</p>
+                                            <?php 
+                                                $brother="";
+                                                $un_brother=getValue($profile,'UNMARRIED BROTHERS');
+                                                $m_brother=getValue($profile,'MARRIED BROTHERS');
+                                                
+                                                if (strpos($un_broter,"filled")!=false){
+                                                    $brother=$m_brother." married sister";
+                                                }else{
+                                                    $brother=$un_brother." brother of which ".$m_brother." married";
+                                                }
+                                            ?>
+                                            <p class="pt2 pr20"><?php echo $brother ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Gothra</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'GOTRA') ?></p>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <p class="color12 pt15">Family Income</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Family Type</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY TYPE') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Family Values</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY VALUE') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Family based out of</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FAMILY BASED OUT OF') ?></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section-lifestyle">
+                        <div class="">
+                            <div class="bg-white pl-4 pt-4 prfbr3">
+                                <i class="sprite2 fl prfic37"></i>
+                                <div class="fl">Lifestyle</div>
+                                <br>
+                                <div class="pl27 prflist1 js-careerView">
+                                    <ul class="clearfix profile_education">
+                                        <li>
+                                            <p class="color12 pt15">Habits</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'FOOD HABITS') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Assets</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'Property Details') ?></p>
+                                        </li>
+                                        
+                                        <li>
+                                            <p class="color12 pt15">Residential Status</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'Residential Status') ?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12 pt15">Special Case</p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'SPECIAL CASE') ?></p>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>                
+                        </div>
+                    </div>
+                    <div id="section-d" >
+                        <div class="">
+                                <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
+                                    <i class="sprite2 fl prfic26 mt6"></i>
+                                    <div class="fl colr5 pl8 f17 pt3">Desired Partner</div>
 
 
-                
+                                
+                                </div>
+                        </div>
+                    </div>
                 </div>
-          </div>
+
+                                        
+
+                <div class="fl pl-2">
+                    <div class="prfscroll1 pos-rel">
+                        <div id="section-horoscope" class="bg-white noMultiSelect  mb15 prfwid12 fontlig ">
+                            <div class="disp-tbl prfbr2 color11 fontlig fullwid pb25 pt60">
+                                <div class="f17 disp-cell vbtm pl20 pos-rel">
+                                    <span class="js-changeText pl-5">Horoscope</span>
+                                </div>
+                                
+                            </div>
+                            <div class="prfp12 f14 fullHoroData pos-rel">  
+                                    <ul class="listn gunna">
+                                        <li>
+                                            <p class="color12">Place of Birth</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'BIRTH PLACE')?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12">Date of Birth</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'DOB')?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12">Time of Birth</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'BIRTH TIME')?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12">Horoscope</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'BELIEVES IN HOROSCOPE')?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12">Rassi</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'Rassi')?></p>
+                                        </li>
+                                        <li>
+                                            <p class="color12">Manglik</p>
+                                            <p class="  pt6"><?php echo getValue($profile,'MANGLIK')?></p>
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+
+            </div>
+        </div>
 
         </div>
         <!-- /.container-fluid -->

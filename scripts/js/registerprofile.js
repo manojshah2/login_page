@@ -230,7 +230,7 @@ $(document).ready(function(){
         e.preventDefault();
         var id=$(this).data("id");
         $.ajax({
-            url: "deleteImage.php",
+            url: "/deleteImage.php",
             method: 'POST',
             data: {imgid:id},            
             dataType: 'json',            
@@ -247,7 +247,7 @@ $(document).ready(function(){
 
     $(document).on('click','#upload_image',function(e){
         e.preventDefault();
-        var url = "uploadImage.php";
+        var url = "/uploadImage.php";
         var form = $("#uploadForm")[0];
         var data = new FormData(form);
         console.log(data);
@@ -281,7 +281,7 @@ $(document).ready(function(){
     function loadImages(){
         var id=$("#uniqueId").val();
         $.ajax({
-            url: "loadImages.php",
+            url: "/loadImages.php",
             method: 'POST',
             data: {pid:id},            
             dataType: 'json',            
@@ -293,7 +293,7 @@ $(document).ready(function(){
                     var imgDiv=$("#imgDiv");
                     imgDiv.html('');
                     for(var i=0;i<data1.length;i++){
-                        imgDiv.append('<div class="col-md-3 mt-2"><div class="card"><img class="card-img-top" src="'+ data1[i].path +'" height=100 width=100 /><div class="card-body"><p class="card-text"><a href="#" id="deleteImg" data-id="'+ data1[i].id +'" >Delete Image</a></p></div></div></div>');
+                        imgDiv.append('<div class="col-md-3 mt-2"><div class="card"><img class="card-img-top" src="/'+ data1[i].path +'" height=100 width=100 /><div class="card-body"><p class="card-text"><a href="#" id="deleteImg" data-id="'+ data1[i].id +'" >Delete Image</a></p></div></div></div>');
                     }
                 }
             }
@@ -303,6 +303,13 @@ $(document).ready(function(){
     $(document).on('click','#createprofile',function(){
         $("#profileSpinner").show();
 
+        var url=document.URL;
+        if (url.includes("toUrl=")){
+            url=url.split("toUrl=")[1];
+        }else{
+            url="/profile/listprofile.php";
+        }
+        
         var array = $("#profileFrm").serializeArray();
         var json={};
 
@@ -349,7 +356,7 @@ $(document).ready(function(){
             $("#profileMessage").html(message);
         }else{    
             $.ajax({
-                url: "addprofile.php"+pid_param,
+                url: "/addprofile.php"+pid_param,
                 method: 'POST',
                 data: JSON.stringify(json),
                 contentType:"application/json",
@@ -360,7 +367,7 @@ $(document).ready(function(){
                         var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
                         $("#profileMessage").html(message);
                     } else {
-                        window.location.href="listprofile.php";
+                        window.location.href=url;
                     }
                 }
             });

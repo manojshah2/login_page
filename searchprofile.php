@@ -114,10 +114,13 @@ is_login($root);
                         </div>
                         <div class="col-md-8">
                           <div class="row">
-                            <div class="col-md-6">
-                              <label class="radio-inline"><input type="radio" name="gender" value="male" checked>Male</label>
+                            <div class="col-md-4">
+                              <label class="radio-inline"><input type="radio" name="gender" value="" checked>All</label>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                              <label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>
+                            </div>
+                            <div class="col-md-4">
                               <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
                             </div>                            
                           </div>

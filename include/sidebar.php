@@ -20,12 +20,12 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
       <li class="nav-item">
-        <a class="nav-link" href="/profile.php">
+        <a class="nav-link" href="/profile/editprofile.php">
         <i class="fas fa-plus "></i>
           <span>Register Profile</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/listprofile.php">
+        <a class="nav-link" href="/profile/listprofile.php">
           <i class="fas fa-edit"></i>
           <span>View Profile</span></a>
       </li>
@@ -35,11 +35,7 @@
         <i class="fas fa-search "></i>
           <span>Search Profile</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/downloadfiles.php">
-        <i class="fas fa-download "></i>
-          <span>Download Files</span></a>
-      </li>
+      
 
       
      

@@ -92,6 +92,7 @@ is_login($root);
             if(isset($_REQUEST['searchid'])){
               $search_condition=createSearch($_REQUEST["searchid"]);
               //print_r($search_condition);
+              
 
               if (strlen($search_condition)>0) {
                 
@@ -101,6 +102,10 @@ is_login($root);
                 $count_result = $mysqli->query($count_query);
                 $count = $count_result->fetch_array()[0];                
                 $result =$mysqli->query($final_query);
+              }else{
+                
+                print_r("Please try adding search criteria");
+                exit;
               }
               
              

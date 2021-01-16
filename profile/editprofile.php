@@ -1,8 +1,8 @@
 <?php
-$root = "./";  
-include('config/config.inc.php');
-include_once("config/db.php");
-include_once("field_mapping.php");
+$root = "../";  
+include($root.'config/config.inc.php');
+include_once($root."config/db.php");
+include_once($root."field_mapping.php");
 is_login($root); 
 ?>
 <!DOCTYPE html>
@@ -19,12 +19,12 @@ is_login($root);
   <title>Profile</title>
 
   <!-- Custom fonts for this template-->
-  <link href="css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="css/fm.tagator.jquery.css" rel="stylesheet" type="text/css">
+  <link href="/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/fm.tagator.jquery.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
   <style>
   a[aria-expanded="true"]{
@@ -49,7 +49,7 @@ is_login($root);
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include 'include/sidebar.php';?>
+    <?php include $root.'include/sidebar.php';?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -59,7 +59,7 @@ is_login($root);
       <div id="content">
 
         <!-- Topbar -->
-        <?php include 'include/topbar.php';?>
+        <?php include $root.'include/topbar.php';?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -1028,7 +1028,7 @@ is_login($root);
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <?php include 'include/footer.php';?>
+      <?php include $root.'include/footer.php';?>
       <!-- End of Footer -->
 
     </div>
@@ -1037,7 +1037,7 @@ is_login($root);
   </div>
   <!-- End of Page Wrapper -->
 
- <?php include 'include/footer_main.php';?>
+ <?php include $root.'include/footer_main.php';?>
  
  <div class="modal fade" id="img_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -1049,7 +1049,7 @@ is_login($root);
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 	      	</div>
-	      	<form id="uploadForm" action="uploadImage.php" method="post" enctype="multipart/form-data"> 
+	      	<form id="uploadForm" action="/uploadImage.php" method="post" enctype="multipart/form-data"> 
 		     	<div class="modal-body">
 		        	<input type="hidden" name="id" id="id" value="<?php echo $id;?>">
 	                <div class="form-group"> 
@@ -1071,9 +1071,9 @@ is_login($root);
 	    </div>
   	</div>
 </div>
-<script src="scripts/js/variables.js?ver=1.1142"></script>
- <script src="scripts/js/registerprofile.js?ver=1.1149"></script>
- <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
+<script src="/scripts/js/variables.js?ver=1.1142"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.1153"></script>
+ <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 
 

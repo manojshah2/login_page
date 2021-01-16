@@ -1,7 +1,6 @@
 <?php
-$root = "./";  
-include('config/config.inc.php');
-$root='./';
+$root = "../";  
+include($root.'config/config.inc.php');
 is_login($root); 
 ?>
 <!DOCTYPE html>
@@ -18,11 +17,11 @@ is_login($root);
   <title>View Profile</title>
 
   <!-- Custom fonts for this template-->
-  <link href="css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -32,7 +31,7 @@ is_login($root);
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include 'include/sidebar.php';?>
+    <?php include $root.'include/sidebar.php';?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -42,7 +41,7 @@ is_login($root);
       <div id="content">
 
         <!-- Topbar -->
-        <?php include 'include/topbar.php';?>
+        <?php include $root.'include/topbar.php';?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -89,7 +88,7 @@ is_login($root);
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <?php include 'include/footer.php';?>
+      <?php include $root.'include/footer.php';?>
       <!-- End of Footer -->
 
       
@@ -125,11 +124,11 @@ is_login($root);
     </div>
   </div>
 
- <?php include 'include/footer_main.php';?>
+ <?php include $root.'include/footer_main.php';?>
 
- <script src="vendor/datatables/jquery.dataTables.min.js"></script>
- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
- <script src="scripts/simpleDialog.min.js"></script>
+ <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+ <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ <script src="/scripts/simpleDialog.min.js"></script>
 
  <script type="text/javascript">
         $(document).ready(function () {
@@ -147,13 +146,13 @@ is_login($root);
             });
 
             $.ajax({
-                url: 'api/getprofileheaders.php',
+                url: '/api/getprofileheaders.php',
                 dataType: 'json',
                 success: function (data) {
                     var qualitylist = $('#dataTable').dataTable({
                         "processing": true,
                         "serverSide": true,
-                        "ajax": "api/getprofiles.php",
+                        "ajax": "/api/getprofiles.php",
                         columns: data,
                         searching: false,
                         "autoWidth": false,
@@ -162,7 +161,7 @@ is_login($root);
                                 targets: 0,
                                 render: function (data, type, row, meta)
                                 {
-                                    data = '<div class="row"><div class="col-6"><a href="profile.php?id='+ data+'">'+ data +'</a></div><div class="col-6"></div></div>';
+                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
                                     return data;
                                 }
                             }]
