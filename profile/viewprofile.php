@@ -111,7 +111,31 @@ is_login($root);
                       <hr class="mt-2">
                       <div class="row">
                         <div class="col-md-5">
-                          <div class="mb-0"><?php echo $profile['HEIGHT']; ?></div>
+                          <div class="mb-0"><?php 
+
+                            $dob_str=getValue($profile,"DOB");
+                            
+                            if ((strlen($dob_str)>0 && strpos($dob_str,'0000')===false)){         
+                                
+                                $dob=new DateTime($dob_str);
+                                $today=new DateTime('today');
+                                $age = $dob->diff($today)->y;
+                                $age = $age." Years , ";
+                            }
+
+                            $height = getValue($profile,'HEIGHT'); 
+                            if(strlen($height)>0){
+                                $height_arr=explode('(',$height);
+                                $height_value = $height_arr[0];
+                            }
+
+                            echo $age.$height_value ;
+
+                            
+
+                            
+                          
+                          ?></div>
                           <div class="mb-0"><?php echo $profile['CITY']; ?></div>
                           <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
                           <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
@@ -143,7 +167,7 @@ is_login($root);
                     <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>" class="btn btn-primary">Download PDF</a>
                 </div>
                 <div class="row">
-                    <a href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
+                    <a target="_blank" href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
                 </div>
             </div>
           </div>
