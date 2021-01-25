@@ -25,6 +25,29 @@ is_login($root);
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <style>
+    .pagination {
+      display: inline-block;
+    }
+
+    a.disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+
+
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.selected {
+    background-color: blue;
+    color: white !important;
+}
+
     .profile {
       background-color: white;
     }
@@ -79,13 +102,13 @@ is_login($root);
 
 
           $sid=$_REQUEST['searchid'];
-          $page=0;          
-          $resultsperpage = 20;
+          $page=1;          
+          $resultsperpage = 5;
           if (isset($_REQUEST['page'])){
             $page = $_REQUEST['page'];
           }
 
-          $offset = ($page * $resultsperpage);
+          $offset = (($page-1) * $resultsperpage);
           
 
 
@@ -122,9 +145,30 @@ is_login($root);
                 <a href="api/download_search.php?searchid=<?php echo $sid ?>"><i class="fa fa-download"></i>Download in Excel</a>
               </div>
             </span>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row">                  
+            <div>
+              <div>
+                <div class="pagination">
+                  <?php 
+                    $pageGap = 5;
+                    $curPage =(min( ceil($page / $pageGap),$page)-1) * $pageGap +1;                  
+                    $pageGapend=min($curPage+$pageGap-1,$totalPages);
+                  ?>
+                  
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page-1 ?>" class="<?php if($page<2) { echo "disabled";} ?>">&laquo;</a>  
+                  
+                  <?php while($curPage<=$pageGapend):  ?>
+                    <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $curPage ?>" class="<?php if($curPage==$page) { echo "selected";} ?>"><?php echo $curPage;?></a>
+                    <?php $curPage++ ?>
+                  <?php endwhile; ?>     
+                  
+                  <a href="#">..</a>
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $totalPages ?>"><?php echo $totalPages ?></a>
+
+                  
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page+1 ?>" class="<?php if($page>$totalPages-1) { echo "disabled";} ?>">&raquo;</a>
+                  
+                </div>
+                <div class="row" style='display:none;'>                  
                     <?php if ($page>0){ ?>
                       <a class="btn btn-primary mr-4" href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page-1 ?>">Prev</a>
                     <?php }; ?>
@@ -229,7 +273,7 @@ is_login($root);
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
-
+ <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
  <script type="text/javascript">
   $(document).ready(function () {
     function DownloadPDF(profileId) {
