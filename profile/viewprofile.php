@@ -115,7 +115,7 @@ is_login($root);
 
                             $dob_str=getValue($profile,"DOB");
                             
-                            if ((strlen($dob_str)>0 && strpos($dob_str,'0000')===false)){         
+                            if ((strlen($dob_str)>0 && strpos($dob_str,'000')===false)){         
                                 
                                 $dob=new DateTime($dob_str);
                                 $today=new DateTime('today');
