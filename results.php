@@ -100,6 +100,15 @@ is_login($root);
           <?php
           error_reporting(E_ERROR | E_PARSE);
 
+          function getValue($profile1,$database_col_name){
+            $actual_col=$database_col_name;
+            if(array_key_exists($actual_col,$profile1)){
+                return htmlspecialchars($profile1[$actual_col],ENT_QUOTES,"UTF-8");
+            }else{
+                return "Not filled in";
+            }                
+        }
+
 
           $sid=$_REQUEST['searchid'];
           $page=1;          
@@ -185,6 +194,7 @@ is_login($root);
           <div class="row">
             <div id='results' style='display:block;width:80%;'>
               <?php while($profile=$result->fetch_array()): ?>
+              
               <div class="row pt-3">
                 <div id='profile' class="col-md-10">
                   <a href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
@@ -210,7 +220,27 @@ is_login($root);
                         <hr class="mt-2">
                         <div class="row">
                           <div class="col-md-5">
-                            <div class="mb-0"><?php echo $profile['HEIGHT']; ?></div>
+                            <div class="mb-0"><?php 
+
+                                $dob_str=getValue($profile,"DOB");
+
+                                if ((strlen($dob_str)>0 && strpos($dob_str,'000')===false)){         
+                                    
+                                    $dob=new DateTime($dob_str);
+                                    $today=new DateTime('today');
+                                    $age = $dob->diff($today)->y;
+                                    $age = $age." Years , ";
+                                }
+
+                                $height = getValue($profile,'HEIGHT'); 
+                                if(strlen($height)>0){
+                                    $height_arr=explode('(',$height);
+                                    $height_value = $height_arr[0];
+                                }
+
+                                echo $age.$height_value ;
+
+                                ?></div>
                             <div class="mb-0"><?php echo $profile['CITY']; ?></div>
                             <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
                             <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
