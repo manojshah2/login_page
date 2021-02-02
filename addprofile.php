@@ -65,7 +65,7 @@ if($message1["status"]){
 }else{
     $message["status"]="failure";
     $message["message"]=$message1["error"];
-    $message["failure"]=$data;
+    //$message["failure"]=$data;
 }
 
     echo json_encode($message);
