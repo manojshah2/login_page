@@ -16,7 +16,7 @@ $channel->exchange_declare($exchange, AMQPExchangeType::DIRECT, false, false, fa
 
 $channel->queue_bind($queue, $exchange);
 
-$messageBody = $_REQUEST['ir'];
+$messageBody = $_REQUEST['value'];
 $message = new AMQPMessage($messageBody, array('content_type' => 'text/plain'));
 $channel->basic_publish($message, $exchange);
 
