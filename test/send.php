@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 require('../vendor/autoload.php');
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
@@ -7,7 +8,7 @@ use PhpAmqpLib\Exchange\AMQPExchangeType;
 
 $exchange = 'inTopic';
 $queue = 'mqtt-subscription-esp8266 clientqos0';
-
+echo "starting";
 $connection = new AMQPStreamConnection("52.91.158.17", 5672, "efqgdzpx", "uiiphqstv4wfz7kM4tx2vsBGBpuScnz8", "efqgdzpx");
 echo "ok";
 $channel = $connection->channel();
