@@ -9,7 +9,7 @@ $exchange = 'inTopic';
 $queue = 'mqtt-subscription-esp8266 clientqos0';
 
 $connection = new AMQPStreamConnection("52.91.158.17", 5672, "efqgdzpx", "uiiphqstv4wfz7kM4tx2vsBGBpuScnz8", "efqgdzpx");
-
+echo "ok";
 $channel = $connection->channel();
 //$channel->queue_declare($queue, false, false, false, false);
 $channel->exchange_declare($exchange, AMQPExchangeType::DIRECT, false, false, false);
