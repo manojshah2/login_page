@@ -22,6 +22,11 @@ is_login($root);
 
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .body_font{
+      font-size:10pt;
+    }
+  </style>
 
 </head>
 
@@ -71,7 +76,7 @@ is_login($root);
             <div id="myalert">
 
             </div>
-            <div class="table-responsive" id="tableDiv">
+            <div class="table-responsive body_font" id="tableDiv">
                 <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 
                 </table>
@@ -131,8 +136,12 @@ is_login($root);
  <script src="/scripts/simpleDialog.min.js"></script>
 
  <script type="text/javascript">
-        $(document).ready(function () {
 
+        $(document).ready(function () {
+          
+            var url=window.location.href;
+            var client_type=url.split('type=')[1];
+            
             $("#downloadexcel").on('click',function(){
               var start_date=$("#start_date").val();
               var end_date=$("#end_date").val();
@@ -152,7 +161,7 @@ is_login($root);
                     var qualitylist = $('#dataTable').dataTable({
                         "processing": true,
                         "serverSide": true,
-                        "ajax": "/api/getprofiles.php",
+                        "ajax": "/api/getprofiles.php?type="+client_type,
                         columns: data,
                         searching: false,
                         "autoWidth": false,
@@ -161,9 +170,17 @@ is_login($root);
                                 targets: 0,
                                 render: function (data, type, row, meta)
                                 {
-                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
+                                    //data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
+                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div></div>';
                                     return data;
                                 }
+                                
+                            },{
+                              targets: 9,
+                              render:function(data,type,row,meta){
+                                data = '<a class="btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Case Detail</a>';
+                                return data;
+                              }
                             }]
                     });
                     $('#dataTable tbody').on('click', '#deleteRow', function () {

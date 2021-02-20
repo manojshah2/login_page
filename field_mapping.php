@@ -174,6 +174,19 @@ $header = array(
     "open_for_outside_india"=>"Open For Outside India"
 );
 
+$listprofile_header =array (
+    "ID"=>"Profile Id",
+    "FIRST NAME"=>"FIRST NAME",
+    "LAST NAME"=>"LAST NAME",
+    "GENDER"=>"Gender",
+    "DOB"=>"Age",
+    "ADDED DATE"=>"Created On",
+    "PACKAGE TYPE"=>"Package",
+    "Payment Given"=>"Amount",
+    "SOLD BY"=>"Sold By",
+    "RELIGION"=>"Language"
+);
+
 $download_header= array (
     "ID"=>"ID",
     "PID"=>"Enter ID",

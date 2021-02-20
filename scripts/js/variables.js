@@ -55,3 +55,4 @@
     var willing_to_stay=['With parents','Independently'];
     var pp_partner_occupation=['Working','Non working','Her choice','Expecting partner income'];
     var yes_no=['Yes','No'];
+    var currency=["INR","USD","GBP","ZERO","AUD","CAD","EURO"];

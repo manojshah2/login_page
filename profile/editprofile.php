@@ -197,11 +197,11 @@ is_login($root);
                       
                       <div class="row">
                         <div class="col-md-6">
-                        <input type="text" class="form-control" name="annual_income1" id="annual_income1" value="<?php echo getValue($profile,"annual_income1"); ?>" />                      
+                          <input type="text" class="form-control" name="annual_income1" id="annual_income1" value="<?php echo getValue($profile,"annual_income1"); ?>" />                      
                         </div>
                         <div class="col-md-6">
-                        <input type="text" class="form-control" name="annual_income2" id="annual_income2" value="<?php echo getValue($profile,"annual_income2"); ?>" />                      
-                        </div>
+                          <input type="text" class="form-control" name="annual_income2" id="annual_income2" value="<?php echo getValue($profile,"annual_income2"); ?>" />                      
+                        </div>                        
                       </div>
                     </div>  
                     <div class="form-group col-md-3">

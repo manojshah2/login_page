@@ -77,7 +77,30 @@ is_login($root);
                       <?php
                           $result =$mysqli->query("select count(*) from tblprofiles");
                           while($fetchdata=$result->fetch_array()){
-            	                print_r($fetchdata[0]);
+                              $total_profiles=$fetchdata[0];                              
+                              print_r("<a href='/profile/listprofile.php?type=total'>".$total_profiles."</a>");
+                          }
+                      ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Paid Profiles</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <?php
+                          $result =$mysqli->query("select count(*) from tblprofiles where `client type`='PAID'");
+                          while($fetchdata=$result->fetch_array()){
+                            $paid_profiles=$fetchdata[0];
+                            print_r("<a href='/profile/listprofile.php?type=paid'>".$paid_profiles."</a>");
                           }
                       ?></div>
                     </div>
@@ -87,7 +110,52 @@ is_login($root);
                   </div>
                 </div>
               </div>
+              
             </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pay at Roka Profiles</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <?php
+                          $result =$mysqli->query("select count(*) from tblprofiles where `client type`='Pay At Roka'");
+                          while($fetchdata=$result->fetch_array()){
+                            $pay_at_roka=$fetchdata[0];
+                            print_r("<a href='/profile/listprofile.php?type=payatroka'>".$pay_at_roka."</a>");
+                          }
+                      ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">UnPaid Profiles</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <?php
+                          $unpaid_profiles=$total_profiles-$paid_profiles-$pay_at_roka;
+                          print_r("<a href='/profile/listprofile.php?type=unpaid'>".$unpaid_profiles."</a>");
+                      ?></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
           </div>
 
         </div>

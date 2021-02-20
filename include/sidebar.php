@@ -12,7 +12,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="home.php">
+        <a class="nav-link" href="/home.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -24,12 +24,6 @@
         <i class="fas fa-plus "></i>
           <span>Register Profile</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/profile/listprofile.php">
-          <i class="fas fa-edit"></i>
-          <span>View Profile</span></a>
-      </li>
-      
       <li class="nav-item">
         <a class="nav-link" href="/searchprofile.php">
         <i class="fas fa-search "></i>
