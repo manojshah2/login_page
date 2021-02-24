@@ -100,7 +100,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>PERSONAL DETAILS</td>
-            <td> : <?php echo getValue($profile,'About') ?></td>
+            <td> : <?php echo getValue($profile,'ABOUT') ?></td>
         </tr>
 
     </table>

@@ -251,7 +251,7 @@ is_login($root);
                                         </li>
                                         <li>
                                             <p class="color12 pt15">UG College</p>
-                                            <p class="pt2 pr20"><?php echo getValue($profile,'UG College') ?></p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'UG COLLEGE') ?></p>
                                         </li>
                                         <li>
                                             <p class="color12 pt15">Employed In</p>
@@ -259,7 +259,7 @@ is_login($root);
                                         </li>
                                         <li>
                                             <p class="color12 pt15">Occupation</p>
-                                            <p class="pt2 pr20"><?php echo getValue($profile,'OCCUPATION') ?></p>
+                                            <p class="pt2 pr20"><?php echo getValue($profile,'Occupation') ?></p>
                                         </li>
                                         <li>
                                             <p class="color12 pt15">Organization Name</p>
