@@ -119,7 +119,7 @@ include_once($root."field_mapping.php");
         <h1 class="boldheading">EDUCATIONAL INFORMATION</h1>
     </div>
     
-    <table style="width:60%;margin-top:10px;" cellpadding=1px cellspacing=0 class="education_border">
+    <table style="width:100%;margin-top:10px;" cellpadding=1px cellspacing=0 class="education_border">
         <tr>
             <td style='width:7%;'>S. No.</td>
             <td>COURSES</td>
