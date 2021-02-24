@@ -31,6 +31,16 @@ include_once($root."field_mapping.php");
     td{
         height:30px;
     }
+    .education_border{
+        border-top:1px solid black;
+        border-right:1px solid black;
+        
+    }
+
+    .education_border td{
+        border-left:1px solid black;
+        border-bottom:1px solid black;
+    }
     
     </style>
 </head>
@@ -109,9 +119,9 @@ include_once($root."field_mapping.php");
         <h1 class="boldheading">EDUCATIONAL INFORMATION</h1>
     </div>
     
-    <table>
+    <table style="width:60%;margin-top:10px;" cellpadding=1px cellspacing=0 class="education_border">
         <tr>
-            <td>S. No.</td>
+            <td style='width:7%;'>S. No.</td>
             <td>COURSES</td>
             <td>INSTITUTION NAME</td>
         </tr>
