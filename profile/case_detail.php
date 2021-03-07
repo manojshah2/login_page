@@ -88,6 +88,14 @@ is_login($root);
             ?>
         <div class="row">
             <div class="col-md-12">
+                <div id="myalert">
+
+                </div>
+                <div>
+                    <input type="hidden" id="profileid" value="<?php echo $profile["ID"] ?>"/>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="widget">
                     <div class="widget-header">
                         <div class="title">Actions done on Case</div>
@@ -116,15 +124,16 @@ is_login($root);
                         <label class="title1 col-sm-5 control-label2">Actions Done</label>
                         <label class="title1 col-sm-3 control-label2">Date</label>
                         <div style="float:right;">
-                            <a href="" class="btn btn-sm btn-primary">Add Comment</a>
+                            <a href="#" class="btn btn-sm btn-primary" id="add_comment">Add Comment</a>
                         </div>
                     </div>
-                    <div class="widget-body">
-                        <div class="row row-border-bottom">
-                            <div class="col-sm-12">
-                                <label class="col-sm-5 control-label1">test Action</label>
-                                <label class="col-sm-3 control-label1">20-02-2022 12:00:00</label>
-                            </div>
+                    <div class="widget-body" id="comments_container">
+                        <div class="row row-border-bottom">                            
+                                <div class="col-sm-12">
+                                    <label class="col-sm-5 control-label1">test Action</label>
+                                    <label class="col-sm-3 control-label1">20-02-2022 12:00:00</label>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -142,7 +151,7 @@ is_login($root);
                                         <div class="col-sm-12">
                                             <label></label>
                                         </div>
-                                        <div class="mt20" style="float:right;"><a target="_blank" title="Send Match" href="#" class="btn btn-sm btn-primary">Send Matches</a></div>
+                                        <div class="mt20" style="float:right;"><a target="_blank" title="Send Match" href="send_match.php?profilechecksum=<?php echo $profile["ID"]  ?>" class="btn btn-sm btn-primary">Send Matches</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -162,14 +171,26 @@ is_login($root);
       <!-- Footer -->
       <?php include $root.'include/footer.php';?>
       <!-- End of Footer -->
+      
 
     </div>
     <!-- End of Content Wrapper -->
+
+    
 
   </div>
   <!-- End of Page Wrapper -->
 
  <?php include $root.'include/footer_main.php';?>
+
+ <script src="/scripts/simpleDialog.min.js"></script>
+ <script src="/scripts/js/profile.js"></script>
+
+ <script type="text/javascript">
+          
+           
+          
+    </script>
 
 </body>
 

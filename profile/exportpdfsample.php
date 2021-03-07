@@ -41,6 +41,24 @@ include_once($root."field_mapping.php");
         border-left:1px solid black;
         border-bottom:1px solid black;
     }
+
+    .img-container {
+        height: 220px;
+        width: 220px;
+        
+        padding-left:50px;
+        padding-bottom: 10px;;
+        
+        width:25%;
+        float:left;
+    }
+
+    .image { display: inline-block; }
+
+    .imgrow{
+        
+        
+    }
     
     </style>
 </head>
@@ -239,5 +257,27 @@ include_once($root."field_mapping.php");
             <td> : <?php echo getValue($profile,'ABOUT FAMILY') ?></td>
         </tr>
     </table>
+
+    <div style="padding-top:100px;">
+    <div class="container">
+        
+        
+        
+        <?php
+            $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+            while($images=$profile_images->fetch_array()){                
+                for($i=0;$i<count($images);$i++) {                  
+                    if(strlen($images[$i])>0){
+                      //  echo "<div class='imgrow'>";
+                      //  echo "<div class='img-container'><img class='image' src=".$root.$images[$i]." height='220px' width='220px'/></div>";
+                      //  echo "</div>";
+                    }
+                }
+            }
+        ?>
+        
+    </div>
+        
+    </div>
 </body>
 </html>

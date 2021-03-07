@@ -209,7 +209,7 @@ is_login($root);
                           };
                         ?>
                         
-                        <img src="<?php echo $images[0]; ?>" height="220px" width="220px">
+                        <img src="<?php echo $images[0]; ?>" height="220px" width="220px" class="img-fluid">
                       </div>
                       <div class="col-md-8 profile_txt">
                         <div class="row">

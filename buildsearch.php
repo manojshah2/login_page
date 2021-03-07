@@ -19,7 +19,11 @@ function addSearchParam($search_condition, $column, $db_header, $comp ="=" ) {
     if ($comp=="like"){
       $comp_options="%";
     }
+    
     if (strlen($column)>0){
+      if(strpos($column, 'Matter') !== false or strpos($column, 'Specified') !== false){
+        return $search_condition;
+      }
       $data_split = explode(",",$column);
       $cond = "";
       foreach($data_split as $key => $value) {  
@@ -63,6 +67,79 @@ function getIncome($income_str) {
 
 }
 
+
+function createSearchFromProfile($pid){
+  global $mysqli;
+  $result =$mysqli->query("select * from tblprofiles where ID=".$pid);
+  $data=array();
+  
+  while($fetchdata=$result->fetch_array()){
+      $data=$fetchdata;
+  }
+
+  
+
+  //print_r($data);  //for getting actual search from db;
+  
+  if (count($data)<1){
+      echo "Search Not Found. Please goto Search Profile and Perform Search Again.";
+      exit();
+  }
+
+  $search_condition="";
+  $gender = $data["GENDER"];
+  $fromage = $data["PP FROMAGE"];
+  $toage = $data["PP TOAGE"];
+
+  $fromheight=$data["PP MIN HEIGHT"];
+  $toheight=$data["PP MAX HEIGHT"];
+  $fromheight=getHeight($fromheight);
+  $toheight=getHeight($toheight);
+
+  $ai=getIncome($data["PP INCOME"]);
+  $ai2=getIncome($data["PP INCOME2"]);
+
+  $gender =  $data["GENDER"];
+  if ($gender == "Male"){
+    $gender = "Female";
+  }else if($gender == "Female"){
+    $gender = "Male";
+  }
+
+  //print_r($toheight);
+  if(strlen($fromage)>0){
+      $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage; 
+  }
+
+  if($fromheight>0){
+    if(strlen($search_condition)>0){
+      $search_condition =$search_condition." and ";
+    }
+    $search_condition = $search_condition." ( `HEIGHT VALUE`>=".$fromheight." and `HEIGHT VALUE`<=".$toheight.")"; 
+  }
+  //print_r($data["PP RELIGION"]);
+  $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE");
+  //$search_condition = addIncomeParam($search_condition,$wbi,$wbi2,"Wedding Budget Value","Wedding Budget2 Value");
+  //$search_condition = addIncomeParam($search_condition,$fi,$fi2,"FAMILY INCOME VALUE","FAMILY INCOME2 VALUE");
+  $search_condition = addSearchParam($search_condition,$data["PP RELIGION"],"RELIGION");
+  $search_condition = addSearchParam($search_condition,$data["PP CASTE"],"CASTE");
+  $search_condition = addSearchParam($search_condition,$data["PP COUNTRY"],"COUNTRY OF RESIDENCE");
+  $search_condition = addSearchParam($search_condition,$data["PP STATE"],"STATE OF RESIDENCE");
+  
+  $search_condition = addSearchParam($search_condition,$data["PP MARITAL STATUS"],"MARITAL STATUS");
+  $search_condition = addSearchParam($search_condition,$data["PP MANGLIK"],"MANGLIK");  
+  $search_condition = addSearchParam($search_condition,$data["PP EMPLOYED AS"],"Occupation");  
+  $search_condition = addSearchParam($search_condition,$data["PP VEG/NON VEG"],"FOOD HABITS");
+  $search_condition = addSearchParam($search_condition,$data["PP DRINKER"],"DRINK");
+  $search_condition = addSearchParam($search_condition,$data["PP SMOKER"],"SMOKE");  
+  $search_condition = addSearchParam($search_condition,$data["PP BODY TYPE"],"BODY TYPE");  
+  $search_condition = addSearchParam($search_condition,$data["PP Complexion"],"COMPLEXION");
+  $search_condition = addSearchParam($search_condition,$gender,"GENDER");
+  
+
+  //print_r($search_condition);
+  return $search_condition;
+}
 
   
 function createSearch($searchId){
