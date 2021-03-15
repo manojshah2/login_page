@@ -1,17 +1,22 @@
 <?php
+
+
+
 $body = ' <html>This is test message</html>';
 
 $account="match@matrimonialgurus.com";
-$password="P@ssw0rd"; 
+$password="roka@2021"; 
 $from="match@matrimonialgurus.com";
 $from_name="Match";
 $to="manoj.shh1@gmail.com";
 $msg=$body; // HTML message
 $subject="HTML message";
 /*End Config*/
-
+#995
 include("../phpmailer/class.phpmailer.php");
-$mail = new PHPMailer();
+
+$mail = new PHPMailer(true);
+
 $mail->IsSMTP();
 $mail->CharSet = 'UTF-8';
 $mail->Host = "smtpout.secureserver.net";
@@ -19,7 +24,7 @@ $mail->SMTPAuth= true;
 $mail->Port = 465;
 $mail->Username= $account;
 $mail->Password= $password;
-$mail->SMTPSecure = 'tls';
+$mail->SMTPSecure = 'ssl';
 $mail->From = $from;
 $mail->FromName= $from_name;
 $mail->isHTML(true);

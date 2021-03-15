@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('#toheight').tagator({autocomplete: height,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#religion').tagator({autocomplete: religion,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#country').tagator({autocomplete: country,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
-    $('#state').tagator({autocomplete: state["India"],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
+    $('#state').tagator({autocomplete: states["India"],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#annual_income1').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#annual_income2').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#wedding_budget1').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});

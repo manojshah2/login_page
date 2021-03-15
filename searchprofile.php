@@ -454,7 +454,7 @@ is_login($root);
  <?php include 'include/footer_main.php';?>
 
  <script src="scripts/js/variables.js?ver=1.00001"></script>
- <script src="scripts/js/search.js?ver=1.0005"></script>
+ <script src="scripts/js/search.js?ver=1.0006"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
 </body>
 

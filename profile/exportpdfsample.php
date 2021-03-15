@@ -179,7 +179,22 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>RESIDING CITY/COUNTRY</td>
-            <td> : <?php echo getValue($profile,'CITY') ?></td>
+            <td> : <?php 
+                $city1 = getValue($profile,'CITY') ;
+                $state1= getValue($profile,'STATE OF RESIDENCE');
+                $country1= getValue($profile,'COUNTRY OF RESIDENCE');
+                $final_city_label= array();
+                if (strlen($city1)>0){
+                    array_push($final_city_label,$city1);
+                }
+                if (strlen($state1)>0){
+                    array_push($final_city_label,$state1);
+                }
+                if (strlen($country1)>0){
+                    array_push($final_city_label,$country1);
+                }
+                echo implode(" , ",$final_city_label);
+            ?></td>
         </tr>
         <tr>
             <td>MARITAL STATUS</td>

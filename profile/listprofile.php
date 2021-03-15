@@ -171,7 +171,7 @@ is_login($root);
                                 render: function (data, type, row, meta)
                                 {
                                     //data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
-                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div></div>';
+                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"><a href="#" data-id="'+data +'" class="deleteRow"><i class="fa fa-trash fa-lg"></i></a></div></div>';
                                     return data;
                                 }
                                 
@@ -183,8 +183,10 @@ is_login($root);
                               }
                             }]
                     });
-                    $('#dataTable tbody').on('click', '#deleteRow', function () {
-                        var id=$(this).data("id");                        
+                    $('#dataTable tbody').on('click', '.deleteRow', function () {
+                      
+                        var id=$(this).data("id");    
+                        
                         $.simpleDialog({
                             title: "Confirm",
                             message: "Are you sure you want to Delete??",
@@ -192,7 +194,7 @@ is_login($root);
                             closeBtnText: "Cancel",
                             backdrop: true,
                             onSuccess: function () {
-                                deleteRow(id);
+                                deleteRow1(id);
                             },
                             onCancel: function () {
 
@@ -204,9 +206,9 @@ is_login($root);
             
         });
 
-        function deleteRow(rowid) {
+        function deleteRow1(rowid) {
             $.ajax({
-                url: "delete.php",
+                url: "/profile/delete.php",
                 method: 'POST',
                 data: {id: rowid},
                 dataType: 'json',

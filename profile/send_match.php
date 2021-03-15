@@ -88,7 +88,7 @@ is_login($root);
 
             
             $search_condition = createSearchFromProfile($profile1["ID"]);
-            //print_r($search_condition);
+            #print_r($search_condition);
             $pattern = "/\( `(.+?)`/i";
             if(preg_match_all($pattern, $search_condition, $match)){
                 $matched_cols=$match[1];

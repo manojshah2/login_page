@@ -5,16 +5,16 @@ include_once("field_mapping.php");
 ini_set('max_execution_time', 3000); 
 error_reporting(E_ERROR | E_PARSE);
 
-function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2){
+function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2,$cond=" and "){
   if($ai>=0){
     if(strlen($search_condition)>0){
-      $search_condition =$search_condition." and ";
+      $search_condition =$search_condition.$cond;
     }
     $search_condition = $search_condition." (`".$column1."`>=".$ai." and `".$column2."`<=".$ai2.")"; 
   }
   return $search_condition;
 }
-function addSearchParam($search_condition, $column, $db_header, $comp ="=" ) {
+function addSearchParam($search_condition, $column, $db_header, $comp ="=",$cond1=" and " ) {
     $comp_options="";
     if ($comp=="like"){
       $comp_options="%";
@@ -31,7 +31,7 @@ function addSearchParam($search_condition, $column, $db_header, $comp ="=" ) {
       }
       $cond = substr($cond,3);
       if(strlen($search_condition)>0){
-        $search_condition = $search_condition." and (".$cond.") ";
+        $search_condition = $search_condition." ".$cond1." (".$cond.") ";
       }else {
         $search_condition = $search_condition." (".$cond.") ";
       }
@@ -108,35 +108,34 @@ function createSearchFromProfile($pid){
 
   //print_r($toheight);
   if(strlen($fromage)>0){
-      $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage; 
+      $search_condition = $search_condition." (TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage." ) "; 
   }
 
   if($fromheight>0){
     if(strlen($search_condition)>0){
-      $search_condition =$search_condition." and ";
+      $search_condition =$search_condition." or ";
     }
     $search_condition = $search_condition." ( `HEIGHT VALUE`>=".$fromheight." and `HEIGHT VALUE`<=".$toheight.")"; 
   }
   //print_r($data["PP RELIGION"]);
-  $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE");
+  $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE",$cond="or");
   //$search_condition = addIncomeParam($search_condition,$wbi,$wbi2,"Wedding Budget Value","Wedding Budget2 Value");
   //$search_condition = addIncomeParam($search_condition,$fi,$fi2,"FAMILY INCOME VALUE","FAMILY INCOME2 VALUE");
-  $search_condition = addSearchParam($search_condition,$data["PP RELIGION"],"RELIGION");
-  $search_condition = addSearchParam($search_condition,$data["PP CASTE"],"CASTE");
-  $search_condition = addSearchParam($search_condition,$data["PP COUNTRY"],"COUNTRY OF RESIDENCE");
-  $search_condition = addSearchParam($search_condition,$data["PP STATE"],"STATE OF RESIDENCE");
+  $search_condition = addSearchParam($search_condition,$data["PP RELIGION"],"RELIGION","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP CASTE"],"CASTE","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP COUNTRY"],"COUNTRY OF RESIDENCE","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP STATE"],"STATE OF RESIDENCE","=","or");
   
-  $search_condition = addSearchParam($search_condition,$data["PP MARITAL STATUS"],"MARITAL STATUS");
-  $search_condition = addSearchParam($search_condition,$data["PP MANGLIK"],"MANGLIK");  
-  $search_condition = addSearchParam($search_condition,$data["PP EMPLOYED AS"],"Occupation");  
-  $search_condition = addSearchParam($search_condition,$data["PP VEG/NON VEG"],"FOOD HABITS");
-  $search_condition = addSearchParam($search_condition,$data["PP DRINKER"],"DRINK");
-  $search_condition = addSearchParam($search_condition,$data["PP SMOKER"],"SMOKE");  
-  $search_condition = addSearchParam($search_condition,$data["PP BODY TYPE"],"BODY TYPE");  
-  $search_condition = addSearchParam($search_condition,$data["PP Complexion"],"COMPLEXION");
-  $search_condition = addSearchParam($search_condition,$gender,"GENDER");
+  $search_condition = addSearchParam($search_condition,$data["PP MARITAL STATUS"],"MARITAL STATUS","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP MANGLIK"],"MANGLIK","=","or");  
+  $search_condition = addSearchParam($search_condition,$data["PP EMPLOYED AS"],"Occupation","=","or");  
+  $search_condition = addSearchParam($search_condition,$data["PP VEG/NON VEG"],"FOOD HABITS","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP DRINKER"],"DRINK","=","or");
+  $search_condition = addSearchParam($search_condition,$data["PP SMOKER"],"SMOKE","=","or");  
+  $search_condition = addSearchParam($search_condition,$data["PP BODY TYPE"],"BODY TYPE","=","or");  
+  $search_condition = addSearchParam($search_condition,$data["PP Complexion"],"COMPLEXION","=","or");
+  $search_condition = addSearchParam($search_condition,$gender,"GENDER","=","or");
   
-
   //print_r($search_condition);
   return $search_condition;
 }
