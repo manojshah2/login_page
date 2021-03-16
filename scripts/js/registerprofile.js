@@ -547,7 +547,7 @@ $(document).ready(function(){
                         var message='<div class="alert alert-danger">' + data1["message"] +"</div>";
                         $("#profileMessage").html(message);
                     } else {
-                       // window.location.href=url;
+                        window.location.href=url;
                     }
                 }
             });
