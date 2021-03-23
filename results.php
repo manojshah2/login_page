@@ -112,7 +112,7 @@ is_login($root);
 
           $sid=$_REQUEST['searchid'];
           $page=1;          
-          $resultsperpage = 5;
+          $resultsperpage = 20;
           if (isset($_REQUEST['page'])){
             $page = $_REQUEST['page'];
           }
@@ -123,7 +123,9 @@ is_login($root);
 
             if(isset($_REQUEST['searchid'])){
               $search_condition=createSearch($_REQUEST["searchid"]);
-              //print_r($search_condition);
+              
+              $search_condition = $search_condition." order by  case `client type` when 'Paid' THEN 1 else 2 end,`ADDED Date` desc";
+              #print_r($search_condition);
               
 
               if (strlen($search_condition)>0) {

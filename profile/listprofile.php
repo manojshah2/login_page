@@ -146,7 +146,8 @@ is_login($root);
               var start_date=$("#start_date").val();
               var end_date=$("#end_date").val();
               
-              $(location).attr('href', 'downloadprofiles.php?start='+ start_date + '&end=' +end_date);
+              $(location).attr('href', '/downloadprofiles.php?start='+ start_date + '&end=' +end_date);
+              $('#downloadModal').modal('hide');
             });
             
             $("#downloadReport").on('click', function () {

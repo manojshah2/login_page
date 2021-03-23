@@ -10,6 +10,7 @@ $(document).ready(function(){
                 var comment=document.getElementById("usercomment").value;
                 var pid=document.getElementById("profileid").value;
                 saveData(pid,comment);
+                loadComments(pid);
             },
             onCancel: function () {
 

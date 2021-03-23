@@ -184,7 +184,7 @@ is_login($root);
  <?php include $root.'include/footer_main.php';?>
 
  <script src="/scripts/simpleDialog.min.js"></script>
- <script src="/scripts/js/profile.js"></script>
+ <script src="/scripts/js/profile.js?ver=100001"></script>
 
  <script type="text/javascript">
           

@@ -14,7 +14,7 @@ $con=$mysqli;
 if(isset($_REQUEST["profilechecksum"]) && strlen($_REQUEST["profilechecksum"])>0){
     $pid=$_REQUEST["profilechecksum"];
     
-    $commentQuery="select Comments,Date from tblcomments where PID=".$pid;
+    $commentQuery="select Comments,Date from tblcomments where PID=".$pid." order by Date desc";
     $comments = mysqli_query($con, $commentQuery);
     $data =[];
     while ($row = mysqli_fetch_assoc($comments)) {

@@ -155,17 +155,17 @@ is_login($root);
                       </div>
                       <div class="form-group col-md-3">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="first_name" value="<?php echo getValue($profile,"first_name"); ?>"/>
+                        <input type="text" class="form-control blur_text" name="first_name" value="<?php echo getValue($profile,"first_name"); ?>"/>
                       </div>
                       <div class="form-group col-md-3">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" name="last_name" value="<?php echo getValue($profile,"last_name"); ?>"/>
+                        <input type="text" class="form-control blur_text" name="last_name" value="<?php echo getValue($profile,"last_name"); ?>"/>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-md-3">
                         <label>Gender</label>
-                        <input type="text" class="form-control" name="gender" id="gender" value="<?php echo getValue($profile,"gender"); ?>" />
+                        <input type="text" class="form-control blur_text" name="gender" id="gender" value="<?php echo getValue($profile,"gender"); ?>" />
                       </div>
 
                       <div class="form-group col-md-3">
@@ -247,7 +247,7 @@ is_login($root);
                       </div>
                     <div class="form-group col-md-3">
                         <label>Sub-Caste</label>
-                        <input type="text" class="form-control" name="sub_caste" value="<?php echo getValue($profile,"sub_caste"); ?>"/>
+                        <input type="text" class="form-control blur_text" name="sub_caste" value="<?php echo getValue($profile,"sub_caste"); ?>"/>
                     </div>
                     
                     
@@ -271,7 +271,7 @@ is_login($root);
                       
                       <div class="form-group col-md-3">
                         <label>Criminal Record</label>
-                        <input type="text" class="form-control" name="criminal_record" value="<?php echo getValue($profile,"criminal_record"); ?>"/>
+                        <input type="text" class="form-control blur_text" name="criminal_record" value="<?php echo getValue($profile,"criminal_record"); ?>"/>
                       </div>
                       <div class="form-group col-md-3">
                         <label>Willing to Stay independently?</label>
@@ -285,7 +285,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-12">
                         <label>About Me</label>
-                        <textarea class="form-control" name="about" rows=5><?php echo getValue($profile,"about"); ?></textarea>
+                        <textarea class="form-control title_text" name="about" rows=5><?php echo getValue($profile,"about"); ?></textarea>
                     </div>
                     
                     
@@ -347,7 +347,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-3">
                       <label>Father Name</label>
-                      <input type="text" class="form-control" name="father_name" id="father_name" value="<?php echo getValue($profile,"father_name"); ?>"/>
+                      <input type="text" class="form-control blur_text" name="father_name" id="father_name" value="<?php echo getValue($profile,"father_name"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Father Occupation</label>
@@ -355,7 +355,7 @@ is_login($root);
                     </div>
                     <div class="form-group col-md-3">
                       <label>Mother Name</label>
-                      <input type="text" class="form-control" name="mother_name" id="mother_name" value="<?php echo getValue($profile,"mother_name"); ?>"/>
+                      <input type="text" class="form-control blur_text" name="mother_name" id="mother_name" value="<?php echo getValue($profile,"mother_name"); ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                       <label>Mother Occupation</label>
@@ -463,7 +463,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-12">
                       <label>About Family</label>
-                      <textarea class="form-control" name="about_family"><?php echo getValue($profile,"about_family"); ?></textarea>
+                      <textarea class="form-control title_text" name="about_family"><?php echo getValue($profile,"about_family"); ?></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -817,7 +817,7 @@ is_login($root);
                   </div>
                   <div class="form-group col-md-3">
                         <label>About Partner</label>
-                        <input type="text" class="form-control" name="pp_about_partner" value="<?php echo getValue($profile,"pp_about_partner"); ?>"/>
+                        <input type="text" class="form-control title_text" name="pp_about_partner" value="<?php echo getValue($profile,"pp_about_partner"); ?>"/>
                   </div>
                   <div class="form-group col-md-3">
                       <label>Partner Occupation</label>
@@ -1099,7 +1099,7 @@ is_login($root);
   	</div>
 </div>
 <script src="/scripts/js/variables.js?ver=1.1143"></script>
- <script src="/scripts/js/registerprofile.js?ver=1.1159"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.1160"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 
