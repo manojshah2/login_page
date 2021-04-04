@@ -90,8 +90,18 @@ body {
 
 .pp{
     font-size: 9pt;;
+    list-style: none;
+}
+.matched_cols{
+    padding-left:0px;
 }
 
+.icon-green{
+    color: green;
+}
+.icon-red{
+    color:red;
+}
 .btn-matches {
     margin-left: 5px;
     margin-bottom: 10px;

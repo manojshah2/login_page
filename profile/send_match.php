@@ -25,7 +25,7 @@ is_login($root);
   <link href="../css/viewprofile.css?ver=1.100001" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="../css/theme.css?ver=100004" rel="stylesheet">
+  <link href="../css/theme.css?ver=100005" rel="stylesheet">
 
   
 </head>
@@ -87,23 +87,38 @@ is_login($root);
             }
 
             
-            $search_condition = createSearchFromProfile($profile1["ID"]);
+            $search_condition = getProfileData($profile1["ID"]);
             #print_r($search_condition);
+            
             $pattern = "/\( `(.+?)`/i";
             if(preg_match_all($pattern, $search_condition, $match)){
                 $matched_cols=$match[1];
             }
+            
 
-            $resultsperpage=10;
+            
+            $header_pattern = "/end as (.+?_COUNT)/i";
+            if(preg_match_all($header_pattern, $search_condition, $match1)){
+                $header_cols=$match1[1];
+            }
+
+            $sum_col =  implode('+',$header_cols);
+
+            $resultsperpage=100;
             $offset=0;
             if (strlen($search_condition)>0) {
                 
-                $final_query="select * from tblprofiles where ".$search_condition." LIMIT ".$resultsperpage." OFFSET ".$offset;
-                $count_query="select count(*) from tblprofiles where ".$search_condition;
+                $count_query="with d as (select *, ".$search_condition." from tblprofiles)select count(*) as TOTAL from d where ".$sum_col.">1 and GENDER_COUNT=1";
+                $final_query="with d as (select *, ".$search_condition." from tblprofiles)select *,".$sum_col." as TOTAL from d where ".$sum_col.">1 and GENDER_COUNT=1 order by ".$sum_col." desc,`ADDED DATE` desc  LIMIT ".$resultsperpage." OFFSET ".$offset;
+
+                #$final_query="with d as (SELECT *, CASE when `COUNTRY OF RESIDENCE` LIKE '%India%' then 1 end as COUNTRY_POINT, CASE when `RELIGION` LIKE '%Muslim%' then 1 end as RELIGION_POINT FROM `tblprofiles`) select * from d";
+                
+
                 //print_r($final_query);
                 $count_result = $mysqli->query($count_query);
-                $count = $count_result->fetch_array()[0];                
+                $count = $count_result->fetch_array()[0];                                
                 $result =$mysqli->query($final_query);
+
             }else{
                 
                 print_r("No Matches found for criteria");
@@ -140,9 +155,12 @@ is_login($root);
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $count_index=1; ?>
                                 <?php while($profile=$result->fetch_array()): ?>
                                     <tr>
-                                    <td></td>
+                                    <td>
+                                        <?php print_r($count_index);$count_index=$count_index+1  ?>
+                                    </td>
                                         <td>
 
                                         <?php
@@ -162,10 +180,28 @@ is_login($root);
                                         <td>
                                             <?php
 
+                                            $dob_str=getValue($profile,"DOB");
+                                            
+                                            if ((strlen($dob_str)>0 && strpos($dob_str,'000')===false)){         
+                                                
+                                                $dob=new DateTime($dob_str);
+                                                $today=new DateTime('today');
+                                                $age = $dob->diff($today)->y;
+                                                $age = $age." Years , ";
+                                            }
+                                            $profile["AGE"]=$age;
+
                                             echo "<ul class='matched_cols'>";
-                                            for($i=0;$i<count($matched_cols);$i++){
-                                                $db_cols= $matched_cols[$i];
-                                                echo nl2br("<li class='pp'><b>".$db_cols."</b> : ".getValue($profile,$db_cols)."</li>");
+                                            for($i=0;$i<count($header_cols);$i++){
+                                                $match_val=getValue($profile,$header_cols[$i]);
+                                                $db_cols=str_replace('_',' ',str_replace('_COUNT','',$header_cols[$i]));
+                                                $icon_value='';
+                                                if($match_val==1){
+                                                    $icon_value="<i class='fa fa-check icon-green'></i>";
+                                                }else{
+                                                    $icon_value="<i class='fa fa-times icon-red'></i>";
+                                                }
+                                                echo nl2br("<li class='pp'>".$icon_value."  <b>".$db_cols."</b> : ".getValue($profile,$db_cols)."</li>");
                                             }
                                             echo "</ul>";
 
@@ -205,7 +241,7 @@ is_login($root);
       <?php include $root.'include/footer.php';?>
       <!-- End of Footer -->
       
-
+   
     </div>
     <!-- End of Content Wrapper -->
 
@@ -220,9 +256,14 @@ is_login($root);
  <script src="/scripts/js/profile.js"></script>
 
  <script type="text/javascript">
-          
-           
-          
+    $(document).ready(function(){
+        $('.widget-body').on('scroll', function() {
+            
+            if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+              //  alert('end reached');
+            }
+        })
+    });
     </script>
 
 </body>

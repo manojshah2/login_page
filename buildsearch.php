@@ -67,6 +67,107 @@ function getIncome($income_str) {
 
 }
 
+function getProfileData($pid){
+  global $mysqli;
+  $result =$mysqli->query("select * from tblprofiles where ID=".$pid);
+  $data=array();
+  
+  while($fetchdata=$result->fetch_array()){
+      $data=$fetchdata;
+  }
+
+  //print_r($data);  //for getting actual search from db;
+  
+  if (count($data)<1){
+      echo "Search Not Found. Please goto Search Profile and Perform Search Again.";
+      exit();
+  }
+
+  
+
+  return createSQL($data);
+}
+
+function createSQL($data){
+
+  $sql = "";
+
+  $gender = $data["GENDER"];
+  $fromage = $data["PP FROMAGE"];
+  $toage = $data["PP TOAGE"];
+
+  $fromheight=$data["PP MIN HEIGHT"];
+  $toheight=$data["PP MAX HEIGHT"];
+  $fromheight=getHeight($fromheight);
+  $toheight=getHeight($toheight);
+
+  $ai=getIncome($data["PP INCOME"]);
+  $ai2=getIncome($data["PP INCOME2"]);
+
+  $gender =  $data["GENDER"];
+  if ($gender == "Male"){
+    $gender = "Female";
+  }else if($gender == "Female"){
+    $gender = "Male";
+  }
+
+  if(strlen($fromage)>0){
+    $age_crit = "case when (TIMESTAMPDIFF(YEAR,DOB,current_date()))>=".$fromage." and (TIMESTAMPDIFF(YEAR,DOB,current_date()))<=".$toage." then 1 end as AGE_COUNT";
+    $sep = (strlen($sql)>0)?',':'';
+    $sql = $sql.$sep.$age_crit;
+  }
+
+  if($ai>-1){
+    $crit = "case when `ANNUAL INCOME VALUE`>=".$ai." and `ANNUAL INCOME2 VALUE`<=".$ai2." then 1 end as INCOME_COUNT";
+    $sep = (strlen($sql)>0)?',':'';
+    $sql = $sql.$sep.$crit;
+  }
+  
+  $sql = buildSelect($sql,$data["PP RELIGION"],'RELIGION');
+  $sql = buildSelect($sql,$data["PP CASTE"],'CASTE');
+  $sql = buildSelect($sql,$data["PP COUNTRY"],'COUNTRY OF RESIDENCE');
+  $sql = buildSelect($sql,$data["PP STATE"],'STATE OF RESIDENCE');
+  $sql = buildSelect($sql,$data["PP MARITAL STATUS"],'MARITAL STATUS');
+  $sql = buildSelect($sql,$data["PP MANGLIK"],'MANGLIK');
+  $sql = buildSelect($sql,$data["PP EMPLOYED AS"],'Occupation');
+  $sql = buildSelect($sql,$data["PP VEG/NON VEG"],'FOOD HABITS');
+  $sql = buildSelect($sql,$data["PP DRINKER"],'DRINK');
+  $sql = buildSelect($sql,$data["PP BODY TYPE"],'BODY TYPE');
+  $sql = buildSelect($sql,$data["PP Complexion"],'COMPLEXION');
+  $sql = buildSelect($sql,$data["PP MOTHER TONGUE"],'MOTHER TONGUE');
+  $sql = buildSelect($sql,$gender,'GENDER');
+  
+  
+  #print_r($sql);
+  return $sql;
+
+
+}
+
+function buildSelect($sql,$data,$db_header){
+  if(strpos($data, 'Matter') !== false or strpos($data, 'Specified') !== false){
+    return $sql;
+  }
+  $data_split = explode(",",$data);
+  $cond = "";
+  foreach($data_split as $key => $value) {  
+    if(strlen($value)>0){
+      $cond = $cond."  when `".$db_header."`= '".$value."' then 1 ";
+    }
+  }
+  
+  if(strlen($cond)>0){
+    $cond = $cond."  else 0 ";
+    $cond = "case ".$cond." end as ".str_replace(' ','_',$db_header)."_COUNT";
+    if(strlen($sql)>0){
+      $sql = $sql.",".$cond;
+    }else{
+      $sql = $cond;
+    }
+  }
+  
+  return $sql;
+}
 
 function createSearchFromProfile($pid){
   global $mysqli;
