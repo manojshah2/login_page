@@ -229,12 +229,7 @@ $(document).ready(function(){
         
     });
 
-    $(document).on('change', "#native_country", function (e) {
-        var country=$("#native_country").val();
-        if(states.hasOwnProperty(country)){
-            
-        }
-    });
+ 
 
     $(document).on('change', "#country_of_residence", function (e) {
         var country=$("#country_of_residence").val();
@@ -244,16 +239,18 @@ $(document).ready(function(){
         }else{
             currency.push(default_currency);
         }
-        console.log(currency);
-        //states also
-        if(country==="India"){
-            $('#state_of_residence').tagator({autocomplete: states[country],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-            $('#state_of_residence').prop("disabled", false);
-        }else{
-            $('#state_of_residence').prop("disabled", true);
-        }
         
-        if(country.length>1){
+        var state_dropdown = states[country];
+        console.log(state_dropdown!==undefined && state_dropdown.length>0);
+        if(state_dropdown!==undefined && state_dropdown.length>0){
+            $('#state_of_residence').tagator({autocomplete: state_dropdown,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});            
+            
+        }
+        $('#state_of_residence').tagator('autocomplete', state_dropdown);    
+        $('#state_of_residence').tagator('refresh');
+        $('#state_of_residence').prop("disabled", false);
+        
+        if(currency.length>1){
             $('#income_currency').tagator({autocomplete: currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
             $('#income_currency').tagator('refresh');
             $('#income_currency').prop("disabled", false);
@@ -264,9 +261,10 @@ $(document).ready(function(){
 
     $(document).on('change',"#state_of_residence", function(e){
         var state_value=$("#state_of_residence").val();
+        
         if(city_mapping.hasOwnProperty(state_value)){
             var city_value=city_mapping[state_value];
-            $('#city').tagator({autocomplete: city_value,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+            $('#city').tagator({autocomplete: city_value,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});
             $('#city').tagator('autocomplete', city_value);
             $('#city').tagator('refresh');
             $('#city').prop("disabled", false);
@@ -317,13 +315,16 @@ $(document).ready(function(){
             }
         }
         console.log(currency);
-        //states also
-        if(country==="India"){
-            $('#pp_state').tagator({autocomplete: states[country],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-            $('#pp_state').prop("disabled", false);
-        }else{
-            $('#pp_state').prop("disabled", true);
+        var state_dropdown = states[country];
+        console.log(state_dropdown!==undefined && state_dropdown.length>0);
+        if(state_dropdown!==undefined && state_dropdown.length>0){
+        
+            $('#pp_state').tagator({autocomplete: state_dropdown,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});
+            
         }
+        $('#pp_state').tagator('autocomplete', state_dropdown);
+        $('#pp_state').tagator('refresh');
+        $('#pp_state').prop("disabled", false);
         
         if(countries_list.length>0){
             $('#pp_income_currency').tagator({autocomplete: currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
@@ -372,12 +373,18 @@ $(document).ready(function(){
         }
         console.log(currency);
         //states also
-        if(country==="India"){
-            $('#native_state').tagator({autocomplete: states[country],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-            $('#native_state').prop("disabled", false);
-        }else{
-            $('#native_state').prop("disabled", true);
+        
+        var state_dropdown = states[country];
+        console.log(state_dropdown!==undefined && state_dropdown.length>0);
+        if(state_dropdown!==undefined && state_dropdown.length>0){
+        
+            $('#native_state').tagator({autocomplete: state_dropdown,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});
+            
         }
+        $('#native_state').tagator('autocomplete', state_dropdown);
+        $('#native_state').tagator('refresh');
+        $('#native_state').prop("disabled", false);
+        
         
         if(country.length>1){
             $('#family_income_currency').tagator({autocomplete: currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});

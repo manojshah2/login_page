@@ -167,7 +167,7 @@ include_once($root."field_mapping.php");
     <table >
         <tr>
             <td width="250px">OCCUPATION</td>
-            <td> : <?php echo getValue($profile,'Occupation') ?></td>
+            <td> : <?php echo  getValue($profile,'Occupation') ?></td>
         </tr>
         <tr>
             <td>EMPLOYED WITH</td>
