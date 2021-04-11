@@ -1,7 +1,8 @@
 <?php
-include_once("config/config.inc.php");
-include_once("config/db.php");
-include_once("field_mapping.php");
+$root = "../";  
+include_once($root."config/config.inc.php");
+include_once($root."config/db.php");
+include_once($root."field_mapping.php");
 header('Content-type: application/json');
 header("access-control-allow-origin: *");
 

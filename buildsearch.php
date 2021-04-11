@@ -145,7 +145,7 @@ function createSQL($data){
 }
 
 function buildSelect($sql,$data,$db_header){
-  if(strpos($data, 'Matter') !== false or strpos($data, 'Specified') !== false){
+  if(strpos($data, 'Matter') !== false or strpos($data, 'Specified') !== false or strpos($data, 'Doesn') !== false){
     return $sql;
   }
   $data_split = explode(",",$data);

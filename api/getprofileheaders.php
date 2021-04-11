@@ -4,7 +4,7 @@ include_once("../config/db.php");
 header('Content-type: application/json');
 header("access-control-allow-origin: *");
 
-$headers="Profile Id|Name|Gender|Age|Created On|Package type|Payment Given|Sold By|Language|Action";
+$headers="Profile Id|Name|Gender|Age|Created On|Package type|Payment Given|Sold By|Language|Data From|Action";
 $final_headers=array();
 foreach(explode('|',$headers) as $col){
     $data["title"]=$col;        

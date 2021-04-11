@@ -19,21 +19,38 @@ $con=$mysqli;
 $searchQuery = " ";
 
 $type ='total';
+$source='';
 if(isset($_REQUEST['type'])){
    $type=$_REQUEST['type'];
 }
 
-$whereCondition= " ";
+if(isset($_REQUEST['source'])){
+   $source=$_REQUEST['source'];
+}
+
+$whereCondition= "";
 if($type=="paid"){
-   $whereCondition = " where `client type`='PAID'";
+   $whereCondition = "  `client type`='PAID'";
 }else if($type=="unpaid"){
-   $whereCondition= " WHERE  `CLIENT TYPE` is null or ( `CLIENT TYPE`<>'PAID' and `CLIENT TYPE`<>'Pay At Roka') ";
+   $whereCondition= "  `CLIENT TYPE` is null or ( `CLIENT TYPE`<>'PAID' and `CLIENT TYPE`<>'Pay At Roka') ";
 }else if($type=="payatroka"){
-   $whereCondition = " where `client type`='Pay At Roka'";
+   $whereCondition = " `client type`='Pay At Roka'";
+}
+
+if(strlen($source)>1){
+   if (strlen($whereCondition)>0){
+      $whereCondition = $whereCondition." and `Data Taken From`='".$source."'";
+   }else{
+      $whereCondition = " `Data Taken From`='".$source."'";
+   }
+}
+
+if (strlen($whereCondition)<1){
+   $whereCondition =" 1";
 }
 
 ## Total number of records without filtering
-$sel = mysqli_query($con,"select count(*) as allcount from ".$table.$whereCondition);
+$sel = mysqli_query($con,"select count(*) as allcount from ".$table." where ".$whereCondition);
 $records = mysqli_fetch_assoc($sel);
 $totalRecords = $records['allcount'];
 
@@ -44,7 +61,7 @@ $totalRecords = $records['allcount'];
 
 
 ## Fetch records
-$empQuery = "select * from ".$table.$whereCondition." ORDER BY `ADDED DATE` DESC  limit ".$row.",".$rowperpage;
+$empQuery = "select * from ".$table." where ".$whereCondition." ORDER BY `ADDED DATE` DESC  limit ".$row.",".$rowperpage;
 #echo $empQuery;
 $empRecords = mysqli_query($con, $empQuery);
 $data = array();
@@ -62,6 +79,7 @@ while ($row = mysqli_fetch_assoc($empRecords)) {
     $row["Payment Given"],
     $row["SOLD BY"],
     $row["RELIGION"],
+    $row["Data Taken From"],
     $row["ID"]
     );
  }

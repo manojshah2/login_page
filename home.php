@@ -19,10 +19,12 @@ is_login($root);
 
   <!-- Custom fonts for this template-->
   <link href="css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/fm.tagator.jquery.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <script type="text/javascript" src="/scripts/js/variables.js?ver=1.0000001"></script>
 
 </head>
 
@@ -155,6 +157,26 @@ is_login($root);
               </div>
               
             </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Profiles By Data Taken From</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        
+                        <input type="text" id="source" name="source" class="form-control"/>
+                        
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
             
           </div>
 
@@ -163,18 +185,33 @@ is_login($root);
 
       </div>
       <!-- End of Main Content -->
-
+      
       <!-- Footer -->
       <?php include 'include/footer.php';?>
       <!-- End of Footer -->
 
     </div>
+    
     <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
+ <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
+ <script type="text/javascript">
+        $(document).ready(function () {
+
+          $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+          
+          $("#source").on('change',function(e){
+            var selectedvalue  = e.target.value;
+            
+              window.location.href = "/profile/listprofile.php?source="+selectedvalue;
+            
+          });
+        });
+  </script>
 
 </body>
 

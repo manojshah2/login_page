@@ -83,6 +83,7 @@ is_login($root);
             </div>
 
             <a  id="downloadReport" href="#"><i class="fa fa-download"></i> Download in Excel</a>
+            <input type="hidden" name="loggedInUser" id="loggedInUser" value="<?php echo $_SESSION[PRE.'emp_id'];  ?>"/>
           
           </div>
 
@@ -138,9 +139,12 @@ is_login($root);
  <script type="text/javascript">
 
         $(document).ready(function () {
-          
-            var url=window.location.href;
-            var client_type=url.split('type=')[1];
+
+            var user = $("#loggedInUser").val();
+            
+            
+            var params=window.location.search;
+            
             
             $("#downloadexcel").on('click',function(){
               var start_date=$("#start_date").val();
@@ -162,7 +166,7 @@ is_login($root);
                     var qualitylist = $('#dataTable').dataTable({
                         "processing": true,
                         "serverSide": true,
-                        "ajax": "/api/getprofiles.php?type="+client_type,
+                        "ajax": "/api/getprofiles.php"+params,
                         columns: data,
                         searching: false,
                         "autoWidth": false,
@@ -172,14 +176,21 @@ is_login($root);
                                 render: function (data, type, row, meta)
                                 {
                                     //data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
-                                    data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"><a href="#" data-id="'+data +'" class="deleteRow"><i class="fa fa-trash fa-lg"></i></a></div></div>';
-                                    return data;
+                                    
+                                    if(user==="admin"){
+                                      data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"><a href="#" data-id="'+data +'" class="deleteRow"><i class="fa fa-trash fa-lg"></i></a></div></div>';
+                                      return data;
+                                    }else{
+                                      data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"></div></div>';
+                                      return data;
+                                    }
+                                    
                                 }
                                 
                             },{
-                              targets: 9,
+                              targets: 10,
                               render:function(data,type,row,meta){
-                                data = '<a class="btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Case Detail</a>';
+                                data = '<a class="btn-sm btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Detail</a>';
                                 return data;
                               }
                             }]

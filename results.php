@@ -96,6 +96,9 @@ is_login($root);
 
           
           <!-- Content Row -->
+          <div id="myalert">
+
+          </div>
           
           <?php
           error_reporting(E_ERROR | E_PARSE);
@@ -266,9 +269,12 @@ is_login($root);
                 </div>
                 <div class="col-md-2">
                   <div >
-                    <div class="row pt-4 pl-2">
-                      <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile['ID']; ?>" class="btn btn-primary">Download PDF</a>
+                    <div class="row pt-4 pl-2">                      
+                        <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile['ID']; ?>" title="Download PDF" class="btn btn-primary"><i class="fa fa-lg fa-file-pdf"></i></a>
                     </div>                 
+                    <div class="row pt-4 pl-2">
+                        <a href="#" class="btn btn-primary d-none deleteProfile"  data-id="<?php echo $profile["ID"]; ?>" title="Delete Profile" class="pt-4"><i class="fa fa-trash fa-lg"></i></a>
+                    </div>
                   </div>  
                 </div>
               </div>
@@ -302,14 +308,56 @@ is_login($root);
     <!-- End of Content Wrapper -->
 
   </div>
+  <input type="hidden" name="loggedInUser" id="loggedInUser" value="<?php echo $_SESSION[PRE.'emp_id'];  ?>"/>
   <!-- End of Page Wrapper -->
 
  <?php include 'include/footer_main.php';?>
  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+ <script src="/scripts/simpleDialog.min.js"></script>
  <script type="text/javascript">
   $(document).ready(function () {
-    function DownloadPDF(profileId) {
+
+    var user = $("#loggedInUser").val();
+
+    if(user === "admin"){
+      $(".deleteProfile").removeClass("d-none");
     }
+
+    function deleteRow1(rowid) {
+        $.ajax({
+            url: "/profile/delete.php",
+            method: 'POST',
+            data: {id: rowid},
+            dataType: 'json',
+            success: function (data, status, xhr) {
+                var alertmessage = '<div class="alert alert-success alert-dismissible" role="alert" id="myalert">\
+                          ' + data.message + '\
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">\
+                            <span aria-hidden="true">&times;</span>\
+                        </button>\
+                    </div>';
+                $("#myalert").html(alertmessage);
+            }
+        });        
+    }
+
+    $(".deleteProfile").on('click',function(e){
+      var id=$(this).data("id");    
+                        
+      $.simpleDialog({
+          title: "Confirm",
+          message: "Are you sure you want to Delete??",
+          confirmBtnText: "Delete",
+          closeBtnText: "Cancel",
+          backdrop: true,
+          onSuccess: function () {
+              deleteRow1(id);
+          },
+          onCancel: function () {
+
+          }
+      });
+    });
   });
  </script>
 </body>
