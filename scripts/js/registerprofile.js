@@ -40,7 +40,7 @@ $(document).ready(function(){
     $('#pp_challenged').tagator({autocomplete: special_case,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
 
 
-    $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#gender').tagator({autocomplete: gender,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#marital_status').tagator({autocomplete: marital_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#has_children').tagator({autocomplete: have_children,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
@@ -128,11 +128,11 @@ $(document).ready(function(){
       }
 
     $(".blur_text").blur(function (e) {
-        e.target.value=e.target.value.toProperCase();
+        e.target.value=e.target.value.toProperCase().trim();
     });
 
     $(".title_text").blur(function (e) {
-        e.target.value=e.target.value.toTitleCase();
+        e.target.value=e.target.value.toTitleCase().trim();
     });
     var params=window.location.search;
     if(params.length<2){
@@ -206,17 +206,13 @@ $(document).ready(function(){
 
     $(document).on('change', "#pp_religion", function (e) {
         
-        
-    });
-    
-
-    $(document).on('click', "#pp_caste", function (e) {
         var pp_caste_suggestor=[];    
         //$('#pp_caste').tagator();
         //$('#pp_caste').tagator('destroy');       
         var religion=$("#pp_religion").val();
         
         var _religion=religion.split(',');
+        console.log(_religion);
         
         for(var i=0;i<_religion.length;i++){            
             if(caste.hasOwnProperty(_religion[i])){
@@ -224,10 +220,15 @@ $(document).ready(function(){
                 pp_caste_suggestor=pp_caste_suggestor.concat(cl);
             }        
         }
+        console.log(pp_caste_suggestor);
         $('#pp_caste').tagator({autocomplete: pp_caste_suggestor,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});                 
-        
+        $('#pp_caste').tagator('autocomplete', pp_caste_suggestor);     
+        $('#pp_caste').tagator('refresh');
         
     });
+    
+
+   
 
  
 

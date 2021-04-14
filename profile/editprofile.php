@@ -216,13 +216,15 @@ is_login($root);
                         <input type="text" class="form-control" disabled name="income_currency" id="income_currency" value="<?php echo getValue($profile,"income_currency"); ?>" />                      
                       </div>
                       <div class="form-group col-md-6">
-                        <label>Annual Income</label>
+                        
                         
                         <div class="row">
                           <div class="col-md-6">
+                          <label>Annual Income (From)</label>
                             <input type="text" class="form-control" disabled name="annual_income1" id="annual_income1" value="<?php echo getValue($profile,"annual_income1"); ?>" />                      
                           </div>
                           <div class="col-md-6">
+                          <label>Annual Income (To)</label>
                             <input type="text" class="form-control" disabled name="annual_income2" id="annual_income2" value="<?php echo getValue($profile,"annual_income2"); ?>" />                      
                           </div>                        
                         </div>
@@ -391,14 +393,16 @@ is_login($root);
                       <input type="text" class="form-control" disabled name="family_income_currency" id="family_income_currency" value="<?php echo getValue($profile,"family_income_currency"); ?>" />                      
                     </div>
                     <div class="form-group col-md-6">
-                      <label>Family Income</label>
+                      
                       
                       <div class="row">
                         <div class="col-md-6">
+                          <label>Family Income (From)</label>
                           <input type="text" class="form-control" disabled name="family_income" id="family_income" value="<?php echo getValue($profile,"family_income"); ?>"/>                                              
                           
                         </div>
                         <div class="col-md-6">
+                          <label>Family Income (To)</label>
                           <input type="text" class="form-control" disabled name="family_income2" id="family_income2" value="<?php echo getValue($profile,"family_income2"); ?>"/>                                              
                           
                         </div>
@@ -472,12 +476,14 @@ is_login($root);
                       <input type="text" class="form-control" name="family_based_out_of" id="family_based_out_of" value="<?php echo getValue($profile,"family_based_out_of"); ?>"/>
                     </div>
                     <div class="form-group col-md-6">
-                      <label>Wedding Budget</label>
+                      
                       <div class="row">
                         <div class="col-md-6">
+                          <label>Wedding Budget (From)</label>
                           <input type="text" class="form-control" name="wedding_budget" id="wedding_budget" value="<?php echo getValue($profile,"wedding_budget"); ?>"/>                                             
                         </div>
                         <div class="col-md-6">
+                          <label>Wedding Budget (To)</label>
                           <input type="text" class="form-control" name="wedding_budget2" id="wedding_budget2" value="<?php echo getValue($profile,"wedding_budget2"); ?>"/>                                              
                         </div>
                       </div>  
@@ -753,14 +759,16 @@ is_login($root);
                     <input type="text" class="form-control" disabled name="pp_income_currency" id="pp_income_currency" value="<?php echo getValue($profile,"pp_income_currency"); ?>" />                      
                   </div>
                   <div class="form-group col-md-6">
-                        <label>Income</label>
+                        
                         <input type="hidden" class="form-control" name="pp_income"/>
                         <div class="row">
                         <div class="col-md-6">
+                          <label>Income (From)</label>
                           <input type="text" class="form-control" name="pp_income" id="pp_income" value="<?php echo getValue($profile,"pp_income"); ?>"/>                                              
                           
                         </div>
                         <div class="col-md-6">
+                          <label>Income (To)</label>
                           <input type="text" class="form-control" name="pp_income2" id="pp_income2" value="<?php echo getValue($profile,"pp_income2"); ?>"/>                                              
                           
                         </div>
@@ -1099,7 +1107,7 @@ is_login($root);
   	</div>
 </div>
 <script src="/scripts/js/variables.js?ver=1.1145"></script>
- <script src="/scripts/js/registerprofile.js?ver=1.115"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.120"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 
