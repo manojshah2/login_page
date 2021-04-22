@@ -37,6 +37,7 @@ while($data_val_arr = $select_query->fetch_array()){
 	}
 	
 	$count_rows++;	
+	$i=0;
   
 }
 
