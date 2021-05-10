@@ -35,6 +35,8 @@ if($type=="paid"){
    $whereCondition= "  `CLIENT TYPE` is null or ( `CLIENT TYPE`<>'PAID' and `CLIENT TYPE`<>'Pay At Roka') ";
 }else if($type=="payatroka"){
    $whereCondition = " `client type`='Pay At Roka'";
+}else if($type=="lead"){
+   $whereCondition = " `client type`='lead'";
 }
 
 if(strlen($source)>1){

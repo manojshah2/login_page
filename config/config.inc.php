@@ -8,7 +8,7 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' |
 	    "Database_Server" => "localhost",
 	    "User_Id" => "root",
 	    "Password" => "",
-	    "Database_Name" => "livedb",
+	    "Database_Name" => "dbluv",
 	);
 	$root_name="http://localhost/";
 }else{
