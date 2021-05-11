@@ -283,9 +283,9 @@ include_once($root."field_mapping.php");
             while($images=$profile_images->fetch_array()){                
                 for($i=0;$i<count($images);$i++) {                  
                     if(strlen($images[$i])>0){
-                      //  echo "<div class='imgrow'>";
-                      //  echo "<div class='img-container'><img class='image' src=".$root.$images[$i]." height='220px' width='220px'/></div>";
-                      //  echo "</div>";
+                        echo "<div class='imgrow'>";
+                        echo "<div class='img-container'><img class='image' src=".$root.$images[$i]." height='220px' width='220px'/></div>";
+                        echo "</div>";
                     }
                 }
             }
