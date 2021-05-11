@@ -56,7 +56,7 @@ include_once($root."field_mapping.php");
     .image { display: inline-block; }
 
     .imgrow{
-        
+        padding:10px;
         
     }
     
