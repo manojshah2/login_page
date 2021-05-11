@@ -128,7 +128,7 @@ is_login($root);
               $search_condition=createSearch($_REQUEST["searchid"]);
               
               $search_condition = $search_condition." order by  case `client type` when 'Paid' THEN 1 else 2 end,`ADDED Date` desc";
-              #print_r($search_condition);
+              //print_r($search_condition);
               
 
               if (strlen($search_condition)>0) {

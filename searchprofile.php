@@ -183,8 +183,19 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Income</label>
                         </div>
-                        <input type="text" id="annual_income1" name="annual_income1" class="form-control" placeholder="From"/>                        
-                        <input type="text" id="annual_income2" name="annual_income2" class="form-control" placeholder="To"/>
+                        <div class="col-md-3">
+                          <input type="text" id="income_currency" name="income_currency" class="form-control" placeholder="Currency"/>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <input type="text" id="annual_income1" name="annual_income1" class="form-control" placeholder="From"/>                        
+                            </div>
+                            <div class="col-md-6">
+                              <input type="text" id="annual_income2" name="annual_income2" class="form-control" placeholder="To"/>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -192,8 +203,21 @@ is_login($root);
                         <div class="col-md-4">
                           <label class="pt-2">Wedding budget</label>
                         </div>
-                        <input type="text" id="wedding_budget1" name="wedding_budget1" class="form-control" placeholder="From"/>                        
-                        <input type="text" id="wedding_budget2" name="wedding_budget2" class="form-control" placeholder="To"/>
+                        <div class="col-md-3">
+                          <input type="text" id="wedding_currency" name="wedding_currency" class="form-control" placeholder="Currency"/>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="row">
+                            <div class="col-md-6">
+                            <input type="text" id="wedding_budget1" name="wedding_budget1" class="form-control" placeholder="From"/>  
+                            </div>
+                            <div class="col-md-6">
+                            <input type="text" id="wedding_budget2" name="wedding_budget2" class="form-control" placeholder="To"/>
+                            </div>
+                          </div>
+                        </div>
+                                              
+                        
                       </div>
                     </div>
                     <div class="form-group col-md-12">                                                                
@@ -313,8 +337,21 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Family Income</label>
                               </div>
-                              <input type="text" id="family_income1" name="family_income1" class="form-control" placeholder="From"/>                              
-                              <input type="text" id="family_income2" name="family_income2" class="form-control" placeholder="To"/>                              
+                              <div class="col-md-3">
+                                <input type="text" id="family_currency" name="family_currency" class="form-control" placeholder="Currency"/>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                  <input type="text" id="family_income1" name="family_income1" class="form-control" placeholder="From"/> 
+                                  </div>
+                                  <div class="col-md-6">
+                                  <input type="text" id="family_income2" name="family_income2" class="form-control" placeholder="To"/>                              
+                                  </div>
+                                </div>
+                              </div>
+                                                           
+                              
                             </div>
                           </div>
                           <div class="form-group col-md-12">                                                                
@@ -338,8 +375,22 @@ is_login($root);
                               <div class="col-md-5">
                                 <label class="pt-2">Net Worth</label>
                               </div>
-                              <input type="text" id="net_worth1" name="net_worth1" class="form-control" placeholder="From"/>                              
-                              <input type="text" id="net_worth2" name="net_worth2" class="form-control" placeholder="To"/>                              
+                              <div class="col-md-3">
+                                <input type="text" id="net_currency" name="net_currency" class="form-control" placeholder="Currency"/>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <input type="text" id="net_worth1" name="net_worth1" class="form-control" placeholder="From"/>                              
+                                  </div>
+                                  <div class="col-md-6">
+                                    <input type="text" id="net_worth2" name="net_worth2" class="form-control" placeholder="To"/>                                                           
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              
+                              
                             </div>
                           </div>
                         </div>
@@ -453,8 +504,8 @@ is_login($root);
 
  <?php include 'include/footer_main.php';?>
 
- <script src="scripts/js/variables.js?ver=1.00001"></script>
- <script src="scripts/js/search.js?ver=1.0006"></script>
+ <script src="scripts/js/variables.js?ver=1.00002"></script>
+ <script src="scripts/js/search.js?ver=1.0008"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
 </body>
 

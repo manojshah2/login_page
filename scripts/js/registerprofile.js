@@ -181,12 +181,12 @@ $(document).ready(function(){
         income_str=income_str.replace("Rs.","");
         var number_income=patt.exec(income_str)[0];
         if (income_str.search("Crore")>0){
-            number_income=number_income*100;
+            number_income=number_income*100.0;
         }
         if(income_str.search("1000+")>0){
-            number_income=number_income*10;
+            number_income=number_income*10.0;
         }
-        return number_income;
+        return number_income*1.0;
     }
 
     $(document).on('change', "#religion", function (e) {

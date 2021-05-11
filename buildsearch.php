@@ -5,12 +5,12 @@ include_once("field_mapping.php");
 ini_set('max_execution_time', 3000); 
 error_reporting(E_ERROR | E_PARSE);
 
-function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2,$cond=" and "){
+function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2,$cond,$currency,$currency_db){
   if($ai>=0){
     if(strlen($search_condition)>0){
       $search_condition =$search_condition.$cond;
     }
-    $search_condition = $search_condition." (`".$column1."`>=".$ai." and `".$column2."`<=".$ai2.")"; 
+    $search_condition = $search_condition." (`".$column1."`>=".$ai." and `".$column2."`<=".$ai2." and `".$currency_db."`='".$currency."')"; 
   }
   return $search_condition;
 }
@@ -219,7 +219,7 @@ function createSearchFromProfile($pid){
     $search_condition = $search_condition." ( `HEIGHT VALUE`>=".$fromheight." and `HEIGHT VALUE`<=".$toheight.")"; 
   }
   //print_r($data["PP RELIGION"]);
-  $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE",$cond="or");
+  //$search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE",$cond="or");
   //$search_condition = addIncomeParam($search_condition,$wbi,$wbi2,"Wedding Budget Value","Wedding Budget2 Value");
   //$search_condition = addIncomeParam($search_condition,$fi,$fi2,"FAMILY INCOME VALUE","FAMILY INCOME2 VALUE");
   $search_condition = addSearchParam($search_condition,$data["PP RELIGION"],"RELIGION","=","or");
@@ -269,12 +269,15 @@ function createSearch($searchId){
     $fromheight=getHeight($fromheight);
     $toheight=getHeight($toheight);
 
+    $ai_currency=$data["income_currency"];
     $ai=getIncome($data["annual_income1"]);
     $ai2=getIncome($data["annual_income2"]);
 
+    $wb_currency=$data["wedding_currency"];
     $wbi=getIncome($data["wedding_budget1"]);
     $wbi2=getIncome($data["wedding_budget2"]);
 
+    $fi_currency=$data["family_currency"];
     $fi=getIncome($data["family_income1"]);
     $fi2=getIncome($data["family_income2"]);
     
@@ -290,9 +293,9 @@ function createSearch($searchId){
       $search_condition = $search_condition." (`HEIGHT VALUE`>=".$fromheight." and `HEIGHT VALUE`<=".$toheight.")"; 
     }
     //print_r($data);
-    $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE");
-    $search_condition = addIncomeParam($search_condition,$wbi,$wbi2,"Wedding Budget Value","Wedding Budget2 Value");
-    $search_condition = addIncomeParam($search_condition,$fi,$fi2,"FAMILY INCOME VALUE","FAMILY INCOME2 VALUE");
+    $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE"," and ", $ai_currency,"INCOME CURRENCY");
+    $search_condition = addIncomeParam($search_condition,$wbi,$wbi2,"Wedding Budget Value","Wedding Budget2 Value"," and ", $wb_currency,"FAMILY INCOME CURRENCY");
+    $search_condition = addIncomeParam($search_condition,$fi,$fi2,"FAMILY INCOME VALUE","FAMILY INCOME2 VALUE", " and ",$fi_currency,"FAMILY INCOME CURRENCY");
     $search_condition = addSearchParam($search_condition,$data["religion"],"RELIGION");
     $search_condition = addSearchParam($search_condition,$data["caste"],"CASTE");
     $search_condition = addSearchParam($search_condition,$data["country"],"COUNTRY OF RESIDENCE");

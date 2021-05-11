@@ -57,6 +57,7 @@
     var yes_no=['Yes','No'];
     var currency_mapping={'India':'INR (Indian Rupee)','UK':'GBP (UK Pound)','Australia':'AUD (Australian Dollar)','UAE':'AED (UAE Dirham)'};
     var default_currency="USD (U.S. Dollar)";
+    var all_currency=["INR (Indian Rupee)","GBP (UK Pound)","AUD (Australian Dollar)","AED (UAE Dirham)","USD (U.S. Dollar)"];
     var currency_income_bracket={'INR (Indian Rupee)':['Rs.0','Rs.1 Lakh','Rs.2 Lakh','Rs.3 Lakh','Rs.4 Lakh','Rs.5 Lakh','Rs.7.5 Lakh','Rs.10 Lakh','Rs.15 Lakh','Rs.20 Lakh','Rs.25 Lakh','Rs.35 Lakh','Rs.50 Lakh','Rs.70 Lakh','Rs.1 Crore','Rs.2 Crore','Rs.3 Crore','Rs.4 Crore','Rs.5 Crore','Rs.6 Crore','Rs.7 Crore','Rs.8 Crore','Rs.9 Crore','Rs.10 Crore','Rs.20 Crore','Rs.30 Crore','Rs.40 Crore','Rs.50 Crore','Rs.100 Crore','Rs.500 Crore','Rs.1000 Crore','Rs.1000+ Crore'],'USD (U.S. Dollar)':['Less than  40000','40000','60000','80000','100000','125000','150001','200000','250000','350000','500000'],'AUD (Australian Dollar)':['Less than  40,000','40000','60000','80000','100000','125000','150001','200000','250000','350000','500000'],'GBP (UK Pound)':['Less than 20,000','30000','40000','50000','70000','125000','150000','200000','250000','300000'],'AED (UAE Dirham)':['Less than 60,000','60000','90000','120000','150000','180000','240000','300000','360000','500000','750000','Greater than 7500000']};
     var currency=[];
     var income_bracket=[];
