@@ -38,6 +38,16 @@ if($type=="paid"){
 }else if($type=="lead"){
    $whereCondition = " `client type`='lead'";
 }
+else if($type=="meeting"){
+   $whereCondition = " `client type`='meeting'";
+}else if($type=="postmeeting-willdecide"){
+   $whereCondition = " `client type`='PostMeeting-WillDecide'";
+}else if($type=="rejectedcompletely"){
+   $whereCondition = " `client type`='rejected completely'";
+}else if($type=="postsamplewilldecide"){
+   $whereCondition = " `client type`='post sample will decide'";
+}
+
 
 if(strlen($source)>1){
    if (strlen($whereCondition)>0){

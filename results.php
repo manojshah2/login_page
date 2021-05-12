@@ -263,6 +263,13 @@ is_login($root);
                             <?php echo $profile['ABOUT'] ?>
                           </div>
                         </div>
+                        <div class="row pt-4" style='float:right;'>
+                            <div class="col-md-2">
+                              <span class="badge badge-primary" alt="Source">
+                                <?php echo $profile['Data Taken From'] ?>
+                              </span>
+                            </div>
+                        </div>
                       </div>
                     </div>
                   </a>
@@ -285,7 +292,42 @@ is_login($root);
           <!-- Content Row -->
 
           <div class="row">
+            <div class="col-md-7">
+            </div>
+            <div class="col-md-5 pt-4">
+              <div>
+                <div class="pagination">
+                  <?php 
+                    $pageGap = 5;
+                    $curPage =(min( ceil($page / $pageGap),$page)-1) * $pageGap +1;                  
+                    $pageGapend=min($curPage+$pageGap-1,$totalPages);
+                  ?>
+                  
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page-1 ?>" class="<?php if($page<2) { echo "disabled";} ?>">&laquo;</a>  
+                  
+                  <?php while($curPage<=$pageGapend):  ?>
+                    <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $curPage ?>" class="<?php if($curPage==$page) { echo "selected";} ?>"><?php echo $curPage;?></a>
+                    <?php $curPage++ ?>
+                  <?php endwhile; ?>     
+                  
+                  <a href="#">..</a>
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $totalPages ?>"><?php echo $totalPages ?></a>
 
+                  
+                  <a href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page+1 ?>" class="<?php if($page>$totalPages-1) { echo "disabled";} ?>">&raquo;</a>
+                  
+                </div>
+                <div class="row" style='display:none;'>                  
+                    <?php if ($page>0){ ?>
+                      <a class="btn btn-primary mr-4" href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page-1 ?>">Prev</a>
+                    <?php }; ?>
+                  
+                    <?php if ($page<$totalPages-1){ ?>
+                      <a class="btn btn-primary" href="results.php?searchid=<?php echo $sid ?>&page=<?php echo $page+1 ?>">Next</a>
+                    <?php }; ?>
+                </div>
+              </div>
+            </div>
            
           </div>
 

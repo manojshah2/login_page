@@ -169,9 +169,7 @@ is_login($root);
                         
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -182,19 +180,18 @@ is_login($root);
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Lead</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Client Type</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <table width="100%">
                       <?php
-                          $result =$mysqli->query("select count(*) from tblprofiles where `client type`='Lead'");
-                          while($fetchdata=$result->fetch_array()){
-                            
-                            print_r("<a href='/profile/listprofile.php?type=lead'>".$fetchdata[0]."</a>");
+                          $result =$mysqli->query("SELECT `client type`,count(*) as count FROM `tblprofiles` where `client type` in ('Lead','Meeting','PostMeeting-WillDecide','Post Sample Will Decide','Rejected Completely') group by `CLIENT TYPE`");
+                          while($fetchdata=$result->fetch_array()){                            
+                            print_r("<tr><td><span style='font-size:9pt;'>".$fetchdata[0]."</span></td><td><a href='/profile/listprofile.php?type=".strtolower(str_replace(' ','',$fetchdata[0]))."'>".$fetchdata[1]."</a></td></tr>");
                           }
-                      ?></div>
+                      ?>
+                      </table></div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
