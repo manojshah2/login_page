@@ -33,12 +33,13 @@ if(isset($_REQUEST['login_profile']))
 			$res_data1 = $mysqli->query($select_data1);
 			$fetch_data1 = $res_data1->fetch_array();
 			$id_check = $fetch_data1['id']; 
+			
 			if($id_check!=''){ 
 				if($fetch_data['user_status']=='Deactive'){
 					$error = "Your account has been deactivated.";		
 				}
 				if($fetch_data['user_status']=='Active'){
-					$_SESSION[PRE.'id'] = $id;
+					$_SESSION[PRE.'id'] = $id;					
 					$_SESSION[PRE.'emp_id'] = $emp_id;
 					$_SESSION[PRE.'name'] = $fetch_data['name'];
 					$_SESSION[PRE.'user_type'] = $fetch_data['user_type'];

@@ -5,6 +5,8 @@ include_once("field_mapping.php");
 include $root.'PHPExcel/Classes/PHPExcel.php';
 include $root.'PHPExcel/Classes/PHPExcel/IOFactory.php';
 ini_set('max_execution_time', 3000); 
+is_login($root); 
+is_admin($root);
 
 $start_date=$_REQUEST['start'];
 $end_date=$_REQUEST['end'];

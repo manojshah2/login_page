@@ -1,6 +1,6 @@
 <?php
 
-$root = "./";  
+$root = "../";  
 include('../config/config.inc.php');
 is_login($root); 
 

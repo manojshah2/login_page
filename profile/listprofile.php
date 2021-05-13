@@ -81,8 +81,9 @@ is_login($root);
 
                 </table>
             </div>
-
+            <?php if(isAdmin()) {?>
             <a  id="downloadReport" href="#"><i class="fa fa-download"></i> Download in Excel</a>
+            <?php }?>
             <input type="hidden" name="loggedInUser" id="loggedInUser" value="<?php echo $_SESSION[PRE.'emp_id'];  ?>"/>
           
           </div>

@@ -3,6 +3,10 @@
 include('../config/config.inc.php');
 include('../config/comfunc.php');
 
+
+$root = "../";  
+is_login($root); 
+
 ## Read value
 $draw = $_REQUEST['draw'];
 $row = $_REQUEST['start'];

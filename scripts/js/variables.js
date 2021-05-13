@@ -33,7 +33,7 @@
     var horoscope=['Must','Not Necessary'];
     var verified=['Yes','No','Not provided'];
     var proof=['Given','Not Given'];
-    var food_habits=['Eggetarian','Jain','Non-Veg','Vegetarian','Fishetarian'];
+    var food_habits=['Eggetarian','Jain','Non-Veg','Vegetarian','Fishetarian','Radha Swami'];
     var smoke=["Doesn't smoke","Smokes","Smokes occasionally"];
     var drink=['Drinks occasionally',"Doesn't drink","Drinks"];
     var hair_type=['Bald','Semi- Bald','Normal Hair','Good Hair'];

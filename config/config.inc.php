@@ -38,6 +38,20 @@ function is_login($root='./'){
 	}
 }
 
+function is_admin($root="./"){
+	if(!isset($_SESSION[PRE.'user_type']) || $_SESSION[PRE.'user_type']!="Admin"){
+		header('location:'.$root.'index.php');
+	}
+}
+
+function isAdmin(){
+	if(isset($_SESSION[PRE.'user_type']) && $_SESSION[PRE.'user_type']=="Admin"){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 ### encription and decription function for password========
 function my_crypt( $string, $action = 'e' ) {
     // you may change these values to your own

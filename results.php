@@ -155,9 +155,11 @@ is_login($root);
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800"><?php echo $count; ?> Matches Found</h1>
             <span>
+              <?php if(isAdmin()){ ?>
               <div>
                 <a href="api/download_search.php?searchid=<?php echo $sid ?>"><i class="fa fa-download"></i>Download in Excel</a>
               </div>
+              <?php } ?>
             </span>
             <div>
               <div>
