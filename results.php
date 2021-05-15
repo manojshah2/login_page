@@ -204,7 +204,7 @@ is_login($root);
               
               <div class="row pt-3">
                 <div id='profile' class="col-md-10">
-                  <a href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
+                  <a target="_blank" href="profile/viewprofile.php?profilechecksum=<?php echo $profile['ID']; ?>" class="profile_link">
                     <div class="row profile">                
                       <div class="col-md-4">
                         <?php

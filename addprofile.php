@@ -5,6 +5,9 @@ include_once("field_mapping.php");
 header('Content-type: application/json');
 header("access-control-allow-origin: *");
 error_reporting(E_ERROR | E_PARSE);
+
+$current_user=getCurrentUser();
+
 if($_SERVER['REQUEST_METHOD']!='POST'){
     $message["status"]='failure';
     $message["message"]='Request method not supported';
@@ -49,9 +52,12 @@ foreach($data as $key => $value) {
 
 $message_status='';
 if(empty($uniqueId)){
+    $server->AddParam("ADDED BY",$current_user);
     $message1=$server->InsertQuery("tblprofiles");
     $message_status='Profile has been added';
 }else{
+    $server->AddParam("MODIFIED BY",$current_user);
+    $server->AddParam("MODIFIED DATE",date('Y-m-d H:i:s'));
     $server->AddParam("ID",$uniqueId,true);
     $message1=$server->UpdateQuery("tblprofiles");
     $message_status='Profile has been Updated.';

@@ -751,6 +751,10 @@ is_login($root);
                     <label>Employed as</label> 
                     <input type="text" class="form-control" name="pp_employed_as" id="pp_employed_as" value="<?php echo getValue($profile,"pp_employed_as"); ?>"/>                    
                   </div>
+                  <div class="form-group col-md-3">
+                      <label>Partner Occupation</label>
+                      <input type="text" class="form-control" name="pp_partner_occupation" id="pp_partner_occupation" value="<?php echo getValue($profile,"pp_partner_occupation"); ?>"/>
+                  </div>
                   
                 </div>
                 <div class="row">
@@ -773,6 +777,10 @@ is_login($root);
                           
                         </div>
                       </div>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>Challenged</label>
+                        <input type="text" class="form-control" name="pp_challenged" id="pp_challenged" value="<?php echo getValue($profile,"pp_challenged"); ?>"/>                        
                   </div>
                   
                   
@@ -819,18 +827,12 @@ is_login($root);
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-3">
-                        <label>Challenged</label>
-                        <input type="text" class="form-control" name="pp_challenged" id="pp_challenged" value="<?php echo getValue($profile,"pp_challenged"); ?>"/>                        
-                  </div>
-                  <div class="form-group col-md-3">
+                  
+                  <div class="form-group col-md-12">
                         <label>About Partner</label>
-                        <input type="text" class="form-control title_text" name="pp_about_partner" value="<?php echo getValue($profile,"pp_about_partner"); ?>"/>
+                        <textarea rows="3" class="form-control title_text" name="pp_about_partner" ><?php echo getValue($profile,"pp_about_partner"); ?></textarea>
                   </div>
-                  <div class="form-group col-md-3">
-                      <label>Partner Occupation</label>
-                      <input type="text" class="form-control" name="pp_partner_occupation" id="pp_partner_occupation" value="<?php echo getValue($profile,"pp_partner_occupation"); ?>"/>
-                  </div>
+                  
                   
                 </div>
                 

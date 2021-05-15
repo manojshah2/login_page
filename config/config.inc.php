@@ -44,6 +44,12 @@ function is_admin($root="./"){
 	}
 }
 
+function getCurrentUser(){
+	if(isset($_SESSION[PRE.'name'])){
+		return $_SESSION[PRE.'name'];
+	}
+}
+
 function isAdmin(){
 	if(isset($_SESSION[PRE.'user_type']) && $_SESSION[PRE.'user_type']=="Admin"){
 		return true;

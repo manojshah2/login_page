@@ -20,7 +20,7 @@ is_login($root);
   <!-- Custom fonts for this template-->
   <link href="../css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="../css/viewprofile.css?ver=1.100001" rel="stylesheet" type="text/css">
+  <link href="../css/viewprofile.css?ver=1.100003" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -167,7 +167,7 @@ is_login($root);
                     <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile["ID"] ?>" class="btn btn-primary">Download PDF</a>
                 </div>
                 <div class="row">
-                    <a target="_blank" href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
+                    <a href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
                 </div>
             </div>
           </div>
@@ -381,12 +381,152 @@ is_login($root);
                     </div>
                     <div id="section-d" >
                         <div class="">
-                                <div class="col-md-8 bg-white pl-4 pt-4 prfbr3">
+                                <div class="col-md-12 bg-white pl-4 pt-4 prfbr3">
                                     <i class="sprite2 fl prfic26 mt6"></i>
-                                    <div class="fl colr5 pl8 f17 pt3">Desired Partner</div>
+                                    <div class="clearfix pos-rel js-checkMatch">Desired Partner</div>
+                                    <br>
+                                    <div class="f15 prfdplist mt15">
+                                        <ul>
+                                            <?php if(strlen(getValue($profile,'PP FROMAGE'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Age</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP FROMAGE') ?> to <?php echo getValue($profile,'PP TOAGE') ?> Years</p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP MIN HEIGHT'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Height</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP MIN HEIGHT') ?> to <?php echo getValue($profile,'PP MAX HEIGHT') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP INCOME'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Income</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP INCOME CURRENCY') ?> : <?php echo getValue($profile,'PP INCOME') ?> to <?php echo getValue($profile,'PP INCOME2') ?> </p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP MOTHERTONGUE'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Mother Tongue</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'MOTHERTONGUE') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP RELIGION'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Religion</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP RELIGION') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP CASTE'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Caste</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP CASTE') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP MANGLIK'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Manglik</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP MANGLIK') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP COUNTRY'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Country</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP COUNTRY') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP STATE'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">State</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP STATE') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP EDUCATIONAL QUALIFICATION'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Education</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP EDUCATIONAL QUALIFICATION') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP SMOKER'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Smoker</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP SMOKER') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP DRINKER'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Drinker</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP DRINKER') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP VEG/NON VEG'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Food Habits</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP VEG/NON VEG') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP BODY TYPE'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Body Type</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP BODY TYPE') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP CHALLENGED'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Challenged</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP CHALLENGED') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP MARITAL STATUS'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Marital Status</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP MARITAL STATUS') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP HAVE CHIDREN'))>2){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Children</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP HAVE CHILDREN') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP EMPLOYED AS'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Employed As</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP EMPLOYED AS') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php if(strlen(getValue($profile,'PP Complexion'))>0){?>
+                                            <li class="js-countfields">
+                                                <p class="disp_ib">Complexion</p>
+                                                <p class="disp_ib"><?php echo getValue($profile,'PP Complexion') ?></p>
+                                            </li>
+                                            <?php } ?>
+
+                                            
+
+                                            
 
 
-                                
+                                        </ul>
+                                    </div>                                
                                 </div>
                         </div>
                     </div>
@@ -435,6 +575,9 @@ is_login($root);
                     </div>
                 </div>
               
+
+            </div>
+            <div class="pt-4">
 
             </div>
         </div>
