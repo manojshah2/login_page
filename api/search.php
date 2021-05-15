@@ -6,7 +6,7 @@ include_once($root."field_mapping.php");
 header('Content-type: application/json');
 header("access-control-allow-origin: *");
 
-
+$current_user=getCurrentUser();
 if($_SERVER['REQUEST_METHOD']!='POST'){
     $message["status"]='failure';
     $message["message"]='Request method not supported';
@@ -32,7 +32,8 @@ if(!$server->IsConnected()){
     return;   
 }
 
-$server->AddParam("SEARCH",json_encode($data));    
+$server->AddParam("SEARCH",json_encode($data));
+$server->AddParam('ADDED BY',$current_user);
 $message1=$server->InsertQuery("tblsearch");
 $record_id='';
 if ($message1['status']==1){
