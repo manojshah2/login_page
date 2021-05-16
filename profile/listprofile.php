@@ -77,9 +77,21 @@ is_login($root);
 
             </div>
             <div class="table-responsive body_font" id="tableDiv">
-                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+              <div class="post-search-panel">
+                <div class="row">
+                  <div class="col-md-10">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Type keywords..." />
+                  </div>
+                  <div class="col-md-2 pt-2">
+                    <a href="#" id="custom_search"><i class="fa fa-search fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+              
+              <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 
-                </table>
+              </table>
+              
             </div>
             <?php if(isAdmin()) {?>
             <a  id="downloadReport" href="#"><i class="fa fa-download"></i> Download in Excel</a>
@@ -160,6 +172,10 @@ is_login($root);
                 $('#downloadModal').modal('show');
             });
 
+            $('#custom_search').bind("click", function(){
+              $("#dataTable").DataTable().draw();
+            });
+
             $.ajax({
                 url: '/api/getprofileheaders.php',
                 dataType: 'json',
@@ -167,11 +183,20 @@ is_login($root);
                     var qualitylist = $('#dataTable').dataTable({
                         "processing": true,
                         "serverSide": true,
-                        "ajax": "/api/getprofiles.php"+params,
+                        "searching":true,
+                        "ajax": {
+                          "url":"/api/getprofiles.php"+params,
+                          "data":function(d){
+                            return $.extend({},d,{
+                              "search_keywords": $("#searchInput").val().toLowerCase()
+                              
+                            });
+                          }
+                        },
                         columns: data,
                         searching: false,
                         "autoWidth": false,
-                        columnDefs: [
+                         columnDefs: [
                             {
                                 targets: 0,
                                 render: function (data, type, row, meta)

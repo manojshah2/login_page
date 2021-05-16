@@ -51,7 +51,7 @@ if(isset($_REQUEST['id'])){
 	                    mkdir($path, 0777, true); 
 	                } 
 	                ### clean file name============ 
-	                $clean_file_name = $file_name;
+	                $clean_file_name = $id."_".date_format(date_create(),"YmdHis").".".$file_extension;
                     $full_path = $path.'/'.$clean_file_name;
                     
 	                if(move_uploaded_file($file_tmp, $full_path)) 

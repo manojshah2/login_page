@@ -21,6 +21,9 @@ $con=$mysqli;
 
 ## Search 
 $searchQuery = " ";
+if(isset($_REQUEST['search_keywords'])){
+   $searchQuery=$_REQUEST['search_keywords'];
+}
 
 $type ='total';
 $source='';
@@ -52,6 +55,15 @@ else if($type=="meeting"){
    $whereCondition = " `client type`='post sample will decide'";
 }
 
+if (strlen($searchQuery)>2){
+   $and_cond="";
+   if(strlen($whereCondition)>1){
+      $and_cond = " and ";
+   }
+   $whereCondition = $whereCondition.$and_cond." (`FIRST NAME` like '%".$searchQuery."%' or `LAST NAME` like '%".$searchQuery."%' or `Data Taken From` like '%".$searchQuery."%' ) ";
+   
+}
+
 
 if(strlen($source)>1){
    if (strlen($whereCondition)>0){
@@ -65,8 +77,10 @@ if (strlen($whereCondition)<1){
    $whereCondition =" 1";
 }
 
+$final_query="select count(*) as allcount from ".$table." where ".$whereCondition;
 ## Total number of records without filtering
-$sel = mysqli_query($con,"select count(*) as allcount from ".$table." where ".$whereCondition);
+//echo $final_query;
+$sel = mysqli_query($con,$final_query);
 $records = mysqli_fetch_assoc($sel);
 $totalRecords = $records['allcount'];
 
