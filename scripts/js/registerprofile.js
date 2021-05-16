@@ -451,6 +451,26 @@ $(document).ready(function(){
         
     });
 
+    $(document).on('click','#defaultImg',function(e){
+        e.preventDefault();
+        var id=$(this).data("id");
+        var profileid=$("#uniqueId").val();
+        $.ajax({
+            url: "/makeDefault.php",
+            method: 'POST',
+            data: {imgid:id,profileId:profileid},            
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                
+                if (data1["status"] === "failure") {
+                    alert(data1["message"]);
+                } else {
+                    loadImages();
+                }
+            }
+        });
+    });
+
     $(document).on('click','#deleteImg',function(e){
         e.preventDefault();
         var id=$(this).data("id");
@@ -475,7 +495,7 @@ $(document).ready(function(){
         var url = "/uploadImage.php";
         var form = $("#uploadForm")[0];
         var data = new FormData(form);
-        console.log(data);
+        
         
         $.ajax({
             type: "POST",
@@ -518,7 +538,11 @@ $(document).ready(function(){
                     var imgDiv=$("#imgDiv");
                     imgDiv.html('');
                     for(var i=0;i<data1.length;i++){
-                        imgDiv.append('<div class="col-md-3 mt-2"><div class="card"><img class="card-img-top" src="/'+ data1[i].path +'" height=100 width=100 /><div class="card-body"><p class="card-text"><a href="#" id="deleteImg" data-id="'+ data1[i].id +'" >Delete Image</a></p></div></div></div>');
+                        var style="";
+                        if (data1[i].main_photo==="1"){
+                            style="style='background: #18e5ec;'";
+                        }
+                        imgDiv.append('<div class="col-md-3 mt-2"><div class="card" '+style+'><img class="card-img-top" src="/'+ data1[i].path +'" height=100 width=100 /><div class="card-body"><p class="card-text"><a href="#" id="deleteImg" data-id="'+ data1[i].id +'" >Delete Image</a></p><p><a href="#" id="defaultImg" data-id="'+ data1[i].id +'" >Make Default</a></p></div></div></div>');
                     }
                 }
             }

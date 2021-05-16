@@ -1,3 +1,25 @@
+<?php
+$root = "../";  
+include($root.'config/config.inc.php');
+include_once($root."field_mapping.php");
+//is_login($root); 
+
+?>
+<?php
+        error_reporting(E_ERROR | E_PARSE);
+        function getValue($profile1,$database_col_name){
+            $actual_col=$database_col_name;
+            if(array_key_exists($actual_col,$profile1)){
+                return htmlspecialchars($profile1[$actual_col],ENT_QUOTES,"UTF-8");
+            }else{
+                return "Not filled in";
+            }                
+        }
+        if(isset($_REQUEST['profilechecksum'])){
+            $result =$mysqli->query("select * from tblprofiles where ID=".$_REQUEST['profilechecksum']);                
+            $profile = $result->fetch_array();
+        }
+    ?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><div dir="ltr"><span lang="EN-US"></span><div class="gmail_quote"><div link="blue" vlink="purple" style="word-wrap:break-word" lang="EN-IN"><div class="m_-854596265518321158WordSection1"><div style="border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0cm 0cm 0cm">
 </div>
 <p class="MsoNormal"><u></u>&nbsp;<u></u></p>
@@ -23,10 +45,9 @@ Phone: <a href="tel:011-46527070" target="_blank"><span style="color:#f1c190;tex
 </tr>
 <tr>
 <td colspan="2" style="border:none;padding:11.25pt 11.25pt 11.25pt 11.25pt">
-<p class="MsoNormal" style="line-height:15.0pt"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">Hi<b><span style="font-family:&quot;Arial&quot;,sans-serif"> Mehak Nakra
-</span></b>,<br>
+<br>
 Greetings!!<br>
-Enclosed is the profile and photo of Karan Choudhary- for your perusal. If the sent profile matches your requirement and expectation, further talks can be done. I will really appreciate if you kindly acknowledge this mail.
+Enclosed is the profile and photo of <?php echo getValue($profile,'FIRST NAME') ?> <?php echo getValue($profile,'LAST NAME') ?> for your perusal. If the sent profile matches your requirement and expectation, further talks can be done. I will really appreciate if you kindly acknowledge this mail.
 <u></u><u></u></span></p>
 </td>
 </tr>
@@ -36,7 +57,14 @@ Enclosed is the profile and photo of Karan Choudhary- for your perusal. If the s
 <tbody>
 <tr style="height:22.5pt">
 <td rowspan="5" style="width:14.0%;border:solid #f1f1f1 1.0pt;background:white;padding:3.75pt 3.75pt 3.75pt 3.75pt;height:22.5pt" width="14%">
-<p class="MsoNormal"><span style="color:black"><a><b><span style="font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;text-decoration:none"><img style="width:3.125in;height:3.125in" id="m_-854596265518321158_x0000_i1025" src="http://crm.Luvmatrimonial.com/images/profile_photos/thumb/2054988966_KaranChoudhary-1595.jpg" width="300" height="300" border="0"></span></b></a></span><b><span style="font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><u></u><u></u></span></b></p>
+<p class="MsoNormal"><span style="color:black"><a><b><span style="font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;text-decoration:none"><?php
+                          $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID'].' order by `MAIN PHOTO` desc');
+                          $images=$profile_images->fetch_array();
+
+                          if(count($images)==0){
+                            $images[0]="images/nophoto.png";
+                          };
+                        ?><img style="width:3.125in;height:3.125in" id="m_-854596265518321158_x0000_i1025" src="<?php echo $root_name.$images[0]; ?>" width="300" height="300" border="0"></span></b></a></span><b><span style="font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><u></u><u></u></span></b></p>
 </td>
 <td style="width:48.0%;border:solid #f1f1f1 1.0pt;background:#e5e5e5;padding:3.75pt 3.75pt 3.75pt 3.75pt;height:22.5pt" width="48%">
 <p class="MsoNormal"><b><span style="font-size:10.5pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Years<u></u><u></u></span></b></p>
@@ -47,11 +75,31 @@ Enclosed is the profile and photo of Karan Choudhary- for your perusal. If the s
 </tr>
 <tr>
 <td style="border:solid #f1f1f1 1.0pt;padding:3.75pt 3.75pt 3.75pt 3.75pt">
-<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">36
+<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif"><?php 
+
+$dob_str=getValue($profile,"DOB");
+
+if ((strlen($dob_str)>0 && strpos($dob_str,'000')===false)){         
+    
+    $dob=new DateTime($dob_str);
+    $today=new DateTime('today');
+    $age = $dob->diff($today)->y;
+    
+}
+
+$height = getValue($profile,'HEIGHT'); 
+if(strlen($height)>0){
+    $height_arr=explode('(',$height);
+    $height_value = $height_arr[0];
+}
+
+echo $age;
+
+?>
 <u></u><u></u></span></p>
 </td>
 <td style="border:solid #f1f1f1 1.0pt;padding:3.75pt 3.75pt 3.75pt 3.75pt">
-<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">6ft
+<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif"><?php echo $height;?>
 <u></u><u></u></span></p>
 </td>
 </tr>
@@ -65,18 +113,18 @@ Enclosed is the profile and photo of Karan Choudhary- for your perusal. If the s
 </tr>
 <tr>
 <td style="border:solid #f1f1f1 1.0pt;padding:3.75pt 3.75pt 3.75pt 3.75pt">
-<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">Hindu / Punjabi / Punjabi : Arora
+<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif"><?php echo getValue($profile,'RELIGION')?>
 <u></u><u></u></span></p>
 </td>
 <td style="border:solid #f1f1f1 1.0pt;padding:3.75pt 3.75pt 3.75pt 3.75pt">
-<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">Business<u></u><u></u></span></p>
+<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif"><?php echo getValue($profile,'Occupation') ?><u></u><u></u></span></p>
 </td>
 </tr>
 <tr>
 <td colspan="2" style="padding:3.75pt 3.75pt 3.75pt 3.75pt">
-<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">You can also provide your feedback regarding the profile, plese click
-<a href="https://ind01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fcrm.Luvmatrimonial.com%2Fclient_feedback.php%3Fid%3D%27VkZod1ZrMHdOWEZhZWtrOQ%3D%3D%27%26p_client_id%3D%27VkZaU2JrMXJNVUpRVkRBOQ%3D%3D%27%26client_id%3D%27VkZaU1VrMXJOVVZVVkRBOQ%3D%3D%27&amp;data=04%7C01%7Cmanoj.shah%40naukri.com%7C8935f1bedb3c488d5b8608d8afdaee64%7C0ee9b5f952b343518198c4804cd66b68%7C0%7C0%7C637452702428551766%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C2000&amp;sdata=IhBjAtZ44kx%2BuDbhCPPH8G6gIURLpCG%2BPyp3RCm7RQ4%3D&amp;reserved=0" originalsrc="http://crm.Luvmatrimonial.com/client_feedback.php?id='VkZod1ZrMHdOWEZhZWtrOQ=='&amp;p_client_id='VkZaU2JrMXJNVUpRVkRBOQ=='&amp;client_id='VkZaU1VrMXJOVVZVVkRBOQ=='" shash="BATUtmb7myyQu9btlUIJc/aQ8z6+051H82x3zbkONZ3juT1dIpobK1dbJzWWe8ob11KotUz0iioIkTD5MksiaNNfYZ4xT6JMaKKD7bYMxFqb4DdgvecEr437yIyEpAeBLwIjpghgg8fuIUqRCrtc6ufn5NU6wavm4WWTq3B6plc=" target="_blank">
-here</a><u></u><u></u></span></p>
+<p class="MsoNormal"><span style="font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif">
+<a href="" target="_blank">
+</a><u></u><u></u></span></p>
 </td>
 </tr>
 </tbody>

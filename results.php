@@ -24,6 +24,8 @@ is_login($root);
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/modals.css?ver=1.0000002" rel="stylesheet">
+  <link href="/css/fm.tagator.jquery.css" rel="stylesheet" type="text/css">
   <style>
     .pagination {
       display: inline-block;
@@ -208,7 +210,7 @@ is_login($root);
                     <div class="row profile">                
                       <div class="col-md-4">
                         <?php
-                          $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+                          $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID'].' order by `MAIN PHOTO` desc');
                           $images=$profile_images->fetch_array();
 
                           if(count($images)==0){
@@ -280,9 +282,14 @@ is_login($root);
                   <div >
                     <div class="row pt-4 pl-2">                      
                         <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile['ID']; ?>" title="Download PDF" class="btn btn-primary"><i class="fa fa-lg fa-file-pdf"></i></a>
-                    </div>                 
+                    </div>
+                    <?php if(isAdmin()){?>                
                     <div class="row pt-4 pl-2">
                         <a href="#" class="btn btn-primary d-none deleteProfile"  data-id="<?php echo $profile["ID"]; ?>" title="Delete Profile" class="pt-4"><i class="fa fa-trash fa-lg"></i></a>
+                    </div>
+                    <?php }?>
+                    <div class="row pt-4 pl-2">
+                        <a href="#" class="btn btn-primary shareProfile"  data-id="<?php echo $profile["ID"]; ?>" title="Share Profile" class="pt-4"><i class="fa fa-paper-plane fa-lg"></i></a>
                     </div>
                   </div>  
                 </div>
@@ -361,6 +368,7 @@ is_login($root);
  <script type="text/javascript">
   $(document).ready(function () {
 
+
     var user = $("#loggedInUser").val();
 
     if(user === "admin"){
@@ -385,6 +393,45 @@ is_login($root);
         });        
     }
 
+    function shareEmail(to,cc,pid) {
+        $("#img_loader").removeClass("d-none");
+        console.log(pid);
+        $.ajax({
+            url: "/api/mail/send_email.php",
+            method: 'POST',
+            data: {'to':to,'cc':cc,'pid': pid},
+            dataType: 'json',
+            success: function (data, status, xhr) {
+                var statusclass=data.status.replace('failure','danger');
+                var alertmessage = '<div class="alert alert-'+ statusclass +' alert-dismissible" role="alert" id="myalert">\
+                          ' + data.message + '\
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">\
+                            <span aria-hidden="true">&times;</span>\
+                        </button>\
+                    </div>';
+                $("#mail_message").html(alertmessage);
+                $("#img_loader").addClass("d-none");
+                var modal = document.getElementById("myModal");
+                if(data.status==='success'){
+                  modal.style.display = "none";
+                }
+            }
+        });        
+    }
+
+    
+
+    $(".shareProfile").on('click',function(e){
+      var id=$(this).data("id");  
+      $("#to_id").val('');
+      $("#cc_id").val('');
+      $("#profile_id").val(id);
+      $("#mail_message").html('');
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+      
+    });
+
     $(".deleteProfile").on('click',function(e){
       var id=$(this).data("id");    
                         
@@ -402,8 +449,69 @@ is_login($root);
           }
       });
     });
+
+    $(".close1").on('click',function(e){
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    });
+
+    $("#sendProfile").on('click',function(e){
+      var to=$("#to_id").val();
+      var cc=$("#cc_id").val();
+      var profile=$("#profile_id").val();
+      
+      shareEmail(to,cc,profile);
+    });
+
+    
+    
   });
  </script>
+ <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
+ <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+    <div class="modal-content1">
+      <div class="modal-header1">
+        <span class="close1">&times;</span>
+        <h2>Share this profile on E-mail.<span class="d-none" id="img_loader"><img src="/image/loading.gif"></span></h2>
+        
+      </div>
+      <div class="modal-body1">
+        <div id="mail_message">
+
+        </div>
+        <div>
+          <div class="form-group">
+            <label>To</label>
+            <input type="text" class="form-control" id="to_id"/>
+          </div>
+          <div class="form-group">
+            <label>CC</label>
+            <input type="text" class="form-control" id="cc_id"/>
+            <input type="hidden" id="profile_id"/>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary" id="sendProfile">Send Profile</button>
+            
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(e){
+        $('#to_id').tagator({useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:-1});
+        $('#cc_id').tagator({useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:-1});
+
+      });
+    </script>
+
+  </div>
+
+
 </body>
 
 </html>

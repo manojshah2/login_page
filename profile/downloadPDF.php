@@ -1,7 +1,7 @@
 <?php
 $root = "../";  
 include($root.'config/config.inc.php');
-//is_login($root); 
+is_login($root); 
 require "../dompdf/autoload.inc.php";
 use Dompdf\Dompdf;
 
