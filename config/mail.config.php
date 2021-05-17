@@ -32,12 +32,17 @@ function sendEmail($to,$cc,$subject,$msg){
     $mail->Subject = $subject;
     $mail->Body = $msg;
     $mail->addAddress($to);
-    if(!$mail->send()){
+    try
+    {
+        if($mail->send()){
+            $message['status']="success";
+            $message['message']="Email has been Sent";
+            
+        }
+    }catch(exception $e)
+    {
         $message['status']="failure";
         $message['message']=$mail->ErrorInfo;        
-    }else{
-        $message['status']="success";
-        $message['message']="Email has been Sent";
     }
     return $message;
 }
