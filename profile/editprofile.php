@@ -563,15 +563,15 @@ is_login($root);
                     
                     <div class="form-group col-md-4">
                       <label>Phone</label>
-                      <input type="number" class="form-control" name="phone" value="<?php echo getValue($profile,"phone"); ?>"/>
+                      <input type="text" class="form-control" name="phone" value="<?php echo getValue($profile,"phone"); ?>"/>
                     </div>
                     <div class="form-group col-md-4">
                       <label>Alternate Phone Number</label>
-                      <input type="number" class="form-control" name="alternate_phone" value="<?php echo getValue($profile,"alternate_phone"); ?>"/>
+                      <input type="text" class="form-control" name="alternate_phone" value="<?php echo getValue($profile,"alternate_phone"); ?>"/>
                     </div>
                     <div class="form-group col-md-4">
                       <label>WhatsApp Number</label>
-                      <input type="number" class="form-control" name="whatsapp_number" value="<?php echo getValue($profile,"whatsapp_number"); ?>"/>
+                      <input type="text" class="form-control" name="whatsapp_number" value="<?php echo getValue($profile,"whatsapp_number"); ?>"/>
                     </div>
                   </div>
                   <div class="row">

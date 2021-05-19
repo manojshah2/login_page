@@ -169,6 +169,9 @@ is_login($root);
                 <div class="row">
                     <a href="/profile/editprofile.php?id=<?php echo $profile["ID"] ?>&toUrl=/profile/viewprofile.php?profilechecksum=<?php echo $profile["ID"]?>" class="btn btn-primary">Edit Profile</a>
                 </div>
+                <div class="row pt-2">
+                    <a href="/profile/case_detail.php?profilechecksum=<?php echo $profile['ID']?>" class="btn btn-primary">Add Comment</a>
+                </div>
             </div>
           </div>
         <div class="mt13">
