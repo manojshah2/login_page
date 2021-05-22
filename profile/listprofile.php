@@ -54,7 +54,7 @@ is_login($root);
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>            
+            <h1 class="h3 mb-0 text-gray-800"></h1>            
           </div>
 
           <!-- Content Row -->
@@ -155,8 +155,11 @@ is_login($root);
             
             
             var params=window.location.search;
-            if(params.search('custom_search')){
+            
+            if(params.search('custom_search')>0){
               $("#searchInput").val(params.split('=')[1]);
+            }else{
+              params="";
             }
             
             
