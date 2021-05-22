@@ -155,6 +155,9 @@ is_login($root);
             
             
             var params=window.location.search;
+            if(params.search('custom_search')){
+              $("#searchInput").val(params.split('=')[1]);
+            }
             
             
             $("#downloadexcel").on('click',function(){
