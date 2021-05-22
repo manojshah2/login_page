@@ -127,6 +127,21 @@ is_login($root);
                         </div>
                       </div>
                     </div>
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
+                          <label>Data Taken From</label>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="row">
+                            
+                              <input type="text" name="data_source" id="data_source" placeholder="Data Take From" class="form-control"/>
+                            
+                                                     
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group col-md-12">                                                                
                       <div class="input-group">
                         <div class="col-md-4">
@@ -505,8 +520,8 @@ is_login($root);
  <?php include 'include/footer_main.php';?>
 
  <script src="scripts/js/variables.js?ver=1.00002"></script>
- <script src="scripts/js/search.js?ver=1.0008"></script>
- <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000001"></script>
+ <script src="scripts/js/search.js?ver=1.0009"></script>
+ <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 </body>
 
 </html>

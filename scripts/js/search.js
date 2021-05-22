@@ -30,6 +30,7 @@ $(document).ready(function(){
     $('#wedding_currency').tagator({autocomplete: all_currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#family_currency').tagator({autocomplete: all_currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#net_currency').tagator({autocomplete: all_currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#data_source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     
     function loadReligion(){
         var religion_text=$("#religion").val();

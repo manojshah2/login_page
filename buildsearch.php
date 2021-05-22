@@ -319,6 +319,7 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["communication"],"Communication");
     $search_condition = addSearchParam($search_condition,$data["complexion"],"COMPLEXION");
     $search_condition = addSearchParam($search_condition,$data["gender"],"GENDER");
+    $search_condition = addSearchParam($search_condition,$data["data_source"],"Data Taken From");
     $search_condition = addSearchParam($search_condition,$data["first_name"],"FIRST NAME" , 'like');
     $search_condition = addSearchParam($search_condition,$data["last_name"],"LAST NAME",'like');
     $search_condition = addSearchParam($search_condition,$data["phone"],"PHONE",'like');
