@@ -65,8 +65,14 @@ is_login($root);
           <!-- Content Row -->
 
           <div class="row">
-
-           
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="#" style='width:50%'>                
+                  <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control border-0 small" placeholder="Search within search" />
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" name="action" type="button" id="custom_search"><i class="fas fa-search fa-sm"></i></button>
+                    </div>
+                  </div>
+            </form>
           </div>
 
           <!-- Content Row -->
@@ -76,17 +82,9 @@ is_login($root);
             <div id="myalert">
 
             </div>
+            
             <div class="table-responsive body_font" id="tableDiv">
-              <div class="post-search-panel">
-                <div class="row">
-                  <div class="col-md-10">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Type keywords..." />
-                  </div>
-                  <div class="col-md-2 pt-2">
-                    <a href="#" id="custom_search"><i class="fa fa-search fa-lg"></i></a>
-                  </div>
-                </div>
-              </div>
+              
               
               <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 
