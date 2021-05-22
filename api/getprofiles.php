@@ -60,7 +60,7 @@ if (strlen($searchQuery)>2){
    if(strlen($whereCondition)>1){
       $and_cond = " and ";
    }
-   $whereCondition = $whereCondition.$and_cond." (`FIRST NAME` like '%".$searchQuery."%' or `LAST NAME` like '%".$searchQuery."%' or `Data Taken From` like '%".$searchQuery."%' ) ";
+   $whereCondition = $whereCondition.$and_cond." (`FIRST NAME` like '%".$searchQuery."%' or `LAST NAME` like '%".$searchQuery."%' or `Data Taken From` like '%".$searchQuery."%' or `ID` = '".$searchQuery."' or `PHONE` = '".$searchQuery."' or `EMAIL` = '".$searchQuery."' ) ";
    
 }
 
