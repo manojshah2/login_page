@@ -280,16 +280,19 @@ is_login($root);
                 </div>
                 <div class="col-md-2">
                   <div >
-                    <div class="row pt-4 pl-2">                      
+                    <div class="row pt-2 pl-2">                      
                         <a href="/profile/downloadPDF.php?profilechecksum=<?php echo $profile['ID']; ?>" title="Download PDF" class="btn btn-primary"><i class="fa fa-lg fa-file-pdf"></i></a>
                     </div>
                     <?php if(isAdmin()){?>                
-                    <div class="row pt-4 pl-2">
+                    <div class="row pt-2 pl-2">
                         <a href="#" class="btn btn-primary d-none deleteProfile"  data-id="<?php echo $profile["ID"]; ?>" title="Delete Profile" class="pt-4"><i class="fa fa-trash fa-lg"></i></a>
                     </div>
                     <?php }?>
-                    <div class="row pt-4 pl-2">
+                    <div class="row pt-2 pl-2">
                         <a href="#" class="btn btn-primary shareProfile"  data-id="<?php echo $profile["ID"]; ?>" title="Share Profile" class="pt-4"><i class="fa fa-paper-plane fa-lg"></i></a>
+                    </div>
+                    <div class="row pt-2 pl-2">
+                      <a href="/profile/case_detail.php?profilechecksum=<?php echo $profile['ID']?>" target="_blank" title="Add Comment" class="btn btn-primary"><i class="fa fa-comment fa-lg"></i></a>
                     </div>
                   </div>  
                 </div>
