@@ -15,7 +15,7 @@ is_login($root);
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Page</title>
+  <title>Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="css/all.min.css" rel="stylesheet" type="text/css">
