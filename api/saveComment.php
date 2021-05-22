@@ -18,6 +18,7 @@ if(isset($_REQUEST["profilechecksum"]) && isset($_REQUEST["comment"])){
     if( $server->IsConnected()){
         $server->AddParam('PID',$pid);
         $server->AddParam("Comments",$comment);
+        $server->AddParam('ADDED BY',getCurrentUser());
 
         if($server->InsertQuery("tblcomments")){
             $message['status']="success"; 

@@ -2,7 +2,7 @@ $(document).ready(function(){
     $(document).on('click', '#add_comment', function () {                                 
         $.simpleDialog({
             title: "Add Comment",
-            message: "<input type='text' class='form-control' id='usercomment' name='comment'>",
+            message: "<textarea class='form-control' id='usercomment' name='comment'></textarea>",
             confirmBtnText: "Submit",
             closeBtnText: "Cancel",
             backdrop: true,
@@ -42,7 +42,9 @@ $(document).ready(function(){
                     </div>';
                 $("#myalert").html(alertmessage);
             }
-        });            
+        });    
+        
+        loadComments(pid);
     }
 
     function loadComments(pid) {
