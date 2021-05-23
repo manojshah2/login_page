@@ -3,6 +3,8 @@
 $header = array(    
     "source"=>"Data Taken From",
     "PID"=>"PID",
+    "reference"=>"REFERENCE",
+    "client_type1"=>"CLIENT_TYPE",
     "height_value"=>"HEIGHT VALUE",
     "pp_min_height_value"=>"PP MIN HEIGHT VALUE",
     "pp_max_height_value"=>"PP MAX HEIGHT VALUE",
@@ -193,6 +195,8 @@ $listprofile_header =array (
 $download_header= array (
     "ID"=>"ID",
     "PID"=>"Enter ID",
+    "REFERENCE"=>"REFERENCE",
+    "CLIENT_TYPE"=>"CLIENT_TYPE",
     "Data Taken From"=>"Data Taken from",
     "FIRST NAME"=>"FIRST NAME",
     "LAST NAME"=>"LAST NAME",

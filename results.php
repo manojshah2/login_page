@@ -132,6 +132,8 @@ is_login($root);
               $search_condition = $search_condition." order by  case `client type` when 'Paid' THEN 1 else 2 end,`ADDED Date` desc";
               //print_r($search_condition);
               
+              $search_word="";
+              
 
               if (strlen($search_condition)>0) {
                 
@@ -154,16 +156,24 @@ is_login($root);
             
 
           ?>
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"><?php echo $count; ?> Matches Found</h1>
-            <span>
-              <?php if(isAdmin()){ ?>
-              <div>
-                <a href="api/download_search.php?searchid=<?php echo $sid ?>"><i class="fa fa-download"></i>Download in Excel</a>
-              </div>
-              <?php } ?>
-            </span>
-            <div>
+          <div class="d-sm-flex align-items-center justify-content-between">
+            <h1 class="h5 mb-0 text-gray-800"><?php echo $count; ?> profile found :<?php
+              echo $search_word;
+            ?>
+            </h1>
+          </div>
+          <div class="row">
+            <div class="col-md-7 pt-3">
+              <span>
+                <?php if(isAdmin()){ ?>
+                <div>
+                  <a href="api/download_search.php?searchid=<?php echo $sid ?>"><i class="fa fa-download"></i>Download in Excel</a>
+                </div>
+                <?php } ?>
+              </span>
+            </div>
+
+            <div class="col-md-5" style='text-align:right;'>
               <div>
                 <div class="pagination">
                   <?php 
@@ -253,12 +263,14 @@ is_login($root);
                             <div class="mb-0"><?php echo $profile['CITY']; ?></div>
                             <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
                             <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
+                            <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>
                           </div>
                           <div class="col-md-5">
                             <div class="mb-0"><?php echo $profile['EDUCATION']; ?></div>
                             <div class="mb-0"><?php echo $profile['EMPLOYED AS']; ?></div>
-                            <div class="mb-0"><?php echo $profile['ANNUAL INCOME']; ?>-<?php echo $profile['ANNUAL INCOME2']; ?></div>
-                            <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>
+                            <div class="mb-0">AI: <?php echo $profile['ANNUAL INCOME']; ?>-<?php echo $profile['ANNUAL INCOME2']; ?></div>
+                            <div class="mb-0">FI: <?php echo $profile['FAMILY INCOME']; ?>-<?php echo $profile['FAMILY INCOME2']; ?></div>
+                            
                           </div>
                           <div class="col-md-2"></div>
                         </div>
@@ -306,7 +318,7 @@ is_login($root);
           <div class="row">
             <div class="col-md-7">
             </div>
-            <div class="col-md-5 pt-4">
+            <div class="col-md-5 pt-4" style='text-align:right;'>
               <div>
                 <div class="pagination">
                   <?php 

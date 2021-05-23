@@ -520,7 +520,7 @@ is_login($root);
  <?php include 'include/footer_main.php';?>
 
  <script src="scripts/js/variables.js?ver=1.00002"></script>
- <script src="scripts/js/search.js?ver=1.0009"></script>
+ <script src="scripts/js/search.js?ver=1.0010"></script>
  <script src="scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 </body>
 

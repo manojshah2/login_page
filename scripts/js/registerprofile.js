@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    
+ 
 
 
     
@@ -96,7 +96,8 @@ $(document).ready(function(){
     $('#duration').tagator({autocomplete: duration,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#package_type').tagator({autocomplete: package_type,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
 
-    
+    $('#client_type1').tagator({autocomplete:client_type1,useDimmer:true,allowAutocompleteOnly:true,showAllOptionsOnFocus:true,maxTags:1});
+    $('#reference').tagator({autocomplete:reference,useDimmer:true,allowAutocompleteOnly:false,showAllOptionsOnFocus:true,maxTags:1});
 
     String.prototype.toProperCase = function () {
         return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -233,6 +234,7 @@ $(document).ready(function(){
  
 
     $(document).on('change', "#country_of_residence", function (e) {
+        
         var country=$("#country_of_residence").val();
         currency.length=0;
         if(currency_mapping.hasOwnProperty(country)){            
@@ -242,7 +244,6 @@ $(document).ready(function(){
         }
         
         var state_dropdown = states[country];
-        console.log(state_dropdown!==undefined && state_dropdown.length>0);
         if(state_dropdown!==undefined && state_dropdown.length>0){
             $('#state_of_residence').tagator({autocomplete: state_dropdown,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});            
             $('#state_of_residence').tagator('autocomplete', state_dropdown);     
@@ -286,16 +287,18 @@ $(document).ready(function(){
         var income_bracket1=income_bracket.concat(['and above']);
         
         if(income_currency.length>1){
-            
+            console.log("checking income"+income_bracket);    
+            $('#annual_income1').prop("disabled", false);            
+            $('#annual_income2').prop("disabled", false);
+
             $('#annual_income1').tagator({autocomplete: income_bracket,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
             $('#annual_income2').tagator({autocomplete: income_bracket1,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-            //$('#income_currency').tagator({autocomplete: currency,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+           
             $('#annual_income1').tagator('autocomplete', income_bracket);
             $('#annual_income2').tagator('autocomplete', income_bracket1);
             $('#annual_income1').tagator('refresh');
             $('#annual_income2').tagator('refresh');
-            $('#annual_income1').prop("disabled", false);            
-            $('#annual_income2').prop("disabled", false);
+            
         }else{
             
         }
@@ -413,6 +416,7 @@ $(document).ready(function(){
 
             RefreshIncomeDropdown("family_income",income_bracket);
             RefreshIncomeDropdown("family_income2",income_bracket1);
+            
 
             RefreshIncomeDropdown("wedding_budget",income_bracket);
             RefreshIncomeDropdown("wedding_budget2",income_bracket1);
@@ -622,16 +626,14 @@ $(document).ready(function(){
             });
         }
     });
-});
-$(window).on('load', function() {
-    // code here
+
     $("#country_of_residence").trigger("change");
     $("#state_of_residence").trigger("change");
-    $("#income_currency").trigger("change");
+    
 
     $("#native_country").trigger("change");
     $("#native_state").trigger("change");
+
     $("#family_income_currency").trigger("change");
-
-
-   });
+    $("#income_currency").trigger("change");
+});

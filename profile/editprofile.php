@@ -144,20 +144,30 @@ is_login($root);
 
                   <div class="row">
                     
-                      <div class="form-group col-md-3">
-
+                      <div class="form-group col-md-4">
                         <label>Data Taken From</label>
                         <input type="text" class="form-control" name="source" id="source" value="<?php echo getValue($profile,"source"); ?>" />                        
                       </div>
-                      <div class="form-group col-md-3">
+                      <div class="form-group col-md-4">
+                        <label>Reference</label>                        
+                        <input type="text" class="form-control" name="reference" id="reference" value="<?php echo getValue($profile,"reference"); ?>"/>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label>Client Type</label>                        
+                        <input type="text" class="form-control" name="client_type1" id="client_type1" value="<?php echo getValue($profile,"client_type"); ?>"/>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-4">
                         <label>Profile Id</label>                        
                         <input type="text" class="form-control" name="PID" value="<?php echo getValue($profile,"PID"); ?>"/>
                       </div>
-                      <div class="form-group col-md-3">
+                      <div class="form-group col-md-4">
                         <label>First Name</label>
                         <input type="text" class="form-control blur_text" name="first_name" value="<?php echo getValue($profile,"first_name"); ?>"/>
                       </div>
-                      <div class="form-group col-md-3">
+                      <div class="form-group col-md-4">
                         <label>Last Name</label>
                         <input type="text" class="form-control blur_text" name="last_name" value="<?php echo getValue($profile,"last_name"); ?>"/>
                       </div>
@@ -1108,8 +1118,8 @@ is_login($root);
 	    </div>
   	</div>
 </div>
-<script src="/scripts/js/variables.js?ver=1.1145"></script>
- <script src="/scripts/js/registerprofile.js?ver=1.124"></script>
+<script src="/scripts/js/variables.js?ver=1.1146"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.126"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 
