@@ -55,6 +55,7 @@ else if($type=="meeting"){
    $whereCondition = " `client type`='post sample will decide'";
 }
 
+
 if (strlen($searchQuery)>2){
    $and_cond="";
    if(strlen($whereCondition)>1){
