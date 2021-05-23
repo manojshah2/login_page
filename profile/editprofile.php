@@ -154,7 +154,7 @@ is_login($root);
                       </div>
                       <div class="form-group col-md-4">
                         <label>Client Type</label>                        
-                        <input type="text" class="form-control" name="client_type1" id="client_type1" value="<?php echo getValue($profile,"client_type"); ?>"/>
+                        <input type="text" class="form-control" name="client_type1" id="client_type1" value="<?php echo getValue($profile,"client_type1"); ?>"/>
                       </div>
                       
                     </div>
