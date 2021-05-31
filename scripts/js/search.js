@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('#toheight').tagator({autocomplete: height,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#religion').tagator({autocomplete: religion,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#country').tagator({autocomplete: country,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
-    $('#state').tagator({autocomplete: states["India"],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
+    //$('#state').tagator({autocomplete: states["India"],useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#marital_status').tagator({autocomplete: marital_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#manglik').tagator({autocomplete: manglik,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
     $('#believes_in_horoscope').tagator({autocomplete: horoscope,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
@@ -61,6 +61,34 @@ $(document).ready(function(){
             field2.val('');
         }
     }
+
+    $(document).on('change', "#country", function (e) {
+        
+        var _country=$("#country").val();
+        currency.length=0;
+        var countries=_country.split(',');
+        var state_dropdown=[];
+        countries.forEach(country=>{
+            if(states.hasOwnProperty(country)){            
+                states[country].forEach(state=>{
+                    state_dropdown.push(state);
+                });
+            }
+        });
+        
+        
+        if(state_dropdown!==undefined && state_dropdown.length>0){
+            $('#state').tagator({autocomplete: state_dropdown,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:1});            
+            $('#state').tagator('autocomplete', state_dropdown);     
+            $('#state').tagator('refresh');
+        }
+           
+        
+        $('#state').prop("disabled", false);
+        
+        
+    });
+
 
     $(document).on('change', "#religion", function (e) {
         loadReligion();

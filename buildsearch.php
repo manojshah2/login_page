@@ -323,6 +323,7 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["first_name"],"FIRST NAME" , 'like');
     $search_condition = addSearchParam($search_condition,$data["last_name"],"LAST NAME",'like');
     $search_condition = addSearchParam($search_condition,$data["phone"],"PHONE",'like');
+    $search_condition = addSearchParam($search_condition,$data["profile_id"],"PID",'like');
 
     //print_r($search_condition);
     return $search_condition;
