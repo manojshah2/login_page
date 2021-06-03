@@ -27,7 +27,8 @@ $default_db_password    = $default_db['Password'];
 $default_db_name        = $default_db['Database_Name'];
 
 $mysqli = new mysqli($default_db_server, $default_db_user, $default_db_password, $default_db_name);
- 
+//$mysqli->set_charset('utf8');
+//$mysqli->query("SET time_zone = '+0:00'");
 // constant for prefix for session variable======
 define('PRE','al_');
 

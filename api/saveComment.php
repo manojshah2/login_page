@@ -19,6 +19,9 @@ if(isset($_REQUEST["profilechecksum"]) && isset($_REQUEST["comment"])){
         $server->AddParam('PID',$pid);
         $server->AddParam("Comments",$comment);
         $server->AddParam('ADDED BY',getCurrentUser());
+        $cur=date("Y-m-d h:i:s");
+        
+        $server->AddParam('Date',$cur);
 
         if($server->InsertQuery("tblcomments")){
             $message['status']="success"; 
