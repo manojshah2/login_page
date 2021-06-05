@@ -92,11 +92,11 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>DATE OF BIRTH</td>
-            <td> : <?php echo getValue($profile,'DOB') ?></td>
+            <td> : <?php echo date("d-M-Y", strtotime(getValue($profile,'DOB'))); ?></td>
         </tr>
         <tr>
             <td>TIME OF BIRTH</td>
-            <td> : <?php echo getValue($profile,'BIRTH TIME') ?></td>
+            <td> : <?php echo date('h:i A', strtotime(getValue($profile,'BIRTH TIME'))); ?></td>
         </tr>
         <tr>
             <td>PLACE OF BIRTH</td>
