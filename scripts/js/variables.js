@@ -30,7 +30,7 @@
     var occupation1=['Service -Private','Service- Government /PSU','Civil Services','Army/Armed Forces','Business/Self Employed','Retired','Expired','Housewife'];
     var family_value=['Liberal','Moderate','Orthodox','Conservative'];
     var family_type=['Joint Family','Nuclear family','Others'];
-    var affluence_level=['Elite','Affluence Level','Upper Middle','Not filled in','Rich/Affluent','Middle Class'];
+    var affluence_level=['Elite','Upper Middle','Not filled in','Rich/Affluent','Middle Class'];
     var children_option=['None','1','2','3','3+'];
     var horoscope=['Must','Not Necessary'];
     var verified=['Yes','No','Not provided'];
