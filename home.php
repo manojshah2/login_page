@@ -184,7 +184,7 @@ is_login($root);
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       <table width="100%">
                       <?php
-                          $result =$mysqli->query("SELECT `client type`,count(*) as count FROM `tblprofiles` where `client type` in ('Lead','Meeting','PostMeeting-WillDecide','Post Sample Will Decide','Rejected Completely') group by `CLIENT TYPE`");
+                          $result =$mysqli->query("SELECT `client type`,count(*) as count FROM `tblprofiles` where `client type` in ('Lead','After First Meeting','Meeting','PostMeeting-WillDecide','Post Sample Will Decide','Rejected Completely') group by `CLIENT TYPE`");
                           while($fetchdata=$result->fetch_array()){                            
                             print_r("<tr><td><span style='font-size:9pt;'>".$fetchdata[0]."</span></td><td><a href='/profile/listprofile.php?type=".strtolower(str_replace(' ','',$fetchdata[0]))."'>".$fetchdata[1]."</a></td></tr>");
                           }

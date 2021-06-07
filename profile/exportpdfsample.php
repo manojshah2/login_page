@@ -285,7 +285,7 @@ include_once($root."field_mapping.php");
                     if(strlen($images[$i])>0){
                         
                         echo "<div class='imgrow'>";
-                        echo "<div ><img class='image' src='".$root.$images[$i]."' height='220px' width='220px'/></div>";
+                        echo "<div ><img class='image' src='".$root.$images[$i]."'/></div>";
                         echo "</div>";
                     }
                 }

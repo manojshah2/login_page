@@ -49,7 +49,7 @@
     var meeting_type=['Telephonic','Face To Face','Video Call'];
     var meeting_status=['Done','Postponed','Rejected','Follow Up'];
     var rejection_reason=['Looks','Personality','Financial','Family Type','Other Criteria','Religion And Caste','Family Values'];
-    var client_type=['Lead','Paid','Meeting','PostMeeting-WillDecide','Post Sample Will Decide','Rejected Completely','Pay At Roka'];
+    var client_type=['Lead','Paid','After First Meeting','Meeting','PostMeeting-WillDecide','Post Sample Will Decide','Rejected Completely','Pay At Roka'];
     var duration=['1 Month','3 Month','6 Month','1 Year','Till You Marrry'];
     var package_type=['Luv2Register-3Month','Luv2Register-6Months','TillYourRoka','Luv2Meet','PayAtYourRoka'];
     var age_bracket=['18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70'];
