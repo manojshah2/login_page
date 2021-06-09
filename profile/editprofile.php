@@ -297,7 +297,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-12">
                         <label>About Me</label>
-                        <textarea class="form-control title_text" name="about" rows=5><?php echo getValue($profile,"about"); ?></textarea>
+                        <textarea class="form-control" name="about" rows=5><?php echo getValue($profile,"about"); ?></textarea>
                     </div>
                     
                     
@@ -477,7 +477,7 @@ is_login($root);
                   <div class="row">
                     <div class="form-group col-md-12">
                       <label>About Family</label>
-                      <textarea class="form-control title_text" name="about_family"><?php echo getValue($profile,"about_family"); ?></textarea>
+                      <textarea class="form-control" name="about_family"><?php echo getValue($profile,"about_family"); ?></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -840,7 +840,7 @@ is_login($root);
                   
                   <div class="form-group col-md-12">
                         <label>About Partner</label>
-                        <textarea rows="3" class="form-control title_text" name="pp_about_partner" ><?php echo getValue($profile,"pp_about_partner"); ?></textarea>
+                        <textarea rows="3" class="form-control" name="pp_about_partner" ><?php echo getValue($profile,"pp_about_partner"); ?></textarea>
                   </div>
                   
                   

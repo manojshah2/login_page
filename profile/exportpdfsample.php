@@ -26,7 +26,7 @@ include_once($root."field_mapping.php");
     }
     body{
         font-family: 'Aerial';
-        font-size: 11pt;;
+        font-size: 13pt;;
     }
     td{
         height:30px;
