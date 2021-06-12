@@ -130,6 +130,26 @@ is_login($root);
                     <div class="form-group col-md-12">
                       <div class="input-group">
                         <div class="col-md-4 pt-2">
+                          <label>Search Profile With</label>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label class="radio-inline"><input type="radio" name="search_with" value="mobile">Only Mobile</label>
+                            </div>
+                            <div class="col-md-4">
+                              <label class="radio-inline"><input type="radio" name="search_with" value="email">Only Email</label>
+                            </div>
+                            <div class="col-md-4">
+                              <label class="radio-inline"><input type="radio" name="search_with" value="email_mobile">Both Email & Mobile</label>
+                            </div>                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="input-group">
+                        <div class="col-md-4 pt-2">
                           <label>Data Taken From</label>
                         </div>
                         <div class="col-md-8">

@@ -324,8 +324,29 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["last_name"],"LAST NAME",'like');
     $search_condition = addSearchParam($search_condition,$data["phone"],"PHONE",'like');
     $search_condition = addSearchParam($search_condition,$data["profile_id"],"PID",'like');
+    $search_condition = addNotNull($search_condition,$data["search_with"]);
 
     //print_r($search_condition);
     return $search_condition;
+}
+
+function addNotNull($search_condition,$search_with){
+  $search_col=array();
+  if (strpos($search_col, 'mobile') !== false){
+    array_push($search_col," LENGTH(`PHONE`)>0 ");
+  }
+  if (strpos($search_col, 'email') !== false){
+    array_push($search_col," LENGTH(`email`)>0 ");
+  }
+  $cond= implode(" and ",$search_col);
+
+  if(strlen($search_condition)>0){
+    $search_condition = $search_condition." and ".$cond;
+  }else{
+    $search_condition = $cond;
+  }
+
+  return $search_condition;
+  
 }
 ?>
