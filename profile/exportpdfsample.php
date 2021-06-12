@@ -81,7 +81,7 @@ include_once($root."field_mapping.php");
     <div class="headingcolor">
     <h1 class="boldheading">PERSONAL INFORMATION</h1>
     </div>
-    <table>
+    <table>        
         <tr>
             <td width="250px">MEMBER NAME</td>
             <td> : <?php echo getValue($profile,'FIRST NAME') ?> <?php echo getValue($profile,'LAST NAME') ?></td>

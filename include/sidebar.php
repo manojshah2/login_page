@@ -29,6 +29,14 @@
         <i class="fas fa-search "></i>
           <span>Search Profile</span></a>
       </li>
+
+      <?php if(isAdmin()){ ?>
+      <li class="nav-item">
+        <a class="nav-link" href="/reports.php">
+        <i class="fas fa-database "></i>
+          <span>Reports</span></a>
+      </li>
+      <?php  } ?>
       
 
       
