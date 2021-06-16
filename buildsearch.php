@@ -340,10 +340,12 @@ function addNotNull($search_condition,$search_with){
   }
   $cond= implode(" and ",$search_col);
 
-  if(strlen($search_condition)>0){
-    $search_condition = $search_condition." and ".$cond;
-  }else{
-    $search_condition = $cond;
+  if(strlen($cond)>0){
+    if(strlen($search_condition)>0){
+      $search_condition = $search_condition." and ".$cond;
+    }else{
+      $search_condition = $cond;
+    }
   }
 
   return $search_condition;
