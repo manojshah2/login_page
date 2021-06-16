@@ -332,10 +332,10 @@ function createSearch($searchId){
 
 function addNotNull($search_condition,$search_with){
   $search_col=array();
-  if (strpos($search_col, 'mobile') !== false){
+  if (strpos($search_with, 'mobile') !== false){
     array_push($search_col," LENGTH(`PHONE`)>0 ");
   }
-  if (strpos($search_col, 'email') !== false){
+  if (strpos($search_with, 'email') !== false){
     array_push($search_col," LENGTH(`email`)>0 ");
   }
   $cond= implode(" and ",$search_col);

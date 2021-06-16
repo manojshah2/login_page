@@ -256,3 +256,20 @@ a {
     color: #34495e;
     width: 100px;
 }
+
+.prfpos21 {
+    top: 9px;
+    right: 25px;
+}
+
+.pos_abs, .pos-abs {
+    position: absolute;
+    color:white;
+    background-color: black;
+    text-align: center;;
+}
+
+.albumIcon{
+    height: 25px;;
+    width:25px;
+}

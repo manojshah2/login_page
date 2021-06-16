@@ -10,15 +10,22 @@ ini_set('max_execution_time', 3000);
 is_login($root); 
 is_admin($root);
 
+$date="";
+if(isset($_REQUEST['date'])){
+	$date=$_REQUEST['date'];
+}
 
-$final_query="SELECT t1.`Date`,t1.`ADDED BY` as `CRM User`,t1.PID as `Profile Id`, t2.`First Name` , t2.`Last Name` ,t1.Comments FROM `tblcomments` t1 left join tblprofiles t2 on t1.PID=t2.ID";
+$final_query="SELECT Date(t1.`Date`) as Date,Time(t1.Date) as Time,  t1.`ADDED BY` as `CRM User`,t1.PID as `Profile Id`, t2.`First Name` , t2.`Last Name` ,t1.Comments , t2.`Data Taken From` ,t2.`client type` FROM `tblcomments` t1 left join tblprofiles t2 on t1.PID=t2.ID where Date(t1.`DATE`)>='".$date."' and Date(t1.`DATE`)<='".$date."'";
 $comment_header=array(
-	"Date"=>"Date",
+	"Date"=>"Date",	
+	"Time"=>"Time",	
 	"CRM User"=>"CRM User",
 	"Profile Id"=>"Profile ID",
 	"First Name"=>"First Name",
 	"Last Name"=>"Last Name",
-	"Comments"=>"Comments"
+	"Comments"=>"Comments",
+	"Data Taken From"=>"Data Taken From",
+	"client type"=>"Client Type"
 );
 $objPHPExcel = new PHPExcel(); 
 
@@ -38,12 +45,20 @@ $count_rows=2;
 // get profile data===============
 $select_query= $mysqli->query($final_query);
 $i=0;
+$format = 'dd/mm/yyyy';
 while($data_val_arr = $select_query->fetch_array()){
 	
 	foreach($comment_header as $key=> $value){
 		if (array_key_exists($key, $data_val_arr)){
 			
-			$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$key]);				
+			if($i==0){
+				
+				$date = new DateTime($data_val_arr[$key]);
+				$sheetObj->setCellValueByColumnAndRow($i, $count_rows,PHPExcel_Shared_Date::PHPToExcel( $date ));			
+				$sheetObj->getStyleByColumnAndRow($i, $count_rows)->getNumberFormat()->setFormatCode($format);
+			}else{
+				$sheetObj->setCellValueByColumnAndRow($i,$count_rows,$data_val_arr[$key]);				
+			}
 			
 		}
 		$i++;
@@ -55,7 +70,7 @@ while($data_val_arr = $select_query->fetch_array()){
 }
 
 // file name ================
-$file_name = date('Y-m-d').'-comments-report'.".xlsx";
+$file_name = $date.'-comments-report'.".xlsx";
 
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');

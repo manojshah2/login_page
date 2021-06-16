@@ -74,8 +74,9 @@ is_login($root);
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href='/api/downloadCommentReport.php'><i class="fa fa-download"></i> Comment Report</a></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href='#' id="comment_report"><i class="fa fa-download"></i> Comment Report</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <input type="date" id="comment_date" class="form-control"/>
                       </div>
                     </div>
                     <div class="col-auto">
@@ -86,7 +87,8 @@ is_login($root);
               </div>              
             </div>
            
-            
+          
+          
           </div>
 
         </div>
@@ -108,6 +110,7 @@ is_login($root);
 
  <?php include 'include/footer_main.php';?>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
+ <script src="/scripts/js/moment.min.js?ver=1.00000002"></script>
  <script type="text/javascript">
         $(document).ready(function () {
 
@@ -119,7 +122,18 @@ is_login($root);
               window.location.href = "/profile/listprofile.php?source="+selectedvalue;
             
           });
+          
+          
+          $("#comment_date").val(moment().format("YYYY-MM-DD"));
+          
+          $(document).on('click', "#comment_report", function (e) {              
+            
+            var date=$("#comment_date").val();
+            var final_url="/api/downloadCommentReport.php?date="+date;            
+            $(this).attr('href', final_url);                
+          });
         });
+        
   </script>
 
 </body>

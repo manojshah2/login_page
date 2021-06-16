@@ -20,7 +20,7 @@ is_login($root);
   <!-- Custom fonts for this template-->
   <link href="../css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="../css/viewprofile.css?ver=1.100003" rel="stylesheet" type="text/css">
+  <link href="../css/viewprofile.css?ver=1.100004" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -89,7 +89,7 @@ is_login($root);
 		    <div class="col-md-8">
                 <div id='profile' class="pb-3">
                 
-                  <div class="row profile">                
+                  <div class="row profile vProf">   
                     <div class="col-md-4">
                       <?php
                         $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
@@ -99,9 +99,10 @@ is_login($root);
                           $images[0]="images/nophoto.png";
                         };
                       ?>
-                      
+                      <div class="pos_abs prfpos21 albumIcon"><?php echo count($images);?></div>
                       <img src="<?php echo $root.$images[0]; ?>" height="220px" width="220px" class="img-fluid">
-                    </div>
+                    </div>          
+                    
                     <div class="col-md-8 profile_txt">
                       <div class="row">
                         <div class="pt-2">
