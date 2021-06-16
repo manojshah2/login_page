@@ -139,7 +139,7 @@ is_login($root);
                 
                 $final_query="select * from tblprofiles where ".$search_condition." LIMIT ".$resultsperpage." OFFSET ".$offset;
                 $count_query="select count(*) from tblprofiles where ".$search_condition;
-                print_r($final_query);
+                //print_r($final_query);
                 $count_result = $mysqli->query($count_query);
                 $count = $count_result->fetch_array()[0];                
                 $result =$mysqli->query($final_query);
