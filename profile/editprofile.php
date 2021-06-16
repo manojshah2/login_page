@@ -1118,8 +1118,8 @@ is_login($root);
 	    </div>
   	</div>
 </div>
-<script src="/scripts/js/variables.js?ver=1.1146"></script>
- <script src="/scripts/js/registerprofile.js?ver=1.126"></script>
+<script src="/scripts/js/variables.js?ver=1.1147"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.127"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 

@@ -40,7 +40,7 @@ $(document).ready(function(){
     $('#pp_challenged').tagator({autocomplete: special_case,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
 
 
-    $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:-1});
+    $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: false,showAllOptionsOnFocus: true,maxTags:-1});
     $('#gender').tagator({autocomplete: gender,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#marital_status').tagator({autocomplete: marital_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#has_children').tagator({autocomplete: have_children,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
