@@ -141,7 +141,7 @@ is_login($root);
                               <label class="radio-inline"><input type="radio" name="search_with" value="email">Only Email</label>
                             </div>
                             <div class="col-md-4">
-                              <label class="radio-inline"><input type="radio" name="search_with" value="email_mobile">Both Email & Mobile</label>
+                              <label class="radio-inline"><input type="radio" name="search_with" value="email_mobile">Both Email or Mobile</label>
                             </div>                            
                           </div>
                         </div>
