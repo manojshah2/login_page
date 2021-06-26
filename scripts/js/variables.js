@@ -27,7 +27,7 @@
     var residential_status=['','Citizen','Permanent Resident','Work Permit','Student Visa','Temporary Visa'];
     var ug=['B.A','B.Arch','B.Com','B.Des','B.E/B.Tech','B.Ed','B.IT','B.Pharma','B.Sc','BAMS','BBA','BCA','BDS','BFA','BHM','BHMS','BJMC','BL/LLB','BPT','BVSc.','MBBS','Other'];
     var pg=['CA','M.A','M.Arch','M.Com','M.Des','M.E/M.Tech','M.Ed','M.Pharma','M.Phil','M.S (Medicine)','M.S Engineering','M.Sc','MBA/PGDM','MCA/PGDCA','MCh','MD','MDS','MFA','MJMC','ML/LLM','MPT','MSW','MVSc.','Ph.D'];
-    var occupation1=['Service -Private','Service- Government /PSU','Civil Services','Army/Armed Forces','Business/Self Employed','Retired','Expired','Housewife'];
+    var occupation1=['Service -Private','Service- Government /PSU','Civil Services','Army/Armed Forces','Business/Self Employed','Retired','Expired','Housewife','Industrialist'];
     var family_value=['Liberal','Moderate','Orthodox','Conservative'];
     var family_type=['Joint Family','Nuclear family','Others'];
     var affluence_level=['Elite','Upper Middle','Rich/Affluent','Middle Class','Not filled in'];

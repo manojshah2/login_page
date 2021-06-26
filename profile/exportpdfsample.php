@@ -24,6 +24,14 @@ include_once($root."field_mapping.php");
         width: 30%;
         height: 22px;
     }
+    .headingcolor1{
+        float:right;
+        background-color: #4859d6;
+        width: 30%;
+        height: 40px;
+        text-align: center;
+        
+    }
     body{
         font-family: 'Aerial';
         font-size: 13pt;;
@@ -78,6 +86,19 @@ include_once($root."field_mapping.php");
             $profile = $result->fetch_array();
         }
     ?>
+
+    <?php
+        $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+        
+        while($images=$profile_images->fetch_array()){                
+            
+            $profile_final_images=$images;
+        }
+        if(count($profile_final_images)>0){
+            echo '<div class="headingcolor1"><h1 class="boldheading">PICTURE ENCLOSED</h1>';
+        };
+    ?>
+    </div>
     <div class="headingcolor">
     <h1 class="boldheading">PERSONAL INFORMATION</h1>
     </div>
@@ -279,17 +300,16 @@ include_once($root."field_mapping.php");
         
         
         <?php
-            $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
-            while($images=$profile_images->fetch_array()){                
-                for($i=0;$i<count($images);$i++) {                  
-                    if(strlen($images[$i])>0){
+            
+                for($i=0;$i<count($profile_final_images);$i++) {                  
+                    if(strlen($profile_final_images[$i])>0){
                         
                         echo "<div class='imgrow'>";
-                        echo "<div ><img class='image' src='".$root.$images[$i]."'/></div>";
+                        echo "<div ><img class='image' src='".$root.$profile_final_images[$i]."'/></div>";
                         echo "</div>";
                     }
                 }
-            }
+            
         ?>
         
     </div>
