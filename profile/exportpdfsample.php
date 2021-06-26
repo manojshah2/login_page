@@ -300,15 +300,21 @@ include_once($root."field_mapping.php");
         
         
         <?php
+            $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+        
+            while($images=$profile_images->fetch_array()){                
+                
             
-                for($i=0;$i<count($profile_final_images);$i++) {                  
-                    if(strlen($profile_final_images[$i])>0){
+            
+                for($i=0;$i<count($images);$i++) {                  
+                    if(strlen($images[$i])>0){
                         
                         echo "<div class='imgrow'>";
-                        echo "<div ><img class='image' src='".$root.$profile_final_images[$i]."'/></div>";
+                        echo "<div ><img class='image' src='".$root.$images[$i]."'/></div>";
                         echo "</div>";
                     }
                 }
+            }
             
         ?>
         

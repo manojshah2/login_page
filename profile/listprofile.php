@@ -220,7 +220,7 @@ is_login($root);
                             },{
                               targets: 10,
                               render:function(data,type,row,meta){
-                                data = '<div class="row"><div class="col-md-6"><a class="btn-sm btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Detail</a></div><div  class="col-md-6"><a class="btn-sm btn-primary" href="/profile/viewprofile.php?profilechecksum='+ data+'">View</a></div></div>';
+                                data = '<span class="pr-2"><a class="btn-sm btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Detail</a></span><span><a class="btn-sm btn-primary" href="/profile/viewprofile.php?profilechecksum='+ data+'">View</a></span></span>';
                                 return data;
                               }
                             }]
