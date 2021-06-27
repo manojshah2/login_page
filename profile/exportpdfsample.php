@@ -24,12 +24,21 @@ include_once($root."field_mapping.php");
         width: 30%;
         height: 22px;
     }
+    .education>ol>li{
+        line-height: 25px;;
+    }
     .headingcolor1{
         float:right;
         background-color: #4859d6;
         width: 30%;
         height: 40px;
         text-align: center;
+        
+    }
+    .headingcolor2{
+        background-color: #4859d6;
+        width: 30%;
+        height: 22px;
         
     }
     body{
@@ -50,6 +59,12 @@ include_once($root."field_mapping.php");
         border-bottom:1px solid black;
     }
 
+    pre{
+        margin-top:0px;
+        font-family: 'Aerial';
+        font-size: 13pt;
+    }
+
     .img-container {
         height: 220px;
         width: 220px;
@@ -66,6 +81,9 @@ include_once($root."field_mapping.php");
     .imgrow{
         padding:10px;
         
+    }
+    table td, table td * {
+        vertical-align: top;
     }
     
     </style>
@@ -87,22 +105,32 @@ include_once($root."field_mapping.php");
         }
     ?>
 
-    <?php
-        $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
-        
-        while($images=$profile_images->fetch_array()){                
-            
-            $profile_final_images=$images;
-        }
-        if(count($profile_final_images)>0){
-            echo '<div class="headingcolor1"><h1 class="boldheading">PICTURE ENCLOSED</h1>';
-        };
-    ?>
+    
     </div>
-    <div class="headingcolor">
-    <h1 class="boldheading">PERSONAL INFORMATION</h1>
-    </div>
-    <table>        
+    <table style='width:100%;'>
+        <tr>
+            <td style='width:600px;'>
+                <div class="headingcolor">
+                    <h1 class="boldheading">PERSONAL INFORMATION</h1>
+                </div>            
+            </td>
+            <td style='width:500px;'>
+                <?php
+                    $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
+                    
+                    while($images=$profile_images->fetch_array()){                
+                        
+                        $profile_final_images=$images;
+                    }
+                    if(count($profile_final_images)>0){
+                        echo '<div class="headingcolor2"><h1 class="boldheading">PICTURE ENCLOSED</h1>';
+                    };
+                ?>           
+            </td>
+        </tr>
+    </table>
+    
+    <table style='vertical-align:top'>        
         <tr>
             <td width="250px">MEMBER NAME</td>
             <td> : <?php echo getValue($profile,'FIRST NAME') ?> <?php echo getValue($profile,'LAST NAME') ?></td>
@@ -149,7 +177,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>PERSONAL DETAILS</td>
-            <td> : <?php echo getValue($profile,'ABOUT') ?></td>
+            <td><pre>: <?php echo getValue($profile,'ABOUT') ?></pre></td>
         </tr>
 
     </table>
@@ -157,30 +185,32 @@ include_once($root."field_mapping.php");
     <div class="headingcolor">
         <h1 class="boldheading">EDUCATIONAL INFORMATION</h1>
     </div>
-    
-    <table style="width:100%;margin-top:10px;" cellpadding=1px cellspacing=0 class="education_border">
-        <tr>
-            <td style='width:7%;'>S. No.</td>
-            <td>COURSES</td>
-            <td>INSTITUTION NAME</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><?php echo getValue($profile,'PG') ?></td>
-            <td><?php echo getValue($profile,'PG COLLEGE') ?></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><?php echo getValue($profile,'UG') ?></td>            
-            <td><?php echo getValue($profile,'UG COLLEGE') ?></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>SCHOOLING</td>
-            <td><?php echo getValue($profile,'SCHOOL NAME') ?></td>
-        </tr>
-    </table>
 
+    <div class="education">
+        <ol>
+        <?php if(strlen(getValue($profile,'SCHOOL NAME'))>0){ ?>
+        <li><?php echo getValue($profile,'SCHOOL NAME') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'UG DETAILS'))>0){ ?>
+        <li><?php echo getValue($profile,'UG DETAILS') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'PG DETAILS'))>0){ ?>
+        <li><?php echo getValue($profile,'PG DETAILS') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'DIPLOMA COURSES 1'))>0){ ?>
+        <li><?php echo getValue($profile,'DIPLOMA COURSES 1') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'DIPLOMA COURSES 2'))>0){ ?>
+        <li><?php echo getValue($profile,'DIPLOMA COURSES 2') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'DIPLOMA COURSES 3'))>0){ ?>
+        <li><?php echo getValue($profile,'DIPLOMA COURSES 3') ?></li>
+        <?php } ?>
+        <?php if(strlen(getValue($profile,'DIPLOMA COURSES 4'))>0){ ?>
+        <li><?php echo getValue($profile,'DIPLOMA COURSES 4') ?></li>
+        <?php } ?>
+        </ol>
+    </div>
     
     <div class="headingcolor">
         <h1 class="boldheading">PROFESSIONAL INFORMATION</h1>
@@ -196,7 +226,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>PERSONAL INCOME (P.A)</td>
-            <td> : <?php echo getValue($profile,'ANNUAL INCOME') ?>-<?php echo getValue($profile,'ANNUAL INCOME2') ?></td>
+            <td> : <?php echo getValue($profile,'ANNUAL INCOME') ?>-<?php echo getValue($profile,'ANNUAL INCOME2') ?> <?php echo getValue($profile,'INCOME CURRENCY') ?></td>
         </tr>
         <tr>
             <td>RESIDING CITY/COUNTRY</td>
@@ -253,7 +283,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>FAMILY INCOME</td>
-            <td> : <?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?></td>
+            <td> : <?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?> <?php echo getValue($profile,'FAMILY INCOME CURRENCY') ?></td>
         </tr>
         <tr>
             <td>UNMARRIED SISTER(S)</td>
@@ -290,7 +320,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>FAMILY HISTORY</td>
-            <td> : <?php echo getValue($profile,'ABOUT FAMILY') ?></td>
+            <td><pre>: <?php echo getValue($profile,'ABOUT FAMILY') ?></pre></td>
         </tr>
     </table>
 
@@ -300,12 +330,8 @@ include_once($root."field_mapping.php");
         
         
         <?php
-            $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);
-        
+            $profile_images = $mysqli->query('select `IMG PATH` from tblimages where PID='.$profile['ID']);        
             while($images=$profile_images->fetch_array()){                
-                
-            
-            
                 for($i=0;$i<count($images);$i++) {                  
                     if(strlen($images[$i])>0){
                         

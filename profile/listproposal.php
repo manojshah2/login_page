@@ -14,7 +14,7 @@ is_login($root);
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>View Profile</title>
+  <title>Proposal</title>
 
   <!-- Custom fonts for this template-->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
@@ -154,20 +154,14 @@ is_login($root);
             var user = $("#loggedInUser").val();
             
             
+            
             var params=window.location.search;
-            
-            if(params.includes('custom_search')){
-              $("#searchInput").val(params.split('=')[1]);
-              params="";
-            }
-            
-            
             
             $("#downloadexcel").on('click',function(){
               var start_date=$("#start_date").val();
               var end_date=$("#end_date").val();
               
-              $(location).attr('href', '/downloadprofiles.php?start='+ start_date + '&end=' +end_date);
+              $(location).attr('href', '/downloadproposal.php?start='+ start_date + '&end=' +end_date);
               $('#downloadModal').modal('hide');
             });
             
@@ -181,7 +175,7 @@ is_login($root);
             });
 
             $.ajax({
-                url: '/api/getprofileheaders.php',
+                url: '/api/getproposalheaders.php',
                 dataType: 'json',
                 success: function (data) {
                     var qualitylist = $('#dataTable').dataTable({
@@ -189,7 +183,7 @@ is_login($root);
                         "serverSide": true,
                         "searching":true,
                         "ajax": {
-                          "url":"/api/getprofiles.php"+params,
+                          "url":"/api/getproposal.php"+params,
                           "data":function(d){
                             return $.extend({},d,{
                               "search_keywords": $("#searchInput").val().toLowerCase()
@@ -208,19 +202,25 @@ is_login($root);
                                     //data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"><a href="/profile/viewprofile.php?profilechecksum='+ data +'">View Profile</a></div><div class="col-4"><a href="/profile/downloadPDF.php?profilechecksum='+data+'">Download PDF</a></div></div>';
                                     
                                     if(user==="admin"){
-                                      data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"><a href="#" data-id="'+data +'" class="deleteRow"><i class="fa fa-trash fa-lg"></i></a></div></div>';
+                                      data = '<div class="row"><div class="col-4"><a href="editproposal.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"><a href="#" data-id="'+data +'" class="deleteRow"><i class="fa fa-trash fa-lg"></i></a></div></div>';
                                       return data;
                                     }else{
-                                      data = '<div class="row"><div class="col-4"><a href="editprofile.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"></div></div>';
+                                      data = '<div class="row"><div class="col-4"><a href="editproposal.php?id='+ data+'">'+ data +'</a></div><div class="col-4"></div><div class="col-4"></div></div>';
                                       return data;
                                     }
                                     
                                 }
                                 
                             },{
-                              targets: 10,
+                              targets: 2,
                               render:function(data,type,row,meta){
-                                data = '<span class="pr-2"><a class="btn-sm btn-primary" href="/profile/case_detail.php?profilechecksum='+ data+'">Detail</a></span><span class="pr-2"><a class="btn-sm btn-primary" href="/profile/viewprofile.php?profilechecksum='+ data+'">View</a></span><span class="pr-2"><a class="btn-sm btn-primary" href="/profile/editproposal.php?profile_id='+ data+'">Proposal</a></span>';
+                                data = '<a href="/profile/viewprofile.php?profilechecksum='+data+'" target="_blank">'+data+'</a>';
+                                return data;
+                              }
+                            },{
+                              targets: 5,
+                              render:function(data,type,row,meta){
+                                data = '<a href="/profile/viewprofile.php?profilechecksum='+data+'" target="_blank">'+data+'</a>';
                                 return data;
                               }
                             }]
@@ -250,7 +250,7 @@ is_login($root);
 
         function deleteRow1(rowid) {
             $.ajax({
-                url: "/profile/delete.php",
+                url: "/profile/deleteproposal.php",
                 method: 'POST',
                 data: {id: rowid},
                 dataType: 'json',

@@ -1,5 +1,36 @@
 <?php
 
+$download_proposalheader= array(
+    "DATE SENT"=>"Date Sent",
+    "PROFILE PROPOSED BY"=>"Profile Proposed By",
+    "UNIQUE ID"=>"Unique Id",
+    "PROFILE STATUS"=>"Profile Status",
+    "PROFILE SHORTLISTED ID"=>"Profile Shortlisted id",
+    "PROFILE SHORTLISTED STATUS"=>"Profile Shortlisted Status",
+    "REJECTION REASON"=>"Rejection Reason",
+    "REJECTION REASON COMMENTS"=>"Rejection Reason_comments",
+    "MEETING TYPE"=>"Meeting Type",
+    "MEETING DATE"=>"Meeting Date",
+    "MEETING TIME"=>"Meeting Time",
+    "MEETING PLACE"=>"Meeting Place",
+    "CO-ORDINATOR"=>"Coordinator",
+    "MEETING STATUS"=>"Meeting Status"
+);
+$proposalheader= array(
+    "proposed_by"=>"PROFILE PROPOSED BY",
+    "unique_id"=>"UNIQUE ID",
+    "profile_status"=>"PROFILE STATUS",
+    "profile_shortlisted_id"=>"PROFILE SHORTLISTED ID",
+    "profile_shortlisted_status"=>"PROFILE SHORTLISTED STATUS",
+    "rejection_reason"=>"REJECTION REASON",
+    "rejection_reason_comments"=>"REJECTION REASON COMMENTS",
+    "meeting_type"=>"MEETING TYPE",
+    "meeting_date"=>"MEETING DATE",
+    "meeting_time"=>"MEETING TIME",
+    "meeting_place"=>"MEETING PLACE",
+    "coordinator"=>"CO-ORDINATOR",
+    "meeting_status"=>"MEETING STATUS"
+);
 $header = array(    
     "source"=>"Data Taken From",
     "PID"=>"PID",
@@ -176,7 +207,13 @@ $header = array(
     "pp_partner_occupation"=>"Pp Partner Occupation",
     "open_for_divorcee"=>"Open For Divorcee",
     "from_premium_institute"=>"From Premium Institute",
-    "open_for_outside_india"=>"Open For Outside India"
+    "open_for_outside_india"=>"Open For Outside India",
+    "ug_details"=>"UG DETAILS",
+    "pg_details"=>"PG DETAILS",
+    "dc_details"=>"DIPLOMA COURSES 1",
+    "dc_details2"=>"DIPLOMA COURSES 2",
+    "dc_details3"=>"DIPLOMA COURSES 3",
+    "dc_details4"=>"DIPLOMA COURSES 4"
 );
 
 $listprofile_header =array (

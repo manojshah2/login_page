@@ -306,15 +306,15 @@ is_login($root);
               
               <div id='education' class='collapse'>
                 <div class="row">                  
-                <div class="form-group col-md-6">
-                  <label>UG Degree</label>
-                  <input type="text" class="form-control" name="ug" id="ug" value="<?php echo getValue($profile,"ug"); ?>"  />  
-                  
-                </div>
-                <div class="form-group col-md-6">
-                  <label>PG Degree</label>
-                  <input type="text" class="form-control" name="pg" id="pg" value="<?php echo getValue($profile,"pg"); ?>"  />  
-                </div>
+                  <div class="form-group col-md-6">
+                    <label>UG Degree</label>
+                    <input type="text" class="form-control" name="ug" id="ug" value="<?php echo getValue($profile,"ug"); ?>"  />  
+                    
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>PG Degree</label>
+                    <input type="text" class="form-control" name="pg" id="pg" value="<?php echo getValue($profile,"pg"); ?>"  />  
+                  </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
@@ -325,6 +325,40 @@ is_login($root);
                       <label>PG College</label>
                       <input type="text" class="form-control" name="pg_college" value="<?php echo getValue($profile,"pg_college"); ?>"/>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                      <label>School Details</label>
+                      <input type="text" class="form-control" name="school_name" value="<?php echo getValue($profile,"school_name"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>UG Details</label>
+                      <input type="text" class="form-control" name="ug_details" value="<?php echo getValue($profile,"ug_details"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>PG Details</label>
+                      <input type="text" class="form-control" name="pg_details" value="<?php echo getValue($profile,"pg_details"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>Diploma Course 1</label>
+                      <input type="text" class="form-control" name="dc_details" value="<?php echo getValue($profile,"dc_details"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>Diploma Course 2</label>
+                      <input type="text" class="form-control" name="dc_details2" value="<?php echo getValue($profile,"dc_details2"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>Diploma Course 3</label>
+                      <input type="text" class="form-control" name="dc_details3" value="<?php echo getValue($profile,"dc_details3"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label>Diploma Course 4</label>
+                      <input type="text" class="form-control" name="dc_details4" value="<?php echo getValue($profile,"dc_details4"); ?>"/>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>From Premium institute</label>
+                    <input type="text" class="form-control" name="from_premium_institute" id="from_premium_institute" value="<?php echo getValue($profile,"from_premium_institute"); ?>"/>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
@@ -343,16 +377,10 @@ is_login($root);
                       <label>Employed With</label>
                       <input type="text" class="form-control" name="employed_with" value="<?php echo getValue($profile,"employed_with"); ?>"/>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label>School Name</label>
-                      <input type="text" class="form-control" name="school_name" value="<?php echo getValue($profile,"school_name"); ?>"/>
-                    </div>
+                    
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-6">
-                    <label>From Premium institute</label>
-                    <input type="text" class="form-control" name="from_premium_institute" id="from_premium_institute" value="<?php echo getValue($profile,"from_premium_institute"); ?>"/>
-                  </div>
+                  
                 </div>
               </div>
               <div id='familydetails' class='collapse'>

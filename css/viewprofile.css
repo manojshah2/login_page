@@ -273,3 +273,7 @@ a {
     height: 25px;;
     width:25px;
 }
+
+.width4{
+    width:400px !important;
+}

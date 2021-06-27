@@ -29,6 +29,11 @@
         <i class="fas fa-search "></i>
           <span>Search Profile</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile/listproposal.php">
+        <i class="fas fa-search "></i>
+          <span>Proposals</span></a>
+      </li>
 
       <?php if(isAdmin()){ ?>
       <li class="nav-item">
