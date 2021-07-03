@@ -6,6 +6,13 @@ header('Content-type: application/json');
 header("access-control-allow-origin: *");
 error_reporting(E_ERROR | E_PARSE);
 
+function exception_handler($exception) {
+    $message["status"]="failure";
+    $message["message"]=$exception->getMessage();
+    echo json_encode($message);
+}
+set_exception_handler('exception_handler');
+
 $current_user=getCurrentUser();
 
 if($_SERVER['REQUEST_METHOD']!='POST'){
@@ -51,16 +58,23 @@ foreach($data as $key => $value) {
 }
 
 $message_status='';
-if(empty($uniqueId)){
-    $server->AddParam("ADDED BY",$current_user);
-    $message1=$server->InsertQuery("tblprofiles");
-    $message_status='Profile has been added';
-}else{
-    $server->AddParam("MODIFIED BY",$current_user);
-    $server->AddParam("MODIFIED DATE",date('Y-m-d H:i:s'));
-    $server->AddParam("ID",$uniqueId,true);
-    $message1=$server->UpdateQuery("tblprofiles");
-    $message_status='Profile has been Updated.';
+try{
+    if(empty($uniqueId)){
+        $server->AddParam("ADDED BY",$current_user);
+        $server->AddParam("ADDED DATE",date('Y-m-d H:i:s'));
+        $message1=$server->InsertQuery("tblprofiles");
+        $message_status='Profile has been added';
+    }else{
+        $server->AddParam("MODIFIED BY",$current_user);
+        $server->AddParam("MODIFIED DATE",date('Y-m-d H:i:s'));
+        $server->AddParam("ID",$uniqueId,true);
+        $message1=$server->UpdateQuery("tblprofiles");
+        $message_status='Profile has been Updated.';
+    }
+}catch(Exception $e){
+    $message["status"]="failure";
+    $message["message"]=$e->getMessage();
+    $message1=$e->getMessage();
 }
 
 

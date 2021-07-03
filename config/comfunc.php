@@ -13,6 +13,30 @@ function formatDate($date_str){
     return $date_obj->format('Y-m-d');
 }
 
+function checkIfValue($param){
+    if(isset($_REQUEST[$param]) && $_REQUEST[$param]!=''){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function getInputValue($param){
+    if(isset($_REQUEST[$param]) && $_REQUEST[$param]!=''){
+        return $_REQUEST[$param];
+    }else{
+        return "";
+    }
+}
+
+function getKeyValue($aray,$key){
+    if(array_key_exists($key,$aray)){
+        return $aray[$key];        
+    }else{
+        return "";
+    }
+}
+
 function getArrayValue($profile1,$database_col_name,$default_value=""){
     $actual_col=$database_col_name;
     if(array_key_exists($actual_col,$profile1)){

@@ -177,7 +177,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>PERSONAL DETAILS</td>
-            <td><pre>: <?php echo getValue($profile,'ABOUT') ?></pre></td>
+            <td> : <?php echo getValue($profile,'ABOUT') ?></td>
         </tr>
 
     </table>
@@ -211,6 +211,19 @@ include_once($root."field_mapping.php");
         <?php } ?>
         </ol>
     </div>
+
+    <div class="headingcolor">
+        <h1 class="boldheading">PROFESSIONAL DETAILS</h1>
+    </div>
+
+    <div class="education">
+        <ol>
+            <?php if(strlen(getValue($profile,'EMPLOYED WITH'))>0){ ?>
+            <li><?php echo getValue($profile,'EMPLOYED WITH') ?></li>
+            <?php } ?>
+        </ol>
+    </div>
+
     
     <div class="headingcolor">
         <h1 class="boldheading">PROFESSIONAL INFORMATION</h1>
@@ -262,12 +275,20 @@ include_once($root."field_mapping.php");
             <td> : <?php echo getValue($profile,'FATHER NAME') ?></td>
         </tr>
         <tr>
+            <td>FATHER DETAILS</td>
+            <td> : <?php echo getValue($profile,'FATHER DETAILS') ?></td>
+        </tr>
+        <tr>
             <td>FATHER OCCUPATION</td>
             <td> : <?php echo getValue($profile,'FATHER IS') ?></td>
         </tr>
         <tr>
             <td>MOTHER'S NAME</td>
             <td> : <?php echo getValue($profile,'MOTHER NAME') ?></td>
+        </tr>
+        <tr>
+            <td>MOTHER DETAILS</td>
+            <td> : <?php echo getValue($profile,'MOTHER DETAILS') ?></td>
         </tr>
         <tr>
             <td>MOTHERS'S OCCUPATION</td>
@@ -284,6 +305,10 @@ include_once($root."field_mapping.php");
         <tr>
             <td>FAMILY INCOME</td>
             <td> : <?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?> <?php echo getValue($profile,'FAMILY INCOME CURRENCY') ?></td>
+        </tr>
+        <tr>
+            <td>SIBLING DETAILS</td>
+            <td> : <?php echo getValue($profile,'SIBLING DETAILS') ?></td>
         </tr>
         <tr>
             <td>UNMARRIED SISTER(S)</td>

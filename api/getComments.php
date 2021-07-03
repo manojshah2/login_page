@@ -14,13 +14,14 @@ $con=$mysqli;
 if(isset($_REQUEST["profilechecksum"]) && strlen($_REQUEST["profilechecksum"])>0){
     $pid=$_REQUEST["profilechecksum"];
     
-    $commentQuery="select Comments,Date from tblcomments where PID=".$pid." order by Date desc";
+    $commentQuery="select Comments,Date,`ADDED BY` as User from tblcomments where PID=".$pid." order by Date desc";
     $comments = mysqli_query($con, $commentQuery);
     $data =[];
     while ($row = mysqli_fetch_assoc($comments)) {
         $alldata =array();
         $alldata["comments"]=$row["Comments"];
         $alldata["Date"]=$row["Date"];        
+        $alldata["User"]=$row["User"]; 
         array_push($data,$alldata);
      }
      $message["status"]="success";

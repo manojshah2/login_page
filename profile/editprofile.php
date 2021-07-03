@@ -306,22 +306,22 @@ is_login($root);
               
               <div id='education' class='collapse'>
                 <div class="row">                  
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-6 d-none">
                     <label>UG Degree</label>
                     <input type="text" class="form-control" name="ug" id="ug" value="<?php echo getValue($profile,"ug"); ?>"  />  
                     
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-6 d-none">
                     <label>PG Degree</label>
                     <input type="text" class="form-control" name="pg" id="pg" value="<?php echo getValue($profile,"pg"); ?>"  />  
                   </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-6 d-none">
                       <label>UG College</label>
                       <input type="text" class="form-control" name="ug_college" value="<?php echo getValue($profile,"ug_college"); ?>"/>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 d-none">
                       <label>PG College</label>
                       <input type="text" class="form-control" name="pg_college" value="<?php echo getValue($profile,"pg_college"); ?>"/>
                     </div>
@@ -389,6 +389,10 @@ is_login($root);
                       <label>Father Name</label>
                       <input type="text" class="form-control blur_text" name="father_name" id="father_name" value="<?php echo getValue($profile,"father_name"); ?>"/>
                     </div>
+                    <div class="form-group col-md-5">
+                      <label>Father Details</label>
+                      <textarea class="form-control" name="father_details" ><?php echo getValue($profile,"father_details"); ?></textarea>
+                    </div>
                     <div class="form-group col-md-3">
                       <label>Father Occupation</label>
                       <input type="text" class="form-control" name="father_is" id="father_is" value="<?php echo getValue($profile,"father_is"); ?>"/>
@@ -397,11 +401,16 @@ is_login($root);
                       <label>Mother Name</label>
                       <input type="text" class="form-control blur_text" name="mother_name" id="mother_name" value="<?php echo getValue($profile,"mother_name"); ?>"/>
                     </div>
+                    <div class="form-group col-md-5">
+                      <label>Mother Details</label>
+                      <textarea class="form-control" name="mother_details" ><?php echo getValue($profile,"mother_details"); ?></textarea>
+                    </div>
                     <div class="form-group col-md-3">
                       <label>Mother Occupation</label>
                       <input type="text" class="form-control" name="mother_is" id="mother_is" value="<?php echo getValue($profile,"mother_is"); ?>"/>
                       
                     </div>
+                    
                   </div>
                   <div class="row">                  
                     <div class="form-group col-md-3">
@@ -444,7 +453,13 @@ is_login($root);
                           <input type="text" class="form-control" disabled name="family_income2" id="family_income2" value="<?php echo getValue($profile,"family_income2"); ?>"/>                                              
                           
                         </div>
-                      </div>                      
+                        
+                      </div> 
+                                           
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Sibing Details</label>
+                      <textarea class="form-control" name="sibling_details" id="sibling_details" ><?php echo getValue($profile,"sibling_details"); ?></textarea>
                     </div>
                    
                     

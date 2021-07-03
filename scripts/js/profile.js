@@ -60,10 +60,12 @@ $(document).ready(function(){
                 for(i=0;i<comments.length;i++){
                     var _comment=comments[i]["comments"];
                     var _date=comments[i]["Date"];
+                    var _user=comments[i]["User"];
 
                     var comments_div = '<div class="row row-border-bottom"><div class="col-sm-12"> \
                         <label class="col-sm-5 control-label1">'+ _comment +'</label> \
                         <label class="col-sm-3 control-label1">'+ _date +'</label> \
+                        <label class="col-sm-1 control-label1">'+ _user +'</label> \
                         </div></div>';
                     all_comments.push(comments_div);
                 }

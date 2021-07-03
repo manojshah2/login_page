@@ -1,4 +1,5 @@
 <?php
+
 class Server {
     var $sql="";
     var $column_names = array();
@@ -76,18 +77,23 @@ class Server {
             $return = call_user_func_array(array($stmt,'bind_param'),$bind_names);
         }
         
-        
-        if($stmt->execute()){
-            $message["status"]=true;
-            $message["rows"]=$stmt->affected_rows;
-            $message["error"]='';
-        }else{
+        try{
+            if($stmt->execute()){
+                $message["status"]=true;
+                $message["rows"]=$stmt->affected_rows;
+                $message["error"]='';
+            }else{
+                $message["status"]=false;
+                $message["rows"]=0;
+                $message["error"]=$this->conn->error;
+            }
+            
+            $stmt->close();
+        }catch(\Exception $e){
             $message["status"]=false;
             $message["rows"]=0;
-            $message["error"]=$this->conn->error;
+            $message["error"]=$e->getMessage();
         }
-        
-        $stmt->close();
         //$this->conn->close();
 
         return $message;

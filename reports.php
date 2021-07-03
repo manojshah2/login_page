@@ -69,14 +69,22 @@ is_login($root);
 
           <!-- Content Row -->
           <div class="row">
-						<div class="col-xl-3 col-md-6 mb-4">
+						<div class="col-xl-6 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href='#' id="comment_report"><i class="fa fa-download"></i> Comment Report</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <input type="date" id="comment_date" class="form-control"/>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <input type="date" id="start_date" class="form-control"/>
+                          </div>
+                          <div class="col-md-6">
+                            <input type="date" id="end_date" class="form-control"/>
+                          </div>
+                          
+                        </div>
                       </div>
                     </div>
                     <div class="col-auto">
@@ -114,22 +122,17 @@ is_login($root);
  <script type="text/javascript">
         $(document).ready(function () {
 
-          $('#source').tagator({autocomplete: source,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-          
-          $("#source").on('change',function(e){
-            var selectedvalue  = e.target.value;
-            
-              window.location.href = "/profile/listprofile.php?source="+selectedvalue;
-            
-          });
+         
           
           
-          $("#comment_date").val(moment().format("YYYY-MM-DD"));
+          $("#start_date").val(moment().format("YYYY-MM-DD"));
+          $("#end_date").val(moment().format("YYYY-MM-DD"));
           
           $(document).on('click', "#comment_report", function (e) {              
             
-            var date=$("#comment_date").val();
-            var final_url="/api/downloadCommentReport.php?date="+date;            
+            var date=$("#start_date").val();
+            var end_date=$("#end_date").val();
+            var final_url="/api/downloadCommentReport.php?start_date="+date+"&end_date="+end_date;            
             $(this).attr('href', final_url);                
           });
         });

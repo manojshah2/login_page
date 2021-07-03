@@ -10,7 +10,7 @@ $(document).ready(function(){
     $('#proposed_by').tagator({autocomplete: proposed_by,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#profile_status').tagator({autocomplete: profile_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#profile_shortlisted_status').tagator({autocomplete: profile_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
-    $('#rejection_reason').tagator({autocomplete: rejection_reason,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
+    $('#rejection_reason').tagator({autocomplete: proposal_rejection_reason,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#meeting_type').tagator({autocomplete: meeting_type,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#meeting_status').tagator({autocomplete: meeting_status,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
     $('#coordinator').tagator({autocomplete: coordinator,useDimmer: true,allowAutocompleteOnly: true,showAllOptionsOnFocus: true,maxTags:1});
@@ -22,6 +22,7 @@ $(document).ready(function(){
         }else{
             $("#meeting_div").addClass("d-none");
         }
+        
     });
 
     $(document).on('click','#updateProposal',function(e){

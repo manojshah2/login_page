@@ -248,7 +248,7 @@ is_login($root);
   	</div>
   </div>
  <script src="/scripts/js/variables.js?ver=1.1148"></script>
- <script src="/scripts/js/proposal.js?ver=1.129"></script>
+ <script src="/scripts/js/proposal.js?ver=1.130"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 

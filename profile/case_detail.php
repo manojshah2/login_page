@@ -123,6 +123,7 @@ is_login($root);
                     <div class="widget-header">
                         <label class="title1 col-sm-5 control-label2">Actions Done</label>
                         <label class="title1 col-sm-3 control-label2">Date</label>
+                        <label class="title1 col-sm-1 control-label2">User</label>
                         <div style="float:right;">
                             <a href="#" class="btn btn-sm btn-primary" id="add_comment">Add Comment</a>
                         </div>
@@ -132,6 +133,7 @@ is_login($root);
                                 <div class="col-sm-12">
                                     <label class="col-sm-5 control-label1">test Action</label>
                                     <label class="col-sm-3 control-label1">20-02-2022 12:00:00</label>
+                                    <label class="col-sm-3 control-label1">20-02-2022 User</label>
                                 </div>
                             
                         </div>
@@ -184,7 +186,7 @@ is_login($root);
  <?php include $root.'include/footer_main.php';?>
 
  <script src="/scripts/simpleDialog.min.js"></script>
- <script src="/scripts/js/profile.js?ver=100002"></script>
+ <script src="/scripts/js/profile.js?ver=100003"></script>
 
  <script type="text/javascript">
           

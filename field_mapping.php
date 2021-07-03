@@ -3,9 +3,13 @@
 $download_proposalheader= array(
     "DATE SENT"=>"Date Sent",
     "PROFILE PROPOSED BY"=>"Profile Proposed By",
-    "UNIQUE ID"=>"Unique Id",
+    "UNIQUE ID"=>"Unique Id",    
+    "PROFILE NAME"=>"Profile Name",
+    "PROFILE SOURCE"=>"Profile Source",
     "PROFILE STATUS"=>"Profile Status",
     "PROFILE SHORTLISTED ID"=>"Profile Shortlisted id",
+    "PROFILE SHORTLISTED NAME"=>"Profile Shortlisted Name",
+    "PROFILE SHORTLISTED Source"=>"Profile Shortlisted Source",
     "PROFILE SHORTLISTED STATUS"=>"Profile Shortlisted Status",
     "REJECTION REASON"=>"Rejection Reason",
     "REJECTION REASON COMMENTS"=>"Rejection Reason_comments",
@@ -19,8 +23,12 @@ $download_proposalheader= array(
 $proposalheader= array(
     "proposed_by"=>"PROFILE PROPOSED BY",
     "unique_id"=>"UNIQUE ID",
+    "profile_name"=>"PROFILE NAME",
+    "profile_source"=>"PROFILE SOURCE",
     "profile_status"=>"PROFILE STATUS",
     "profile_shortlisted_id"=>"PROFILE SHORTLISTED ID",
+    "profile_shortlisted_name"=>"PROFILE SHORTLISTED NAME",
+    "profile_shortlisted_source"=>"PROFILE SHORTLISTED SOURCE",
     "profile_shortlisted_status"=>"PROFILE SHORTLISTED STATUS",
     "rejection_reason"=>"REJECTION REASON",
     "rejection_reason_comments"=>"REJECTION REASON COMMENTS",
@@ -34,6 +42,9 @@ $proposalheader= array(
 $header = array(    
     "source"=>"Data Taken From",
     "PID"=>"PID",
+    "father_details"=>"FATHER DETAILS",
+    "mother_details"=>"MOTHER DETAILS",
+    "sibling_details"=>"SIBLING DETAILS",
     "reference"=>"REFERENCE",
     "client_type1"=>"CLIENT_TYPE",
     "height_value"=>"HEIGHT VALUE",
@@ -228,6 +239,8 @@ $listprofile_header =array (
     "SOLD BY"=>"Sold By",
     "RELIGION"=>"Language"
 );
+
+
 
 $download_header= array (
     "ID"=>"ID",

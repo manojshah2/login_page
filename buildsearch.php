@@ -10,7 +10,10 @@ function addIncomeParam($search_condition,$ai,$ai2,$column1,$column2,$cond,$curr
     if(strlen($search_condition)>0){
       $search_condition =$search_condition.$cond;
     }
-    $search_condition = $search_condition." (`".$column1."`>=".$ai." and `".$column2."`<=".$ai2." and `".$currency_db."`='".$currency."')"; 
+    if($ai2>=0){
+      $to_condition=" and `".$column2."`<=".$ai2;
+    }
+    $search_condition = $search_condition." (`".$column1."`>=".$ai.$to_condition." and `".$currency_db."`='".$currency."')"; 
   }
   return $search_condition;
 }
@@ -283,14 +286,20 @@ function createSearch($searchId){
     
     //print_r($toheight);
     if(strlen($fromage)>0){
-        $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage." and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage; 
+      if(strlen($toage)>0){
+        $to_condition=" and TIMESTAMPDIFF(YEAR,DOB,current_date())<=".$toage;
+      }
+        $search_condition = $search_condition." TIMESTAMPDIFF(YEAR,DOB,current_date())>=".$fromage.$to_condition; 
     }
 
     if($fromheight>0){
       if(strlen($search_condition)>0){
         $search_condition =$search_condition." and ";
       }
-      $search_condition = $search_condition." (`HEIGHT VALUE`>=".$fromheight." and `HEIGHT VALUE`<=".$toheight.")"; 
+      if(strlen($toheight)>0){
+        $to_condition=" and `HEIGHT VALUE`<=".$toheight;
+      }
+      $search_condition = $search_condition." `HEIGHT VALUE`>=".$fromheight.$to_condition; 
     }
     //print_r($data);
     $search_condition = addIncomeParam($search_condition,$ai,$ai2,"ANNUAL INCOME VALUE","ANNUAL INCOME2 VALUE"," and ", $ai_currency,"INCOME CURRENCY");
@@ -320,8 +329,8 @@ function createSearch($searchId){
     $search_condition = addSearchParam($search_condition,$data["complexion"],"COMPLEXION");
     $search_condition = addSearchParam($search_condition,$data["gender"],"GENDER");
     $search_condition = addSearchParam($search_condition,$data["data_source"],"Data Taken From");
-    $search_condition = addSearchParam($search_condition,$data["first_name"],"FIRST NAME" , 'like');
-    $search_condition = addSearchParam($search_condition,$data["last_name"],"LAST NAME",'like');
+    $search_condition = addSearchParam($search_condition,trim($data["first_name"]),"FIRST NAME" , 'like');
+    $search_condition = addSearchParam($search_condition,trim($data["last_name"]),"LAST NAME",'like');
     $search_condition = addSearchParam($search_condition,$data["phone"],"PHONE",'like');
     $search_condition = addSearchParam($search_condition,$data["profile_id"],"PID",'like');
     $search_condition = addNotNull($search_condition,$data["search_with"]);
