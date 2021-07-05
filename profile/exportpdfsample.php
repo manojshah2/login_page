@@ -345,7 +345,7 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>FAMILY HISTORY</td>
-            <td><pre>: <?php echo getValue($profile,'ABOUT FAMILY') ?></pre></td>
+            <td> : <?php echo getValue($profile,'ABOUT FAMILY') ?></td>
         </tr>
     </table>
 
