@@ -7,7 +7,7 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' |
 	$default_db = array(
 	    "Database_Server" => "localhost",
 	    "User_Id" => "root",
-	    "Password" => "",
+	    "Password" => "password",
 	    "Database_Name" => "dbluv",
 	);
 	$root_name="http://localhost/";
