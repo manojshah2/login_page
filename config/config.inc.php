@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('asia/kolkata'); // use according to country
 $root_name="";
 //default database
-echo $_SERVER['HTTP_HOST'];
+
 if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' || $_SERVER['HTTP_HOST']=='localhost:8000'){
 	$default_db = array(
 	    "Database_Server" => "localhost",
@@ -12,6 +12,14 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' |
 	    "Database_Name" => "dbluv",
 	);
 	$root_name="http://localhost/";
+} else if($_SERVER['HTTP_HOST']=='18.224.61.215') {
+	$default_db = array(
+	    "Database_Server" => "localhost",
+	    "User_Id" => "root",
+	    "Password" => "password",
+	    "Database_Name" => "dbluv",
+	);
+	$root_name="http://18.224.61.215/";
 }else{
 	$default_db = array(
 	    "Database_Server" => "localhost",
