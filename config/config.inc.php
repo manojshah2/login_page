@@ -12,14 +12,14 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' |
 	    "Database_Name" => "dbluv",
 	);
 	$root_name="http://localhost/";
-} else if($_SERVER['HTTP_HOST']=='18.224.61.215') {
+} else if($_SERVER['HTTP_HOST']=='18.117.106.117') {
 	$default_db = array(
 	    "Database_Server" => "localhost",
 	    "User_Id" => "root",
 	    "Password" => "password",
 	    "Database_Name" => "dbluv",
 	);
-	$root_name="http://18.224.61.215/";
+	$root_name="http://18.117.106.117/";
 }else{
 	$default_db = array(
 	    "Database_Server" => "localhost",
