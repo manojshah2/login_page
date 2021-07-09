@@ -19,7 +19,7 @@ if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='localhost:80' |
 	    "Password" => "password",
 	    "Database_Name" => "dbluv",
 	);
-	$root_name="http://18.117.106.117/";
+	$root_name="http://18.117.106.117/" ;
 }else{
 	$default_db = array(
 	    "Database_Server" => "localhost",
