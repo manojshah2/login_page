@@ -239,7 +239,29 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>PERSONAL INCOME (P.A)</td>
-            <td> : <?php echo getValue($profile,'ANNUAL INCOME') ?>-<?php echo getValue($profile,'ANNUAL INCOME2') ?> <?php echo getValue($profile,'INCOME CURRENCY') ?></td>
+            <td> : <?php 
+            $income=getValue($profile,'ANNUAL INCOME');
+            
+            $income1=getValue($profile,'ANNUAL INCOME2'); 
+            if(strlen($income1)>0 ){
+                if (strpos($income1,"and")===false){
+                    $income1=" - ".$income1;
+                }else{
+                    $income1=" ".$income1;
+                }
+                
+            }else{
+                $income1=" and above ";
+            }
+            
+            $currency= getValue($profile,'INCOME CURRENCY') ;
+            if (strlen($income)>0){
+                echo $currency." ".$income.$income1;
+            }else{
+                echo "DON'T WANT TO SEPCIFY";
+            }
+            ?></td>
+          
         </tr>
         <tr>
             <td>RESIDING CITY/COUNTRY</td>
@@ -304,7 +326,28 @@ include_once($root."field_mapping.php");
         </tr>
         <tr>
             <td>FAMILY INCOME</td>
-            <td> : <?php echo getValue($profile,'FAMILY INCOME') ?>-<?php echo getValue($profile,'FAMILY INCOME2') ?> <?php echo getValue($profile,'FAMILY INCOME CURRENCY') ?></td>
+            <td> : <?php 
+            $income=getValue($profile,'FAMILY INCOME');
+            
+            $income1=getValue($profile,'FAMILY INCOME2'); 
+            if(strlen($income1)>0 ){
+                if (strpos($income1,"and")===false){
+                    $income1=" - ".$income1;
+                }else{
+                    $income1=" ".$income1;
+                }
+                
+            }else{
+                $income1=" and above ";
+            }
+            
+            $currency= getValue($profile,'FAMILY INCOME CURRENCY') ;
+            if (strlen($income)>0){
+                echo $currency." ".$income.$income1;
+            }else{
+                echo "DON'T WANT TO SEPCIFY";
+            }
+            ?></td>
         </tr>
         <tr>
             <td>SIBLING DETAILS</td>
@@ -342,6 +385,10 @@ include_once($root."field_mapping.php");
         <tr>
             <td style='width:15%'>BELIEVES IN HOROSCOPE</td>
             <td> : <?php echo getValue($profile,'BELIEVES IN HOROSCOPE') ?></td>
+        </tr>
+        <tr>
+            <td>RESIDENCE ADDRESS</td>
+            <td> : <?php echo getValue($profile,'ADDRESS') ?></td>
         </tr>
         <tr>
             <td>FAMILY HISTORY</td>

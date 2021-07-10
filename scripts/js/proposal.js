@@ -3,6 +3,18 @@ $(document).ready(function(){
     var profileId_value=$("#profileId").val();
     if(profileId_value!==undefined && profileId_value.length>0){
         $("#unique_id").val($("#profileId").val());
+        var id=$("#unique_id").val();
+        $.ajax({
+            url: "/api/getProfileDetails.php?id="+id,
+            method: 'GET',            
+            contentType:"application/json",
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                $("#profile_name").val(data1["data"]["name"]);                
+                $("#profile_source").val(data1["data"]["source"]); 
+                
+            }
+        });
         $("#copy_div").removeClass("d-none");
         $("#update_shortlisted").prop( 'checked',true);
     }
@@ -24,6 +36,36 @@ $(document).ready(function(){
         }
         
     });
+
+    $(document).on('blur','#profile_shortlisted_id',function(e){
+        var id=$("#profile_shortlisted_id").val();
+        $.ajax({
+            url: "/api/getProfileDetails.php?id="+id,
+            method: 'GET',            
+            contentType:"application/json",
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                $("#profile_shortlisted_name").val(data1["data"]["name"]);                
+                $("#profile_shortlisted_source").val(data1["data"]["source"]); 
+                
+            }
+        });
+    });
+
+    function getProfile(id){
+        var profiles='';
+        $.ajax({
+            url: "/api/getProfileDetails.php?id="+id,
+            method: 'GET',            
+            contentType:"application/json",
+            dataType: 'json',            
+            success: function (data1, status, xhr) {
+                profiles=data1["data"]["name"]+'|'+data1["data"]["source"];                
+                
+            }
+        });
+        return profiles;
+    }
 
     $(document).on('click','#updateProposal',function(e){
         $("#profileSpinner").show();

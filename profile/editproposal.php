@@ -115,13 +115,18 @@ is_login($root);
           <!-- Content Row -->
           <form name="proposal_form" id="proposal_form" novalidate>
             <div class="row">
-              <div class="form-group col-md-3">
-                <label>Profile Proposed By</label>
-                <input type="text" class="form-control" id="proposed_by" name="proposed_by" value="<?php echo getValue($proposal,"proposed_by"); ?>"/>
-              </div>
+              
               <div class="form-group col-md-3">
                 <label>Unique Id</label>
                 <input type="text" class="form-control" name="unique_id" id="unique_id" value="<?php echo getValue($proposal,"unique_id"); ?>" readonly/>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Profile Name</label>
+                <input type="text" class="form-control" name="profile_name" id="profile_name" value="<?php echo getValue($proposal,"unique_id"); ?>" readonly/>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Profile Source</label>
+                <input type="text" class="form-control" name="profile_source" id="profile_source" value="<?php echo getValue($proposal,"unique_id"); ?>" readonly/>
               </div>
               <div class="form-group col-md-3">
                 <label>Profile Status</label>
@@ -129,11 +134,23 @@ is_login($root);
               </div>
               <div class="form-group col-md-3">
                 <label>Profile Shortlisted Id</label>
-                <input type="text" class="form-control" name="profile_shortlisted_id" value="<?php echo getValue($proposal,"profile_shortlisted_id"); ?>"/>
+                <input type="text" class="form-control" name="profile_shortlisted_id" id="profile_shortlisted_id" value="<?php echo getValue($proposal,"profile_shortlisted_id"); ?>"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Profile Shortlisted Name</label>
+                <input type="text" class="form-control" name="profile_shortlisted_name" id="profile_shortlisted_name" value="<?php echo getValue($proposal,"profile_shortlisted_name"); ?>" readonly/>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Profile Shortlisted Source</label>
+                <input type="text" class="form-control" name="profile_shortlisted_source"  id="profile_shortlisted_source" value="<?php echo getValue($proposal,"profile_shortlisted_source"); ?>" readonly/>
               </div>
               <div class="form-group col-md-3">
                 <label>Profile Shortlisted Status</label>
                 <input type="text" class="form-control" name="profile_shortlisted_status" id="profile_shortlisted_status" value="<?php echo getValue($proposal,"profile_shortlisted_status"); ?>"/>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Profile Proposed By</label>
+                <input type="text" class="form-control" id="proposed_by" name="proposed_by" value="<?php echo getValue($proposal,"proposed_by"); ?>"/>
               </div>
               <div class="form-group col-md-3">
                 <label>Rejection Reason</label>
@@ -248,7 +265,7 @@ is_login($root);
   	</div>
   </div>
  <script src="/scripts/js/variables.js?ver=1.1148"></script>
- <script src="/scripts/js/proposal.js?ver=1.130"></script>
+ <script src="/scripts/js/proposal.js?ver=1.132"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 

@@ -180,6 +180,9 @@ $(document).ready(function(){
         
         var patt=/[0-9\.]+/;
         income_str=income_str.replace("Rs.","");
+        if (income_str.includes("and")){
+            return 0;
+        }
         var number_income=patt.exec(income_str)[0];
         if (income_str.search("Crore")>0){
             number_income=number_income*100.0;

@@ -496,6 +496,14 @@ is_login($root);
                       <input type="text" class="form-control" name="married_brothers" id="married_brothers" value="<?php echo getValue($profile,"married_brothers"); ?>"/>
                       
                     </div>
+                    <div class="form-group col-md-3">
+                      <label>Residence Address</label>
+                      <textarea class="form-control" name="address" ><?php echo getValue($profile,"address"); ?></textarea>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Permanent Address</label>
+                      <textarea class="form-control" name="permanent_address" ><?php echo getValue($profile,"permanent_address"); ?></textarea>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="form-group col-md-3">
@@ -644,14 +652,7 @@ is_login($root);
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-4">
-                      <label>Residence Address</label>
-                      <input type="text" class="form-control" name="address" value="<?php echo getValue($profile,"address"); ?>"/>
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label>Permanent Address</label>
-                      <input type="text" class="form-control" name="permanent_address" value="<?php echo getValue($profile,"permanent_address"); ?>"/>
-                    </div>
+                    
                     <div class="form-group col-md-4">
                       <label>Pincode</label>
                       <input type="number" class="form-control" name="pincode" value="<?php echo getValue($profile,"pincode"); ?>"/>
@@ -1162,7 +1163,7 @@ is_login($root);
   	</div>
 </div>
 <script src="/scripts/js/variables.js?ver=1.1147"></script>
- <script src="/scripts/js/registerprofile.js?ver=1.127"></script>
+ <script src="/scripts/js/registerprofile.js?ver=1.128"></script>
  <script src="/scripts/js/fm.tagator.jquery.js?ver=1.00000002"></script>
 
 

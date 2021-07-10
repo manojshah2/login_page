@@ -260,7 +260,14 @@ is_login($root);
                                 echo $age.$height_value ;
 
                                 ?></div>
-                            <div class="mb-0"><?php echo $profile['CITY']; ?></div>
+                            <div class="mb-0"><?php
+                            $data=array();
+                            
+                            array_push($data,$profile['COUNTRY OF RESIDENCE']); 
+                            array_push($data,$profile['STATE OF RESIDENCE']); 
+                            array_push($data,$profile['CITY']); 
+                            echo implode(",",$data);
+                            ?></div>
                             <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
                             <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
                             <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>

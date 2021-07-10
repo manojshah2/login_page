@@ -111,7 +111,7 @@ is_login($root);
                       </div>
                       <hr class="mt-2">
                       <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="mb-0"><?php 
 
                             $dob_str=getValue($profile,"DOB");
@@ -137,17 +137,24 @@ is_login($root);
                             
                           
                           ?></div>
-                          <div class="mb-0"><?php echo $profile['CITY']; ?></div>
+                          <div class="mb-0"><?php
+                            $data=array();
+                            
+                            array_push($data,$profile['COUNTRY OF RESIDENCE']); 
+                            array_push($data,$profile['STATE OF RESIDENCE']); 
+                            array_push($data,$profile['CITY']); 
+                            echo implode(",",$data);
+                            ?></div>
                           <div class="mb-0"><?php echo $profile['RELIGION']; ?></div>
                           <div class="mb-0"><?php echo $profile['CASTE']; ?></div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="mb-0"><?php echo $profile['EDUCATION']; ?></div>
                           <div class="mb-0"><?php echo $profile['EMPLOYED AS']; ?></div>
                           <div class="mb-0"><?php echo $profile['ANNUAL INCOME']; ?>-<?php echo $profile['ANNUAL INCOME2']; ?></div>
                           <div class="mb-0"><?php echo $profile['MARITAL STATUS']; ?></div>
                         </div>
-                        <div class="col-md-2"></div>
+                        
                       </div>
                       <div class="row pt-2">
                         <div class="about_txt">
